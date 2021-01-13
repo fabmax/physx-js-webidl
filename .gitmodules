@@ -1,0 +1,3 @@
+[submodule "PhysX"]
+	path = PhysX
+	url = https://github.com/fabmax/PhysX.git
