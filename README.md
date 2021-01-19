@@ -18,8 +18,8 @@ and error-prone. In the end I decided to do a clean start and gave WebIDL a shot
 
 So far my expriences with WebIDL are:
 - Much less hand-written C++ binding code (although it's not possible to omit that entirely)
-- The .idl file used to define the bindings has a simple syntax and is easy to extends
-- Speed is the same as with Embind (I tested this quite a bit and really didn't see any difference)
+- The .idl file used to define the bindings has a simple syntax and is easy to extend
+- Speed seems to be the same as with Embind (I tested this quite a bit and really didn't see any difference)
 
 However there also a few minor issues:
 - Enums, used as configuration flags everywhere in PhysX, are a bit troublesome (see this
@@ -27,12 +27,15 @@ However there also a few minor issues:
 - WebIDL does not support top-level functions, so I had to wrap those in a class. This makes the bulk of the hand-written
   code.
 
+## Examples
+None yet, I will add some as soon as I have time for that.
+
 ## Pre-built binaries
 Since this project is in a very early / experimental state I haven't published any npm packages yet. However, you can
 grab pre-built binaries from the `dist` folder.
 
 ## Building
-To build this you only an [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html).
+To build this you only need an [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html).
 ```
 # Clone this repo
 git clone https://github.com/fabmax/physx-js-webidl
