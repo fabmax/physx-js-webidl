@@ -21,7 +21,7 @@ So far my expriences with WebIDL are:
 - The .idl file used to define the bindings has a simple syntax and is easy to extend
 - Speed seems to be the same as with Embind (I tested this quite a bit and really didn't see any difference)
 
-However there also a few minor issues:
+However there also are a few minor issues:
 - Enums, used as configuration flags everywhere in PhysX, are a bit troublesome (see this
   [issue](https://github.com/emscripten-core/emscripten/issues/13243))
 - WebIDL does not support top-level functions, so I had to wrap those in a class. This makes the bulk of the hand-written
