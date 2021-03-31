@@ -1264,9 +1264,9 @@ function updateGlobalBufferAndViews(buf) {
   Module['HEAPF64'] = HEAPF64 = new Float64Array(buf);
 }
 
-var STACK_BASE = 5422592,
+var STACK_BASE = 5431424,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 179712;
+    STACK_MAX = 188544;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 
@@ -1781,8 +1781,15 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  1122: function($0) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('JavaSimpleSimulationEventCallback')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::JavaSimpleSimulationEventCallback.'; self['JavaSimpleSimulationEventCallback']();},  
- 1552: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);}
+  1388: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onConstraintBreak')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onConstraintBreak.'; self['onConstraintBreak']($1,$2);},  
+ 1668: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onWake')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onWake.'; self['onWake']($1,$2);},  
+ 1911: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onSleep')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onSleep.'; self['onSleep']($1,$2);},  
+ 2157: function($0, $1, $2, $3) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onContact')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onContact.'; self['onContact']($1,$2,$3);},  
+ 2417: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onTrigger')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onTrigger.'; self['onTrigger']($1,$2);},  
+ 2780: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);},  
+ 3500: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
+ 3755: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
+ 4025: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);}
 };
 function array_bounds_check_error(idx,size){ throw 'Array index ' + idx + ' out of bounds: [0,' + size + ')'; }
 
@@ -2609,6 +2616,18 @@ var _emscripten_bind_PxLocationHit_set_faceIndex_1 = Module["_emscripten_bind_Px
 var _emscripten_bind_PxLocationHit___destroy___0 = Module["_emscripten_bind_PxLocationHit___destroy___0"] = createExportWrapper("emscripten_bind_PxLocationHit___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapCallback_hasAnyHits_0 = Module["_emscripten_bind_PxOverlapCallback_hasAnyHits_0"] = createExportWrapper("emscripten_bind_PxOverlapCallback_hasAnyHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapCallback___destroy___0 = Module["_emscripten_bind_PxOverlapCallback___destroy___0"] = createExportWrapper("emscripten_bind_PxOverlapCallback___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastCallback_hasAnyHits_0 = Module["_emscripten_bind_PxRaycastCallback_hasAnyHits_0"] = createExportWrapper("emscripten_bind_PxRaycastCallback_hasAnyHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastCallback___destroy___0 = Module["_emscripten_bind_PxRaycastCallback___destroy___0"] = createExportWrapper("emscripten_bind_PxRaycastCallback___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxRigidBody_setCMassLocalPose_1 = Module["_emscripten_bind_PxRigidBody_setCMassLocalPose_1"] = createExportWrapper("emscripten_bind_PxRigidBody_setCMassLocalPose_1");
 
 /** @type {function(...*):?} */
@@ -2831,6 +2850,12 @@ var _emscripten_bind_SimpleSimulationEventCallback_onTrigger_2 = Module["_emscri
 var _emscripten_bind_SimpleSimulationEventCallback___destroy___0 = Module["_emscripten_bind_SimpleSimulationEventCallback___destroy___0"] = createExportWrapper("emscripten_bind_SimpleSimulationEventCallback___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxSweepCallback_hasAnyHits_0 = Module["_emscripten_bind_PxSweepCallback_hasAnyHits_0"] = createExportWrapper("emscripten_bind_PxSweepCallback_hasAnyHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepCallback___destroy___0 = Module["_emscripten_bind_PxSweepCallback___destroy___0"] = createExportWrapper("emscripten_bind_PxSweepCallback___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleDrive_getConcreteTypeName_0 = Module["_emscripten_bind_PxVehicleDrive_getConcreteTypeName_0"] = createExportWrapper("emscripten_bind_PxVehicleDrive_getConcreteTypeName_0");
 
 /** @type {function(...*):?} */
@@ -2913,6 +2938,9 @@ var _emscripten_bind_PxVehicleDriveSimData_setAutoBoxData_1 = Module["_emscripte
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleDriveSimData___destroy___0 = Module["_emscripten_bind_PxVehicleDriveSimData___destroy___0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimData___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometry_getType_0 = Module["_emscripten_bind_PxGeometry_getType_0"] = createExportWrapper("emscripten_bind_PxGeometry_getType_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxGeometry___destroy___0 = Module["_emscripten_bind_PxGeometry___destroy___0"] = createExportWrapper("emscripten_bind_PxGeometry___destroy___0");
@@ -3086,6 +3114,246 @@ var _emscripten_bind_PxSpring_set_damping_1 = Module["_emscripten_bind_PxSpring_
 var _emscripten_bind_PxSpring___destroy___0 = Module["_emscripten_bind_PxSpring___destroy___0"] = createExportWrapper("emscripten_bind_PxSpring___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxController_getType_0 = Module["_emscripten_bind_PxController_getType_0"] = createExportWrapper("emscripten_bind_PxController_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_release_0 = Module["_emscripten_bind_PxController_release_0"] = createExportWrapper("emscripten_bind_PxController_release_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_move_4 = Module["_emscripten_bind_PxController_move_4"] = createExportWrapper("emscripten_bind_PxController_move_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_move_5 = Module["_emscripten_bind_PxController_move_5"] = createExportWrapper("emscripten_bind_PxController_move_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_setPosition_1 = Module["_emscripten_bind_PxController_setPosition_1"] = createExportWrapper("emscripten_bind_PxController_setPosition_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getPosition_0 = Module["_emscripten_bind_PxController_getPosition_0"] = createExportWrapper("emscripten_bind_PxController_getPosition_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_setFootPosition_1 = Module["_emscripten_bind_PxController_setFootPosition_1"] = createExportWrapper("emscripten_bind_PxController_setFootPosition_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getFootPosition_0 = Module["_emscripten_bind_PxController_getFootPosition_0"] = createExportWrapper("emscripten_bind_PxController_getFootPosition_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getActor_0 = Module["_emscripten_bind_PxController_getActor_0"] = createExportWrapper("emscripten_bind_PxController_getActor_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_setStepOffset_1 = Module["_emscripten_bind_PxController_setStepOffset_1"] = createExportWrapper("emscripten_bind_PxController_setStepOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getStepOffset_0 = Module["_emscripten_bind_PxController_getStepOffset_0"] = createExportWrapper("emscripten_bind_PxController_getStepOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_setNonWalkableMode_1 = Module["_emscripten_bind_PxController_setNonWalkableMode_1"] = createExportWrapper("emscripten_bind_PxController_setNonWalkableMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getNonWalkableMode_0 = Module["_emscripten_bind_PxController_getNonWalkableMode_0"] = createExportWrapper("emscripten_bind_PxController_getNonWalkableMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getContactOffset_0 = Module["_emscripten_bind_PxController_getContactOffset_0"] = createExportWrapper("emscripten_bind_PxController_getContactOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_setContactOffset_1 = Module["_emscripten_bind_PxController_setContactOffset_1"] = createExportWrapper("emscripten_bind_PxController_setContactOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getUpDirection_0 = Module["_emscripten_bind_PxController_getUpDirection_0"] = createExportWrapper("emscripten_bind_PxController_getUpDirection_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_setUpDirection_1 = Module["_emscripten_bind_PxController_setUpDirection_1"] = createExportWrapper("emscripten_bind_PxController_setUpDirection_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getSlopeLimit_0 = Module["_emscripten_bind_PxController_getSlopeLimit_0"] = createExportWrapper("emscripten_bind_PxController_getSlopeLimit_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_setSlopeLimit_1 = Module["_emscripten_bind_PxController_setSlopeLimit_1"] = createExportWrapper("emscripten_bind_PxController_setSlopeLimit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_invalidateCache_0 = Module["_emscripten_bind_PxController_invalidateCache_0"] = createExportWrapper("emscripten_bind_PxController_invalidateCache_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getScene_0 = Module["_emscripten_bind_PxController_getScene_0"] = createExportWrapper("emscripten_bind_PxController_getScene_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getUserData_0 = Module["_emscripten_bind_PxController_getUserData_0"] = createExportWrapper("emscripten_bind_PxController_getUserData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_setUserData_1 = Module["_emscripten_bind_PxController_setUserData_1"] = createExportWrapper("emscripten_bind_PxController_setUserData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getState_1 = Module["_emscripten_bind_PxController_getState_1"] = createExportWrapper("emscripten_bind_PxController_getState_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_getStats_1 = Module["_emscripten_bind_PxController_getStats_1"] = createExportWrapper("emscripten_bind_PxController_getStats_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxController_resize_1 = Module["_emscripten_bind_PxController_resize_1"] = createExportWrapper("emscripten_bind_PxController_resize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_isValid_0 = Module["_emscripten_bind_PxControllerDesc_isValid_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_isValid_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_getType_0 = Module["_emscripten_bind_PxControllerDesc_getType_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_position_0 = Module["_emscripten_bind_PxControllerDesc_get_position_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_position_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_position_1 = Module["_emscripten_bind_PxControllerDesc_set_position_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_position_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_upDirection_0 = Module["_emscripten_bind_PxControllerDesc_get_upDirection_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_upDirection_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_upDirection_1 = Module["_emscripten_bind_PxControllerDesc_set_upDirection_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_upDirection_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_slopeLimit_0 = Module["_emscripten_bind_PxControllerDesc_get_slopeLimit_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_slopeLimit_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_slopeLimit_1 = Module["_emscripten_bind_PxControllerDesc_set_slopeLimit_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_slopeLimit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_invisibleWallHeight_0 = Module["_emscripten_bind_PxControllerDesc_get_invisibleWallHeight_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_invisibleWallHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_invisibleWallHeight_1 = Module["_emscripten_bind_PxControllerDesc_set_invisibleWallHeight_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_invisibleWallHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_maxJumpHeight_0 = Module["_emscripten_bind_PxControllerDesc_get_maxJumpHeight_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_maxJumpHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_maxJumpHeight_1 = Module["_emscripten_bind_PxControllerDesc_set_maxJumpHeight_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_maxJumpHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_contactOffset_0 = Module["_emscripten_bind_PxControllerDesc_get_contactOffset_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_contactOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_contactOffset_1 = Module["_emscripten_bind_PxControllerDesc_set_contactOffset_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_contactOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_stepOffset_0 = Module["_emscripten_bind_PxControllerDesc_get_stepOffset_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_stepOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_stepOffset_1 = Module["_emscripten_bind_PxControllerDesc_set_stepOffset_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_stepOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_density_0 = Module["_emscripten_bind_PxControllerDesc_get_density_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_density_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_density_1 = Module["_emscripten_bind_PxControllerDesc_set_density_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_density_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_scaleCoeff_0 = Module["_emscripten_bind_PxControllerDesc_get_scaleCoeff_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_scaleCoeff_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_scaleCoeff_1 = Module["_emscripten_bind_PxControllerDesc_set_scaleCoeff_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_scaleCoeff_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_volumeGrowth_0 = Module["_emscripten_bind_PxControllerDesc_get_volumeGrowth_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_volumeGrowth_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_volumeGrowth_1 = Module["_emscripten_bind_PxControllerDesc_set_volumeGrowth_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_volumeGrowth_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_reportCallback_0 = Module["_emscripten_bind_PxControllerDesc_get_reportCallback_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_reportCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_reportCallback_1 = Module["_emscripten_bind_PxControllerDesc_set_reportCallback_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_reportCallback_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_nonWalkableMode_0 = Module["_emscripten_bind_PxControllerDesc_get_nonWalkableMode_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_nonWalkableMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_nonWalkableMode_1 = Module["_emscripten_bind_PxControllerDesc_set_nonWalkableMode_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_nonWalkableMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_material_0 = Module["_emscripten_bind_PxControllerDesc_get_material_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_material_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_material_1 = Module["_emscripten_bind_PxControllerDesc_set_material_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_material_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_registerDeletionListener_0 = Module["_emscripten_bind_PxControllerDesc_get_registerDeletionListener_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_registerDeletionListener_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_registerDeletionListener_1 = Module["_emscripten_bind_PxControllerDesc_set_registerDeletionListener_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_registerDeletionListener_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_userData_0 = Module["_emscripten_bind_PxControllerDesc_get_userData_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_userData_1 = Module["_emscripten_bind_PxControllerDesc_set_userData_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_userData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_get_controller_0 = Module["_emscripten_bind_PxControllerHit_get_controller_0"] = createExportWrapper("emscripten_bind_PxControllerHit_get_controller_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_set_controller_1 = Module["_emscripten_bind_PxControllerHit_set_controller_1"] = createExportWrapper("emscripten_bind_PxControllerHit_set_controller_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_get_worldPos_0 = Module["_emscripten_bind_PxControllerHit_get_worldPos_0"] = createExportWrapper("emscripten_bind_PxControllerHit_get_worldPos_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_set_worldPos_1 = Module["_emscripten_bind_PxControllerHit_set_worldPos_1"] = createExportWrapper("emscripten_bind_PxControllerHit_set_worldPos_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_get_worldNormal_0 = Module["_emscripten_bind_PxControllerHit_get_worldNormal_0"] = createExportWrapper("emscripten_bind_PxControllerHit_get_worldNormal_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_set_worldNormal_1 = Module["_emscripten_bind_PxControllerHit_set_worldNormal_1"] = createExportWrapper("emscripten_bind_PxControllerHit_set_worldNormal_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_get_dir_0 = Module["_emscripten_bind_PxControllerHit_get_dir_0"] = createExportWrapper("emscripten_bind_PxControllerHit_get_dir_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_set_dir_1 = Module["_emscripten_bind_PxControllerHit_set_dir_1"] = createExportWrapper("emscripten_bind_PxControllerHit_set_dir_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_get_length_0 = Module["_emscripten_bind_PxControllerHit_get_length_0"] = createExportWrapper("emscripten_bind_PxControllerHit_get_length_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit_set_length_1 = Module["_emscripten_bind_PxControllerHit_set_length_1"] = createExportWrapper("emscripten_bind_PxControllerHit_set_length_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerHit___destroy___0 = Module["_emscripten_bind_PxControllerHit___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerHit___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacle_getType_0 = Module["_emscripten_bind_PxObstacle_getType_0"] = createExportWrapper("emscripten_bind_PxObstacle_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacle_get_mUserData_0 = Module["_emscripten_bind_PxObstacle_get_mUserData_0"] = createExportWrapper("emscripten_bind_PxObstacle_get_mUserData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacle_set_mUserData_1 = Module["_emscripten_bind_PxObstacle_set_mUserData_1"] = createExportWrapper("emscripten_bind_PxObstacle_set_mUserData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacle_get_mPos_0 = Module["_emscripten_bind_PxObstacle_get_mPos_0"] = createExportWrapper("emscripten_bind_PxObstacle_get_mPos_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacle_set_mPos_1 = Module["_emscripten_bind_PxObstacle_set_mPos_1"] = createExportWrapper("emscripten_bind_PxObstacle_set_mPos_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacle_get_mRot_0 = Module["_emscripten_bind_PxObstacle_get_mRot_0"] = createExportWrapper("emscripten_bind_PxObstacle_get_mRot_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacle_set_mRot_1 = Module["_emscripten_bind_PxObstacle_set_mRot_1"] = createExportWrapper("emscripten_bind_PxObstacle_set_mRot_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacle___destroy___0 = Module["_emscripten_bind_PxObstacle___destroy___0"] = createExportWrapper("emscripten_bind_PxObstacle___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxUserControllerHitReport_onShapeHit_1 = Module["_emscripten_bind_PxUserControllerHitReport_onShapeHit_1"] = createExportWrapper("emscripten_bind_PxUserControllerHitReport_onShapeHit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxUserControllerHitReport_onControllerHit_1 = Module["_emscripten_bind_PxUserControllerHitReport_onControllerHit_1"] = createExportWrapper("emscripten_bind_PxUserControllerHitReport_onControllerHit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxUserControllerHitReport_onObstacleHit_1 = Module["_emscripten_bind_PxUserControllerHitReport_onObstacleHit_1"] = createExportWrapper("emscripten_bind_PxUserControllerHitReport_onObstacleHit_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_VoidPtr___destroy___0 = Module["_emscripten_bind_VoidPtr___destroy___0"] = createExportWrapper("emscripten_bind_VoidPtr___destroy___0");
 
 /** @type {function(...*):?} */
@@ -3096,6 +3364,12 @@ var _emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPreFilterBlocking
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0 = Module["_emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1 = Module["_emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTopLevelFunctions_CreateControllerManager_2 = Module["_emscripten_bind_PxTopLevelFunctions_CreateControllerManager_2"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreateControllerManager_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_CreateCooking_3 = Module["_emscripten_bind_PxTopLevelFunctions_CreateCooking_3"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreateCooking_3");
@@ -3150,6 +3424,21 @@ var _emscripten_bind_PxActorFlags_clear_1 = Module["_emscripten_bind_PxActorFlag
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxActorFlags___destroy___0 = Module["_emscripten_bind_PxActorFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxActorFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxActorTypeFlags_PxActorTypeFlags_1 = Module["_emscripten_bind_PxActorTypeFlags_PxActorTypeFlags_1"] = createExportWrapper("emscripten_bind_PxActorTypeFlags_PxActorTypeFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxActorTypeFlags_isSet_1 = Module["_emscripten_bind_PxActorTypeFlags_isSet_1"] = createExportWrapper("emscripten_bind_PxActorTypeFlags_isSet_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxActorTypeFlags_set_1 = Module["_emscripten_bind_PxActorTypeFlags_set_1"] = createExportWrapper("emscripten_bind_PxActorTypeFlags_set_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxActorTypeFlags_clear_1 = Module["_emscripten_bind_PxActorTypeFlags_clear_1"] = createExportWrapper("emscripten_bind_PxActorTypeFlags_clear_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxActorTypeFlags___destroy___0 = Module["_emscripten_bind_PxActorTypeFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxActorTypeFlags___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxAggregate_addActor_1 = Module["_emscripten_bind_PxAggregate_addActor_1"] = createExportWrapper("emscripten_bind_PxAggregate_addActor_1");
@@ -4052,6 +4341,84 @@ var _emscripten_bind_PxBatchQueryPostFilterShader___destroy___0 = Module["_emscr
 var _emscripten_bind_PxBatchQueryPreFilterShader___destroy___0 = Module["_emscripten_bind_PxBatchQueryPreFilterShader___destroy___0"] = createExportWrapper("emscripten_bind_PxBatchQueryPreFilterShader___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseCaps_PxBroadPhaseCaps_0 = Module["_emscripten_bind_PxBroadPhaseCaps_PxBroadPhaseCaps_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseCaps_PxBroadPhaseCaps_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseCaps_get_maxNbRegions_0 = Module["_emscripten_bind_PxBroadPhaseCaps_get_maxNbRegions_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseCaps_get_maxNbRegions_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseCaps_set_maxNbRegions_1 = Module["_emscripten_bind_PxBroadPhaseCaps_set_maxNbRegions_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseCaps_set_maxNbRegions_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseCaps_get_maxNbObjects_0 = Module["_emscripten_bind_PxBroadPhaseCaps_get_maxNbObjects_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseCaps_get_maxNbObjects_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseCaps_set_maxNbObjects_1 = Module["_emscripten_bind_PxBroadPhaseCaps_set_maxNbObjects_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseCaps_set_maxNbObjects_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseCaps_get_needsPredefinedBounds_0 = Module["_emscripten_bind_PxBroadPhaseCaps_get_needsPredefinedBounds_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseCaps_get_needsPredefinedBounds_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseCaps_set_needsPredefinedBounds_1 = Module["_emscripten_bind_PxBroadPhaseCaps_set_needsPredefinedBounds_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseCaps_set_needsPredefinedBounds_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseCaps___destroy___0 = Module["_emscripten_bind_PxBroadPhaseCaps___destroy___0"] = createExportWrapper("emscripten_bind_PxBroadPhaseCaps___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegion_PxBroadPhaseRegion_0 = Module["_emscripten_bind_PxBroadPhaseRegion_PxBroadPhaseRegion_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegion_PxBroadPhaseRegion_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegion_get_bounds_0 = Module["_emscripten_bind_PxBroadPhaseRegion_get_bounds_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegion_get_bounds_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegion_set_bounds_1 = Module["_emscripten_bind_PxBroadPhaseRegion_set_bounds_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegion_set_bounds_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegion_get_userData_0 = Module["_emscripten_bind_PxBroadPhaseRegion_get_userData_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegion_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegion_set_userData_1 = Module["_emscripten_bind_PxBroadPhaseRegion_set_userData_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegion_set_userData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegion___destroy___0 = Module["_emscripten_bind_PxBroadPhaseRegion___destroy___0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegion___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_PxBroadPhaseRegionInfo_0 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_PxBroadPhaseRegionInfo_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_PxBroadPhaseRegionInfo_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_get_region_0 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_get_region_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_get_region_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_set_region_1 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_set_region_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_set_region_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_get_nbStaticObjects_0 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_get_nbStaticObjects_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_get_nbStaticObjects_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_set_nbStaticObjects_1 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_set_nbStaticObjects_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_set_nbStaticObjects_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_get_nbDynamicObjects_0 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_get_nbDynamicObjects_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_get_nbDynamicObjects_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_set_nbDynamicObjects_1 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_set_nbDynamicObjects_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_set_nbDynamicObjects_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_get_active_0 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_get_active_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_get_active_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_set_active_1 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_set_active_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_set_active_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_get_overlap_0 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_get_overlap_0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_get_overlap_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo_set_overlap_1 = Module["_emscripten_bind_PxBroadPhaseRegionInfo_set_overlap_1"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo_set_overlap_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBroadPhaseRegionInfo___destroy___0 = Module["_emscripten_bind_PxBroadPhaseRegionInfo___destroy___0"] = createExportWrapper("emscripten_bind_PxBroadPhaseRegionInfo___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxConstraint_release_0 = Module["_emscripten_bind_PxConstraint_release_0"] = createExportWrapper("emscripten_bind_PxConstraint_release_0");
 
 /** @type {function(...*):?} */
@@ -4232,6 +4599,78 @@ var _emscripten_bind_PxContactPairHeader_set_nbPairs_1 = Module["_emscripten_bin
 var _emscripten_bind_PxContactPairHeader___destroy___0 = Module["_emscripten_bind_PxContactPairHeader___destroy___0"] = createExportWrapper("emscripten_bind_PxContactPairHeader___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxDominanceGroupPair_PxDominanceGroupPair_2 = Module["_emscripten_bind_PxDominanceGroupPair_PxDominanceGroupPair_2"] = createExportWrapper("emscripten_bind_PxDominanceGroupPair_PxDominanceGroupPair_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDominanceGroupPair_get_dominance0_0 = Module["_emscripten_bind_PxDominanceGroupPair_get_dominance0_0"] = createExportWrapper("emscripten_bind_PxDominanceGroupPair_get_dominance0_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDominanceGroupPair_set_dominance0_1 = Module["_emscripten_bind_PxDominanceGroupPair_set_dominance0_1"] = createExportWrapper("emscripten_bind_PxDominanceGroupPair_set_dominance0_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDominanceGroupPair_get_dominance1_0 = Module["_emscripten_bind_PxDominanceGroupPair_get_dominance1_0"] = createExportWrapper("emscripten_bind_PxDominanceGroupPair_get_dominance1_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDominanceGroupPair_set_dominance1_1 = Module["_emscripten_bind_PxDominanceGroupPair_set_dominance1_1"] = createExportWrapper("emscripten_bind_PxDominanceGroupPair_set_dominance1_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDominanceGroupPair___destroy___0 = Module["_emscripten_bind_PxDominanceGroupPair___destroy___0"] = createExportWrapper("emscripten_bind_PxDominanceGroupPair___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_PxgDynamicsMemoryConfig_0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_PxgDynamicsMemoryConfig_0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_PxgDynamicsMemoryConfig_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_get_constraintBufferCapacity_0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_get_constraintBufferCapacity_0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_get_constraintBufferCapacity_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_set_constraintBufferCapacity_1 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_set_constraintBufferCapacity_1"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_set_constraintBufferCapacity_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_get_contactBufferCapacity_0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_get_contactBufferCapacity_0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_get_contactBufferCapacity_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_set_contactBufferCapacity_1 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_set_contactBufferCapacity_1"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_set_contactBufferCapacity_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_get_tempBufferCapacity_0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_get_tempBufferCapacity_0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_get_tempBufferCapacity_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_set_tempBufferCapacity_1 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_set_tempBufferCapacity_1"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_set_tempBufferCapacity_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_get_contactStreamSize_0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_get_contactStreamSize_0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_get_contactStreamSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_set_contactStreamSize_1 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_set_contactStreamSize_1"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_set_contactStreamSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_get_patchStreamSize_0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_get_patchStreamSize_0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_get_patchStreamSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_set_patchStreamSize_1 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_set_patchStreamSize_1"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_set_patchStreamSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_get_forceStreamCapacity_0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_get_forceStreamCapacity_0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_get_forceStreamCapacity_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_set_forceStreamCapacity_1 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_set_forceStreamCapacity_1"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_set_forceStreamCapacity_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_get_heapCapacity_0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_get_heapCapacity_0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_get_heapCapacity_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_set_heapCapacity_1 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_set_heapCapacity_1"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_set_heapCapacity_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_get_foundLostPairsCapacity_0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_get_foundLostPairsCapacity_0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_get_foundLostPairsCapacity_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig_set_foundLostPairsCapacity_1 = Module["_emscripten_bind_PxgDynamicsMemoryConfig_set_foundLostPairsCapacity_1"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig_set_foundLostPairsCapacity_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxgDynamicsMemoryConfig___destroy___0 = Module["_emscripten_bind_PxgDynamicsMemoryConfig___destroy___0"] = createExportWrapper("emscripten_bind_PxgDynamicsMemoryConfig___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxFilterData_PxFilterData_0 = Module["_emscripten_bind_PxFilterData_PxFilterData_0"] = createExportWrapper("emscripten_bind_PxFilterData_PxFilterData_0");
 
 /** @type {function(...*):?} */
@@ -4278,6 +4717,45 @@ var _emscripten_bind_PxHitFlags_clear_1 = Module["_emscripten_bind_PxHitFlags_cl
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxHitFlags___destroy___0 = Module["_emscripten_bind_PxHitFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxHitFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_PxOverlapBuffer10_0 = Module["_emscripten_bind_PxOverlapBuffer10_PxOverlapBuffer10_0"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_PxOverlapBuffer10_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_getNbAnyHits_0 = Module["_emscripten_bind_PxOverlapBuffer10_getNbAnyHits_0"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_getNbAnyHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_getAnyHit_1 = Module["_emscripten_bind_PxOverlapBuffer10_getAnyHit_1"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_getAnyHit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_getNbTouches_0 = Module["_emscripten_bind_PxOverlapBuffer10_getNbTouches_0"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_getNbTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_getTouches_0 = Module["_emscripten_bind_PxOverlapBuffer10_getTouches_0"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_getTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_getTouch_1 = Module["_emscripten_bind_PxOverlapBuffer10_getTouch_1"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_getTouch_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_getMaxNbTouches_0 = Module["_emscripten_bind_PxOverlapBuffer10_getMaxNbTouches_0"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_getMaxNbTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_hasAnyHits_0 = Module["_emscripten_bind_PxOverlapBuffer10_hasAnyHits_0"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_hasAnyHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_get_block_0 = Module["_emscripten_bind_PxOverlapBuffer10_get_block_0"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_get_block_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_set_block_1 = Module["_emscripten_bind_PxOverlapBuffer10_set_block_1"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_set_block_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_get_hasBlock_0 = Module["_emscripten_bind_PxOverlapBuffer10_get_hasBlock_0"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_get_hasBlock_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10_set_hasBlock_1 = Module["_emscripten_bind_PxOverlapBuffer10_set_hasBlock_1"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10_set_hasBlock_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOverlapBuffer10___destroy___0 = Module["_emscripten_bind_PxOverlapBuffer10___destroy___0"] = createExportWrapper("emscripten_bind_PxOverlapBuffer10___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxOverlapHit_get_actor_0 = Module["_emscripten_bind_PxOverlapHit_get_actor_0"] = createExportWrapper("emscripten_bind_PxOverlapHit_get_actor_0");
@@ -4385,6 +4863,9 @@ var _emscripten_bind_PxPhysics_release_0 = Module["_emscripten_bind_PxPhysics_re
 var _emscripten_bind_PxPhysics_getFoundation_0 = Module["_emscripten_bind_PxPhysics_getFoundation_0"] = createExportWrapper("emscripten_bind_PxPhysics_getFoundation_0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxPhysics_createAggregate_2 = Module["_emscripten_bind_PxPhysics_createAggregate_2"] = createExportWrapper("emscripten_bind_PxPhysics_createAggregate_2");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxPhysics_getTolerancesScale_0 = Module["_emscripten_bind_PxPhysics_getTolerancesScale_0"] = createExportWrapper("emscripten_bind_PxPhysics_getTolerancesScale_0");
 
 /** @type {function(...*):?} */
@@ -4422,6 +4903,84 @@ var _emscripten_bind_PxPhysics_getPhysicsInsertionCallback_0 = Module["_emscript
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxPhysics___destroy___0 = Module["_emscripten_bind_PxPhysics___destroy___0"] = createExportWrapper("emscripten_bind_PxPhysics___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFilterData_PxQueryFilterData_0 = Module["_emscripten_bind_PxQueryFilterData_PxQueryFilterData_0"] = createExportWrapper("emscripten_bind_PxQueryFilterData_PxQueryFilterData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFilterData_PxQueryFilterData_1 = Module["_emscripten_bind_PxQueryFilterData_PxQueryFilterData_1"] = createExportWrapper("emscripten_bind_PxQueryFilterData_PxQueryFilterData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFilterData_PxQueryFilterData_2 = Module["_emscripten_bind_PxQueryFilterData_PxQueryFilterData_2"] = createExportWrapper("emscripten_bind_PxQueryFilterData_PxQueryFilterData_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFilterData_get_data_0 = Module["_emscripten_bind_PxQueryFilterData_get_data_0"] = createExportWrapper("emscripten_bind_PxQueryFilterData_get_data_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFilterData_set_data_1 = Module["_emscripten_bind_PxQueryFilterData_set_data_1"] = createExportWrapper("emscripten_bind_PxQueryFilterData_set_data_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFilterData_get_flags_0 = Module["_emscripten_bind_PxQueryFilterData_get_flags_0"] = createExportWrapper("emscripten_bind_PxQueryFilterData_get_flags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFilterData_set_flags_1 = Module["_emscripten_bind_PxQueryFilterData_set_flags_1"] = createExportWrapper("emscripten_bind_PxQueryFilterData_set_flags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFilterData___destroy___0 = Module["_emscripten_bind_PxQueryFilterData___destroy___0"] = createExportWrapper("emscripten_bind_PxQueryFilterData___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFlags_PxQueryFlags_1 = Module["_emscripten_bind_PxQueryFlags_PxQueryFlags_1"] = createExportWrapper("emscripten_bind_PxQueryFlags_PxQueryFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFlags_isSet_1 = Module["_emscripten_bind_PxQueryFlags_isSet_1"] = createExportWrapper("emscripten_bind_PxQueryFlags_isSet_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFlags_set_1 = Module["_emscripten_bind_PxQueryFlags_set_1"] = createExportWrapper("emscripten_bind_PxQueryFlags_set_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFlags_clear_1 = Module["_emscripten_bind_PxQueryFlags_clear_1"] = createExportWrapper("emscripten_bind_PxQueryFlags_clear_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFlags___destroy___0 = Module["_emscripten_bind_PxQueryFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxQueryFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_PxRaycastBuffer10_0 = Module["_emscripten_bind_PxRaycastBuffer10_PxRaycastBuffer10_0"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_PxRaycastBuffer10_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_getNbAnyHits_0 = Module["_emscripten_bind_PxRaycastBuffer10_getNbAnyHits_0"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_getNbAnyHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_getAnyHit_1 = Module["_emscripten_bind_PxRaycastBuffer10_getAnyHit_1"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_getAnyHit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_getNbTouches_0 = Module["_emscripten_bind_PxRaycastBuffer10_getNbTouches_0"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_getNbTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_getTouches_0 = Module["_emscripten_bind_PxRaycastBuffer10_getTouches_0"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_getTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_getTouch_1 = Module["_emscripten_bind_PxRaycastBuffer10_getTouch_1"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_getTouch_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_getMaxNbTouches_0 = Module["_emscripten_bind_PxRaycastBuffer10_getMaxNbTouches_0"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_getMaxNbTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_hasAnyHits_0 = Module["_emscripten_bind_PxRaycastBuffer10_hasAnyHits_0"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_hasAnyHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_get_block_0 = Module["_emscripten_bind_PxRaycastBuffer10_get_block_0"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_get_block_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_set_block_1 = Module["_emscripten_bind_PxRaycastBuffer10_set_block_1"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_set_block_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_get_hasBlock_0 = Module["_emscripten_bind_PxRaycastBuffer10_get_hasBlock_0"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_get_hasBlock_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10_set_hasBlock_1 = Module["_emscripten_bind_PxRaycastBuffer10_set_hasBlock_1"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10_set_hasBlock_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRaycastBuffer10___destroy___0 = Module["_emscripten_bind_PxRaycastBuffer10___destroy___0"] = createExportWrapper("emscripten_bind_PxRaycastBuffer10___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRaycastHit_PxRaycastHit_0 = Module["_emscripten_bind_PxRaycastHit_PxRaycastHit_0"] = createExportWrapper("emscripten_bind_PxRaycastHit_PxRaycastHit_0");
@@ -4895,6 +5454,81 @@ var _emscripten_bind_PxScene_removeActor_1 = Module["_emscripten_bind_PxScene_re
 var _emscripten_bind_PxScene_removeActor_2 = Module["_emscripten_bind_PxScene_removeActor_2"] = createExportWrapper("emscripten_bind_PxScene_removeActor_2");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxScene_addAggregate_1 = Module["_emscripten_bind_PxScene_addAggregate_1"] = createExportWrapper("emscripten_bind_PxScene_addAggregate_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_removeAggregate_1 = Module["_emscripten_bind_PxScene_removeAggregate_1"] = createExportWrapper("emscripten_bind_PxScene_removeAggregate_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_removeAggregate_2 = Module["_emscripten_bind_PxScene_removeAggregate_2"] = createExportWrapper("emscripten_bind_PxScene_removeAggregate_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getWakeCounterResetValue_0 = Module["_emscripten_bind_PxScene_getWakeCounterResetValue_0"] = createExportWrapper("emscripten_bind_PxScene_getWakeCounterResetValue_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_shiftOrigin_1 = Module["_emscripten_bind_PxScene_shiftOrigin_1"] = createExportWrapper("emscripten_bind_PxScene_shiftOrigin_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_addArticulation_1 = Module["_emscripten_bind_PxScene_addArticulation_1"] = createExportWrapper("emscripten_bind_PxScene_addArticulation_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_removeArticulation_1 = Module["_emscripten_bind_PxScene_removeArticulation_1"] = createExportWrapper("emscripten_bind_PxScene_removeArticulation_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_removeArticulation_2 = Module["_emscripten_bind_PxScene_removeArticulation_2"] = createExportWrapper("emscripten_bind_PxScene_removeArticulation_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getNbActors_1 = Module["_emscripten_bind_PxScene_getNbActors_1"] = createExportWrapper("emscripten_bind_PxScene_getNbActors_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getNbArticulations_0 = Module["_emscripten_bind_PxScene_getNbArticulations_0"] = createExportWrapper("emscripten_bind_PxScene_getNbArticulations_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getNbConstraints_0 = Module["_emscripten_bind_PxScene_getNbConstraints_0"] = createExportWrapper("emscripten_bind_PxScene_getNbConstraints_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getNbAggregates_0 = Module["_emscripten_bind_PxScene_getNbAggregates_0"] = createExportWrapper("emscripten_bind_PxScene_getNbAggregates_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setDominanceGroupPair_3 = Module["_emscripten_bind_PxScene_setDominanceGroupPair_3"] = createExportWrapper("emscripten_bind_PxScene_setDominanceGroupPair_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getCpuDispatcher_0 = Module["_emscripten_bind_PxScene_getCpuDispatcher_0"] = createExportWrapper("emscripten_bind_PxScene_getCpuDispatcher_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getCudaContextManager_0 = Module["_emscripten_bind_PxScene_getCudaContextManager_0"] = createExportWrapper("emscripten_bind_PxScene_getCudaContextManager_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_createClient_0 = Module["_emscripten_bind_PxScene_createClient_0"] = createExportWrapper("emscripten_bind_PxScene_createClient_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setSimulationEventCallback_1 = Module["_emscripten_bind_PxScene_setSimulationEventCallback_1"] = createExportWrapper("emscripten_bind_PxScene_setSimulationEventCallback_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getSimulationEventCallback_0 = Module["_emscripten_bind_PxScene_getSimulationEventCallback_0"] = createExportWrapper("emscripten_bind_PxScene_getSimulationEventCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setFilterShaderData_2 = Module["_emscripten_bind_PxScene_setFilterShaderData_2"] = createExportWrapper("emscripten_bind_PxScene_setFilterShaderData_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getFilterShaderData_0 = Module["_emscripten_bind_PxScene_getFilterShaderData_0"] = createExportWrapper("emscripten_bind_PxScene_getFilterShaderData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getFilterShaderDataSize_0 = Module["_emscripten_bind_PxScene_getFilterShaderDataSize_0"] = createExportWrapper("emscripten_bind_PxScene_getFilterShaderDataSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getFilterShader_0 = Module["_emscripten_bind_PxScene_getFilterShader_0"] = createExportWrapper("emscripten_bind_PxScene_getFilterShader_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_resetFiltering_1 = Module["_emscripten_bind_PxScene_resetFiltering_1"] = createExportWrapper("emscripten_bind_PxScene_resetFiltering_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getKinematicKinematicFilteringMode_0 = Module["_emscripten_bind_PxScene_getKinematicKinematicFilteringMode_0"] = createExportWrapper("emscripten_bind_PxScene_getKinematicKinematicFilteringMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getStaticKinematicFilteringMode_0 = Module["_emscripten_bind_PxScene_getStaticKinematicFilteringMode_0"] = createExportWrapper("emscripten_bind_PxScene_getStaticKinematicFilteringMode_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxScene_simulate_1 = Module["_emscripten_bind_PxScene_simulate_1"] = createExportWrapper("emscripten_bind_PxScene_simulate_1");
 
 /** @type {function(...*):?} */
@@ -4910,10 +5544,52 @@ var _emscripten_bind_PxScene_simulate_4 = Module["_emscripten_bind_PxScene_simul
 var _emscripten_bind_PxScene_simulate_5 = Module["_emscripten_bind_PxScene_simulate_5"] = createExportWrapper("emscripten_bind_PxScene_simulate_5");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxScene_advance_0 = Module["_emscripten_bind_PxScene_advance_0"] = createExportWrapper("emscripten_bind_PxScene_advance_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_advance_1 = Module["_emscripten_bind_PxScene_advance_1"] = createExportWrapper("emscripten_bind_PxScene_advance_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_collide_1 = Module["_emscripten_bind_PxScene_collide_1"] = createExportWrapper("emscripten_bind_PxScene_collide_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_collide_2 = Module["_emscripten_bind_PxScene_collide_2"] = createExportWrapper("emscripten_bind_PxScene_collide_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_collide_3 = Module["_emscripten_bind_PxScene_collide_3"] = createExportWrapper("emscripten_bind_PxScene_collide_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_collide_4 = Module["_emscripten_bind_PxScene_collide_4"] = createExportWrapper("emscripten_bind_PxScene_collide_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_collide_5 = Module["_emscripten_bind_PxScene_collide_5"] = createExportWrapper("emscripten_bind_PxScene_collide_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_checkResults_0 = Module["_emscripten_bind_PxScene_checkResults_0"] = createExportWrapper("emscripten_bind_PxScene_checkResults_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_checkResults_1 = Module["_emscripten_bind_PxScene_checkResults_1"] = createExportWrapper("emscripten_bind_PxScene_checkResults_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_fetchCollision_0 = Module["_emscripten_bind_PxScene_fetchCollision_0"] = createExportWrapper("emscripten_bind_PxScene_fetchCollision_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_fetchCollision_1 = Module["_emscripten_bind_PxScene_fetchCollision_1"] = createExportWrapper("emscripten_bind_PxScene_fetchCollision_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxScene_fetchResults_0 = Module["_emscripten_bind_PxScene_fetchResults_0"] = createExportWrapper("emscripten_bind_PxScene_fetchResults_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxScene_fetchResults_1 = Module["_emscripten_bind_PxScene_fetchResults_1"] = createExportWrapper("emscripten_bind_PxScene_fetchResults_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_processCallbacks_1 = Module["_emscripten_bind_PxScene_processCallbacks_1"] = createExportWrapper("emscripten_bind_PxScene_processCallbacks_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_flushSimulation_0 = Module["_emscripten_bind_PxScene_flushSimulation_0"] = createExportWrapper("emscripten_bind_PxScene_flushSimulation_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_flushSimulation_1 = Module["_emscripten_bind_PxScene_flushSimulation_1"] = createExportWrapper("emscripten_bind_PxScene_flushSimulation_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxScene_setGravity_1 = Module["_emscripten_bind_PxScene_setGravity_1"] = createExportWrapper("emscripten_bind_PxScene_setGravity_1");
@@ -4922,7 +5598,175 @@ var _emscripten_bind_PxScene_setGravity_1 = Module["_emscripten_bind_PxScene_set
 var _emscripten_bind_PxScene_getGravity_0 = Module["_emscripten_bind_PxScene_getGravity_0"] = createExportWrapper("emscripten_bind_PxScene_getGravity_0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setBounceThresholdVelocity_1 = Module["_emscripten_bind_PxScene_setBounceThresholdVelocity_1"] = createExportWrapper("emscripten_bind_PxScene_setBounceThresholdVelocity_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getBounceThresholdVelocity_0 = Module["_emscripten_bind_PxScene_getBounceThresholdVelocity_0"] = createExportWrapper("emscripten_bind_PxScene_getBounceThresholdVelocity_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setCCDMaxPasses_1 = Module["_emscripten_bind_PxScene_setCCDMaxPasses_1"] = createExportWrapper("emscripten_bind_PxScene_setCCDMaxPasses_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getCCDMaxPasses_0 = Module["_emscripten_bind_PxScene_getCCDMaxPasses_0"] = createExportWrapper("emscripten_bind_PxScene_getCCDMaxPasses_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getFrictionOffsetThreshold_0 = Module["_emscripten_bind_PxScene_getFrictionOffsetThreshold_0"] = createExportWrapper("emscripten_bind_PxScene_getFrictionOffsetThreshold_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setFrictionType_1 = Module["_emscripten_bind_PxScene_setFrictionType_1"] = createExportWrapper("emscripten_bind_PxScene_setFrictionType_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getFrictionType_0 = Module["_emscripten_bind_PxScene_getFrictionType_0"] = createExportWrapper("emscripten_bind_PxScene_getFrictionType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getSimulationStatistics_1 = Module["_emscripten_bind_PxScene_getSimulationStatistics_1"] = createExportWrapper("emscripten_bind_PxScene_getSimulationStatistics_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getStaticStructure_0 = Module["_emscripten_bind_PxScene_getStaticStructure_0"] = createExportWrapper("emscripten_bind_PxScene_getStaticStructure_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getDynamicStructure_0 = Module["_emscripten_bind_PxScene_getDynamicStructure_0"] = createExportWrapper("emscripten_bind_PxScene_getDynamicStructure_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_flushQueryUpdates_0 = Module["_emscripten_bind_PxScene_flushQueryUpdates_0"] = createExportWrapper("emscripten_bind_PxScene_flushQueryUpdates_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxScene_createBatchQuery_1 = Module["_emscripten_bind_PxScene_createBatchQuery_1"] = createExportWrapper("emscripten_bind_PxScene_createBatchQuery_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setDynamicTreeRebuildRateHint_1 = Module["_emscripten_bind_PxScene_setDynamicTreeRebuildRateHint_1"] = createExportWrapper("emscripten_bind_PxScene_setDynamicTreeRebuildRateHint_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getDynamicTreeRebuildRateHint_0 = Module["_emscripten_bind_PxScene_getDynamicTreeRebuildRateHint_0"] = createExportWrapper("emscripten_bind_PxScene_getDynamicTreeRebuildRateHint_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_forceDynamicTreeRebuild_2 = Module["_emscripten_bind_PxScene_forceDynamicTreeRebuild_2"] = createExportWrapper("emscripten_bind_PxScene_forceDynamicTreeRebuild_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setSceneQueryUpdateMode_1 = Module["_emscripten_bind_PxScene_setSceneQueryUpdateMode_1"] = createExportWrapper("emscripten_bind_PxScene_setSceneQueryUpdateMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getSceneQueryUpdateMode_0 = Module["_emscripten_bind_PxScene_getSceneQueryUpdateMode_0"] = createExportWrapper("emscripten_bind_PxScene_getSceneQueryUpdateMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_sceneQueriesUpdate_0 = Module["_emscripten_bind_PxScene_sceneQueriesUpdate_0"] = createExportWrapper("emscripten_bind_PxScene_sceneQueriesUpdate_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_sceneQueriesUpdate_1 = Module["_emscripten_bind_PxScene_sceneQueriesUpdate_1"] = createExportWrapper("emscripten_bind_PxScene_sceneQueriesUpdate_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_sceneQueriesUpdate_2 = Module["_emscripten_bind_PxScene_sceneQueriesUpdate_2"] = createExportWrapper("emscripten_bind_PxScene_sceneQueriesUpdate_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_checkQueries_0 = Module["_emscripten_bind_PxScene_checkQueries_0"] = createExportWrapper("emscripten_bind_PxScene_checkQueries_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_checkQueries_1 = Module["_emscripten_bind_PxScene_checkQueries_1"] = createExportWrapper("emscripten_bind_PxScene_checkQueries_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_fetchQueries_0 = Module["_emscripten_bind_PxScene_fetchQueries_0"] = createExportWrapper("emscripten_bind_PxScene_fetchQueries_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_fetchQueries_1 = Module["_emscripten_bind_PxScene_fetchQueries_1"] = createExportWrapper("emscripten_bind_PxScene_fetchQueries_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_raycast_4 = Module["_emscripten_bind_PxScene_raycast_4"] = createExportWrapper("emscripten_bind_PxScene_raycast_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_raycast_5 = Module["_emscripten_bind_PxScene_raycast_5"] = createExportWrapper("emscripten_bind_PxScene_raycast_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_raycast_6 = Module["_emscripten_bind_PxScene_raycast_6"] = createExportWrapper("emscripten_bind_PxScene_raycast_6");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_sweep_5 = Module["_emscripten_bind_PxScene_sweep_5"] = createExportWrapper("emscripten_bind_PxScene_sweep_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_sweep_6 = Module["_emscripten_bind_PxScene_sweep_6"] = createExportWrapper("emscripten_bind_PxScene_sweep_6");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_sweep_7 = Module["_emscripten_bind_PxScene_sweep_7"] = createExportWrapper("emscripten_bind_PxScene_sweep_7");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_overlap_3 = Module["_emscripten_bind_PxScene_overlap_3"] = createExportWrapper("emscripten_bind_PxScene_overlap_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_overlap_4 = Module["_emscripten_bind_PxScene_overlap_4"] = createExportWrapper("emscripten_bind_PxScene_overlap_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getSceneQueryStaticTimestamp_0 = Module["_emscripten_bind_PxScene_getSceneQueryStaticTimestamp_0"] = createExportWrapper("emscripten_bind_PxScene_getSceneQueryStaticTimestamp_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getBroadPhaseType_0 = Module["_emscripten_bind_PxScene_getBroadPhaseType_0"] = createExportWrapper("emscripten_bind_PxScene_getBroadPhaseType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getBroadPhaseCaps_1 = Module["_emscripten_bind_PxScene_getBroadPhaseCaps_1"] = createExportWrapper("emscripten_bind_PxScene_getBroadPhaseCaps_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getNbBroadPhaseRegions_0 = Module["_emscripten_bind_PxScene_getNbBroadPhaseRegions_0"] = createExportWrapper("emscripten_bind_PxScene_getNbBroadPhaseRegions_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getBroadPhaseRegions_2 = Module["_emscripten_bind_PxScene_getBroadPhaseRegions_2"] = createExportWrapper("emscripten_bind_PxScene_getBroadPhaseRegions_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getBroadPhaseRegions_3 = Module["_emscripten_bind_PxScene_getBroadPhaseRegions_3"] = createExportWrapper("emscripten_bind_PxScene_getBroadPhaseRegions_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_addBroadPhaseRegion_1 = Module["_emscripten_bind_PxScene_addBroadPhaseRegion_1"] = createExportWrapper("emscripten_bind_PxScene_addBroadPhaseRegion_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_addBroadPhaseRegion_2 = Module["_emscripten_bind_PxScene_addBroadPhaseRegion_2"] = createExportWrapper("emscripten_bind_PxScene_addBroadPhaseRegion_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_removeBroadPhaseRegion_1 = Module["_emscripten_bind_PxScene_removeBroadPhaseRegion_1"] = createExportWrapper("emscripten_bind_PxScene_removeBroadPhaseRegion_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_lockRead_0 = Module["_emscripten_bind_PxScene_lockRead_0"] = createExportWrapper("emscripten_bind_PxScene_lockRead_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_lockRead_1 = Module["_emscripten_bind_PxScene_lockRead_1"] = createExportWrapper("emscripten_bind_PxScene_lockRead_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_lockRead_2 = Module["_emscripten_bind_PxScene_lockRead_2"] = createExportWrapper("emscripten_bind_PxScene_lockRead_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_unlockRead_0 = Module["_emscripten_bind_PxScene_unlockRead_0"] = createExportWrapper("emscripten_bind_PxScene_unlockRead_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_lockWrite_0 = Module["_emscripten_bind_PxScene_lockWrite_0"] = createExportWrapper("emscripten_bind_PxScene_lockWrite_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_lockWrite_1 = Module["_emscripten_bind_PxScene_lockWrite_1"] = createExportWrapper("emscripten_bind_PxScene_lockWrite_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_lockWrite_2 = Module["_emscripten_bind_PxScene_lockWrite_2"] = createExportWrapper("emscripten_bind_PxScene_lockWrite_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_unlockWrite_0 = Module["_emscripten_bind_PxScene_unlockWrite_0"] = createExportWrapper("emscripten_bind_PxScene_unlockWrite_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setNbContactDataBlocks_1 = Module["_emscripten_bind_PxScene_setNbContactDataBlocks_1"] = createExportWrapper("emscripten_bind_PxScene_setNbContactDataBlocks_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getNbContactDataBlocksUsed_0 = Module["_emscripten_bind_PxScene_getNbContactDataBlocksUsed_0"] = createExportWrapper("emscripten_bind_PxScene_getNbContactDataBlocksUsed_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getMaxNbContactDataBlocksUsed_0 = Module["_emscripten_bind_PxScene_getMaxNbContactDataBlocksUsed_0"] = createExportWrapper("emscripten_bind_PxScene_getMaxNbContactDataBlocksUsed_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getContactReportStreamBufferSize_0 = Module["_emscripten_bind_PxScene_getContactReportStreamBufferSize_0"] = createExportWrapper("emscripten_bind_PxScene_getContactReportStreamBufferSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setSolverBatchSize_1 = Module["_emscripten_bind_PxScene_setSolverBatchSize_1"] = createExportWrapper("emscripten_bind_PxScene_setSolverBatchSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getSolverBatchSize_0 = Module["_emscripten_bind_PxScene_getSolverBatchSize_0"] = createExportWrapper("emscripten_bind_PxScene_getSolverBatchSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setSolverArticulationBatchSize_1 = Module["_emscripten_bind_PxScene_setSolverArticulationBatchSize_1"] = createExportWrapper("emscripten_bind_PxScene_setSolverArticulationBatchSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getSolverArticulationBatchSize_0 = Module["_emscripten_bind_PxScene_getSolverArticulationBatchSize_0"] = createExportWrapper("emscripten_bind_PxScene_getSolverArticulationBatchSize_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxScene_release_0 = Module["_emscripten_bind_PxScene_release_0"] = createExportWrapper("emscripten_bind_PxScene_release_0");
@@ -4934,13 +5778,31 @@ var _emscripten_bind_PxScene_setFlag_2 = Module["_emscripten_bind_PxScene_setFla
 var _emscripten_bind_PxScene_getFlags_0 = Module["_emscripten_bind_PxScene_getFlags_0"] = createExportWrapper("emscripten_bind_PxScene_getFlags_0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxScene_setLimits_1 = Module["_emscripten_bind_PxScene_setLimits_1"] = createExportWrapper("emscripten_bind_PxScene_setLimits_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_getLimits_0 = Module["_emscripten_bind_PxScene_getLimits_0"] = createExportWrapper("emscripten_bind_PxScene_getLimits_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxScene_getPhysics_0 = Module["_emscripten_bind_PxScene_getPhysics_0"] = createExportWrapper("emscripten_bind_PxScene_getPhysics_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxScene_getTimestamp_0 = Module["_emscripten_bind_PxScene_getTimestamp_0"] = createExportWrapper("emscripten_bind_PxScene_getTimestamp_0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxScene_get_userData_0 = Module["_emscripten_bind_PxScene_get_userData_0"] = createExportWrapper("emscripten_bind_PxScene_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_set_userData_1 = Module["_emscripten_bind_PxScene_set_userData_1"] = createExportWrapper("emscripten_bind_PxScene_set_userData_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxSceneDesc_PxSceneDesc_1 = Module["_emscripten_bind_PxSceneDesc_PxSceneDesc_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_PxSceneDesc_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_setToDefault_1 = Module["_emscripten_bind_PxSceneDesc_setToDefault_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_setToDefault_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_isValid_0 = Module["_emscripten_bind_PxSceneDesc_isValid_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_isValid_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSceneDesc_get_gravity_0 = Module["_emscripten_bind_PxSceneDesc_get_gravity_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_gravity_0");
@@ -4955,10 +5817,88 @@ var _emscripten_bind_PxSceneDesc_get_simulationEventCallback_0 = Module["_emscri
 var _emscripten_bind_PxSceneDesc_set_simulationEventCallback_1 = Module["_emscripten_bind_PxSceneDesc_set_simulationEventCallback_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_simulationEventCallback_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_filterShaderData_0 = Module["_emscripten_bind_PxSceneDesc_get_filterShaderData_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_filterShaderData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_filterShaderData_1 = Module["_emscripten_bind_PxSceneDesc_set_filterShaderData_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_filterShaderData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_filterShaderDataSize_0 = Module["_emscripten_bind_PxSceneDesc_get_filterShaderDataSize_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_filterShaderDataSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_filterShaderDataSize_1 = Module["_emscripten_bind_PxSceneDesc_set_filterShaderDataSize_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_filterShaderDataSize_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxSceneDesc_get_filterShader_0 = Module["_emscripten_bind_PxSceneDesc_get_filterShader_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_filterShader_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSceneDesc_set_filterShader_1 = Module["_emscripten_bind_PxSceneDesc_set_filterShader_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_filterShader_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_kineKineFilteringMode_0 = Module["_emscripten_bind_PxSceneDesc_get_kineKineFilteringMode_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_kineKineFilteringMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_kineKineFilteringMode_1 = Module["_emscripten_bind_PxSceneDesc_set_kineKineFilteringMode_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_kineKineFilteringMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_staticKineFilteringMode_0 = Module["_emscripten_bind_PxSceneDesc_get_staticKineFilteringMode_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_staticKineFilteringMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_staticKineFilteringMode_1 = Module["_emscripten_bind_PxSceneDesc_set_staticKineFilteringMode_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_staticKineFilteringMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_broadPhaseType_0 = Module["_emscripten_bind_PxSceneDesc_get_broadPhaseType_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_broadPhaseType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_broadPhaseType_1 = Module["_emscripten_bind_PxSceneDesc_set_broadPhaseType_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_broadPhaseType_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_limits_0 = Module["_emscripten_bind_PxSceneDesc_get_limits_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_limits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_limits_1 = Module["_emscripten_bind_PxSceneDesc_set_limits_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_limits_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_frictionType_0 = Module["_emscripten_bind_PxSceneDesc_get_frictionType_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_frictionType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_frictionType_1 = Module["_emscripten_bind_PxSceneDesc_set_frictionType_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_frictionType_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_solverType_0 = Module["_emscripten_bind_PxSceneDesc_get_solverType_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_solverType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_solverType_1 = Module["_emscripten_bind_PxSceneDesc_set_solverType_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_solverType_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_bounceThresholdVelocity_0 = Module["_emscripten_bind_PxSceneDesc_get_bounceThresholdVelocity_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_bounceThresholdVelocity_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_bounceThresholdVelocity_1 = Module["_emscripten_bind_PxSceneDesc_set_bounceThresholdVelocity_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_bounceThresholdVelocity_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_frictionOffsetThreshold_0 = Module["_emscripten_bind_PxSceneDesc_get_frictionOffsetThreshold_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_frictionOffsetThreshold_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_frictionOffsetThreshold_1 = Module["_emscripten_bind_PxSceneDesc_set_frictionOffsetThreshold_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_frictionOffsetThreshold_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_ccdMaxSeparation_0 = Module["_emscripten_bind_PxSceneDesc_get_ccdMaxSeparation_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_ccdMaxSeparation_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_ccdMaxSeparation_1 = Module["_emscripten_bind_PxSceneDesc_set_ccdMaxSeparation_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_ccdMaxSeparation_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_solverOffsetSlop_0 = Module["_emscripten_bind_PxSceneDesc_get_solverOffsetSlop_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_solverOffsetSlop_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_solverOffsetSlop_1 = Module["_emscripten_bind_PxSceneDesc_set_solverOffsetSlop_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_solverOffsetSlop_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_flags_0 = Module["_emscripten_bind_PxSceneDesc_get_flags_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_flags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_flags_1 = Module["_emscripten_bind_PxSceneDesc_set_flags_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_flags_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSceneDesc_get_cpuDispatcher_0 = Module["_emscripten_bind_PxSceneDesc_get_cpuDispatcher_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_cpuDispatcher_0");
@@ -4967,10 +5907,112 @@ var _emscripten_bind_PxSceneDesc_get_cpuDispatcher_0 = Module["_emscripten_bind_
 var _emscripten_bind_PxSceneDesc_set_cpuDispatcher_1 = Module["_emscripten_bind_PxSceneDesc_set_cpuDispatcher_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_cpuDispatcher_1");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_PxSceneDesc_get_flags_0 = Module["_emscripten_bind_PxSceneDesc_get_flags_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_flags_0");
+var _emscripten_bind_PxSceneDesc_get_cudaContextManager_0 = Module["_emscripten_bind_PxSceneDesc_get_cudaContextManager_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_cudaContextManager_0");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_PxSceneDesc_set_flags_1 = Module["_emscripten_bind_PxSceneDesc_set_flags_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_flags_1");
+var _emscripten_bind_PxSceneDesc_set_cudaContextManager_1 = Module["_emscripten_bind_PxSceneDesc_set_cudaContextManager_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_cudaContextManager_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_staticStructure_0 = Module["_emscripten_bind_PxSceneDesc_get_staticStructure_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_staticStructure_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_staticStructure_1 = Module["_emscripten_bind_PxSceneDesc_set_staticStructure_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_staticStructure_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_dynamicStructure_0 = Module["_emscripten_bind_PxSceneDesc_get_dynamicStructure_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_dynamicStructure_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_dynamicStructure_1 = Module["_emscripten_bind_PxSceneDesc_set_dynamicStructure_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_dynamicStructure_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_dynamicTreeRebuildRateHint_0 = Module["_emscripten_bind_PxSceneDesc_get_dynamicTreeRebuildRateHint_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_dynamicTreeRebuildRateHint_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_dynamicTreeRebuildRateHint_1 = Module["_emscripten_bind_PxSceneDesc_set_dynamicTreeRebuildRateHint_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_dynamicTreeRebuildRateHint_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_sceneQueryUpdateMode_0 = Module["_emscripten_bind_PxSceneDesc_get_sceneQueryUpdateMode_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_sceneQueryUpdateMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_sceneQueryUpdateMode_1 = Module["_emscripten_bind_PxSceneDesc_set_sceneQueryUpdateMode_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_sceneQueryUpdateMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_userData_0 = Module["_emscripten_bind_PxSceneDesc_get_userData_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_userData_1 = Module["_emscripten_bind_PxSceneDesc_set_userData_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_userData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_solverBatchSize_0 = Module["_emscripten_bind_PxSceneDesc_get_solverBatchSize_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_solverBatchSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_solverBatchSize_1 = Module["_emscripten_bind_PxSceneDesc_set_solverBatchSize_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_solverBatchSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_solverArticulationBatchSize_0 = Module["_emscripten_bind_PxSceneDesc_get_solverArticulationBatchSize_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_solverArticulationBatchSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_solverArticulationBatchSize_1 = Module["_emscripten_bind_PxSceneDesc_set_solverArticulationBatchSize_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_solverArticulationBatchSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_nbContactDataBlocks_0 = Module["_emscripten_bind_PxSceneDesc_get_nbContactDataBlocks_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_nbContactDataBlocks_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_nbContactDataBlocks_1 = Module["_emscripten_bind_PxSceneDesc_set_nbContactDataBlocks_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_nbContactDataBlocks_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_maxBiasCoefficient_0 = Module["_emscripten_bind_PxSceneDesc_get_maxBiasCoefficient_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_maxBiasCoefficient_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_maxBiasCoefficient_1 = Module["_emscripten_bind_PxSceneDesc_set_maxBiasCoefficient_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_maxBiasCoefficient_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_contactReportStreamBufferSize_0 = Module["_emscripten_bind_PxSceneDesc_get_contactReportStreamBufferSize_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_contactReportStreamBufferSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_contactReportStreamBufferSize_1 = Module["_emscripten_bind_PxSceneDesc_set_contactReportStreamBufferSize_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_contactReportStreamBufferSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_ccdMaxPasses_0 = Module["_emscripten_bind_PxSceneDesc_get_ccdMaxPasses_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_ccdMaxPasses_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_ccdMaxPasses_1 = Module["_emscripten_bind_PxSceneDesc_set_ccdMaxPasses_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_ccdMaxPasses_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_ccdThreshold_0 = Module["_emscripten_bind_PxSceneDesc_get_ccdThreshold_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_ccdThreshold_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_ccdThreshold_1 = Module["_emscripten_bind_PxSceneDesc_set_ccdThreshold_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_ccdThreshold_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_wakeCounterResetValue_0 = Module["_emscripten_bind_PxSceneDesc_get_wakeCounterResetValue_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_wakeCounterResetValue_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_wakeCounterResetValue_1 = Module["_emscripten_bind_PxSceneDesc_set_wakeCounterResetValue_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_wakeCounterResetValue_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_sanityBounds_0 = Module["_emscripten_bind_PxSceneDesc_get_sanityBounds_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_sanityBounds_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_sanityBounds_1 = Module["_emscripten_bind_PxSceneDesc_set_sanityBounds_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_sanityBounds_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_gpuDynamicsConfig_0 = Module["_emscripten_bind_PxSceneDesc_get_gpuDynamicsConfig_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_gpuDynamicsConfig_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_gpuDynamicsConfig_1 = Module["_emscripten_bind_PxSceneDesc_set_gpuDynamicsConfig_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_gpuDynamicsConfig_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_gpuMaxNumPartitions_0 = Module["_emscripten_bind_PxSceneDesc_get_gpuMaxNumPartitions_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_gpuMaxNumPartitions_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_gpuMaxNumPartitions_1 = Module["_emscripten_bind_PxSceneDesc_set_gpuMaxNumPartitions_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_gpuMaxNumPartitions_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_get_gpuComputeVersion_0 = Module["_emscripten_bind_PxSceneDesc_get_gpuComputeVersion_0"] = createExportWrapper("emscripten_bind_PxSceneDesc_get_gpuComputeVersion_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneDesc_set_gpuComputeVersion_1 = Module["_emscripten_bind_PxSceneDesc_set_gpuComputeVersion_1"] = createExportWrapper("emscripten_bind_PxSceneDesc_set_gpuComputeVersion_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSceneDesc___destroy___0 = Module["_emscripten_bind_PxSceneDesc___destroy___0"] = createExportWrapper("emscripten_bind_PxSceneDesc___destroy___0");
@@ -4989,6 +6031,159 @@ var _emscripten_bind_PxSceneFlags_clear_1 = Module["_emscripten_bind_PxSceneFlag
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSceneFlags___destroy___0 = Module["_emscripten_bind_PxSceneFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxSceneFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_PxSceneLimits_0 = Module["_emscripten_bind_PxSceneLimits_PxSceneLimits_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_PxSceneLimits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_setToDefault_0 = Module["_emscripten_bind_PxSceneLimits_setToDefault_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_setToDefault_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_isValid_0 = Module["_emscripten_bind_PxSceneLimits_isValid_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_isValid_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_get_maxNbActors_0 = Module["_emscripten_bind_PxSceneLimits_get_maxNbActors_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_get_maxNbActors_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_set_maxNbActors_1 = Module["_emscripten_bind_PxSceneLimits_set_maxNbActors_1"] = createExportWrapper("emscripten_bind_PxSceneLimits_set_maxNbActors_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_get_maxNbBodies_0 = Module["_emscripten_bind_PxSceneLimits_get_maxNbBodies_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_get_maxNbBodies_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_set_maxNbBodies_1 = Module["_emscripten_bind_PxSceneLimits_set_maxNbBodies_1"] = createExportWrapper("emscripten_bind_PxSceneLimits_set_maxNbBodies_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_get_maxNbStaticShapes_0 = Module["_emscripten_bind_PxSceneLimits_get_maxNbStaticShapes_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_get_maxNbStaticShapes_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_set_maxNbStaticShapes_1 = Module["_emscripten_bind_PxSceneLimits_set_maxNbStaticShapes_1"] = createExportWrapper("emscripten_bind_PxSceneLimits_set_maxNbStaticShapes_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_get_maxNbDynamicShapes_0 = Module["_emscripten_bind_PxSceneLimits_get_maxNbDynamicShapes_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_get_maxNbDynamicShapes_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_set_maxNbDynamicShapes_1 = Module["_emscripten_bind_PxSceneLimits_set_maxNbDynamicShapes_1"] = createExportWrapper("emscripten_bind_PxSceneLimits_set_maxNbDynamicShapes_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_get_maxNbAggregates_0 = Module["_emscripten_bind_PxSceneLimits_get_maxNbAggregates_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_get_maxNbAggregates_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_set_maxNbAggregates_1 = Module["_emscripten_bind_PxSceneLimits_set_maxNbAggregates_1"] = createExportWrapper("emscripten_bind_PxSceneLimits_set_maxNbAggregates_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_get_maxNbConstraints_0 = Module["_emscripten_bind_PxSceneLimits_get_maxNbConstraints_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_get_maxNbConstraints_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_set_maxNbConstraints_1 = Module["_emscripten_bind_PxSceneLimits_set_maxNbConstraints_1"] = createExportWrapper("emscripten_bind_PxSceneLimits_set_maxNbConstraints_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_get_maxNbRegions_0 = Module["_emscripten_bind_PxSceneLimits_get_maxNbRegions_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_get_maxNbRegions_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_set_maxNbRegions_1 = Module["_emscripten_bind_PxSceneLimits_set_maxNbRegions_1"] = createExportWrapper("emscripten_bind_PxSceneLimits_set_maxNbRegions_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_get_maxNbBroadPhaseOverlaps_0 = Module["_emscripten_bind_PxSceneLimits_get_maxNbBroadPhaseOverlaps_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_get_maxNbBroadPhaseOverlaps_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits_set_maxNbBroadPhaseOverlaps_1 = Module["_emscripten_bind_PxSceneLimits_set_maxNbBroadPhaseOverlaps_1"] = createExportWrapper("emscripten_bind_PxSceneLimits_set_maxNbBroadPhaseOverlaps_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneLimits___destroy___0 = Module["_emscripten_bind_PxSceneLimits___destroy___0"] = createExportWrapper("emscripten_bind_PxSceneLimits___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getReferenceCount_0 = Module["_emscripten_bind_PxShape_getReferenceCount_0"] = createExportWrapper("emscripten_bind_PxShape_getReferenceCount_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_acquireReference_0 = Module["_emscripten_bind_PxShape_acquireReference_0"] = createExportWrapper("emscripten_bind_PxShape_acquireReference_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getGeometryType_0 = Module["_emscripten_bind_PxShape_getGeometryType_0"] = createExportWrapper("emscripten_bind_PxShape_getGeometryType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_setGeometry_1 = Module["_emscripten_bind_PxShape_setGeometry_1"] = createExportWrapper("emscripten_bind_PxShape_setGeometry_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getGeometry_0 = Module["_emscripten_bind_PxShape_getGeometry_0"] = createExportWrapper("emscripten_bind_PxShape_getGeometry_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getBoxGeometry_1 = Module["_emscripten_bind_PxShape_getBoxGeometry_1"] = createExportWrapper("emscripten_bind_PxShape_getBoxGeometry_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getSphereGeometry_1 = Module["_emscripten_bind_PxShape_getSphereGeometry_1"] = createExportWrapper("emscripten_bind_PxShape_getSphereGeometry_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getCapsuleGeometry_1 = Module["_emscripten_bind_PxShape_getCapsuleGeometry_1"] = createExportWrapper("emscripten_bind_PxShape_getCapsuleGeometry_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getPlaneGeometry_1 = Module["_emscripten_bind_PxShape_getPlaneGeometry_1"] = createExportWrapper("emscripten_bind_PxShape_getPlaneGeometry_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getConvexMeshGeometry_1 = Module["_emscripten_bind_PxShape_getConvexMeshGeometry_1"] = createExportWrapper("emscripten_bind_PxShape_getConvexMeshGeometry_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getTriangleMeshGeometry_1 = Module["_emscripten_bind_PxShape_getTriangleMeshGeometry_1"] = createExportWrapper("emscripten_bind_PxShape_getTriangleMeshGeometry_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getHeightFieldGeometry_1 = Module["_emscripten_bind_PxShape_getHeightFieldGeometry_1"] = createExportWrapper("emscripten_bind_PxShape_getHeightFieldGeometry_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getActor_0 = Module["_emscripten_bind_PxShape_getActor_0"] = createExportWrapper("emscripten_bind_PxShape_getActor_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_setMaterials_2 = Module["_emscripten_bind_PxShape_setMaterials_2"] = createExportWrapper("emscripten_bind_PxShape_setMaterials_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getNbMaterials_0 = Module["_emscripten_bind_PxShape_getNbMaterials_0"] = createExportWrapper("emscripten_bind_PxShape_getNbMaterials_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getMaterials_3 = Module["_emscripten_bind_PxShape_getMaterials_3"] = createExportWrapper("emscripten_bind_PxShape_getMaterials_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getMaterialFromInternalFaceIndex_1 = Module["_emscripten_bind_PxShape_getMaterialFromInternalFaceIndex_1"] = createExportWrapper("emscripten_bind_PxShape_getMaterialFromInternalFaceIndex_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_setContactOffset_1 = Module["_emscripten_bind_PxShape_setContactOffset_1"] = createExportWrapper("emscripten_bind_PxShape_setContactOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getContactOffset_0 = Module["_emscripten_bind_PxShape_getContactOffset_0"] = createExportWrapper("emscripten_bind_PxShape_getContactOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_setRestOffset_1 = Module["_emscripten_bind_PxShape_setRestOffset_1"] = createExportWrapper("emscripten_bind_PxShape_setRestOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getRestOffset_0 = Module["_emscripten_bind_PxShape_getRestOffset_0"] = createExportWrapper("emscripten_bind_PxShape_getRestOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_setTorsionalPatchRadius_1 = Module["_emscripten_bind_PxShape_setTorsionalPatchRadius_1"] = createExportWrapper("emscripten_bind_PxShape_setTorsionalPatchRadius_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getTorsionalPatchRadius_0 = Module["_emscripten_bind_PxShape_getTorsionalPatchRadius_0"] = createExportWrapper("emscripten_bind_PxShape_getTorsionalPatchRadius_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_setMinTorsionalPatchRadius_1 = Module["_emscripten_bind_PxShape_setMinTorsionalPatchRadius_1"] = createExportWrapper("emscripten_bind_PxShape_setMinTorsionalPatchRadius_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getMinTorsionalPatchRadius_0 = Module["_emscripten_bind_PxShape_getMinTorsionalPatchRadius_0"] = createExportWrapper("emscripten_bind_PxShape_getMinTorsionalPatchRadius_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_setFlag_2 = Module["_emscripten_bind_PxShape_setFlag_2"] = createExportWrapper("emscripten_bind_PxShape_setFlag_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_setFlags_1 = Module["_emscripten_bind_PxShape_setFlags_1"] = createExportWrapper("emscripten_bind_PxShape_setFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getFlags_0 = Module["_emscripten_bind_PxShape_getFlags_0"] = createExportWrapper("emscripten_bind_PxShape_getFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_isExclusive_0 = Module["_emscripten_bind_PxShape_isExclusive_0"] = createExportWrapper("emscripten_bind_PxShape_isExclusive_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_setName_1 = Module["_emscripten_bind_PxShape_setName_1"] = createExportWrapper("emscripten_bind_PxShape_setName_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_getName_0 = Module["_emscripten_bind_PxShape_getName_0"] = createExportWrapper("emscripten_bind_PxShape_getName_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxShape_setLocalPose_1 = Module["_emscripten_bind_PxShape_setLocalPose_1"] = createExportWrapper("emscripten_bind_PxShape_setLocalPose_1");
@@ -5027,6 +6222,12 @@ var _emscripten_bind_PxShape_getBaseFlags_0 = Module["_emscripten_bind_PxShape_g
 var _emscripten_bind_PxShape_isReleasable_0 = Module["_emscripten_bind_PxShape_isReleasable_0"] = createExportWrapper("emscripten_bind_PxShape_isReleasable_0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxShape_get_userData_0 = Module["_emscripten_bind_PxShape_get_userData_0"] = createExportWrapper("emscripten_bind_PxShape_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShape_set_userData_1 = Module["_emscripten_bind_PxShape_set_userData_1"] = createExportWrapper("emscripten_bind_PxShape_set_userData_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxShapeFlags_PxShapeFlags_1 = Module["_emscripten_bind_PxShapeFlags_PxShapeFlags_1"] = createExportWrapper("emscripten_bind_PxShapeFlags_PxShapeFlags_1");
 
 /** @type {function(...*):?} */
@@ -5042,7 +6243,7 @@ var _emscripten_bind_PxShapeFlags_clear_1 = Module["_emscripten_bind_PxShapeFlag
 var _emscripten_bind_PxShapeFlags___destroy___0 = Module["_emscripten_bind_PxShapeFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxShapeFlags___destroy___0");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_JavaSimulationEventCallback_JavaSimpleSimulationEventCallback_0 = Module["_emscripten_bind_JavaSimulationEventCallback_JavaSimpleSimulationEventCallback_0"] = createExportWrapper("emscripten_bind_JavaSimulationEventCallback_JavaSimpleSimulationEventCallback_0");
+var _emscripten_bind_JavaSimulationEventCallback_JavaSimulationEventCallback_0 = Module["_emscripten_bind_JavaSimulationEventCallback_JavaSimulationEventCallback_0"] = createExportWrapper("emscripten_bind_JavaSimulationEventCallback_JavaSimulationEventCallback_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_JavaSimulationEventCallback_onConstraintBreak_2 = Module["_emscripten_bind_JavaSimulationEventCallback_onConstraintBreak_2"] = createExportWrapper("emscripten_bind_JavaSimulationEventCallback_onConstraintBreak_2");
@@ -5066,6 +6267,147 @@ var _emscripten_bind_JavaSimulationEventCallback___destroy___0 = Module["_emscri
 var _emscripten_bind_PxSimulationFilterShader___destroy___0 = Module["_emscripten_bind_PxSimulationFilterShader___destroy___0"] = createExportWrapper("emscripten_bind_PxSimulationFilterShader___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbActiveConstraints_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbActiveConstraints_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbActiveConstraints_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbActiveConstraints_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbActiveConstraints_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbActiveConstraints_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbActiveDynamicBodies_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbActiveDynamicBodies_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbActiveDynamicBodies_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbActiveDynamicBodies_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbActiveDynamicBodies_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbActiveDynamicBodies_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbActiveKinematicBodies_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbActiveKinematicBodies_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbActiveKinematicBodies_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbActiveKinematicBodies_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbActiveKinematicBodies_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbActiveKinematicBodies_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbStaticBodies_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbStaticBodies_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbStaticBodies_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbStaticBodies_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbStaticBodies_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbStaticBodies_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbDynamicBodies_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbDynamicBodies_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbDynamicBodies_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbDynamicBodies_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbDynamicBodies_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbDynamicBodies_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbKinematicBodies_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbKinematicBodies_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbKinematicBodies_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbKinematicBodies_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbKinematicBodies_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbKinematicBodies_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbShapes_1 = Module["_emscripten_bind_PxSimulationStatistics_get_nbShapes_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbShapes_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbShapes_2 = Module["_emscripten_bind_PxSimulationStatistics_set_nbShapes_2"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbShapes_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbAggregates_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbAggregates_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbAggregates_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbAggregates_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbAggregates_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbAggregates_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbArticulations_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbArticulations_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbArticulations_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbArticulations_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbArticulations_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbArticulations_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbAxisSolverConstraints_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbAxisSolverConstraints_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbAxisSolverConstraints_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbAxisSolverConstraints_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbAxisSolverConstraints_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbAxisSolverConstraints_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_compressedContactSize_0 = Module["_emscripten_bind_PxSimulationStatistics_get_compressedContactSize_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_compressedContactSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_compressedContactSize_1 = Module["_emscripten_bind_PxSimulationStatistics_set_compressedContactSize_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_compressedContactSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_requiredContactConstraintMemory_0 = Module["_emscripten_bind_PxSimulationStatistics_get_requiredContactConstraintMemory_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_requiredContactConstraintMemory_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_requiredContactConstraintMemory_1 = Module["_emscripten_bind_PxSimulationStatistics_set_requiredContactConstraintMemory_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_requiredContactConstraintMemory_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_peakConstraintMemory_0 = Module["_emscripten_bind_PxSimulationStatistics_get_peakConstraintMemory_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_peakConstraintMemory_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_peakConstraintMemory_1 = Module["_emscripten_bind_PxSimulationStatistics_set_peakConstraintMemory_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_peakConstraintMemory_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsTotal_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsTotal_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsTotal_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsTotal_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsTotal_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsTotal_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsWithCacheHits_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsWithCacheHits_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsWithCacheHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsWithCacheHits_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsWithCacheHits_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsWithCacheHits_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsWithContacts_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsWithContacts_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsWithContacts_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsWithContacts_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsWithContacts_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsWithContacts_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbNewPairs_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbNewPairs_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbNewPairs_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbNewPairs_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbNewPairs_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbNewPairs_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbLostPairs_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbLostPairs_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbLostPairs_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbLostPairs_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbLostPairs_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbLostPairs_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbNewTouches_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbNewTouches_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbNewTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbNewTouches_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbNewTouches_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbNewTouches_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbLostTouches_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbLostTouches_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbLostTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbLostTouches_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbLostTouches_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbLostTouches_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbPartitions_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbPartitions_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbPartitions_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbPartitions_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbPartitions_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbPartitions_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbBroadPhaseAdds_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbBroadPhaseAdds_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbBroadPhaseAdds_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbBroadPhaseAdds_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbBroadPhaseAdds_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbBroadPhaseAdds_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_get_nbBroadPhaseRemoves_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbBroadPhaseRemoves_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbBroadPhaseRemoves_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics_set_nbBroadPhaseRemoves_1 = Module["_emscripten_bind_PxSimulationStatistics_set_nbBroadPhaseRemoves_1"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_set_nbBroadPhaseRemoves_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationStatistics___destroy___0 = Module["_emscripten_bind_PxSimulationStatistics___destroy___0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxSpatialVelocity_get_linear_0 = Module["_emscripten_bind_PxSpatialVelocity_get_linear_0"] = createExportWrapper("emscripten_bind_PxSpatialVelocity_get_linear_0");
 
 /** @type {function(...*):?} */
@@ -5079,6 +6421,45 @@ var _emscripten_bind_PxSpatialVelocity_set_angular_1 = Module["_emscripten_bind_
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSpatialVelocity___destroy___0 = Module["_emscripten_bind_PxSpatialVelocity___destroy___0"] = createExportWrapper("emscripten_bind_PxSpatialVelocity___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_PxSweepBuffer10_0 = Module["_emscripten_bind_PxSweepBuffer10_PxSweepBuffer10_0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_PxSweepBuffer10_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_getNbAnyHits_0 = Module["_emscripten_bind_PxSweepBuffer10_getNbAnyHits_0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_getNbAnyHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_getAnyHit_1 = Module["_emscripten_bind_PxSweepBuffer10_getAnyHit_1"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_getAnyHit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_getNbTouches_0 = Module["_emscripten_bind_PxSweepBuffer10_getNbTouches_0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_getNbTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_getTouches_0 = Module["_emscripten_bind_PxSweepBuffer10_getTouches_0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_getTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_getTouch_1 = Module["_emscripten_bind_PxSweepBuffer10_getTouch_1"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_getTouch_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_getMaxNbTouches_0 = Module["_emscripten_bind_PxSweepBuffer10_getMaxNbTouches_0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_getMaxNbTouches_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_hasAnyHits_0 = Module["_emscripten_bind_PxSweepBuffer10_hasAnyHits_0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_hasAnyHits_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_get_block_0 = Module["_emscripten_bind_PxSweepBuffer10_get_block_0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_get_block_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_set_block_1 = Module["_emscripten_bind_PxSweepBuffer10_set_block_1"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_set_block_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_get_hasBlock_0 = Module["_emscripten_bind_PxSweepBuffer10_get_hasBlock_0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_get_hasBlock_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10_set_hasBlock_1 = Module["_emscripten_bind_PxSweepBuffer10_set_hasBlock_1"] = createExportWrapper("emscripten_bind_PxSweepBuffer10_set_hasBlock_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepBuffer10___destroy___0 = Module["_emscripten_bind_PxSweepBuffer10___destroy___0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSweepHit_get_actor_0 = Module["_emscripten_bind_PxSweepHit_get_actor_0"] = createExportWrapper("emscripten_bind_PxSweepHit_get_actor_0");
@@ -6380,6 +7761,9 @@ var _emscripten_bind_PxWheelQueryResult___destroy___0 = Module["_emscripten_bind
 var _emscripten_bind_PxBoxGeometry_PxBoxGeometry_3 = Module["_emscripten_bind_PxBoxGeometry_PxBoxGeometry_3"] = createExportWrapper("emscripten_bind_PxBoxGeometry_PxBoxGeometry_3");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxBoxGeometry_getType_0 = Module["_emscripten_bind_PxBoxGeometry_getType_0"] = createExportWrapper("emscripten_bind_PxBoxGeometry_getType_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxBoxGeometry___destroy___0 = Module["_emscripten_bind_PxBoxGeometry___destroy___0"] = createExportWrapper("emscripten_bind_PxBoxGeometry___destroy___0");
 
 /** @type {function(...*):?} */
@@ -6402,6 +7786,9 @@ var _emscripten_bind_PxBVHStructure_isReleasable_0 = Module["_emscripten_bind_Px
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxCapsuleGeometry_PxCapsuleGeometry_2 = Module["_emscripten_bind_PxCapsuleGeometry_PxCapsuleGeometry_2"] = createExportWrapper("emscripten_bind_PxCapsuleGeometry_PxCapsuleGeometry_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleGeometry_getType_0 = Module["_emscripten_bind_PxCapsuleGeometry_getType_0"] = createExportWrapper("emscripten_bind_PxCapsuleGeometry_getType_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxCapsuleGeometry___destroy___0 = Module["_emscripten_bind_PxCapsuleGeometry___destroy___0"] = createExportWrapper("emscripten_bind_PxCapsuleGeometry___destroy___0");
@@ -6461,6 +7848,9 @@ var _emscripten_bind_PxConvexMeshGeometry_PxConvexMeshGeometry_2 = Module["_emsc
 var _emscripten_bind_PxConvexMeshGeometry_PxConvexMeshGeometry_3 = Module["_emscripten_bind_PxConvexMeshGeometry_PxConvexMeshGeometry_3"] = createExportWrapper("emscripten_bind_PxConvexMeshGeometry_PxConvexMeshGeometry_3");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxConvexMeshGeometry_getType_0 = Module["_emscripten_bind_PxConvexMeshGeometry_getType_0"] = createExportWrapper("emscripten_bind_PxConvexMeshGeometry_getType_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxConvexMeshGeometry___destroy___0 = Module["_emscripten_bind_PxConvexMeshGeometry___destroy___0"] = createExportWrapper("emscripten_bind_PxConvexMeshGeometry___destroy___0");
 
 /** @type {function(...*):?} */
@@ -6477,6 +7867,270 @@ var _emscripten_bind_PxConvexMeshGeometryFlags_clear_1 = Module["_emscripten_bin
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxConvexMeshGeometryFlags___destroy___0 = Module["_emscripten_bind_PxConvexMeshGeometryFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxConvexMeshGeometryFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_PxGeometryHolder_0 = Module["_emscripten_bind_PxGeometryHolder_PxGeometryHolder_0"] = createExportWrapper("emscripten_bind_PxGeometryHolder_PxGeometryHolder_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_PxGeometryHolder_1 = Module["_emscripten_bind_PxGeometryHolder_PxGeometryHolder_1"] = createExportWrapper("emscripten_bind_PxGeometryHolder_PxGeometryHolder_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_getType_0 = Module["_emscripten_bind_PxGeometryHolder_getType_0"] = createExportWrapper("emscripten_bind_PxGeometryHolder_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_sphere_0 = Module["_emscripten_bind_PxGeometryHolder_sphere_0"] = createExportWrapper("emscripten_bind_PxGeometryHolder_sphere_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_plane_0 = Module["_emscripten_bind_PxGeometryHolder_plane_0"] = createExportWrapper("emscripten_bind_PxGeometryHolder_plane_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_capsule_0 = Module["_emscripten_bind_PxGeometryHolder_capsule_0"] = createExportWrapper("emscripten_bind_PxGeometryHolder_capsule_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_box_0 = Module["_emscripten_bind_PxGeometryHolder_box_0"] = createExportWrapper("emscripten_bind_PxGeometryHolder_box_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_convexMesh_0 = Module["_emscripten_bind_PxGeometryHolder_convexMesh_0"] = createExportWrapper("emscripten_bind_PxGeometryHolder_convexMesh_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_triangleMesh_0 = Module["_emscripten_bind_PxGeometryHolder_triangleMesh_0"] = createExportWrapper("emscripten_bind_PxGeometryHolder_triangleMesh_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_heightField_0 = Module["_emscripten_bind_PxGeometryHolder_heightField_0"] = createExportWrapper("emscripten_bind_PxGeometryHolder_heightField_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder_storeAny_1 = Module["_emscripten_bind_PxGeometryHolder_storeAny_1"] = createExportWrapper("emscripten_bind_PxGeometryHolder_storeAny_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryHolder___destroy___0 = Module["_emscripten_bind_PxGeometryHolder___destroy___0"] = createExportWrapper("emscripten_bind_PxGeometryHolder___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_sweep_7 = Module["_emscripten_bind_PxGeometryQuery_sweep_7"] = createExportWrapper("emscripten_bind_PxGeometryQuery_sweep_7");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_sweep_8 = Module["_emscripten_bind_PxGeometryQuery_sweep_8"] = createExportWrapper("emscripten_bind_PxGeometryQuery_sweep_8");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_sweep_9 = Module["_emscripten_bind_PxGeometryQuery_sweep_9"] = createExportWrapper("emscripten_bind_PxGeometryQuery_sweep_9");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_overlap_4 = Module["_emscripten_bind_PxGeometryQuery_overlap_4"] = createExportWrapper("emscripten_bind_PxGeometryQuery_overlap_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_raycast_8 = Module["_emscripten_bind_PxGeometryQuery_raycast_8"] = createExportWrapper("emscripten_bind_PxGeometryQuery_raycast_8");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_pointDistance_3 = Module["_emscripten_bind_PxGeometryQuery_pointDistance_3"] = createExportWrapper("emscripten_bind_PxGeometryQuery_pointDistance_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_pointDistance_4 = Module["_emscripten_bind_PxGeometryQuery_pointDistance_4"] = createExportWrapper("emscripten_bind_PxGeometryQuery_pointDistance_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_getWorldBounds_2 = Module["_emscripten_bind_PxGeometryQuery_getWorldBounds_2"] = createExportWrapper("emscripten_bind_PxGeometryQuery_getWorldBounds_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_getWorldBounds_3 = Module["_emscripten_bind_PxGeometryQuery_getWorldBounds_3"] = createExportWrapper("emscripten_bind_PxGeometryQuery_getWorldBounds_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery_isValid_1 = Module["_emscripten_bind_PxGeometryQuery_isValid_1"] = createExportWrapper("emscripten_bind_PxGeometryQuery_isValid_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxGeometryQuery___destroy___0 = Module["_emscripten_bind_PxGeometryQuery___destroy___0"] = createExportWrapper("emscripten_bind_PxGeometryQuery___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_saveCells_2 = Module["_emscripten_bind_PxHeightField_saveCells_2"] = createExportWrapper("emscripten_bind_PxHeightField_saveCells_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_modifySamples_3 = Module["_emscripten_bind_PxHeightField_modifySamples_3"] = createExportWrapper("emscripten_bind_PxHeightField_modifySamples_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_modifySamples_4 = Module["_emscripten_bind_PxHeightField_modifySamples_4"] = createExportWrapper("emscripten_bind_PxHeightField_modifySamples_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getNbRows_0 = Module["_emscripten_bind_PxHeightField_getNbRows_0"] = createExportWrapper("emscripten_bind_PxHeightField_getNbRows_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getNbColumns_0 = Module["_emscripten_bind_PxHeightField_getNbColumns_0"] = createExportWrapper("emscripten_bind_PxHeightField_getNbColumns_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getFormat_0 = Module["_emscripten_bind_PxHeightField_getFormat_0"] = createExportWrapper("emscripten_bind_PxHeightField_getFormat_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getSampleStride_0 = Module["_emscripten_bind_PxHeightField_getSampleStride_0"] = createExportWrapper("emscripten_bind_PxHeightField_getSampleStride_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getConvexEdgeThreshold_0 = Module["_emscripten_bind_PxHeightField_getConvexEdgeThreshold_0"] = createExportWrapper("emscripten_bind_PxHeightField_getConvexEdgeThreshold_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getFlags_0 = Module["_emscripten_bind_PxHeightField_getFlags_0"] = createExportWrapper("emscripten_bind_PxHeightField_getFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getHeight_2 = Module["_emscripten_bind_PxHeightField_getHeight_2"] = createExportWrapper("emscripten_bind_PxHeightField_getHeight_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getReferenceCount_0 = Module["_emscripten_bind_PxHeightField_getReferenceCount_0"] = createExportWrapper("emscripten_bind_PxHeightField_getReferenceCount_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_acquireReference_0 = Module["_emscripten_bind_PxHeightField_acquireReference_0"] = createExportWrapper("emscripten_bind_PxHeightField_acquireReference_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getTriangleMaterialIndex_1 = Module["_emscripten_bind_PxHeightField_getTriangleMaterialIndex_1"] = createExportWrapper("emscripten_bind_PxHeightField_getTriangleMaterialIndex_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getTriangleNormal_1 = Module["_emscripten_bind_PxHeightField_getTriangleNormal_1"] = createExportWrapper("emscripten_bind_PxHeightField_getTriangleNormal_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getSample_2 = Module["_emscripten_bind_PxHeightField_getSample_2"] = createExportWrapper("emscripten_bind_PxHeightField_getSample_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getTimestamp_0 = Module["_emscripten_bind_PxHeightField_getTimestamp_0"] = createExportWrapper("emscripten_bind_PxHeightField_getTimestamp_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getConcreteTypeName_0 = Module["_emscripten_bind_PxHeightField_getConcreteTypeName_0"] = createExportWrapper("emscripten_bind_PxHeightField_getConcreteTypeName_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getConcreteType_0 = Module["_emscripten_bind_PxHeightField_getConcreteType_0"] = createExportWrapper("emscripten_bind_PxHeightField_getConcreteType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_setBaseFlag_2 = Module["_emscripten_bind_PxHeightField_setBaseFlag_2"] = createExportWrapper("emscripten_bind_PxHeightField_setBaseFlag_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_setBaseFlags_1 = Module["_emscripten_bind_PxHeightField_setBaseFlags_1"] = createExportWrapper("emscripten_bind_PxHeightField_setBaseFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_getBaseFlags_0 = Module["_emscripten_bind_PxHeightField_getBaseFlags_0"] = createExportWrapper("emscripten_bind_PxHeightField_getBaseFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightField_isReleasable_0 = Module["_emscripten_bind_PxHeightField_isReleasable_0"] = createExportWrapper("emscripten_bind_PxHeightField_isReleasable_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_PxHeightFieldDesc_0 = Module["_emscripten_bind_PxHeightFieldDesc_PxHeightFieldDesc_0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_PxHeightFieldDesc_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_setToDefault_0 = Module["_emscripten_bind_PxHeightFieldDesc_setToDefault_0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_setToDefault_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_isValid_0 = Module["_emscripten_bind_PxHeightFieldDesc_isValid_0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_isValid_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_get_nbRows_0 = Module["_emscripten_bind_PxHeightFieldDesc_get_nbRows_0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_get_nbRows_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_set_nbRows_1 = Module["_emscripten_bind_PxHeightFieldDesc_set_nbRows_1"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_set_nbRows_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_get_nbColumns_0 = Module["_emscripten_bind_PxHeightFieldDesc_get_nbColumns_0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_get_nbColumns_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_set_nbColumns_1 = Module["_emscripten_bind_PxHeightFieldDesc_set_nbColumns_1"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_set_nbColumns_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_get_format_0 = Module["_emscripten_bind_PxHeightFieldDesc_get_format_0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_get_format_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_set_format_1 = Module["_emscripten_bind_PxHeightFieldDesc_set_format_1"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_set_format_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_get_samples_0 = Module["_emscripten_bind_PxHeightFieldDesc_get_samples_0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_get_samples_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_set_samples_1 = Module["_emscripten_bind_PxHeightFieldDesc_set_samples_1"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_set_samples_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_get_convexEdgeThreshold_0 = Module["_emscripten_bind_PxHeightFieldDesc_get_convexEdgeThreshold_0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_get_convexEdgeThreshold_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_set_convexEdgeThreshold_1 = Module["_emscripten_bind_PxHeightFieldDesc_set_convexEdgeThreshold_1"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_set_convexEdgeThreshold_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_get_flags_0 = Module["_emscripten_bind_PxHeightFieldDesc_get_flags_0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_get_flags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc_set_flags_1 = Module["_emscripten_bind_PxHeightFieldDesc_set_flags_1"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc_set_flags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldDesc___destroy___0 = Module["_emscripten_bind_PxHeightFieldDesc___destroy___0"] = createExportWrapper("emscripten_bind_PxHeightFieldDesc___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldFlags_PxHeightFieldFlags_1 = Module["_emscripten_bind_PxHeightFieldFlags_PxHeightFieldFlags_1"] = createExportWrapper("emscripten_bind_PxHeightFieldFlags_PxHeightFieldFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldFlags_isSet_1 = Module["_emscripten_bind_PxHeightFieldFlags_isSet_1"] = createExportWrapper("emscripten_bind_PxHeightFieldFlags_isSet_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldFlags_set_1 = Module["_emscripten_bind_PxHeightFieldFlags_set_1"] = createExportWrapper("emscripten_bind_PxHeightFieldFlags_set_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldFlags_clear_1 = Module["_emscripten_bind_PxHeightFieldFlags_clear_1"] = createExportWrapper("emscripten_bind_PxHeightFieldFlags_clear_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldFlags___destroy___0 = Module["_emscripten_bind_PxHeightFieldFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxHeightFieldFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_0 = Module["_emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_5 = Module["_emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_5"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_isValid_0 = Module["_emscripten_bind_PxHeightFieldGeometry_isValid_0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_isValid_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_getType_0 = Module["_emscripten_bind_PxHeightFieldGeometry_getType_0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_get_heightField_0 = Module["_emscripten_bind_PxHeightFieldGeometry_get_heightField_0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_get_heightField_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_set_heightField_1 = Module["_emscripten_bind_PxHeightFieldGeometry_set_heightField_1"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_set_heightField_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_get_heightScale_0 = Module["_emscripten_bind_PxHeightFieldGeometry_get_heightScale_0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_get_heightScale_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_set_heightScale_1 = Module["_emscripten_bind_PxHeightFieldGeometry_set_heightScale_1"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_set_heightScale_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_get_rowScale_0 = Module["_emscripten_bind_PxHeightFieldGeometry_get_rowScale_0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_get_rowScale_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_set_rowScale_1 = Module["_emscripten_bind_PxHeightFieldGeometry_set_rowScale_1"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_set_rowScale_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_get_columnScale_0 = Module["_emscripten_bind_PxHeightFieldGeometry_get_columnScale_0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_get_columnScale_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_set_columnScale_1 = Module["_emscripten_bind_PxHeightFieldGeometry_set_columnScale_1"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_set_columnScale_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_get_heightFieldFlags_0 = Module["_emscripten_bind_PxHeightFieldGeometry_get_heightFieldFlags_0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_get_heightFieldFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry_set_heightFieldFlags_1 = Module["_emscripten_bind_PxHeightFieldGeometry_set_heightFieldFlags_1"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry_set_heightFieldFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldGeometry___destroy___0 = Module["_emscripten_bind_PxHeightFieldGeometry___destroy___0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_get_height_0 = Module["_emscripten_bind_PxHeightFieldSample_get_height_0"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_get_height_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_set_height_1 = Module["_emscripten_bind_PxHeightFieldSample_set_height_1"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_set_height_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_get_materialIndex0_0 = Module["_emscripten_bind_PxHeightFieldSample_get_materialIndex0_0"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_get_materialIndex0_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_set_materialIndex0_1 = Module["_emscripten_bind_PxHeightFieldSample_set_materialIndex0_1"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_set_materialIndex0_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_get_materialIndex1_0 = Module["_emscripten_bind_PxHeightFieldSample_get_materialIndex1_0"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_get_materialIndex1_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_set_materialIndex1_1 = Module["_emscripten_bind_PxHeightFieldSample_set_materialIndex1_1"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_set_materialIndex1_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample___destroy___0 = Module["_emscripten_bind_PxHeightFieldSample___destroy___0"] = createExportWrapper("emscripten_bind_PxHeightFieldSample___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxHullPolygon_PxHullPolygon_0 = Module["_emscripten_bind_PxHullPolygon_PxHullPolygon_0"] = createExportWrapper("emscripten_bind_PxHullPolygon_PxHullPolygon_0");
@@ -6548,13 +8202,40 @@ var _emscripten_bind_PxMeshScale___destroy___0 = Module["_emscripten_bind_PxMesh
 var _emscripten_bind_PxPlaneGeometry_PxPlaneGeometry_0 = Module["_emscripten_bind_PxPlaneGeometry_PxPlaneGeometry_0"] = createExportWrapper("emscripten_bind_PxPlaneGeometry_PxPlaneGeometry_0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxPlaneGeometry_getType_0 = Module["_emscripten_bind_PxPlaneGeometry_getType_0"] = createExportWrapper("emscripten_bind_PxPlaneGeometry_getType_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxPlaneGeometry___destroy___0 = Module["_emscripten_bind_PxPlaneGeometry___destroy___0"] = createExportWrapper("emscripten_bind_PxPlaneGeometry___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSphereGeometry_PxSphereGeometry_1 = Module["_emscripten_bind_PxSphereGeometry_PxSphereGeometry_1"] = createExportWrapper("emscripten_bind_PxSphereGeometry_PxSphereGeometry_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxSphereGeometry_getType_0 = Module["_emscripten_bind_PxSphereGeometry_getType_0"] = createExportWrapper("emscripten_bind_PxSphereGeometry_getType_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxSphereGeometry___destroy___0 = Module["_emscripten_bind_PxSphereGeometry___destroy___0"] = createExportWrapper("emscripten_bind_PxSphereGeometry___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTriangle_PxTriangle_0 = Module["_emscripten_bind_PxTriangle_PxTriangle_0"] = createExportWrapper("emscripten_bind_PxTriangle_PxTriangle_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTriangle_PxTriangle_3 = Module["_emscripten_bind_PxTriangle_PxTriangle_3"] = createExportWrapper("emscripten_bind_PxTriangle_PxTriangle_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTriangle_normal_1 = Module["_emscripten_bind_PxTriangle_normal_1"] = createExportWrapper("emscripten_bind_PxTriangle_normal_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTriangle_denormalizedNormal_1 = Module["_emscripten_bind_PxTriangle_denormalizedNormal_1"] = createExportWrapper("emscripten_bind_PxTriangle_denormalizedNormal_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTriangle_area_0 = Module["_emscripten_bind_PxTriangle_area_0"] = createExportWrapper("emscripten_bind_PxTriangle_area_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTriangle_pointFromUV_2 = Module["_emscripten_bind_PxTriangle_pointFromUV_2"] = createExportWrapper("emscripten_bind_PxTriangle_pointFromUV_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTriangle___destroy___0 = Module["_emscripten_bind_PxTriangle___destroy___0"] = createExportWrapper("emscripten_bind_PxTriangle___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTriangleMesh_getNbVertices_0 = Module["_emscripten_bind_PxTriangleMesh_getNbVertices_0"] = createExportWrapper("emscripten_bind_PxTriangleMesh_getNbVertices_0");
@@ -6638,6 +8319,9 @@ var _emscripten_bind_PxTriangleMeshGeometry_PxTriangleMeshGeometry_3 = Module["_
 var _emscripten_bind_PxTriangleMeshGeometry_isValid_0 = Module["_emscripten_bind_PxTriangleMeshGeometry_isValid_0"] = createExportWrapper("emscripten_bind_PxTriangleMeshGeometry_isValid_0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxTriangleMeshGeometry_getType_0 = Module["_emscripten_bind_PxTriangleMeshGeometry_getType_0"] = createExportWrapper("emscripten_bind_PxTriangleMeshGeometry_getType_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxTriangleMeshGeometry___destroy___0 = Module["_emscripten_bind_PxTriangleMeshGeometry___destroy___0"] = createExportWrapper("emscripten_bind_PxTriangleMeshGeometry___destroy___0");
 
 /** @type {function(...*):?} */
@@ -6717,6 +8401,9 @@ var _emscripten_bind_PxCooking_createConvexMesh_2 = Module["_emscripten_bind_PxC
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxCooking_createTriangleMesh_2 = Module["_emscripten_bind_PxCooking_createTriangleMesh_2"] = createExportWrapper("emscripten_bind_PxCooking_createTriangleMesh_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCooking_createHeightField_2 = Module["_emscripten_bind_PxCooking_createHeightField_2"] = createExportWrapper("emscripten_bind_PxCooking_createHeightField_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxCookingParams_PxCookingParams_1 = Module["_emscripten_bind_PxCookingParams_PxCookingParams_1"] = createExportWrapper("emscripten_bind_PxCookingParams_PxCookingParams_1");
@@ -7062,6 +8749,21 @@ var _emscripten_bind_PxTransform_set_p_1 = Module["_emscripten_bind_PxTransform_
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTransform___destroy___0 = Module["_emscripten_bind_PxTransform___destroy___0"] = createExportWrapper("emscripten_bind_PxTransform___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxStridedData_get_stride_0 = Module["_emscripten_bind_PxStridedData_get_stride_0"] = createExportWrapper("emscripten_bind_PxStridedData_get_stride_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxStridedData_set_stride_1 = Module["_emscripten_bind_PxStridedData_set_stride_1"] = createExportWrapper("emscripten_bind_PxStridedData_set_stride_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxStridedData_get_data_0 = Module["_emscripten_bind_PxStridedData_get_data_0"] = createExportWrapper("emscripten_bind_PxStridedData_get_data_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxStridedData_set_data_1 = Module["_emscripten_bind_PxStridedData_set_data_1"] = createExportWrapper("emscripten_bind_PxStridedData_set_data_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxStridedData___destroy___0 = Module["_emscripten_bind_PxStridedData___destroy___0"] = createExportWrapper("emscripten_bind_PxStridedData___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxU16StridedData_get_stride_0 = Module["_emscripten_bind_PxU16StridedData_get_stride_0"] = createExportWrapper("emscripten_bind_PxU16StridedData_get_stride_0");
@@ -8165,10 +9867,880 @@ var _emscripten_bind_PxSphericalJointFlags_clear_1 = Module["_emscripten_bind_Px
 var _emscripten_bind_PxSphericalJointFlags___destroy___0 = Module["_emscripten_bind_PxSphericalJointFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxSphericalJointFlags___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getHalfHeight_0 = Module["_emscripten_bind_PxBoxController_getHalfHeight_0"] = createExportWrapper("emscripten_bind_PxBoxController_getHalfHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getHalfSideExtent_0 = Module["_emscripten_bind_PxBoxController_getHalfSideExtent_0"] = createExportWrapper("emscripten_bind_PxBoxController_getHalfSideExtent_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getHalfForwardExtent_0 = Module["_emscripten_bind_PxBoxController_getHalfForwardExtent_0"] = createExportWrapper("emscripten_bind_PxBoxController_getHalfForwardExtent_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setHalfHeight_1 = Module["_emscripten_bind_PxBoxController_setHalfHeight_1"] = createExportWrapper("emscripten_bind_PxBoxController_setHalfHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setHalfSideExtent_1 = Module["_emscripten_bind_PxBoxController_setHalfSideExtent_1"] = createExportWrapper("emscripten_bind_PxBoxController_setHalfSideExtent_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setHalfForwardExtent_1 = Module["_emscripten_bind_PxBoxController_setHalfForwardExtent_1"] = createExportWrapper("emscripten_bind_PxBoxController_setHalfForwardExtent_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getType_0 = Module["_emscripten_bind_PxBoxController_getType_0"] = createExportWrapper("emscripten_bind_PxBoxController_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_release_0 = Module["_emscripten_bind_PxBoxController_release_0"] = createExportWrapper("emscripten_bind_PxBoxController_release_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_move_4 = Module["_emscripten_bind_PxBoxController_move_4"] = createExportWrapper("emscripten_bind_PxBoxController_move_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_move_5 = Module["_emscripten_bind_PxBoxController_move_5"] = createExportWrapper("emscripten_bind_PxBoxController_move_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setPosition_1 = Module["_emscripten_bind_PxBoxController_setPosition_1"] = createExportWrapper("emscripten_bind_PxBoxController_setPosition_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getPosition_0 = Module["_emscripten_bind_PxBoxController_getPosition_0"] = createExportWrapper("emscripten_bind_PxBoxController_getPosition_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setFootPosition_1 = Module["_emscripten_bind_PxBoxController_setFootPosition_1"] = createExportWrapper("emscripten_bind_PxBoxController_setFootPosition_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getFootPosition_0 = Module["_emscripten_bind_PxBoxController_getFootPosition_0"] = createExportWrapper("emscripten_bind_PxBoxController_getFootPosition_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getActor_0 = Module["_emscripten_bind_PxBoxController_getActor_0"] = createExportWrapper("emscripten_bind_PxBoxController_getActor_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setStepOffset_1 = Module["_emscripten_bind_PxBoxController_setStepOffset_1"] = createExportWrapper("emscripten_bind_PxBoxController_setStepOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getStepOffset_0 = Module["_emscripten_bind_PxBoxController_getStepOffset_0"] = createExportWrapper("emscripten_bind_PxBoxController_getStepOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setNonWalkableMode_1 = Module["_emscripten_bind_PxBoxController_setNonWalkableMode_1"] = createExportWrapper("emscripten_bind_PxBoxController_setNonWalkableMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getNonWalkableMode_0 = Module["_emscripten_bind_PxBoxController_getNonWalkableMode_0"] = createExportWrapper("emscripten_bind_PxBoxController_getNonWalkableMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getContactOffset_0 = Module["_emscripten_bind_PxBoxController_getContactOffset_0"] = createExportWrapper("emscripten_bind_PxBoxController_getContactOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setContactOffset_1 = Module["_emscripten_bind_PxBoxController_setContactOffset_1"] = createExportWrapper("emscripten_bind_PxBoxController_setContactOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getUpDirection_0 = Module["_emscripten_bind_PxBoxController_getUpDirection_0"] = createExportWrapper("emscripten_bind_PxBoxController_getUpDirection_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setUpDirection_1 = Module["_emscripten_bind_PxBoxController_setUpDirection_1"] = createExportWrapper("emscripten_bind_PxBoxController_setUpDirection_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getSlopeLimit_0 = Module["_emscripten_bind_PxBoxController_getSlopeLimit_0"] = createExportWrapper("emscripten_bind_PxBoxController_getSlopeLimit_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setSlopeLimit_1 = Module["_emscripten_bind_PxBoxController_setSlopeLimit_1"] = createExportWrapper("emscripten_bind_PxBoxController_setSlopeLimit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_invalidateCache_0 = Module["_emscripten_bind_PxBoxController_invalidateCache_0"] = createExportWrapper("emscripten_bind_PxBoxController_invalidateCache_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getScene_0 = Module["_emscripten_bind_PxBoxController_getScene_0"] = createExportWrapper("emscripten_bind_PxBoxController_getScene_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getUserData_0 = Module["_emscripten_bind_PxBoxController_getUserData_0"] = createExportWrapper("emscripten_bind_PxBoxController_getUserData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_setUserData_1 = Module["_emscripten_bind_PxBoxController_setUserData_1"] = createExportWrapper("emscripten_bind_PxBoxController_setUserData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getState_1 = Module["_emscripten_bind_PxBoxController_getState_1"] = createExportWrapper("emscripten_bind_PxBoxController_getState_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_getStats_1 = Module["_emscripten_bind_PxBoxController_getStats_1"] = createExportWrapper("emscripten_bind_PxBoxController_getStats_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxController_resize_1 = Module["_emscripten_bind_PxBoxController_resize_1"] = createExportWrapper("emscripten_bind_PxBoxController_resize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_PxBoxControllerDesc_0 = Module["_emscripten_bind_PxBoxControllerDesc_PxBoxControllerDesc_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_PxBoxControllerDesc_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_setToDefault_0 = Module["_emscripten_bind_PxBoxControllerDesc_setToDefault_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_setToDefault_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_isValid_0 = Module["_emscripten_bind_PxBoxControllerDesc_isValid_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_isValid_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_getType_0 = Module["_emscripten_bind_PxBoxControllerDesc_getType_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_halfHeight_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_halfHeight_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_halfHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_halfHeight_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_halfHeight_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_halfHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_halfSideExtent_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_halfSideExtent_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_halfSideExtent_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_halfSideExtent_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_halfSideExtent_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_halfSideExtent_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_halfForwardExtent_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_halfForwardExtent_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_halfForwardExtent_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_halfForwardExtent_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_halfForwardExtent_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_halfForwardExtent_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_position_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_position_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_position_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_position_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_position_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_position_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_upDirection_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_upDirection_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_upDirection_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_upDirection_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_upDirection_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_upDirection_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_slopeLimit_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_slopeLimit_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_slopeLimit_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_slopeLimit_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_slopeLimit_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_slopeLimit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_invisibleWallHeight_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_invisibleWallHeight_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_invisibleWallHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_invisibleWallHeight_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_invisibleWallHeight_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_invisibleWallHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_maxJumpHeight_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_maxJumpHeight_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_maxJumpHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_maxJumpHeight_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_maxJumpHeight_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_maxJumpHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_contactOffset_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_contactOffset_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_contactOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_contactOffset_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_contactOffset_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_contactOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_stepOffset_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_stepOffset_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_stepOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_stepOffset_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_stepOffset_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_stepOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_density_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_density_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_density_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_density_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_density_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_density_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_scaleCoeff_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_scaleCoeff_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_scaleCoeff_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_scaleCoeff_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_scaleCoeff_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_scaleCoeff_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_volumeGrowth_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_volumeGrowth_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_volumeGrowth_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_volumeGrowth_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_volumeGrowth_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_volumeGrowth_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_reportCallback_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_reportCallback_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_reportCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_reportCallback_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_reportCallback_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_reportCallback_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_nonWalkableMode_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_nonWalkableMode_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_nonWalkableMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_nonWalkableMode_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_nonWalkableMode_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_nonWalkableMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_material_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_material_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_material_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_material_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_material_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_material_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_registerDeletionListener_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_registerDeletionListener_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_registerDeletionListener_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_registerDeletionListener_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_registerDeletionListener_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_registerDeletionListener_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_userData_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_userData_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_userData_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_userData_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_userData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc___destroy___0 = Module["_emscripten_bind_PxBoxControllerDesc___destroy___0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_PxBoxObstacle_0 = Module["_emscripten_bind_PxBoxObstacle_PxBoxObstacle_0"] = createExportWrapper("emscripten_bind_PxBoxObstacle_PxBoxObstacle_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_getType_0 = Module["_emscripten_bind_PxBoxObstacle_getType_0"] = createExportWrapper("emscripten_bind_PxBoxObstacle_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_get_mHalfExtents_0 = Module["_emscripten_bind_PxBoxObstacle_get_mHalfExtents_0"] = createExportWrapper("emscripten_bind_PxBoxObstacle_get_mHalfExtents_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_set_mHalfExtents_1 = Module["_emscripten_bind_PxBoxObstacle_set_mHalfExtents_1"] = createExportWrapper("emscripten_bind_PxBoxObstacle_set_mHalfExtents_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_get_mUserData_0 = Module["_emscripten_bind_PxBoxObstacle_get_mUserData_0"] = createExportWrapper("emscripten_bind_PxBoxObstacle_get_mUserData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_set_mUserData_1 = Module["_emscripten_bind_PxBoxObstacle_set_mUserData_1"] = createExportWrapper("emscripten_bind_PxBoxObstacle_set_mUserData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_get_mPos_0 = Module["_emscripten_bind_PxBoxObstacle_get_mPos_0"] = createExportWrapper("emscripten_bind_PxBoxObstacle_get_mPos_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_set_mPos_1 = Module["_emscripten_bind_PxBoxObstacle_set_mPos_1"] = createExportWrapper("emscripten_bind_PxBoxObstacle_set_mPos_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_get_mRot_0 = Module["_emscripten_bind_PxBoxObstacle_get_mRot_0"] = createExportWrapper("emscripten_bind_PxBoxObstacle_get_mRot_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle_set_mRot_1 = Module["_emscripten_bind_PxBoxObstacle_set_mRot_1"] = createExportWrapper("emscripten_bind_PxBoxObstacle_set_mRot_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxObstacle___destroy___0 = Module["_emscripten_bind_PxBoxObstacle___destroy___0"] = createExportWrapper("emscripten_bind_PxBoxObstacle___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getRadius_0 = Module["_emscripten_bind_PxCapsuleController_getRadius_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getRadius_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setRadius_1 = Module["_emscripten_bind_PxCapsuleController_setRadius_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setRadius_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getHeight_0 = Module["_emscripten_bind_PxCapsuleController_getHeight_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setHeight_1 = Module["_emscripten_bind_PxCapsuleController_setHeight_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getClimbingMode_0 = Module["_emscripten_bind_PxCapsuleController_getClimbingMode_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getClimbingMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setClimbingMode_1 = Module["_emscripten_bind_PxCapsuleController_setClimbingMode_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setClimbingMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getType_0 = Module["_emscripten_bind_PxCapsuleController_getType_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_release_0 = Module["_emscripten_bind_PxCapsuleController_release_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_release_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_move_4 = Module["_emscripten_bind_PxCapsuleController_move_4"] = createExportWrapper("emscripten_bind_PxCapsuleController_move_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_move_5 = Module["_emscripten_bind_PxCapsuleController_move_5"] = createExportWrapper("emscripten_bind_PxCapsuleController_move_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setPosition_1 = Module["_emscripten_bind_PxCapsuleController_setPosition_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setPosition_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getPosition_0 = Module["_emscripten_bind_PxCapsuleController_getPosition_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getPosition_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setFootPosition_1 = Module["_emscripten_bind_PxCapsuleController_setFootPosition_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setFootPosition_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getFootPosition_0 = Module["_emscripten_bind_PxCapsuleController_getFootPosition_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getFootPosition_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getActor_0 = Module["_emscripten_bind_PxCapsuleController_getActor_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getActor_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setStepOffset_1 = Module["_emscripten_bind_PxCapsuleController_setStepOffset_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setStepOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getStepOffset_0 = Module["_emscripten_bind_PxCapsuleController_getStepOffset_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getStepOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setNonWalkableMode_1 = Module["_emscripten_bind_PxCapsuleController_setNonWalkableMode_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setNonWalkableMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getNonWalkableMode_0 = Module["_emscripten_bind_PxCapsuleController_getNonWalkableMode_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getNonWalkableMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getContactOffset_0 = Module["_emscripten_bind_PxCapsuleController_getContactOffset_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getContactOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setContactOffset_1 = Module["_emscripten_bind_PxCapsuleController_setContactOffset_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setContactOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getUpDirection_0 = Module["_emscripten_bind_PxCapsuleController_getUpDirection_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getUpDirection_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setUpDirection_1 = Module["_emscripten_bind_PxCapsuleController_setUpDirection_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setUpDirection_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getSlopeLimit_0 = Module["_emscripten_bind_PxCapsuleController_getSlopeLimit_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getSlopeLimit_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setSlopeLimit_1 = Module["_emscripten_bind_PxCapsuleController_setSlopeLimit_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setSlopeLimit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_invalidateCache_0 = Module["_emscripten_bind_PxCapsuleController_invalidateCache_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_invalidateCache_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getScene_0 = Module["_emscripten_bind_PxCapsuleController_getScene_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getScene_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getUserData_0 = Module["_emscripten_bind_PxCapsuleController_getUserData_0"] = createExportWrapper("emscripten_bind_PxCapsuleController_getUserData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_setUserData_1 = Module["_emscripten_bind_PxCapsuleController_setUserData_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_setUserData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getState_1 = Module["_emscripten_bind_PxCapsuleController_getState_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_getState_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_getStats_1 = Module["_emscripten_bind_PxCapsuleController_getStats_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_getStats_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleController_resize_1 = Module["_emscripten_bind_PxCapsuleController_resize_1"] = createExportWrapper("emscripten_bind_PxCapsuleController_resize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_PxCapsuleControllerDesc_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_PxCapsuleControllerDesc_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_PxCapsuleControllerDesc_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_setToDefault_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_setToDefault_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_setToDefault_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_isValid_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_isValid_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_isValid_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_getType_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_getType_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_radius_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_radius_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_radius_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_radius_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_radius_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_radius_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_height_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_height_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_height_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_height_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_height_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_height_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_climbingMode_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_climbingMode_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_climbingMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_climbingMode_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_climbingMode_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_climbingMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_position_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_position_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_position_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_position_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_position_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_position_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_upDirection_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_upDirection_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_upDirection_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_upDirection_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_upDirection_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_upDirection_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_slopeLimit_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_slopeLimit_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_slopeLimit_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_slopeLimit_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_slopeLimit_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_slopeLimit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_invisibleWallHeight_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_invisibleWallHeight_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_invisibleWallHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_invisibleWallHeight_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_invisibleWallHeight_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_invisibleWallHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_maxJumpHeight_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_maxJumpHeight_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_maxJumpHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_maxJumpHeight_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_maxJumpHeight_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_maxJumpHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_contactOffset_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_contactOffset_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_contactOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_contactOffset_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_contactOffset_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_contactOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_stepOffset_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_stepOffset_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_stepOffset_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_stepOffset_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_stepOffset_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_stepOffset_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_density_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_density_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_density_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_density_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_density_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_density_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_scaleCoeff_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_scaleCoeff_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_scaleCoeff_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_scaleCoeff_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_scaleCoeff_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_scaleCoeff_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_volumeGrowth_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_volumeGrowth_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_volumeGrowth_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_volumeGrowth_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_volumeGrowth_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_volumeGrowth_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_reportCallback_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_reportCallback_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_reportCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_reportCallback_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_reportCallback_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_reportCallback_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_nonWalkableMode_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_nonWalkableMode_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_nonWalkableMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_nonWalkableMode_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_nonWalkableMode_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_nonWalkableMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_material_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_material_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_material_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_material_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_material_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_material_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_registerDeletionListener_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_registerDeletionListener_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_registerDeletionListener_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_registerDeletionListener_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_registerDeletionListener_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_registerDeletionListener_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_userData_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_userData_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_userData_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_userData_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_userData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc___destroy___0 = Module["_emscripten_bind_PxCapsuleControllerDesc___destroy___0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_PxCapsuleObstacle_0 = Module["_emscripten_bind_PxCapsuleObstacle_PxCapsuleObstacle_0"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_PxCapsuleObstacle_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_getType_0 = Module["_emscripten_bind_PxCapsuleObstacle_getType_0"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_getType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_get_mHalfHeight_0 = Module["_emscripten_bind_PxCapsuleObstacle_get_mHalfHeight_0"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_get_mHalfHeight_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_set_mHalfHeight_1 = Module["_emscripten_bind_PxCapsuleObstacle_set_mHalfHeight_1"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_set_mHalfHeight_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_get_mRadius_0 = Module["_emscripten_bind_PxCapsuleObstacle_get_mRadius_0"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_get_mRadius_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_set_mRadius_1 = Module["_emscripten_bind_PxCapsuleObstacle_set_mRadius_1"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_set_mRadius_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_get_mUserData_0 = Module["_emscripten_bind_PxCapsuleObstacle_get_mUserData_0"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_get_mUserData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_set_mUserData_1 = Module["_emscripten_bind_PxCapsuleObstacle_set_mUserData_1"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_set_mUserData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_get_mPos_0 = Module["_emscripten_bind_PxCapsuleObstacle_get_mPos_0"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_get_mPos_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_set_mPos_1 = Module["_emscripten_bind_PxCapsuleObstacle_set_mPos_1"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_set_mPos_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_get_mRot_0 = Module["_emscripten_bind_PxCapsuleObstacle_get_mRot_0"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_get_mRot_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle_set_mRot_1 = Module["_emscripten_bind_PxCapsuleObstacle_set_mRot_1"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle_set_mRot_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleObstacle___destroy___0 = Module["_emscripten_bind_PxCapsuleObstacle___destroy___0"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerCollisionFlags_PxControllerCollisionFlags_1 = Module["_emscripten_bind_PxControllerCollisionFlags_PxControllerCollisionFlags_1"] = createExportWrapper("emscripten_bind_PxControllerCollisionFlags_PxControllerCollisionFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerCollisionFlags_isSet_1 = Module["_emscripten_bind_PxControllerCollisionFlags_isSet_1"] = createExportWrapper("emscripten_bind_PxControllerCollisionFlags_isSet_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerCollisionFlags_set_1 = Module["_emscripten_bind_PxControllerCollisionFlags_set_1"] = createExportWrapper("emscripten_bind_PxControllerCollisionFlags_set_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerCollisionFlags_clear_1 = Module["_emscripten_bind_PxControllerCollisionFlags_clear_1"] = createExportWrapper("emscripten_bind_PxControllerCollisionFlags_clear_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerCollisionFlags___destroy___0 = Module["_emscripten_bind_PxControllerCollisionFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerCollisionFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_PxControllerFilters_1 = Module["_emscripten_bind_PxControllerFilters_PxControllerFilters_1"] = createExportWrapper("emscripten_bind_PxControllerFilters_PxControllerFilters_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_get_mFilterData_0 = Module["_emscripten_bind_PxControllerFilters_get_mFilterData_0"] = createExportWrapper("emscripten_bind_PxControllerFilters_get_mFilterData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_set_mFilterData_1 = Module["_emscripten_bind_PxControllerFilters_set_mFilterData_1"] = createExportWrapper("emscripten_bind_PxControllerFilters_set_mFilterData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_get_mFilterFlags_0 = Module["_emscripten_bind_PxControllerFilters_get_mFilterFlags_0"] = createExportWrapper("emscripten_bind_PxControllerFilters_get_mFilterFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_set_mFilterFlags_1 = Module["_emscripten_bind_PxControllerFilters_set_mFilterFlags_1"] = createExportWrapper("emscripten_bind_PxControllerFilters_set_mFilterFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters___destroy___0 = Module["_emscripten_bind_PxControllerFilters___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerFilters___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_release_0 = Module["_emscripten_bind_PxControllerManager_release_0"] = createExportWrapper("emscripten_bind_PxControllerManager_release_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_getScene_0 = Module["_emscripten_bind_PxControllerManager_getScene_0"] = createExportWrapper("emscripten_bind_PxControllerManager_getScene_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_getNbControllers_0 = Module["_emscripten_bind_PxControllerManager_getNbControllers_0"] = createExportWrapper("emscripten_bind_PxControllerManager_getNbControllers_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_getController_1 = Module["_emscripten_bind_PxControllerManager_getController_1"] = createExportWrapper("emscripten_bind_PxControllerManager_getController_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_createController_1 = Module["_emscripten_bind_PxControllerManager_createController_1"] = createExportWrapper("emscripten_bind_PxControllerManager_createController_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_purgeControllers_0 = Module["_emscripten_bind_PxControllerManager_purgeControllers_0"] = createExportWrapper("emscripten_bind_PxControllerManager_purgeControllers_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_getNbObstacleContexts_0 = Module["_emscripten_bind_PxControllerManager_getNbObstacleContexts_0"] = createExportWrapper("emscripten_bind_PxControllerManager_getNbObstacleContexts_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_getObstacleContext_1 = Module["_emscripten_bind_PxControllerManager_getObstacleContext_1"] = createExportWrapper("emscripten_bind_PxControllerManager_getObstacleContext_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_createObstacleContext_0 = Module["_emscripten_bind_PxControllerManager_createObstacleContext_0"] = createExportWrapper("emscripten_bind_PxControllerManager_createObstacleContext_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_computeInteractions_1 = Module["_emscripten_bind_PxControllerManager_computeInteractions_1"] = createExportWrapper("emscripten_bind_PxControllerManager_computeInteractions_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_setTessellation_2 = Module["_emscripten_bind_PxControllerManager_setTessellation_2"] = createExportWrapper("emscripten_bind_PxControllerManager_setTessellation_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_setOverlapRecoveryModule_1 = Module["_emscripten_bind_PxControllerManager_setOverlapRecoveryModule_1"] = createExportWrapper("emscripten_bind_PxControllerManager_setOverlapRecoveryModule_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_setPreciseSweeps_1 = Module["_emscripten_bind_PxControllerManager_setPreciseSweeps_1"] = createExportWrapper("emscripten_bind_PxControllerManager_setPreciseSweeps_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_setPreventVerticalSlidingAgainstCeiling_1 = Module["_emscripten_bind_PxControllerManager_setPreventVerticalSlidingAgainstCeiling_1"] = createExportWrapper("emscripten_bind_PxControllerManager_setPreventVerticalSlidingAgainstCeiling_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerManager_shiftOrigin_1 = Module["_emscripten_bind_PxControllerManager_shiftOrigin_1"] = createExportWrapper("emscripten_bind_PxControllerManager_shiftOrigin_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_get_userData_0 = Module["_emscripten_bind_PxControllerObstacleHit_get_userData_0"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_set_userData_1 = Module["_emscripten_bind_PxControllerObstacleHit_set_userData_1"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_set_userData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_get_controller_0 = Module["_emscripten_bind_PxControllerObstacleHit_get_controller_0"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_get_controller_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_set_controller_1 = Module["_emscripten_bind_PxControllerObstacleHit_set_controller_1"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_set_controller_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_get_worldPos_0 = Module["_emscripten_bind_PxControllerObstacleHit_get_worldPos_0"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_get_worldPos_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_set_worldPos_1 = Module["_emscripten_bind_PxControllerObstacleHit_set_worldPos_1"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_set_worldPos_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_get_worldNormal_0 = Module["_emscripten_bind_PxControllerObstacleHit_get_worldNormal_0"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_get_worldNormal_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_set_worldNormal_1 = Module["_emscripten_bind_PxControllerObstacleHit_set_worldNormal_1"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_set_worldNormal_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_get_dir_0 = Module["_emscripten_bind_PxControllerObstacleHit_get_dir_0"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_get_dir_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_set_dir_1 = Module["_emscripten_bind_PxControllerObstacleHit_set_dir_1"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_set_dir_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_get_length_0 = Module["_emscripten_bind_PxControllerObstacleHit_get_length_0"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_get_length_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit_set_length_1 = Module["_emscripten_bind_PxControllerObstacleHit_set_length_1"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit_set_length_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerObstacleHit___destroy___0 = Module["_emscripten_bind_PxControllerObstacleHit___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerObstacleHit___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_get_shape_0 = Module["_emscripten_bind_PxControllerShapeHit_get_shape_0"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_get_shape_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_set_shape_1 = Module["_emscripten_bind_PxControllerShapeHit_set_shape_1"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_set_shape_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_get_actor_0 = Module["_emscripten_bind_PxControllerShapeHit_get_actor_0"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_get_actor_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_set_actor_1 = Module["_emscripten_bind_PxControllerShapeHit_set_actor_1"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_set_actor_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_get_triangleIndex_0 = Module["_emscripten_bind_PxControllerShapeHit_get_triangleIndex_0"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_get_triangleIndex_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_set_triangleIndex_1 = Module["_emscripten_bind_PxControllerShapeHit_set_triangleIndex_1"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_set_triangleIndex_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_get_controller_0 = Module["_emscripten_bind_PxControllerShapeHit_get_controller_0"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_get_controller_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_set_controller_1 = Module["_emscripten_bind_PxControllerShapeHit_set_controller_1"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_set_controller_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_get_worldPos_0 = Module["_emscripten_bind_PxControllerShapeHit_get_worldPos_0"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_get_worldPos_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_set_worldPos_1 = Module["_emscripten_bind_PxControllerShapeHit_set_worldPos_1"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_set_worldPos_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_get_worldNormal_0 = Module["_emscripten_bind_PxControllerShapeHit_get_worldNormal_0"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_get_worldNormal_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_set_worldNormal_1 = Module["_emscripten_bind_PxControllerShapeHit_set_worldNormal_1"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_set_worldNormal_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_get_dir_0 = Module["_emscripten_bind_PxControllerShapeHit_get_dir_0"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_get_dir_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_set_dir_1 = Module["_emscripten_bind_PxControllerShapeHit_set_dir_1"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_set_dir_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_get_length_0 = Module["_emscripten_bind_PxControllerShapeHit_get_length_0"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_get_length_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit_set_length_1 = Module["_emscripten_bind_PxControllerShapeHit_set_length_1"] = createExportWrapper("emscripten_bind_PxControllerShapeHit_set_length_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerShapeHit___destroy___0 = Module["_emscripten_bind_PxControllerShapeHit___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerShapeHit___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_get_other_0 = Module["_emscripten_bind_PxControllersHit_get_other_0"] = createExportWrapper("emscripten_bind_PxControllersHit_get_other_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_set_other_1 = Module["_emscripten_bind_PxControllersHit_set_other_1"] = createExportWrapper("emscripten_bind_PxControllersHit_set_other_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_get_controller_0 = Module["_emscripten_bind_PxControllersHit_get_controller_0"] = createExportWrapper("emscripten_bind_PxControllersHit_get_controller_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_set_controller_1 = Module["_emscripten_bind_PxControllersHit_set_controller_1"] = createExportWrapper("emscripten_bind_PxControllersHit_set_controller_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_get_worldPos_0 = Module["_emscripten_bind_PxControllersHit_get_worldPos_0"] = createExportWrapper("emscripten_bind_PxControllersHit_get_worldPos_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_set_worldPos_1 = Module["_emscripten_bind_PxControllersHit_set_worldPos_1"] = createExportWrapper("emscripten_bind_PxControllersHit_set_worldPos_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_get_worldNormal_0 = Module["_emscripten_bind_PxControllersHit_get_worldNormal_0"] = createExportWrapper("emscripten_bind_PxControllersHit_get_worldNormal_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_set_worldNormal_1 = Module["_emscripten_bind_PxControllersHit_set_worldNormal_1"] = createExportWrapper("emscripten_bind_PxControllersHit_set_worldNormal_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_get_dir_0 = Module["_emscripten_bind_PxControllersHit_get_dir_0"] = createExportWrapper("emscripten_bind_PxControllersHit_get_dir_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_set_dir_1 = Module["_emscripten_bind_PxControllersHit_set_dir_1"] = createExportWrapper("emscripten_bind_PxControllersHit_set_dir_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_get_length_0 = Module["_emscripten_bind_PxControllersHit_get_length_0"] = createExportWrapper("emscripten_bind_PxControllersHit_get_length_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit_set_length_1 = Module["_emscripten_bind_PxControllersHit_set_length_1"] = createExportWrapper("emscripten_bind_PxControllersHit_set_length_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllersHit___destroy___0 = Module["_emscripten_bind_PxControllersHit___destroy___0"] = createExportWrapper("emscripten_bind_PxControllersHit___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_PxControllerState_0 = Module["_emscripten_bind_PxControllerState_PxControllerState_0"] = createExportWrapper("emscripten_bind_PxControllerState_PxControllerState_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_get_deltaXP_0 = Module["_emscripten_bind_PxControllerState_get_deltaXP_0"] = createExportWrapper("emscripten_bind_PxControllerState_get_deltaXP_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_set_deltaXP_1 = Module["_emscripten_bind_PxControllerState_set_deltaXP_1"] = createExportWrapper("emscripten_bind_PxControllerState_set_deltaXP_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_get_touchedShape_0 = Module["_emscripten_bind_PxControllerState_get_touchedShape_0"] = createExportWrapper("emscripten_bind_PxControllerState_get_touchedShape_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_set_touchedShape_1 = Module["_emscripten_bind_PxControllerState_set_touchedShape_1"] = createExportWrapper("emscripten_bind_PxControllerState_set_touchedShape_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_get_touchedActor_0 = Module["_emscripten_bind_PxControllerState_get_touchedActor_0"] = createExportWrapper("emscripten_bind_PxControllerState_get_touchedActor_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_set_touchedActor_1 = Module["_emscripten_bind_PxControllerState_set_touchedActor_1"] = createExportWrapper("emscripten_bind_PxControllerState_set_touchedActor_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_get_touchedObstacleHandle_0 = Module["_emscripten_bind_PxControllerState_get_touchedObstacleHandle_0"] = createExportWrapper("emscripten_bind_PxControllerState_get_touchedObstacleHandle_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_set_touchedObstacleHandle_1 = Module["_emscripten_bind_PxControllerState_set_touchedObstacleHandle_1"] = createExportWrapper("emscripten_bind_PxControllerState_set_touchedObstacleHandle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_get_collisionFlags_0 = Module["_emscripten_bind_PxControllerState_get_collisionFlags_0"] = createExportWrapper("emscripten_bind_PxControllerState_get_collisionFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_set_collisionFlags_1 = Module["_emscripten_bind_PxControllerState_set_collisionFlags_1"] = createExportWrapper("emscripten_bind_PxControllerState_set_collisionFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_get_standOnAnotherCCT_0 = Module["_emscripten_bind_PxControllerState_get_standOnAnotherCCT_0"] = createExportWrapper("emscripten_bind_PxControllerState_get_standOnAnotherCCT_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_set_standOnAnotherCCT_1 = Module["_emscripten_bind_PxControllerState_set_standOnAnotherCCT_1"] = createExportWrapper("emscripten_bind_PxControllerState_set_standOnAnotherCCT_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_get_standOnObstacle_0 = Module["_emscripten_bind_PxControllerState_get_standOnObstacle_0"] = createExportWrapper("emscripten_bind_PxControllerState_get_standOnObstacle_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_set_standOnObstacle_1 = Module["_emscripten_bind_PxControllerState_set_standOnObstacle_1"] = createExportWrapper("emscripten_bind_PxControllerState_set_standOnObstacle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_get_isMovingUp_0 = Module["_emscripten_bind_PxControllerState_get_isMovingUp_0"] = createExportWrapper("emscripten_bind_PxControllerState_get_isMovingUp_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState_set_isMovingUp_1 = Module["_emscripten_bind_PxControllerState_set_isMovingUp_1"] = createExportWrapper("emscripten_bind_PxControllerState_set_isMovingUp_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerState___destroy___0 = Module["_emscripten_bind_PxControllerState___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerState___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerStats_get_nbIterations_0 = Module["_emscripten_bind_PxControllerStats_get_nbIterations_0"] = createExportWrapper("emscripten_bind_PxControllerStats_get_nbIterations_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerStats_set_nbIterations_1 = Module["_emscripten_bind_PxControllerStats_set_nbIterations_1"] = createExportWrapper("emscripten_bind_PxControllerStats_set_nbIterations_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerStats_get_nbFullUpdates_0 = Module["_emscripten_bind_PxControllerStats_get_nbFullUpdates_0"] = createExportWrapper("emscripten_bind_PxControllerStats_get_nbFullUpdates_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerStats_set_nbFullUpdates_1 = Module["_emscripten_bind_PxControllerStats_set_nbFullUpdates_1"] = createExportWrapper("emscripten_bind_PxControllerStats_set_nbFullUpdates_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerStats_get_nbPartialUpdates_0 = Module["_emscripten_bind_PxControllerStats_get_nbPartialUpdates_0"] = createExportWrapper("emscripten_bind_PxControllerStats_get_nbPartialUpdates_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerStats_set_nbPartialUpdates_1 = Module["_emscripten_bind_PxControllerStats_set_nbPartialUpdates_1"] = createExportWrapper("emscripten_bind_PxControllerStats_set_nbPartialUpdates_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerStats_get_nbTessellation_0 = Module["_emscripten_bind_PxControllerStats_get_nbTessellation_0"] = createExportWrapper("emscripten_bind_PxControllerStats_get_nbTessellation_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerStats_set_nbTessellation_1 = Module["_emscripten_bind_PxControllerStats_set_nbTessellation_1"] = createExportWrapper("emscripten_bind_PxControllerStats_set_nbTessellation_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerStats___destroy___0 = Module["_emscripten_bind_PxControllerStats___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerStats___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxExtendedVec3_PxExtendedVec3_0 = Module["_emscripten_bind_PxExtendedVec3_PxExtendedVec3_0"] = createExportWrapper("emscripten_bind_PxExtendedVec3_PxExtendedVec3_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxExtendedVec3_PxExtendedVec3_3 = Module["_emscripten_bind_PxExtendedVec3_PxExtendedVec3_3"] = createExportWrapper("emscripten_bind_PxExtendedVec3_PxExtendedVec3_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxExtendedVec3_get_x_0 = Module["_emscripten_bind_PxExtendedVec3_get_x_0"] = createExportWrapper("emscripten_bind_PxExtendedVec3_get_x_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxExtendedVec3_set_x_1 = Module["_emscripten_bind_PxExtendedVec3_set_x_1"] = createExportWrapper("emscripten_bind_PxExtendedVec3_set_x_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxExtendedVec3_get_y_0 = Module["_emscripten_bind_PxExtendedVec3_get_y_0"] = createExportWrapper("emscripten_bind_PxExtendedVec3_get_y_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxExtendedVec3_set_y_1 = Module["_emscripten_bind_PxExtendedVec3_set_y_1"] = createExportWrapper("emscripten_bind_PxExtendedVec3_set_y_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxExtendedVec3_get_z_0 = Module["_emscripten_bind_PxExtendedVec3_get_z_0"] = createExportWrapper("emscripten_bind_PxExtendedVec3_get_z_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxExtendedVec3_set_z_1 = Module["_emscripten_bind_PxExtendedVec3_set_z_1"] = createExportWrapper("emscripten_bind_PxExtendedVec3_set_z_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxExtendedVec3___destroy___0 = Module["_emscripten_bind_PxExtendedVec3___destroy___0"] = createExportWrapper("emscripten_bind_PxExtendedVec3___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacleContext_release_0 = Module["_emscripten_bind_PxObstacleContext_release_0"] = createExportWrapper("emscripten_bind_PxObstacleContext_release_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacleContext_getControllerManager_0 = Module["_emscripten_bind_PxObstacleContext_getControllerManager_0"] = createExportWrapper("emscripten_bind_PxObstacleContext_getControllerManager_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacleContext_addObstacle_1 = Module["_emscripten_bind_PxObstacleContext_addObstacle_1"] = createExportWrapper("emscripten_bind_PxObstacleContext_addObstacle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacleContext_removeObstacle_1 = Module["_emscripten_bind_PxObstacleContext_removeObstacle_1"] = createExportWrapper("emscripten_bind_PxObstacleContext_removeObstacle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacleContext_updateObstacle_2 = Module["_emscripten_bind_PxObstacleContext_updateObstacle_2"] = createExportWrapper("emscripten_bind_PxObstacleContext_updateObstacle_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacleContext_getNbObstacles_0 = Module["_emscripten_bind_PxObstacleContext_getNbObstacles_0"] = createExportWrapper("emscripten_bind_PxObstacleContext_getNbObstacles_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacleContext_getObstacle_1 = Module["_emscripten_bind_PxObstacleContext_getObstacle_1"] = createExportWrapper("emscripten_bind_PxObstacleContext_getObstacle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacleContext_getObstacleByHandle_1 = Module["_emscripten_bind_PxObstacleContext_getObstacleByHandle_1"] = createExportWrapper("emscripten_bind_PxObstacleContext_getObstacleByHandle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxObstacleContext___destroy___0 = Module["_emscripten_bind_PxObstacleContext___destroy___0"] = createExportWrapper("emscripten_bind_PxObstacleContext___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaUserControllerHitReport_JavaUserControllerHitReport_0 = Module["_emscripten_bind_JavaUserControllerHitReport_JavaUserControllerHitReport_0"] = createExportWrapper("emscripten_bind_JavaUserControllerHitReport_JavaUserControllerHitReport_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaUserControllerHitReport_onShapeHit_1 = Module["_emscripten_bind_JavaUserControllerHitReport_onShapeHit_1"] = createExportWrapper("emscripten_bind_JavaUserControllerHitReport_onShapeHit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaUserControllerHitReport_onControllerHit_1 = Module["_emscripten_bind_JavaUserControllerHitReport_onControllerHit_1"] = createExportWrapper("emscripten_bind_JavaUserControllerHitReport_onControllerHit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaUserControllerHitReport_onObstacleHit_1 = Module["_emscripten_bind_JavaUserControllerHitReport_onObstacleHit_1"] = createExportWrapper("emscripten_bind_JavaUserControllerHitReport_onObstacleHit_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaUserControllerHitReport___destroy___0 = Module["_emscripten_bind_JavaUserControllerHitReport___destroy___0"] = createExportWrapper("emscripten_bind_JavaUserControllerHitReport___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxActorPtr___destroy___0 = Module["_emscripten_bind_PxActorPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxActorPtr___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxMaterialPtr___destroy___0 = Module["_emscripten_bind_PxMaterialPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxMaterialPtr___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxMaterialConstPtr___destroy___0 = Module["_emscripten_bind_PxMaterialConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxMaterialConstPtr___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleWheelsPtr___destroy___0 = Module["_emscripten_bind_PxVehicleWheelsPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxVehicleWheelsPtr___destroy___0");
@@ -8180,10 +10752,19 @@ var _emscripten_bind_PxRealPtr___destroy___0 = Module["_emscripten_bind_PxRealPt
 var _emscripten_bind_PxU8Ptr___destroy___0 = Module["_emscripten_bind_PxU8Ptr___destroy___0"] = createExportWrapper("emscripten_bind_PxU8Ptr___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxU8ConstPtr___destroy___0 = Module["_emscripten_bind_PxU8ConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxU8ConstPtr___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxU16Ptr___destroy___0 = Module["_emscripten_bind_PxU16Ptr___destroy___0"] = createExportWrapper("emscripten_bind_PxU16Ptr___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxU16ConstPtr___destroy___0 = Module["_emscripten_bind_PxU16ConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxU16ConstPtr___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxU32Ptr___destroy___0 = Module["_emscripten_bind_PxU32Ptr___destroy___0"] = createExportWrapper("emscripten_bind_PxU32Ptr___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxU32ConstPtr___destroy___0 = Module["_emscripten_bind_PxU32ConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxU32ConstPtr___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_getU8At_2 = Module["_emscripten_bind_TypeHelpers_getU8At_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getU8At_2");
@@ -8207,40 +10788,67 @@ var _emscripten_bind_TypeHelpers_getTriggerPairAt_2 = Module["_emscripten_bind_T
 var _emscripten_bind_TypeHelpers_getVec3At_2 = Module["_emscripten_bind_TypeHelpers_getVec3At_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getVec3At_2");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_TypeHelpers_voidToU8Ptr_1 = Module["_emscripten_bind_TypeHelpers_voidToU8Ptr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU8Ptr_1");
+var _emscripten_bind_TypeHelpers_voidToU8ConstPtr_1 = Module["_emscripten_bind_TypeHelpers_voidToU8ConstPtr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU8ConstPtr_1");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_TypeHelpers_voidToU16Ptr_1 = Module["_emscripten_bind_TypeHelpers_voidToU16Ptr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU16Ptr_1");
+var _emscripten_bind_TypeHelpers_voidToU16ConstPtr_1 = Module["_emscripten_bind_TypeHelpers_voidToU16ConstPtr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU16ConstPtr_1");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_TypeHelpers_voidToU32Ptr_1 = Module["_emscripten_bind_TypeHelpers_voidToU32Ptr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU32Ptr_1");
+var _emscripten_bind_TypeHelpers_voidToU32ConstPtr_1 = Module["_emscripten_bind_TypeHelpers_voidToU32ConstPtr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU32ConstPtr_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_voidToRealPtr_1 = Module["_emscripten_bind_TypeHelpers_voidToRealPtr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToRealPtr_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_articulationBaseJointToJoint_1 = Module["_emscripten_bind_TypeHelpers_articulationBaseJointToJoint_1"] = createExportWrapper("emscripten_bind_TypeHelpers_articulationBaseJointToJoint_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_voidToAny_1 = Module["_emscripten_bind_TypeHelpers_voidToAny_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToAny_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers___destroy___0 = Module["_emscripten_bind_TypeHelpers___destroy___0"] = createExportWrapper("emscripten_bind_TypeHelpers___destroy___0");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_Vector_PxMaterial_Vector_PxMaterial_0 = Module["_emscripten_bind_Vector_PxMaterial_Vector_PxMaterial_0"] = createExportWrapper("emscripten_bind_Vector_PxMaterial_Vector_PxMaterial_0");
+var _emscripten_bind_Vector_PxMaterialConst_Vector_PxMaterialConst_0 = Module["_emscripten_bind_Vector_PxMaterialConst_Vector_PxMaterialConst_0"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst_Vector_PxMaterialConst_0");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_Vector_PxMaterial_Vector_PxMaterial_1 = Module["_emscripten_bind_Vector_PxMaterial_Vector_PxMaterial_1"] = createExportWrapper("emscripten_bind_Vector_PxMaterial_Vector_PxMaterial_1");
+var _emscripten_bind_Vector_PxMaterialConst_Vector_PxMaterialConst_1 = Module["_emscripten_bind_Vector_PxMaterialConst_Vector_PxMaterialConst_1"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst_Vector_PxMaterialConst_1");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_Vector_PxMaterial_at_1 = Module["_emscripten_bind_Vector_PxMaterial_at_1"] = createExportWrapper("emscripten_bind_Vector_PxMaterial_at_1");
+var _emscripten_bind_Vector_PxMaterialConst_at_1 = Module["_emscripten_bind_Vector_PxMaterialConst_at_1"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst_at_1");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_Vector_PxMaterial_data_0 = Module["_emscripten_bind_Vector_PxMaterial_data_0"] = createExportWrapper("emscripten_bind_Vector_PxMaterial_data_0");
+var _emscripten_bind_Vector_PxMaterialConst_data_0 = Module["_emscripten_bind_Vector_PxMaterialConst_data_0"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst_data_0");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_Vector_PxMaterial_size_0 = Module["_emscripten_bind_Vector_PxMaterial_size_0"] = createExportWrapper("emscripten_bind_Vector_PxMaterial_size_0");
+var _emscripten_bind_Vector_PxMaterialConst_size_0 = Module["_emscripten_bind_Vector_PxMaterialConst_size_0"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst_size_0");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_Vector_PxMaterial_push_back_1 = Module["_emscripten_bind_Vector_PxMaterial_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxMaterial_push_back_1");
+var _emscripten_bind_Vector_PxMaterialConst_push_back_1 = Module["_emscripten_bind_Vector_PxMaterialConst_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst_push_back_1");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_Vector_PxMaterial___destroy___0 = Module["_emscripten_bind_Vector_PxMaterial___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxMaterial___destroy___0");
+var _emscripten_bind_Vector_PxMaterialConst___destroy___0 = Module["_emscripten_bind_Vector_PxMaterialConst___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxHeightFieldSample_Vector_PxHeightFieldSample_0 = Module["_emscripten_bind_Vector_PxHeightFieldSample_Vector_PxHeightFieldSample_0"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample_Vector_PxHeightFieldSample_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxHeightFieldSample_Vector_PxHeightFieldSample_1 = Module["_emscripten_bind_Vector_PxHeightFieldSample_Vector_PxHeightFieldSample_1"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample_Vector_PxHeightFieldSample_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxHeightFieldSample_at_1 = Module["_emscripten_bind_Vector_PxHeightFieldSample_at_1"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample_at_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxHeightFieldSample_data_0 = Module["_emscripten_bind_Vector_PxHeightFieldSample_data_0"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample_data_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxHeightFieldSample_size_0 = Module["_emscripten_bind_Vector_PxHeightFieldSample_size_0"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample_size_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxHeightFieldSample_push_back_1 = Module["_emscripten_bind_Vector_PxHeightFieldSample_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample_push_back_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxHeightFieldSample___destroy___0 = Module["_emscripten_bind_Vector_PxHeightFieldSample___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxReal_Vector_PxReal_0 = Module["_emscripten_bind_Vector_PxReal_Vector_PxReal_0"] = createExportWrapper("emscripten_bind_Vector_PxReal_Vector_PxReal_0");
@@ -8501,6 +11109,12 @@ var _emscripten_enum_PxActorTypeEnum_eACTOR_COUNT = Module["_emscripten_enum_PxA
 var _emscripten_enum_PxActorTypeEnum_eACTOR_FORCE_DWORD = Module["_emscripten_enum_PxActorTypeEnum_eACTOR_FORCE_DWORD"] = createExportWrapper("emscripten_enum_PxActorTypeEnum_eACTOR_FORCE_DWORD");
 
 /** @type {function(...*):?} */
+var _emscripten_enum_PxActorTypeFlagEnum_eRIGID_STATIC = Module["_emscripten_enum_PxActorTypeFlagEnum_eRIGID_STATIC"] = createExportWrapper("emscripten_enum_PxActorTypeFlagEnum_eRIGID_STATIC");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxActorTypeFlagEnum_eRIGID_DYNAMIC = Module["_emscripten_enum_PxActorTypeFlagEnum_eRIGID_DYNAMIC"] = createExportWrapper("emscripten_enum_PxActorTypeFlagEnum_eRIGID_DYNAMIC");
+
+/** @type {function(...*):?} */
 var _emscripten_enum_PxArticulationAxisEnum_eTWIST = Module["_emscripten_enum_PxArticulationAxisEnum_eTWIST"] = createExportWrapper("emscripten_enum_PxArticulationAxisEnum_eTWIST");
 
 /** @type {function(...*):?} */
@@ -8597,6 +11211,21 @@ var _emscripten_enum_PxArticulationJointTypeEnum_eFIX = Module["_emscripten_enum
 var _emscripten_enum_PxArticulationJointTypeEnum_eUNDEFINED = Module["_emscripten_enum_PxArticulationJointTypeEnum_eUNDEFINED"] = createExportWrapper("emscripten_enum_PxArticulationJointTypeEnum_eUNDEFINED");
 
 /** @type {function(...*):?} */
+var _emscripten_enum_PxBroadPhaseTypeEnum_eSAP = Module["_emscripten_enum_PxBroadPhaseTypeEnum_eSAP"] = createExportWrapper("emscripten_enum_PxBroadPhaseTypeEnum_eSAP");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxBroadPhaseTypeEnum_eMBP = Module["_emscripten_enum_PxBroadPhaseTypeEnum_eMBP"] = createExportWrapper("emscripten_enum_PxBroadPhaseTypeEnum_eMBP");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxBroadPhaseTypeEnum_eABP = Module["_emscripten_enum_PxBroadPhaseTypeEnum_eABP"] = createExportWrapper("emscripten_enum_PxBroadPhaseTypeEnum_eABP");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxBroadPhaseTypeEnum_eGPU = Module["_emscripten_enum_PxBroadPhaseTypeEnum_eGPU"] = createExportWrapper("emscripten_enum_PxBroadPhaseTypeEnum_eGPU");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxBroadPhaseTypeEnum_eLAST = Module["_emscripten_enum_PxBroadPhaseTypeEnum_eLAST"] = createExportWrapper("emscripten_enum_PxBroadPhaseTypeEnum_eLAST");
+
+/** @type {function(...*):?} */
 var _emscripten_enum_PxConstraintFlagEnum_eBROKEN = Module["_emscripten_enum_PxConstraintFlagEnum_eBROKEN"] = createExportWrapper("emscripten_enum_PxConstraintFlagEnum_eBROKEN");
 
 /** @type {function(...*):?} */
@@ -8666,6 +11295,18 @@ var _emscripten_enum_PxForceModeEnum_eVELOCITY_CHANGE = Module["_emscripten_enum
 var _emscripten_enum_PxForceModeEnum_eACCELERATION = Module["_emscripten_enum_PxForceModeEnum_eACCELERATION"] = createExportWrapper("emscripten_enum_PxForceModeEnum_eACCELERATION");
 
 /** @type {function(...*):?} */
+var _emscripten_enum_PxFrictionTypeEnum_ePATCH = Module["_emscripten_enum_PxFrictionTypeEnum_ePATCH"] = createExportWrapper("emscripten_enum_PxFrictionTypeEnum_ePATCH");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxFrictionTypeEnum_eONE_DIRECTIONAL = Module["_emscripten_enum_PxFrictionTypeEnum_eONE_DIRECTIONAL"] = createExportWrapper("emscripten_enum_PxFrictionTypeEnum_eONE_DIRECTIONAL");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxFrictionTypeEnum_eTWO_DIRECTIONAL = Module["_emscripten_enum_PxFrictionTypeEnum_eTWO_DIRECTIONAL"] = createExportWrapper("emscripten_enum_PxFrictionTypeEnum_eTWO_DIRECTIONAL");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxFrictionTypeEnum_eFRICTION_COUNT = Module["_emscripten_enum_PxFrictionTypeEnum_eFRICTION_COUNT"] = createExportWrapper("emscripten_enum_PxFrictionTypeEnum_eFRICTION_COUNT");
+
+/** @type {function(...*):?} */
 var _emscripten_enum_PxHitFlagEnum_ePOSITION = Module["_emscripten_enum_PxHitFlagEnum_ePOSITION"] = createExportWrapper("emscripten_enum_PxHitFlagEnum_ePOSITION");
 
 /** @type {function(...*):?} */
@@ -8700,6 +11341,18 @@ var _emscripten_enum_PxHitFlagEnum_eDEFAULT = Module["_emscripten_enum_PxHitFlag
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxHitFlagEnum_eMODIFIABLE_FLAGS = Module["_emscripten_enum_PxHitFlagEnum_eMODIFIABLE_FLAGS"] = createExportWrapper("emscripten_enum_PxHitFlagEnum_eMODIFIABLE_FLAGS");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPairFilteringModeEnum_eKEEP = Module["_emscripten_enum_PxPairFilteringModeEnum_eKEEP"] = createExportWrapper("emscripten_enum_PxPairFilteringModeEnum_eKEEP");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPairFilteringModeEnum_eSUPPRESS = Module["_emscripten_enum_PxPairFilteringModeEnum_eSUPPRESS"] = createExportWrapper("emscripten_enum_PxPairFilteringModeEnum_eSUPPRESS");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPairFilteringModeEnum_eKILL = Module["_emscripten_enum_PxPairFilteringModeEnum_eKILL"] = createExportWrapper("emscripten_enum_PxPairFilteringModeEnum_eKILL");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPairFilteringModeEnum_eDEFAULT = Module["_emscripten_enum_PxPairFilteringModeEnum_eDEFAULT"] = createExportWrapper("emscripten_enum_PxPairFilteringModeEnum_eDEFAULT");
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxPairFlagEnum_eSOLVE_CONTACT = Module["_emscripten_enum_PxPairFlagEnum_eSOLVE_CONTACT"] = createExportWrapper("emscripten_enum_PxPairFlagEnum_eSOLVE_CONTACT");
@@ -8751,6 +11404,36 @@ var _emscripten_enum_PxPairFlagEnum_eNEXT_FREE = Module["_emscripten_enum_PxPair
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxPairFlagEnum_eCONTACT_DEFAULT = Module["_emscripten_enum_PxPairFlagEnum_eCONTACT_DEFAULT"] = createExportWrapper("emscripten_enum_PxPairFlagEnum_eCONTACT_DEFAULT");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPruningStructureTypeEnum_eNONE = Module["_emscripten_enum_PxPruningStructureTypeEnum_eNONE"] = createExportWrapper("emscripten_enum_PxPruningStructureTypeEnum_eNONE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPruningStructureTypeEnum_eDYNAMIC_AABB_TREE = Module["_emscripten_enum_PxPruningStructureTypeEnum_eDYNAMIC_AABB_TREE"] = createExportWrapper("emscripten_enum_PxPruningStructureTypeEnum_eDYNAMIC_AABB_TREE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPruningStructureTypeEnum_eSTATIC_AABB_TREE = Module["_emscripten_enum_PxPruningStructureTypeEnum_eSTATIC_AABB_TREE"] = createExportWrapper("emscripten_enum_PxPruningStructureTypeEnum_eSTATIC_AABB_TREE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPruningStructureTypeEnum_eLAST = Module["_emscripten_enum_PxPruningStructureTypeEnum_eLAST"] = createExportWrapper("emscripten_enum_PxPruningStructureTypeEnum_eLAST");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxQueryFlagEnum_eSTATIC = Module["_emscripten_enum_PxQueryFlagEnum_eSTATIC"] = createExportWrapper("emscripten_enum_PxQueryFlagEnum_eSTATIC");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxQueryFlagEnum_eDYNAMIC = Module["_emscripten_enum_PxQueryFlagEnum_eDYNAMIC"] = createExportWrapper("emscripten_enum_PxQueryFlagEnum_eDYNAMIC");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxQueryFlagEnum_ePREFILTER = Module["_emscripten_enum_PxQueryFlagEnum_ePREFILTER"] = createExportWrapper("emscripten_enum_PxQueryFlagEnum_ePREFILTER");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxQueryFlagEnum_ePOSTFILTER = Module["_emscripten_enum_PxQueryFlagEnum_ePOSTFILTER"] = createExportWrapper("emscripten_enum_PxQueryFlagEnum_ePOSTFILTER");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxQueryFlagEnum_eANY_HIT = Module["_emscripten_enum_PxQueryFlagEnum_eANY_HIT"] = createExportWrapper("emscripten_enum_PxQueryFlagEnum_eANY_HIT");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxQueryFlagEnum_eNO_BLOCK = Module["_emscripten_enum_PxQueryFlagEnum_eNO_BLOCK"] = createExportWrapper("emscripten_enum_PxQueryFlagEnum_eNO_BLOCK");
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxRigidBodyFlagEnum_eKINEMATIC = Module["_emscripten_enum_PxRigidBodyFlagEnum_eKINEMATIC"] = createExportWrapper("emscripten_enum_PxRigidBodyFlagEnum_eKINEMATIC");
@@ -8840,6 +11523,15 @@ var _emscripten_enum_PxSceneFlagEnum_eENABLE_FRICTION_EVERY_ITERATION = Module["
 var _emscripten_enum_PxSceneFlagEnum_eMUTABLE_FLAGS = Module["_emscripten_enum_PxSceneFlagEnum_eMUTABLE_FLAGS"] = createExportWrapper("emscripten_enum_PxSceneFlagEnum_eMUTABLE_FLAGS");
 
 /** @type {function(...*):?} */
+var _emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_ENABLED_COMMIT_ENABLED = Module["_emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_ENABLED_COMMIT_ENABLED"] = createExportWrapper("emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_ENABLED_COMMIT_ENABLED");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_ENABLED_COMMIT_DISABLED = Module["_emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_ENABLED_COMMIT_DISABLED"] = createExportWrapper("emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_ENABLED_COMMIT_DISABLED");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_DISABLED_COMMIT_DISABLED = Module["_emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_DISABLED_COMMIT_DISABLED"] = createExportWrapper("emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_DISABLED_COMMIT_DISABLED");
+
+/** @type {function(...*):?} */
 var _emscripten_enum_PxShapeFlagEnum_eSIMULATION_SHAPE = Module["_emscripten_enum_PxShapeFlagEnum_eSIMULATION_SHAPE"] = createExportWrapper("emscripten_enum_PxShapeFlagEnum_eSIMULATION_SHAPE");
 
 /** @type {function(...*):?} */
@@ -8850,6 +11542,12 @@ var _emscripten_enum_PxShapeFlagEnum_eTRIGGER_SHAPE = Module["_emscripten_enum_P
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxShapeFlagEnum_eVISUALIZATION = Module["_emscripten_enum_PxShapeFlagEnum_eVISUALIZATION"] = createExportWrapper("emscripten_enum_PxShapeFlagEnum_eVISUALIZATION");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxSolverTypeEnum_ePGS = Module["_emscripten_enum_PxSolverTypeEnum_ePGS"] = createExportWrapper("emscripten_enum_PxSolverTypeEnum_ePGS");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxSolverTypeEnum_eTGS = Module["_emscripten_enum_PxSolverTypeEnum_eTGS"] = createExportWrapper("emscripten_enum_PxSolverTypeEnum_eTGS");
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxTriggerPairFlagEnum_eREMOVED_SHAPE_TRIGGER = Module["_emscripten_enum_PxTriggerPairFlagEnum_eREMOVED_SHAPE_TRIGGER"] = createExportWrapper("emscripten_enum_PxTriggerPairFlagEnum_eREMOVED_SHAPE_TRIGGER");
@@ -9021,6 +11719,33 @@ var _emscripten_enum_VehicleSurfaceTypeMask_UNDRIVABLE_SURFACE = Module["_emscri
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxConvexMeshGeometryFlagEnum_eTIGHT_BOUNDS = Module["_emscripten_enum_PxConvexMeshGeometryFlagEnum_eTIGHT_BOUNDS"] = createExportWrapper("emscripten_enum_PxConvexMeshGeometryFlagEnum_eTIGHT_BOUNDS");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxGeometryTypeEnum_eSPHERE = Module["_emscripten_enum_PxGeometryTypeEnum_eSPHERE"] = createExportWrapper("emscripten_enum_PxGeometryTypeEnum_eSPHERE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxGeometryTypeEnum_ePLANE = Module["_emscripten_enum_PxGeometryTypeEnum_ePLANE"] = createExportWrapper("emscripten_enum_PxGeometryTypeEnum_ePLANE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxGeometryTypeEnum_eCAPSULE = Module["_emscripten_enum_PxGeometryTypeEnum_eCAPSULE"] = createExportWrapper("emscripten_enum_PxGeometryTypeEnum_eCAPSULE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxGeometryTypeEnum_eBOX = Module["_emscripten_enum_PxGeometryTypeEnum_eBOX"] = createExportWrapper("emscripten_enum_PxGeometryTypeEnum_eBOX");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxGeometryTypeEnum_eCONVEXMESH = Module["_emscripten_enum_PxGeometryTypeEnum_eCONVEXMESH"] = createExportWrapper("emscripten_enum_PxGeometryTypeEnum_eCONVEXMESH");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxGeometryTypeEnum_eTRIANGLEMESH = Module["_emscripten_enum_PxGeometryTypeEnum_eTRIANGLEMESH"] = createExportWrapper("emscripten_enum_PxGeometryTypeEnum_eTRIANGLEMESH");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxGeometryTypeEnum_eHEIGHTFIELD = Module["_emscripten_enum_PxGeometryTypeEnum_eHEIGHTFIELD"] = createExportWrapper("emscripten_enum_PxGeometryTypeEnum_eHEIGHTFIELD");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxHeightFieldFlagEnum_eNO_BOUNDARY_EDGES = Module["_emscripten_enum_PxHeightFieldFlagEnum_eNO_BOUNDARY_EDGES"] = createExportWrapper("emscripten_enum_PxHeightFieldFlagEnum_eNO_BOUNDARY_EDGES");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxHeightFieldFormatEnum_eS16_TM = Module["_emscripten_enum_PxHeightFieldFormatEnum_eS16_TM"] = createExportWrapper("emscripten_enum_PxHeightFieldFormatEnum_eS16_TM");
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxMeshFlagEnum_eFLIPNORMALS = Module["_emscripten_enum_PxMeshFlagEnum_eFLIPNORMALS"] = createExportWrapper("emscripten_enum_PxMeshFlagEnum_eFLIPNORMALS");
@@ -9218,22 +11943,49 @@ var _emscripten_enum_PxRevoluteJointFlagEnum_eDRIVE_FREESPIN = Module["_emscript
 var _emscripten_enum_PxSphericalJointFlagEnum_eLIMIT_ENABLED = Module["_emscripten_enum_PxSphericalJointFlagEnum_eLIMIT_ENABLED"] = createExportWrapper("emscripten_enum_PxSphericalJointFlagEnum_eLIMIT_ENABLED");
 
 /** @type {function(...*):?} */
+var _emscripten_enum_PxCapsuleClimbingModeEnum_eEASY = Module["_emscripten_enum_PxCapsuleClimbingModeEnum_eEASY"] = createExportWrapper("emscripten_enum_PxCapsuleClimbingModeEnum_eEASY");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxCapsuleClimbingModeEnum_eCONSTRAINED = Module["_emscripten_enum_PxCapsuleClimbingModeEnum_eCONSTRAINED"] = createExportWrapper("emscripten_enum_PxCapsuleClimbingModeEnum_eCONSTRAINED");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_SIDES = Module["_emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_SIDES"] = createExportWrapper("emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_SIDES");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_UP = Module["_emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_UP"] = createExportWrapper("emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_UP");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_DOWN = Module["_emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_DOWN"] = createExportWrapper("emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_DOWN");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerNonWalkableModeEnum_ePREVENT_CLIMBING = Module["_emscripten_enum_PxControllerNonWalkableModeEnum_ePREVENT_CLIMBING"] = createExportWrapper("emscripten_enum_PxControllerNonWalkableModeEnum_ePREVENT_CLIMBING");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerNonWalkableModeEnum_ePREVENT_CLIMBING_AND_FORCE_SLIDING = Module["_emscripten_enum_PxControllerNonWalkableModeEnum_ePREVENT_CLIMBING_AND_FORCE_SLIDING"] = createExportWrapper("emscripten_enum_PxControllerNonWalkableModeEnum_ePREVENT_CLIMBING_AND_FORCE_SLIDING");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerShapeTypeEnum_eBOX = Module["_emscripten_enum_PxControllerShapeTypeEnum_eBOX"] = createExportWrapper("emscripten_enum_PxControllerShapeTypeEnum_eBOX");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerShapeTypeEnum_eCAPSULE = Module["_emscripten_enum_PxControllerShapeTypeEnum_eCAPSULE"] = createExportWrapper("emscripten_enum_PxControllerShapeTypeEnum_eCAPSULE");
+
+/** @type {function(...*):?} */
 var _free = Module["_free"] = createExportWrapper("free");
-
-/** @type {function(...*):?} */
-var _ntohs = Module["_ntohs"] = createExportWrapper("ntohs");
-
-/** @type {function(...*):?} */
-var _htons = Module["_htons"] = createExportWrapper("htons");
-
-/** @type {function(...*):?} */
-var _htonl = Module["_htonl"] = createExportWrapper("htonl");
 
 /** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
 
 /** @type {function(...*):?} */
 var _malloc = Module["_malloc"] = createExportWrapper("malloc");
+
+/** @type {function(...*):?} */
+var _ntohs = Module["_ntohs"] = createExportWrapper("ntohs");
+
+/** @type {function(...*):?} */
+var _htonl = Module["_htonl"] = createExportWrapper("htonl");
+
+/** @type {function(...*):?} */
+var _htons = Module["_htons"] = createExportWrapper("htons");
 
 /** @type {function(...*):?} */
 var stackSave = Module["stackSave"] = createExportWrapper("stackSave");
@@ -10539,6 +13291,40 @@ Module['PxLocationHit'] = PxLocationHit;
   var self = this.ptr;
   _emscripten_bind_PxLocationHit___destroy___0(self);
 };
+// PxOverlapCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxOverlapCallback() { throw "cannot construct a PxOverlapCallback, no constructor in IDL" }
+PxOverlapCallback.prototype = Object.create(WrapperObject.prototype);
+PxOverlapCallback.prototype.constructor = PxOverlapCallback;
+PxOverlapCallback.prototype.__class__ = PxOverlapCallback;
+PxOverlapCallback.__cache__ = {};
+Module['PxOverlapCallback'] = PxOverlapCallback;
+
+PxOverlapCallback.prototype['hasAnyHits'] = PxOverlapCallback.prototype.hasAnyHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxOverlapCallback_hasAnyHits_0(self));
+};;
+
+  PxOverlapCallback.prototype['__destroy__'] = PxOverlapCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxOverlapCallback___destroy___0(self);
+};
+// PxRaycastCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxRaycastCallback() { throw "cannot construct a PxRaycastCallback, no constructor in IDL" }
+PxRaycastCallback.prototype = Object.create(WrapperObject.prototype);
+PxRaycastCallback.prototype.constructor = PxRaycastCallback;
+PxRaycastCallback.prototype.__class__ = PxRaycastCallback;
+PxRaycastCallback.__cache__ = {};
+Module['PxRaycastCallback'] = PxRaycastCallback;
+
+PxRaycastCallback.prototype['hasAnyHits'] = PxRaycastCallback.prototype.hasAnyHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxRaycastCallback_hasAnyHits_0(self));
+};;
+
+  PxRaycastCallback.prototype['__destroy__'] = PxRaycastCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxRaycastCallback___destroy___0(self);
+};
 // PxRigidBody
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxRigidBody() { throw "cannot construct a PxRigidBody, no constructor in IDL" }
 PxRigidBody.prototype = Object.create(PxRigidActor.prototype);
@@ -10938,6 +13724,23 @@ SimpleSimulationEventCallback.prototype['onTrigger'] = SimpleSimulationEventCall
   var self = this.ptr;
   _emscripten_bind_SimpleSimulationEventCallback___destroy___0(self);
 };
+// PxSweepCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSweepCallback() { throw "cannot construct a PxSweepCallback, no constructor in IDL" }
+PxSweepCallback.prototype = Object.create(WrapperObject.prototype);
+PxSweepCallback.prototype.constructor = PxSweepCallback;
+PxSweepCallback.prototype.__class__ = PxSweepCallback;
+PxSweepCallback.__cache__ = {};
+Module['PxSweepCallback'] = PxSweepCallback;
+
+PxSweepCallback.prototype['hasAnyHits'] = PxSweepCallback.prototype.hasAnyHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxSweepCallback_hasAnyHits_0(self));
+};;
+
+  PxSweepCallback.prototype['__destroy__'] = PxSweepCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxSweepCallback___destroy___0(self);
+};
 // PxVehicleDrive
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleDrive() { throw "cannot construct a PxVehicleDrive, no constructor in IDL" }
 PxVehicleDrive.prototype = Object.create(PxVehicleWheels.prototype);
@@ -11100,6 +13903,11 @@ PxGeometry.prototype.constructor = PxGeometry;
 PxGeometry.prototype.__class__ = PxGeometry;
 PxGeometry.__cache__ = {};
 Module['PxGeometry'] = PxGeometry;
+
+PxGeometry.prototype['getType'] = PxGeometry.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxGeometry_getType_0(self);
+};;
 
   PxGeometry.prototype['__destroy__'] = PxGeometry.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
@@ -11452,6 +14260,459 @@ Module['PxSpring'] = PxSpring;
   var self = this.ptr;
   _emscripten_bind_PxSpring___destroy___0(self);
 };
+// PxController
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxController() { throw "cannot construct a PxController, no constructor in IDL" }
+PxController.prototype = Object.create(WrapperObject.prototype);
+PxController.prototype.constructor = PxController;
+PxController.prototype.__class__ = PxController;
+PxController.__cache__ = {};
+Module['PxController'] = PxController;
+
+PxController.prototype['getType'] = PxController.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxController_getType_0(self);
+};;
+
+PxController.prototype['release'] = PxController.prototype.release = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxController_release_0(self);
+};;
+
+PxController.prototype['move'] = PxController.prototype.move = /** @suppress {undefinedVars, duplicate} @this{Object} */function(disp, minDist, elapsedTime, filters, obstacles) {
+  var self = this.ptr;
+  if (disp && typeof disp === 'object') disp = disp.ptr;
+  if (minDist && typeof minDist === 'object') minDist = minDist.ptr;
+  if (elapsedTime && typeof elapsedTime === 'object') elapsedTime = elapsedTime.ptr;
+  if (filters && typeof filters === 'object') filters = filters.ptr;
+  if (obstacles && typeof obstacles === 'object') obstacles = obstacles.ptr;
+  if (obstacles === undefined) { return wrapPointer(_emscripten_bind_PxController_move_4(self, disp, minDist, elapsedTime, filters), PxControllerCollisionFlags) }
+  return wrapPointer(_emscripten_bind_PxController_move_5(self, disp, minDist, elapsedTime, filters, obstacles), PxControllerCollisionFlags);
+};;
+
+PxController.prototype['setPosition'] = PxController.prototype.setPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function(position) {
+  var self = this.ptr;
+  if (position && typeof position === 'object') position = position.ptr;
+  return !!(_emscripten_bind_PxController_setPosition_1(self, position));
+};;
+
+PxController.prototype['getPosition'] = PxController.prototype.getPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxController_getPosition_0(self), PxExtendedVec3);
+};;
+
+PxController.prototype['setFootPosition'] = PxController.prototype.setFootPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function(position) {
+  var self = this.ptr;
+  if (position && typeof position === 'object') position = position.ptr;
+  return !!(_emscripten_bind_PxController_setFootPosition_1(self, position));
+};;
+
+PxController.prototype['getFootPosition'] = PxController.prototype.getFootPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxController_getFootPosition_0(self), PxExtendedVec3);
+};;
+
+PxController.prototype['getActor'] = PxController.prototype.getActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxController_getActor_0(self), PxRigidDynamic);
+};;
+
+PxController.prototype['setStepOffset'] = PxController.prototype.setStepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(offset) {
+  var self = this.ptr;
+  if (offset && typeof offset === 'object') offset = offset.ptr;
+  _emscripten_bind_PxController_setStepOffset_1(self, offset);
+};;
+
+PxController.prototype['getStepOffset'] = PxController.prototype.getStepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxController_getStepOffset_0(self);
+};;
+
+PxController.prototype['setNonWalkableMode'] = PxController.prototype.setNonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxController_setNonWalkableMode_1(self, flag);
+};;
+
+PxController.prototype['getNonWalkableMode'] = PxController.prototype.getNonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxController_getNonWalkableMode_0(self);
+};;
+
+PxController.prototype['getContactOffset'] = PxController.prototype.getContactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxController_getContactOffset_0(self);
+};;
+
+PxController.prototype['setContactOffset'] = PxController.prototype.setContactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(offset) {
+  var self = this.ptr;
+  if (offset && typeof offset === 'object') offset = offset.ptr;
+  _emscripten_bind_PxController_setContactOffset_1(self, offset);
+};;
+
+PxController.prototype['getUpDirection'] = PxController.prototype.getUpDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxController_getUpDirection_0(self), PxVec3);
+};;
+
+PxController.prototype['setUpDirection'] = PxController.prototype.setUpDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function(up) {
+  var self = this.ptr;
+  if (up && typeof up === 'object') up = up.ptr;
+  _emscripten_bind_PxController_setUpDirection_1(self, up);
+};;
+
+PxController.prototype['getSlopeLimit'] = PxController.prototype.getSlopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxController_getSlopeLimit_0(self);
+};;
+
+PxController.prototype['setSlopeLimit'] = PxController.prototype.setSlopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(slopeLimit) {
+  var self = this.ptr;
+  if (slopeLimit && typeof slopeLimit === 'object') slopeLimit = slopeLimit.ptr;
+  _emscripten_bind_PxController_setSlopeLimit_1(self, slopeLimit);
+};;
+
+PxController.prototype['invalidateCache'] = PxController.prototype.invalidateCache = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxController_invalidateCache_0(self);
+};;
+
+PxController.prototype['getScene'] = PxController.prototype.getScene = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxController_getScene_0(self), PxScene);
+};;
+
+PxController.prototype['getUserData'] = PxController.prototype.getUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxController_getUserData_0(self), VoidPtr);
+};;
+
+PxController.prototype['setUserData'] = PxController.prototype.setUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(userData) {
+  var self = this.ptr;
+  if (userData && typeof userData === 'object') userData = userData.ptr;
+  _emscripten_bind_PxController_setUserData_1(self, userData);
+};;
+
+PxController.prototype['getState'] = PxController.prototype.getState = /** @suppress {undefinedVars, duplicate} @this{Object} */function(state) {
+  var self = this.ptr;
+  if (state && typeof state === 'object') state = state.ptr;
+  _emscripten_bind_PxController_getState_1(self, state);
+};;
+
+PxController.prototype['getStats'] = PxController.prototype.getStats = /** @suppress {undefinedVars, duplicate} @this{Object} */function(stats) {
+  var self = this.ptr;
+  if (stats && typeof stats === 'object') stats = stats.ptr;
+  _emscripten_bind_PxController_getStats_1(self, stats);
+};;
+
+PxController.prototype['resize'] = PxController.prototype.resize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(height) {
+  var self = this.ptr;
+  if (height && typeof height === 'object') height = height.ptr;
+  _emscripten_bind_PxController_resize_1(self, height);
+};;
+
+// PxControllerDesc
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerDesc() { throw "cannot construct a PxControllerDesc, no constructor in IDL" }
+PxControllerDesc.prototype = Object.create(WrapperObject.prototype);
+PxControllerDesc.prototype.constructor = PxControllerDesc;
+PxControllerDesc.prototype.__class__ = PxControllerDesc;
+PxControllerDesc.__cache__ = {};
+Module['PxControllerDesc'] = PxControllerDesc;
+
+PxControllerDesc.prototype['isValid'] = PxControllerDesc.prototype.isValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxControllerDesc_isValid_0(self));
+};;
+
+PxControllerDesc.prototype['getType'] = PxControllerDesc.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_getType_0(self);
+};;
+
+  PxControllerDesc.prototype['get_position'] = PxControllerDesc.prototype.get_position = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerDesc_get_position_0(self), PxExtendedVec3);
+};
+    PxControllerDesc.prototype['set_position'] = PxControllerDesc.prototype.set_position = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_position_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'position', { get: PxControllerDesc.prototype.get_position, set: PxControllerDesc.prototype.set_position });
+  PxControllerDesc.prototype['get_upDirection'] = PxControllerDesc.prototype.get_upDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerDesc_get_upDirection_0(self), PxVec3);
+};
+    PxControllerDesc.prototype['set_upDirection'] = PxControllerDesc.prototype.set_upDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_upDirection_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'upDirection', { get: PxControllerDesc.prototype.get_upDirection, set: PxControllerDesc.prototype.set_upDirection });
+  PxControllerDesc.prototype['get_slopeLimit'] = PxControllerDesc.prototype.get_slopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_get_slopeLimit_0(self);
+};
+    PxControllerDesc.prototype['set_slopeLimit'] = PxControllerDesc.prototype.set_slopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_slopeLimit_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'slopeLimit', { get: PxControllerDesc.prototype.get_slopeLimit, set: PxControllerDesc.prototype.set_slopeLimit });
+  PxControllerDesc.prototype['get_invisibleWallHeight'] = PxControllerDesc.prototype.get_invisibleWallHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_get_invisibleWallHeight_0(self);
+};
+    PxControllerDesc.prototype['set_invisibleWallHeight'] = PxControllerDesc.prototype.set_invisibleWallHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_invisibleWallHeight_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'invisibleWallHeight', { get: PxControllerDesc.prototype.get_invisibleWallHeight, set: PxControllerDesc.prototype.set_invisibleWallHeight });
+  PxControllerDesc.prototype['get_maxJumpHeight'] = PxControllerDesc.prototype.get_maxJumpHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_get_maxJumpHeight_0(self);
+};
+    PxControllerDesc.prototype['set_maxJumpHeight'] = PxControllerDesc.prototype.set_maxJumpHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_maxJumpHeight_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'maxJumpHeight', { get: PxControllerDesc.prototype.get_maxJumpHeight, set: PxControllerDesc.prototype.set_maxJumpHeight });
+  PxControllerDesc.prototype['get_contactOffset'] = PxControllerDesc.prototype.get_contactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_get_contactOffset_0(self);
+};
+    PxControllerDesc.prototype['set_contactOffset'] = PxControllerDesc.prototype.set_contactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_contactOffset_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'contactOffset', { get: PxControllerDesc.prototype.get_contactOffset, set: PxControllerDesc.prototype.set_contactOffset });
+  PxControllerDesc.prototype['get_stepOffset'] = PxControllerDesc.prototype.get_stepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_get_stepOffset_0(self);
+};
+    PxControllerDesc.prototype['set_stepOffset'] = PxControllerDesc.prototype.set_stepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_stepOffset_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'stepOffset', { get: PxControllerDesc.prototype.get_stepOffset, set: PxControllerDesc.prototype.set_stepOffset });
+  PxControllerDesc.prototype['get_density'] = PxControllerDesc.prototype.get_density = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_get_density_0(self);
+};
+    PxControllerDesc.prototype['set_density'] = PxControllerDesc.prototype.set_density = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_density_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'density', { get: PxControllerDesc.prototype.get_density, set: PxControllerDesc.prototype.set_density });
+  PxControllerDesc.prototype['get_scaleCoeff'] = PxControllerDesc.prototype.get_scaleCoeff = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_get_scaleCoeff_0(self);
+};
+    PxControllerDesc.prototype['set_scaleCoeff'] = PxControllerDesc.prototype.set_scaleCoeff = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_scaleCoeff_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'scaleCoeff', { get: PxControllerDesc.prototype.get_scaleCoeff, set: PxControllerDesc.prototype.set_scaleCoeff });
+  PxControllerDesc.prototype['get_volumeGrowth'] = PxControllerDesc.prototype.get_volumeGrowth = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_get_volumeGrowth_0(self);
+};
+    PxControllerDesc.prototype['set_volumeGrowth'] = PxControllerDesc.prototype.set_volumeGrowth = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_volumeGrowth_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'volumeGrowth', { get: PxControllerDesc.prototype.get_volumeGrowth, set: PxControllerDesc.prototype.set_volumeGrowth });
+  PxControllerDesc.prototype['get_reportCallback'] = PxControllerDesc.prototype.get_reportCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerDesc_get_reportCallback_0(self), PxUserControllerHitReport);
+};
+    PxControllerDesc.prototype['set_reportCallback'] = PxControllerDesc.prototype.set_reportCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_reportCallback_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'reportCallback', { get: PxControllerDesc.prototype.get_reportCallback, set: PxControllerDesc.prototype.set_reportCallback });
+  PxControllerDesc.prototype['get_nonWalkableMode'] = PxControllerDesc.prototype.get_nonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerDesc_get_nonWalkableMode_0(self);
+};
+    PxControllerDesc.prototype['set_nonWalkableMode'] = PxControllerDesc.prototype.set_nonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_nonWalkableMode_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'nonWalkableMode', { get: PxControllerDesc.prototype.get_nonWalkableMode, set: PxControllerDesc.prototype.set_nonWalkableMode });
+  PxControllerDesc.prototype['get_material'] = PxControllerDesc.prototype.get_material = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerDesc_get_material_0(self), PxMaterial);
+};
+    PxControllerDesc.prototype['set_material'] = PxControllerDesc.prototype.set_material = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_material_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'material', { get: PxControllerDesc.prototype.get_material, set: PxControllerDesc.prototype.set_material });
+  PxControllerDesc.prototype['get_registerDeletionListener'] = PxControllerDesc.prototype.get_registerDeletionListener = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxControllerDesc_get_registerDeletionListener_0(self));
+};
+    PxControllerDesc.prototype['set_registerDeletionListener'] = PxControllerDesc.prototype.set_registerDeletionListener = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_registerDeletionListener_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'registerDeletionListener', { get: PxControllerDesc.prototype.get_registerDeletionListener, set: PxControllerDesc.prototype.set_registerDeletionListener });
+  PxControllerDesc.prototype['get_userData'] = PxControllerDesc.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerDesc_get_userData_0(self), VoidPtr);
+};
+    PxControllerDesc.prototype['set_userData'] = PxControllerDesc.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'userData', { get: PxControllerDesc.prototype.get_userData, set: PxControllerDesc.prototype.set_userData });
+// PxControllerHit
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerHit() { throw "cannot construct a PxControllerHit, no constructor in IDL" }
+PxControllerHit.prototype = Object.create(WrapperObject.prototype);
+PxControllerHit.prototype.constructor = PxControllerHit;
+PxControllerHit.prototype.__class__ = PxControllerHit;
+PxControllerHit.__cache__ = {};
+Module['PxControllerHit'] = PxControllerHit;
+
+  PxControllerHit.prototype['get_controller'] = PxControllerHit.prototype.get_controller = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerHit_get_controller_0(self), PxController);
+};
+    PxControllerHit.prototype['set_controller'] = PxControllerHit.prototype.set_controller = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerHit_set_controller_1(self, arg0);
+};
+    Object.defineProperty(PxControllerHit.prototype, 'controller', { get: PxControllerHit.prototype.get_controller, set: PxControllerHit.prototype.set_controller });
+  PxControllerHit.prototype['get_worldPos'] = PxControllerHit.prototype.get_worldPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerHit_get_worldPos_0(self), PxExtendedVec3);
+};
+    PxControllerHit.prototype['set_worldPos'] = PxControllerHit.prototype.set_worldPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerHit_set_worldPos_1(self, arg0);
+};
+    Object.defineProperty(PxControllerHit.prototype, 'worldPos', { get: PxControllerHit.prototype.get_worldPos, set: PxControllerHit.prototype.set_worldPos });
+  PxControllerHit.prototype['get_worldNormal'] = PxControllerHit.prototype.get_worldNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerHit_get_worldNormal_0(self), PxVec3);
+};
+    PxControllerHit.prototype['set_worldNormal'] = PxControllerHit.prototype.set_worldNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerHit_set_worldNormal_1(self, arg0);
+};
+    Object.defineProperty(PxControllerHit.prototype, 'worldNormal', { get: PxControllerHit.prototype.get_worldNormal, set: PxControllerHit.prototype.set_worldNormal });
+  PxControllerHit.prototype['get_dir'] = PxControllerHit.prototype.get_dir = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerHit_get_dir_0(self), PxVec3);
+};
+    PxControllerHit.prototype['set_dir'] = PxControllerHit.prototype.set_dir = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerHit_set_dir_1(self, arg0);
+};
+    Object.defineProperty(PxControllerHit.prototype, 'dir', { get: PxControllerHit.prototype.get_dir, set: PxControllerHit.prototype.set_dir });
+  PxControllerHit.prototype['get_length'] = PxControllerHit.prototype.get_length = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerHit_get_length_0(self);
+};
+    PxControllerHit.prototype['set_length'] = PxControllerHit.prototype.set_length = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerHit_set_length_1(self, arg0);
+};
+    Object.defineProperty(PxControllerHit.prototype, 'length', { get: PxControllerHit.prototype.get_length, set: PxControllerHit.prototype.set_length });
+  PxControllerHit.prototype['__destroy__'] = PxControllerHit.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerHit___destroy___0(self);
+};
+// PxObstacle
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxObstacle() { throw "cannot construct a PxObstacle, no constructor in IDL" }
+PxObstacle.prototype = Object.create(WrapperObject.prototype);
+PxObstacle.prototype.constructor = PxObstacle;
+PxObstacle.prototype.__class__ = PxObstacle;
+PxObstacle.__cache__ = {};
+Module['PxObstacle'] = PxObstacle;
+
+PxObstacle.prototype['getType'] = PxObstacle.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxObstacle_getType_0(self);
+};;
+
+  PxObstacle.prototype['get_mUserData'] = PxObstacle.prototype.get_mUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxObstacle_get_mUserData_0(self), VoidPtr);
+};
+    PxObstacle.prototype['set_mUserData'] = PxObstacle.prototype.set_mUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxObstacle_set_mUserData_1(self, arg0);
+};
+    Object.defineProperty(PxObstacle.prototype, 'mUserData', { get: PxObstacle.prototype.get_mUserData, set: PxObstacle.prototype.set_mUserData });
+  PxObstacle.prototype['get_mPos'] = PxObstacle.prototype.get_mPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxObstacle_get_mPos_0(self), PxExtendedVec3);
+};
+    PxObstacle.prototype['set_mPos'] = PxObstacle.prototype.set_mPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxObstacle_set_mPos_1(self, arg0);
+};
+    Object.defineProperty(PxObstacle.prototype, 'mPos', { get: PxObstacle.prototype.get_mPos, set: PxObstacle.prototype.set_mPos });
+  PxObstacle.prototype['get_mRot'] = PxObstacle.prototype.get_mRot = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxObstacle_get_mRot_0(self), PxQuat);
+};
+    PxObstacle.prototype['set_mRot'] = PxObstacle.prototype.set_mRot = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxObstacle_set_mRot_1(self, arg0);
+};
+    Object.defineProperty(PxObstacle.prototype, 'mRot', { get: PxObstacle.prototype.get_mRot, set: PxObstacle.prototype.set_mRot });
+  PxObstacle.prototype['__destroy__'] = PxObstacle.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxObstacle___destroy___0(self);
+};
+// PxUserControllerHitReport
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxUserControllerHitReport() { throw "cannot construct a PxUserControllerHitReport, no constructor in IDL" }
+PxUserControllerHitReport.prototype = Object.create(WrapperObject.prototype);
+PxUserControllerHitReport.prototype.constructor = PxUserControllerHitReport;
+PxUserControllerHitReport.prototype.__class__ = PxUserControllerHitReport;
+PxUserControllerHitReport.__cache__ = {};
+Module['PxUserControllerHitReport'] = PxUserControllerHitReport;
+
+PxUserControllerHitReport.prototype['onShapeHit'] = PxUserControllerHitReport.prototype.onShapeHit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(hit) {
+  var self = this.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  _emscripten_bind_PxUserControllerHitReport_onShapeHit_1(self, hit);
+};;
+
+PxUserControllerHitReport.prototype['onControllerHit'] = PxUserControllerHitReport.prototype.onControllerHit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(hit) {
+  var self = this.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  _emscripten_bind_PxUserControllerHitReport_onControllerHit_1(self, hit);
+};;
+
+PxUserControllerHitReport.prototype['onObstacleHit'] = PxUserControllerHitReport.prototype.onObstacleHit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(hit) {
+  var self = this.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  _emscripten_bind_PxUserControllerHitReport_onObstacleHit_1(self, hit);
+};;
+
 // VoidPtr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function VoidPtr() { throw "cannot construct a VoidPtr, no constructor in IDL" }
 VoidPtr.prototype = Object.create(WrapperObject.prototype);
@@ -11485,6 +14746,14 @@ PxTopLevelFunctions.prototype['DefaultWheelSceneQueryPreFilterBlocking'] = PxTop
 PxTopLevelFunctions.prototype['DefaultWheelSceneQueryPostFilterBlocking'] = PxTopLevelFunctions.prototype.DefaultWheelSceneQueryPostFilterBlocking = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return wrapPointer(_emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0(self), PxBatchQueryPostFilterShader);
+};;
+
+PxTopLevelFunctions.prototype['CreateControllerManager'] = PxTopLevelFunctions.prototype.CreateControllerManager = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene, lockingEnabled) {
+  var self = this.ptr;
+  if (scene && typeof scene === 'object') scene = scene.ptr;
+  if (lockingEnabled && typeof lockingEnabled === 'object') lockingEnabled = lockingEnabled.ptr;
+  if (lockingEnabled === undefined) { return wrapPointer(_emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1(self, scene), PxControllerManager) }
+  return wrapPointer(_emscripten_bind_PxTopLevelFunctions_CreateControllerManager_2(self, scene, lockingEnabled), PxControllerManager);
 };;
 
 PxTopLevelFunctions.prototype['CreateCooking'] = PxTopLevelFunctions.prototype.CreateCooking = /** @suppress {undefinedVars, duplicate} @this{Object} */function(version, foundation, scale) {
@@ -11625,6 +14894,40 @@ PxActorFlags.prototype['clear'] = PxActorFlags.prototype.clear = /** @suppress {
   PxActorFlags.prototype['__destroy__'] = PxActorFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxActorFlags___destroy___0(self);
+};
+// PxActorTypeFlags
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxActorTypeFlags(flags) {
+  if (flags && typeof flags === 'object') flags = flags.ptr;
+  this.ptr = _emscripten_bind_PxActorTypeFlags_PxActorTypeFlags_1(flags);
+  getCache(PxActorTypeFlags)[this.ptr] = this;
+};;
+PxActorTypeFlags.prototype = Object.create(WrapperObject.prototype);
+PxActorTypeFlags.prototype.constructor = PxActorTypeFlags;
+PxActorTypeFlags.prototype.__class__ = PxActorTypeFlags;
+PxActorTypeFlags.__cache__ = {};
+Module['PxActorTypeFlags'] = PxActorTypeFlags;
+
+PxActorTypeFlags.prototype['isSet'] = PxActorTypeFlags.prototype.isSet = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  return !!(_emscripten_bind_PxActorTypeFlags_isSet_1(self, flag));
+};;
+
+PxActorTypeFlags.prototype['set'] = PxActorTypeFlags.prototype.set = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxActorTypeFlags_set_1(self, flag);
+};;
+
+PxActorTypeFlags.prototype['clear'] = PxActorTypeFlags.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxActorTypeFlags_clear_1(self, flag);
+};;
+
+  PxActorTypeFlags.prototype['__destroy__'] = PxActorTypeFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxActorTypeFlags___destroy___0(self);
 };
 // PxAggregate
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxAggregate() { throw "cannot construct a PxAggregate, no constructor in IDL" }
@@ -13369,6 +16672,151 @@ Module['PxBatchQueryPreFilterShader'] = PxBatchQueryPreFilterShader;
   var self = this.ptr;
   _emscripten_bind_PxBatchQueryPreFilterShader___destroy___0(self);
 };
+// PxBroadPhaseCaps
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxBroadPhaseCaps() {
+  this.ptr = _emscripten_bind_PxBroadPhaseCaps_PxBroadPhaseCaps_0();
+  getCache(PxBroadPhaseCaps)[this.ptr] = this;
+};;
+PxBroadPhaseCaps.prototype = Object.create(WrapperObject.prototype);
+PxBroadPhaseCaps.prototype.constructor = PxBroadPhaseCaps;
+PxBroadPhaseCaps.prototype.__class__ = PxBroadPhaseCaps;
+PxBroadPhaseCaps.__cache__ = {};
+Module['PxBroadPhaseCaps'] = PxBroadPhaseCaps;
+
+  PxBroadPhaseCaps.prototype['get_maxNbRegions'] = PxBroadPhaseCaps.prototype.get_maxNbRegions = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBroadPhaseCaps_get_maxNbRegions_0(self);
+};
+    PxBroadPhaseCaps.prototype['set_maxNbRegions'] = PxBroadPhaseCaps.prototype.set_maxNbRegions = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseCaps_set_maxNbRegions_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseCaps.prototype, 'maxNbRegions', { get: PxBroadPhaseCaps.prototype.get_maxNbRegions, set: PxBroadPhaseCaps.prototype.set_maxNbRegions });
+  PxBroadPhaseCaps.prototype['get_maxNbObjects'] = PxBroadPhaseCaps.prototype.get_maxNbObjects = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBroadPhaseCaps_get_maxNbObjects_0(self);
+};
+    PxBroadPhaseCaps.prototype['set_maxNbObjects'] = PxBroadPhaseCaps.prototype.set_maxNbObjects = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseCaps_set_maxNbObjects_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseCaps.prototype, 'maxNbObjects', { get: PxBroadPhaseCaps.prototype.get_maxNbObjects, set: PxBroadPhaseCaps.prototype.set_maxNbObjects });
+  PxBroadPhaseCaps.prototype['get_needsPredefinedBounds'] = PxBroadPhaseCaps.prototype.get_needsPredefinedBounds = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxBroadPhaseCaps_get_needsPredefinedBounds_0(self));
+};
+    PxBroadPhaseCaps.prototype['set_needsPredefinedBounds'] = PxBroadPhaseCaps.prototype.set_needsPredefinedBounds = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseCaps_set_needsPredefinedBounds_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseCaps.prototype, 'needsPredefinedBounds', { get: PxBroadPhaseCaps.prototype.get_needsPredefinedBounds, set: PxBroadPhaseCaps.prototype.set_needsPredefinedBounds });
+  PxBroadPhaseCaps.prototype['__destroy__'] = PxBroadPhaseCaps.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxBroadPhaseCaps___destroy___0(self);
+};
+// PxBroadPhaseRegion
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxBroadPhaseRegion() {
+  this.ptr = _emscripten_bind_PxBroadPhaseRegion_PxBroadPhaseRegion_0();
+  getCache(PxBroadPhaseRegion)[this.ptr] = this;
+};;
+PxBroadPhaseRegion.prototype = Object.create(WrapperObject.prototype);
+PxBroadPhaseRegion.prototype.constructor = PxBroadPhaseRegion;
+PxBroadPhaseRegion.prototype.__class__ = PxBroadPhaseRegion;
+PxBroadPhaseRegion.__cache__ = {};
+Module['PxBroadPhaseRegion'] = PxBroadPhaseRegion;
+
+  PxBroadPhaseRegion.prototype['get_bounds'] = PxBroadPhaseRegion.prototype.get_bounds = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBroadPhaseRegion_get_bounds_0(self), PxBounds3);
+};
+    PxBroadPhaseRegion.prototype['set_bounds'] = PxBroadPhaseRegion.prototype.set_bounds = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseRegion_set_bounds_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseRegion.prototype, 'bounds', { get: PxBroadPhaseRegion.prototype.get_bounds, set: PxBroadPhaseRegion.prototype.set_bounds });
+  PxBroadPhaseRegion.prototype['get_userData'] = PxBroadPhaseRegion.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBroadPhaseRegion_get_userData_0(self), VoidPtr);
+};
+    PxBroadPhaseRegion.prototype['set_userData'] = PxBroadPhaseRegion.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseRegion_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseRegion.prototype, 'userData', { get: PxBroadPhaseRegion.prototype.get_userData, set: PxBroadPhaseRegion.prototype.set_userData });
+  PxBroadPhaseRegion.prototype['__destroy__'] = PxBroadPhaseRegion.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxBroadPhaseRegion___destroy___0(self);
+};
+// PxBroadPhaseRegionInfo
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxBroadPhaseRegionInfo() {
+  this.ptr = _emscripten_bind_PxBroadPhaseRegionInfo_PxBroadPhaseRegionInfo_0();
+  getCache(PxBroadPhaseRegionInfo)[this.ptr] = this;
+};;
+PxBroadPhaseRegionInfo.prototype = Object.create(WrapperObject.prototype);
+PxBroadPhaseRegionInfo.prototype.constructor = PxBroadPhaseRegionInfo;
+PxBroadPhaseRegionInfo.prototype.__class__ = PxBroadPhaseRegionInfo;
+PxBroadPhaseRegionInfo.__cache__ = {};
+Module['PxBroadPhaseRegionInfo'] = PxBroadPhaseRegionInfo;
+
+  PxBroadPhaseRegionInfo.prototype['get_region'] = PxBroadPhaseRegionInfo.prototype.get_region = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBroadPhaseRegionInfo_get_region_0(self), PxBroadPhaseRegion);
+};
+    PxBroadPhaseRegionInfo.prototype['set_region'] = PxBroadPhaseRegionInfo.prototype.set_region = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseRegionInfo_set_region_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseRegionInfo.prototype, 'region', { get: PxBroadPhaseRegionInfo.prototype.get_region, set: PxBroadPhaseRegionInfo.prototype.set_region });
+  PxBroadPhaseRegionInfo.prototype['get_nbStaticObjects'] = PxBroadPhaseRegionInfo.prototype.get_nbStaticObjects = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBroadPhaseRegionInfo_get_nbStaticObjects_0(self);
+};
+    PxBroadPhaseRegionInfo.prototype['set_nbStaticObjects'] = PxBroadPhaseRegionInfo.prototype.set_nbStaticObjects = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseRegionInfo_set_nbStaticObjects_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseRegionInfo.prototype, 'nbStaticObjects', { get: PxBroadPhaseRegionInfo.prototype.get_nbStaticObjects, set: PxBroadPhaseRegionInfo.prototype.set_nbStaticObjects });
+  PxBroadPhaseRegionInfo.prototype['get_nbDynamicObjects'] = PxBroadPhaseRegionInfo.prototype.get_nbDynamicObjects = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBroadPhaseRegionInfo_get_nbDynamicObjects_0(self);
+};
+    PxBroadPhaseRegionInfo.prototype['set_nbDynamicObjects'] = PxBroadPhaseRegionInfo.prototype.set_nbDynamicObjects = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseRegionInfo_set_nbDynamicObjects_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseRegionInfo.prototype, 'nbDynamicObjects', { get: PxBroadPhaseRegionInfo.prototype.get_nbDynamicObjects, set: PxBroadPhaseRegionInfo.prototype.set_nbDynamicObjects });
+  PxBroadPhaseRegionInfo.prototype['get_active'] = PxBroadPhaseRegionInfo.prototype.get_active = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxBroadPhaseRegionInfo_get_active_0(self));
+};
+    PxBroadPhaseRegionInfo.prototype['set_active'] = PxBroadPhaseRegionInfo.prototype.set_active = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseRegionInfo_set_active_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseRegionInfo.prototype, 'active', { get: PxBroadPhaseRegionInfo.prototype.get_active, set: PxBroadPhaseRegionInfo.prototype.set_active });
+  PxBroadPhaseRegionInfo.prototype['get_overlap'] = PxBroadPhaseRegionInfo.prototype.get_overlap = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxBroadPhaseRegionInfo_get_overlap_0(self));
+};
+    PxBroadPhaseRegionInfo.prototype['set_overlap'] = PxBroadPhaseRegionInfo.prototype.set_overlap = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBroadPhaseRegionInfo_set_overlap_1(self, arg0);
+};
+    Object.defineProperty(PxBroadPhaseRegionInfo.prototype, 'overlap', { get: PxBroadPhaseRegionInfo.prototype.get_overlap, set: PxBroadPhaseRegionInfo.prototype.set_overlap });
+  PxBroadPhaseRegionInfo.prototype['__destroy__'] = PxBroadPhaseRegionInfo.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxBroadPhaseRegionInfo___destroy___0(self);
+};
 // PxConstraint
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxConstraint() { throw "cannot construct a PxConstraint, no constructor in IDL" }
 PxConstraint.prototype = Object.create(PxBase.prototype);
@@ -13744,6 +17192,138 @@ Module['PxContactPairHeader'] = PxContactPairHeader;
   var self = this.ptr;
   _emscripten_bind_PxContactPairHeader___destroy___0(self);
 };
+// PxDominanceGroupPair
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxDominanceGroupPair(a, b) {
+  if (a && typeof a === 'object') a = a.ptr;
+  if (b && typeof b === 'object') b = b.ptr;
+  this.ptr = _emscripten_bind_PxDominanceGroupPair_PxDominanceGroupPair_2(a, b);
+  getCache(PxDominanceGroupPair)[this.ptr] = this;
+};;
+PxDominanceGroupPair.prototype = Object.create(WrapperObject.prototype);
+PxDominanceGroupPair.prototype.constructor = PxDominanceGroupPair;
+PxDominanceGroupPair.prototype.__class__ = PxDominanceGroupPair;
+PxDominanceGroupPair.__cache__ = {};
+Module['PxDominanceGroupPair'] = PxDominanceGroupPair;
+
+  PxDominanceGroupPair.prototype['get_dominance0'] = PxDominanceGroupPair.prototype.get_dominance0 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxDominanceGroupPair_get_dominance0_0(self);
+};
+    PxDominanceGroupPair.prototype['set_dominance0'] = PxDominanceGroupPair.prototype.set_dominance0 = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxDominanceGroupPair_set_dominance0_1(self, arg0);
+};
+    Object.defineProperty(PxDominanceGroupPair.prototype, 'dominance0', { get: PxDominanceGroupPair.prototype.get_dominance0, set: PxDominanceGroupPair.prototype.set_dominance0 });
+  PxDominanceGroupPair.prototype['get_dominance1'] = PxDominanceGroupPair.prototype.get_dominance1 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxDominanceGroupPair_get_dominance1_0(self);
+};
+    PxDominanceGroupPair.prototype['set_dominance1'] = PxDominanceGroupPair.prototype.set_dominance1 = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxDominanceGroupPair_set_dominance1_1(self, arg0);
+};
+    Object.defineProperty(PxDominanceGroupPair.prototype, 'dominance1', { get: PxDominanceGroupPair.prototype.get_dominance1, set: PxDominanceGroupPair.prototype.set_dominance1 });
+  PxDominanceGroupPair.prototype['__destroy__'] = PxDominanceGroupPair.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxDominanceGroupPair___destroy___0(self);
+};
+// PxgDynamicsMemoryConfig
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxgDynamicsMemoryConfig() {
+  this.ptr = _emscripten_bind_PxgDynamicsMemoryConfig_PxgDynamicsMemoryConfig_0();
+  getCache(PxgDynamicsMemoryConfig)[this.ptr] = this;
+};;
+PxgDynamicsMemoryConfig.prototype = Object.create(WrapperObject.prototype);
+PxgDynamicsMemoryConfig.prototype.constructor = PxgDynamicsMemoryConfig;
+PxgDynamicsMemoryConfig.prototype.__class__ = PxgDynamicsMemoryConfig;
+PxgDynamicsMemoryConfig.__cache__ = {};
+Module['PxgDynamicsMemoryConfig'] = PxgDynamicsMemoryConfig;
+
+  PxgDynamicsMemoryConfig.prototype['get_constraintBufferCapacity'] = PxgDynamicsMemoryConfig.prototype.get_constraintBufferCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxgDynamicsMemoryConfig_get_constraintBufferCapacity_0(self);
+};
+    PxgDynamicsMemoryConfig.prototype['set_constraintBufferCapacity'] = PxgDynamicsMemoryConfig.prototype.set_constraintBufferCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxgDynamicsMemoryConfig_set_constraintBufferCapacity_1(self, arg0);
+};
+    Object.defineProperty(PxgDynamicsMemoryConfig.prototype, 'constraintBufferCapacity', { get: PxgDynamicsMemoryConfig.prototype.get_constraintBufferCapacity, set: PxgDynamicsMemoryConfig.prototype.set_constraintBufferCapacity });
+  PxgDynamicsMemoryConfig.prototype['get_contactBufferCapacity'] = PxgDynamicsMemoryConfig.prototype.get_contactBufferCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxgDynamicsMemoryConfig_get_contactBufferCapacity_0(self);
+};
+    PxgDynamicsMemoryConfig.prototype['set_contactBufferCapacity'] = PxgDynamicsMemoryConfig.prototype.set_contactBufferCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxgDynamicsMemoryConfig_set_contactBufferCapacity_1(self, arg0);
+};
+    Object.defineProperty(PxgDynamicsMemoryConfig.prototype, 'contactBufferCapacity', { get: PxgDynamicsMemoryConfig.prototype.get_contactBufferCapacity, set: PxgDynamicsMemoryConfig.prototype.set_contactBufferCapacity });
+  PxgDynamicsMemoryConfig.prototype['get_tempBufferCapacity'] = PxgDynamicsMemoryConfig.prototype.get_tempBufferCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxgDynamicsMemoryConfig_get_tempBufferCapacity_0(self);
+};
+    PxgDynamicsMemoryConfig.prototype['set_tempBufferCapacity'] = PxgDynamicsMemoryConfig.prototype.set_tempBufferCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxgDynamicsMemoryConfig_set_tempBufferCapacity_1(self, arg0);
+};
+    Object.defineProperty(PxgDynamicsMemoryConfig.prototype, 'tempBufferCapacity', { get: PxgDynamicsMemoryConfig.prototype.get_tempBufferCapacity, set: PxgDynamicsMemoryConfig.prototype.set_tempBufferCapacity });
+  PxgDynamicsMemoryConfig.prototype['get_contactStreamSize'] = PxgDynamicsMemoryConfig.prototype.get_contactStreamSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxgDynamicsMemoryConfig_get_contactStreamSize_0(self);
+};
+    PxgDynamicsMemoryConfig.prototype['set_contactStreamSize'] = PxgDynamicsMemoryConfig.prototype.set_contactStreamSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxgDynamicsMemoryConfig_set_contactStreamSize_1(self, arg0);
+};
+    Object.defineProperty(PxgDynamicsMemoryConfig.prototype, 'contactStreamSize', { get: PxgDynamicsMemoryConfig.prototype.get_contactStreamSize, set: PxgDynamicsMemoryConfig.prototype.set_contactStreamSize });
+  PxgDynamicsMemoryConfig.prototype['get_patchStreamSize'] = PxgDynamicsMemoryConfig.prototype.get_patchStreamSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxgDynamicsMemoryConfig_get_patchStreamSize_0(self);
+};
+    PxgDynamicsMemoryConfig.prototype['set_patchStreamSize'] = PxgDynamicsMemoryConfig.prototype.set_patchStreamSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxgDynamicsMemoryConfig_set_patchStreamSize_1(self, arg0);
+};
+    Object.defineProperty(PxgDynamicsMemoryConfig.prototype, 'patchStreamSize', { get: PxgDynamicsMemoryConfig.prototype.get_patchStreamSize, set: PxgDynamicsMemoryConfig.prototype.set_patchStreamSize });
+  PxgDynamicsMemoryConfig.prototype['get_forceStreamCapacity'] = PxgDynamicsMemoryConfig.prototype.get_forceStreamCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxgDynamicsMemoryConfig_get_forceStreamCapacity_0(self);
+};
+    PxgDynamicsMemoryConfig.prototype['set_forceStreamCapacity'] = PxgDynamicsMemoryConfig.prototype.set_forceStreamCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxgDynamicsMemoryConfig_set_forceStreamCapacity_1(self, arg0);
+};
+    Object.defineProperty(PxgDynamicsMemoryConfig.prototype, 'forceStreamCapacity', { get: PxgDynamicsMemoryConfig.prototype.get_forceStreamCapacity, set: PxgDynamicsMemoryConfig.prototype.set_forceStreamCapacity });
+  PxgDynamicsMemoryConfig.prototype['get_heapCapacity'] = PxgDynamicsMemoryConfig.prototype.get_heapCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxgDynamicsMemoryConfig_get_heapCapacity_0(self);
+};
+    PxgDynamicsMemoryConfig.prototype['set_heapCapacity'] = PxgDynamicsMemoryConfig.prototype.set_heapCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxgDynamicsMemoryConfig_set_heapCapacity_1(self, arg0);
+};
+    Object.defineProperty(PxgDynamicsMemoryConfig.prototype, 'heapCapacity', { get: PxgDynamicsMemoryConfig.prototype.get_heapCapacity, set: PxgDynamicsMemoryConfig.prototype.set_heapCapacity });
+  PxgDynamicsMemoryConfig.prototype['get_foundLostPairsCapacity'] = PxgDynamicsMemoryConfig.prototype.get_foundLostPairsCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxgDynamicsMemoryConfig_get_foundLostPairsCapacity_0(self);
+};
+    PxgDynamicsMemoryConfig.prototype['set_foundLostPairsCapacity'] = PxgDynamicsMemoryConfig.prototype.set_foundLostPairsCapacity = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxgDynamicsMemoryConfig_set_foundLostPairsCapacity_1(self, arg0);
+};
+    Object.defineProperty(PxgDynamicsMemoryConfig.prototype, 'foundLostPairsCapacity', { get: PxgDynamicsMemoryConfig.prototype.get_foundLostPairsCapacity, set: PxgDynamicsMemoryConfig.prototype.set_foundLostPairsCapacity });
+  PxgDynamicsMemoryConfig.prototype['__destroy__'] = PxgDynamicsMemoryConfig.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxgDynamicsMemoryConfig___destroy___0(self);
+};
 // PxFilterData
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxFilterData(w0, w1, w2, w3) {
   if (w0 && typeof w0 === 'object') w0 = w0.ptr;
@@ -13840,6 +17420,78 @@ PxHitFlags.prototype['clear'] = PxHitFlags.prototype.clear = /** @suppress {unde
   PxHitFlags.prototype['__destroy__'] = PxHitFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxHitFlags___destroy___0(self);
+};
+// PxOverlapBuffer10
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxOverlapBuffer10() {
+  this.ptr = _emscripten_bind_PxOverlapBuffer10_PxOverlapBuffer10_0();
+  getCache(PxOverlapBuffer10)[this.ptr] = this;
+};;
+PxOverlapBuffer10.prototype = Object.create(PxOverlapCallback.prototype);
+PxOverlapBuffer10.prototype.constructor = PxOverlapBuffer10;
+PxOverlapBuffer10.prototype.__class__ = PxOverlapBuffer10;
+PxOverlapBuffer10.__cache__ = {};
+Module['PxOverlapBuffer10'] = PxOverlapBuffer10;
+
+PxOverlapBuffer10.prototype['getNbAnyHits'] = PxOverlapBuffer10.prototype.getNbAnyHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxOverlapBuffer10_getNbAnyHits_0(self);
+};;
+
+PxOverlapBuffer10.prototype['getAnyHit'] = PxOverlapBuffer10.prototype.getAnyHit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_PxOverlapBuffer10_getAnyHit_1(self, index), PxOverlapHit);
+};;
+
+PxOverlapBuffer10.prototype['getNbTouches'] = PxOverlapBuffer10.prototype.getNbTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxOverlapBuffer10_getNbTouches_0(self);
+};;
+
+PxOverlapBuffer10.prototype['getTouches'] = PxOverlapBuffer10.prototype.getTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxOverlapBuffer10_getTouches_0(self), PxOverlapHit);
+};;
+
+PxOverlapBuffer10.prototype['getTouch'] = PxOverlapBuffer10.prototype.getTouch = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_PxOverlapBuffer10_getTouch_1(self, index), PxOverlapHit);
+};;
+
+PxOverlapBuffer10.prototype['getMaxNbTouches'] = PxOverlapBuffer10.prototype.getMaxNbTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxOverlapBuffer10_getMaxNbTouches_0(self);
+};;
+
+PxOverlapBuffer10.prototype['hasAnyHits'] = PxOverlapBuffer10.prototype.hasAnyHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxOverlapBuffer10_hasAnyHits_0(self));
+};;
+
+  PxOverlapBuffer10.prototype['get_block'] = PxOverlapBuffer10.prototype.get_block = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxOverlapBuffer10_get_block_0(self), PxOverlapHit);
+};
+    PxOverlapBuffer10.prototype['set_block'] = PxOverlapBuffer10.prototype.set_block = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxOverlapBuffer10_set_block_1(self, arg0);
+};
+    Object.defineProperty(PxOverlapBuffer10.prototype, 'block', { get: PxOverlapBuffer10.prototype.get_block, set: PxOverlapBuffer10.prototype.set_block });
+  PxOverlapBuffer10.prototype['get_hasBlock'] = PxOverlapBuffer10.prototype.get_hasBlock = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxOverlapBuffer10_get_hasBlock_0(self));
+};
+    PxOverlapBuffer10.prototype['set_hasBlock'] = PxOverlapBuffer10.prototype.set_hasBlock = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxOverlapBuffer10_set_hasBlock_1(self, arg0);
+};
+    Object.defineProperty(PxOverlapBuffer10.prototype, 'hasBlock', { get: PxOverlapBuffer10.prototype.get_hasBlock, set: PxOverlapBuffer10.prototype.set_hasBlock });
+  PxOverlapBuffer10.prototype['__destroy__'] = PxOverlapBuffer10.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxOverlapBuffer10___destroy___0(self);
 };
 // PxOverlapHit
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxOverlapHit() { throw "cannot construct a PxOverlapHit, no constructor in IDL" }
@@ -14059,6 +17711,13 @@ PxPhysics.prototype['getFoundation'] = PxPhysics.prototype.getFoundation = /** @
   return wrapPointer(_emscripten_bind_PxPhysics_getFoundation_0(self), PxFoundation);
 };;
 
+PxPhysics.prototype['createAggregate'] = PxPhysics.prototype.createAggregate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(size, enableSelfCollision) {
+  var self = this.ptr;
+  if (size && typeof size === 'object') size = size.ptr;
+  if (enableSelfCollision && typeof enableSelfCollision === 'object') enableSelfCollision = enableSelfCollision.ptr;
+  return wrapPointer(_emscripten_bind_PxPhysics_createAggregate_2(self, size, enableSelfCollision), PxAggregate);
+};;
+
 PxPhysics.prototype['getTolerancesScale'] = PxPhysics.prototype.getTolerancesScale = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return wrapPointer(_emscripten_bind_PxPhysics_getTolerancesScale_0(self), PxTolerancesScale);
@@ -14124,6 +17783,151 @@ PxPhysics.prototype['getPhysicsInsertionCallback'] = PxPhysics.prototype.getPhys
   PxPhysics.prototype['__destroy__'] = PxPhysics.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxPhysics___destroy___0(self);
+};
+// PxQueryFilterData
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxQueryFilterData(fd, f) {
+  if (fd && typeof fd === 'object') fd = fd.ptr;
+  if (f && typeof f === 'object') f = f.ptr;
+  if (fd === undefined) { this.ptr = _emscripten_bind_PxQueryFilterData_PxQueryFilterData_0(); getCache(PxQueryFilterData)[this.ptr] = this;return }
+  if (f === undefined) { this.ptr = _emscripten_bind_PxQueryFilterData_PxQueryFilterData_1(fd); getCache(PxQueryFilterData)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_PxQueryFilterData_PxQueryFilterData_2(fd, f);
+  getCache(PxQueryFilterData)[this.ptr] = this;
+};;
+PxQueryFilterData.prototype = Object.create(WrapperObject.prototype);
+PxQueryFilterData.prototype.constructor = PxQueryFilterData;
+PxQueryFilterData.prototype.__class__ = PxQueryFilterData;
+PxQueryFilterData.__cache__ = {};
+Module['PxQueryFilterData'] = PxQueryFilterData;
+
+  PxQueryFilterData.prototype['get_data'] = PxQueryFilterData.prototype.get_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxQueryFilterData_get_data_0(self), PxFilterData);
+};
+    PxQueryFilterData.prototype['set_data'] = PxQueryFilterData.prototype.set_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxQueryFilterData_set_data_1(self, arg0);
+};
+    Object.defineProperty(PxQueryFilterData.prototype, 'data', { get: PxQueryFilterData.prototype.get_data, set: PxQueryFilterData.prototype.set_data });
+  PxQueryFilterData.prototype['get_flags'] = PxQueryFilterData.prototype.get_flags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxQueryFilterData_get_flags_0(self), PxQueryFlags);
+};
+    PxQueryFilterData.prototype['set_flags'] = PxQueryFilterData.prototype.set_flags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxQueryFilterData_set_flags_1(self, arg0);
+};
+    Object.defineProperty(PxQueryFilterData.prototype, 'flags', { get: PxQueryFilterData.prototype.get_flags, set: PxQueryFilterData.prototype.set_flags });
+  PxQueryFilterData.prototype['__destroy__'] = PxQueryFilterData.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxQueryFilterData___destroy___0(self);
+};
+// PxQueryFlags
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxQueryFlags(flags) {
+  if (flags && typeof flags === 'object') flags = flags.ptr;
+  this.ptr = _emscripten_bind_PxQueryFlags_PxQueryFlags_1(flags);
+  getCache(PxQueryFlags)[this.ptr] = this;
+};;
+PxQueryFlags.prototype = Object.create(WrapperObject.prototype);
+PxQueryFlags.prototype.constructor = PxQueryFlags;
+PxQueryFlags.prototype.__class__ = PxQueryFlags;
+PxQueryFlags.__cache__ = {};
+Module['PxQueryFlags'] = PxQueryFlags;
+
+PxQueryFlags.prototype['isSet'] = PxQueryFlags.prototype.isSet = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  return !!(_emscripten_bind_PxQueryFlags_isSet_1(self, flag));
+};;
+
+PxQueryFlags.prototype['set'] = PxQueryFlags.prototype.set = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxQueryFlags_set_1(self, flag);
+};;
+
+PxQueryFlags.prototype['clear'] = PxQueryFlags.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxQueryFlags_clear_1(self, flag);
+};;
+
+  PxQueryFlags.prototype['__destroy__'] = PxQueryFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxQueryFlags___destroy___0(self);
+};
+// PxRaycastBuffer10
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxRaycastBuffer10() {
+  this.ptr = _emscripten_bind_PxRaycastBuffer10_PxRaycastBuffer10_0();
+  getCache(PxRaycastBuffer10)[this.ptr] = this;
+};;
+PxRaycastBuffer10.prototype = Object.create(PxRaycastCallback.prototype);
+PxRaycastBuffer10.prototype.constructor = PxRaycastBuffer10;
+PxRaycastBuffer10.prototype.__class__ = PxRaycastBuffer10;
+PxRaycastBuffer10.__cache__ = {};
+Module['PxRaycastBuffer10'] = PxRaycastBuffer10;
+
+PxRaycastBuffer10.prototype['getNbAnyHits'] = PxRaycastBuffer10.prototype.getNbAnyHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxRaycastBuffer10_getNbAnyHits_0(self);
+};;
+
+PxRaycastBuffer10.prototype['getAnyHit'] = PxRaycastBuffer10.prototype.getAnyHit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_PxRaycastBuffer10_getAnyHit_1(self, index), PxRaycastHit);
+};;
+
+PxRaycastBuffer10.prototype['getNbTouches'] = PxRaycastBuffer10.prototype.getNbTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxRaycastBuffer10_getNbTouches_0(self);
+};;
+
+PxRaycastBuffer10.prototype['getTouches'] = PxRaycastBuffer10.prototype.getTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxRaycastBuffer10_getTouches_0(self), PxRaycastHit);
+};;
+
+PxRaycastBuffer10.prototype['getTouch'] = PxRaycastBuffer10.prototype.getTouch = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_PxRaycastBuffer10_getTouch_1(self, index), PxRaycastHit);
+};;
+
+PxRaycastBuffer10.prototype['getMaxNbTouches'] = PxRaycastBuffer10.prototype.getMaxNbTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxRaycastBuffer10_getMaxNbTouches_0(self);
+};;
+
+PxRaycastBuffer10.prototype['hasAnyHits'] = PxRaycastBuffer10.prototype.hasAnyHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxRaycastBuffer10_hasAnyHits_0(self));
+};;
+
+  PxRaycastBuffer10.prototype['get_block'] = PxRaycastBuffer10.prototype.get_block = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxRaycastBuffer10_get_block_0(self), PxRaycastHit);
+};
+    PxRaycastBuffer10.prototype['set_block'] = PxRaycastBuffer10.prototype.set_block = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxRaycastBuffer10_set_block_1(self, arg0);
+};
+    Object.defineProperty(PxRaycastBuffer10.prototype, 'block', { get: PxRaycastBuffer10.prototype.get_block, set: PxRaycastBuffer10.prototype.set_block });
+  PxRaycastBuffer10.prototype['get_hasBlock'] = PxRaycastBuffer10.prototype.get_hasBlock = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxRaycastBuffer10_get_hasBlock_0(self));
+};
+    PxRaycastBuffer10.prototype['set_hasBlock'] = PxRaycastBuffer10.prototype.set_hasBlock = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxRaycastBuffer10_set_hasBlock_1(self, arg0);
+};
+    Object.defineProperty(PxRaycastBuffer10.prototype, 'hasBlock', { get: PxRaycastBuffer10.prototype.get_hasBlock, set: PxRaycastBuffer10.prototype.set_hasBlock });
+  PxRaycastBuffer10.prototype['__destroy__'] = PxRaycastBuffer10.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxRaycastBuffer10___destroy___0(self);
 };
 // PxRaycastHit
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxRaycastHit() {
@@ -14972,6 +18776,138 @@ PxScene.prototype['removeActor'] = PxScene.prototype.removeActor = /** @suppress
   _emscripten_bind_PxScene_removeActor_2(self, actor, wakeOnLostTouch);
 };;
 
+PxScene.prototype['addAggregate'] = PxScene.prototype.addAggregate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(aggregate) {
+  var self = this.ptr;
+  if (aggregate && typeof aggregate === 'object') aggregate = aggregate.ptr;
+  _emscripten_bind_PxScene_addAggregate_1(self, aggregate);
+};;
+
+PxScene.prototype['removeAggregate'] = PxScene.prototype.removeAggregate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(aggregate, wakeOnLostTouch) {
+  var self = this.ptr;
+  if (aggregate && typeof aggregate === 'object') aggregate = aggregate.ptr;
+  if (wakeOnLostTouch && typeof wakeOnLostTouch === 'object') wakeOnLostTouch = wakeOnLostTouch.ptr;
+  if (wakeOnLostTouch === undefined) { _emscripten_bind_PxScene_removeAggregate_1(self, aggregate);  return }
+  _emscripten_bind_PxScene_removeAggregate_2(self, aggregate, wakeOnLostTouch);
+};;
+
+PxScene.prototype['getWakeCounterResetValue'] = PxScene.prototype.getWakeCounterResetValue = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getWakeCounterResetValue_0(self);
+};;
+
+PxScene.prototype['shiftOrigin'] = PxScene.prototype.shiftOrigin = /** @suppress {undefinedVars, duplicate} @this{Object} */function(shift) {
+  var self = this.ptr;
+  if (shift && typeof shift === 'object') shift = shift.ptr;
+  _emscripten_bind_PxScene_shiftOrigin_1(self, shift);
+};;
+
+PxScene.prototype['addArticulation'] = PxScene.prototype.addArticulation = /** @suppress {undefinedVars, duplicate} @this{Object} */function(articulation) {
+  var self = this.ptr;
+  if (articulation && typeof articulation === 'object') articulation = articulation.ptr;
+  _emscripten_bind_PxScene_addArticulation_1(self, articulation);
+};;
+
+PxScene.prototype['removeArticulation'] = PxScene.prototype.removeArticulation = /** @suppress {undefinedVars, duplicate} @this{Object} */function(articulation, wakeOnLostTouch) {
+  var self = this.ptr;
+  if (articulation && typeof articulation === 'object') articulation = articulation.ptr;
+  if (wakeOnLostTouch && typeof wakeOnLostTouch === 'object') wakeOnLostTouch = wakeOnLostTouch.ptr;
+  if (wakeOnLostTouch === undefined) { _emscripten_bind_PxScene_removeArticulation_1(self, articulation);  return }
+  _emscripten_bind_PxScene_removeArticulation_2(self, articulation, wakeOnLostTouch);
+};;
+
+PxScene.prototype['getNbActors'] = PxScene.prototype.getNbActors = /** @suppress {undefinedVars, duplicate} @this{Object} */function(types) {
+  var self = this.ptr;
+  if (types && typeof types === 'object') types = types.ptr;
+  return _emscripten_bind_PxScene_getNbActors_1(self, types);
+};;
+
+PxScene.prototype['getNbArticulations'] = PxScene.prototype.getNbArticulations = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getNbArticulations_0(self);
+};;
+
+PxScene.prototype['getNbConstraints'] = PxScene.prototype.getNbConstraints = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getNbConstraints_0(self);
+};;
+
+PxScene.prototype['getNbAggregates'] = PxScene.prototype.getNbAggregates = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getNbAggregates_0(self);
+};;
+
+PxScene.prototype['setDominanceGroupPair'] = PxScene.prototype.setDominanceGroupPair = /** @suppress {undefinedVars, duplicate} @this{Object} */function(group1, group2, dominance) {
+  var self = this.ptr;
+  if (group1 && typeof group1 === 'object') group1 = group1.ptr;
+  if (group2 && typeof group2 === 'object') group2 = group2.ptr;
+  if (dominance && typeof dominance === 'object') dominance = dominance.ptr;
+  _emscripten_bind_PxScene_setDominanceGroupPair_3(self, group1, group2, dominance);
+};;
+
+PxScene.prototype['getCpuDispatcher'] = PxScene.prototype.getCpuDispatcher = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxScene_getCpuDispatcher_0(self), PxCpuDispatcher);
+};;
+
+PxScene.prototype['getCudaContextManager'] = PxScene.prototype.getCudaContextManager = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxScene_getCudaContextManager_0(self), PxCudaContextManager);
+};;
+
+PxScene.prototype['createClient'] = PxScene.prototype.createClient = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_createClient_0(self);
+};;
+
+PxScene.prototype['setSimulationEventCallback'] = PxScene.prototype.setSimulationEventCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function(callback) {
+  var self = this.ptr;
+  if (callback && typeof callback === 'object') callback = callback.ptr;
+  _emscripten_bind_PxScene_setSimulationEventCallback_1(self, callback);
+};;
+
+PxScene.prototype['getSimulationEventCallback'] = PxScene.prototype.getSimulationEventCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxScene_getSimulationEventCallback_0(self), PxSimulationEventCallback);
+};;
+
+PxScene.prototype['setFilterShaderData'] = PxScene.prototype.setFilterShaderData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(data, dataSize) {
+  var self = this.ptr;
+  if (data && typeof data === 'object') data = data.ptr;
+  if (dataSize && typeof dataSize === 'object') dataSize = dataSize.ptr;
+  _emscripten_bind_PxScene_setFilterShaderData_2(self, data, dataSize);
+};;
+
+PxScene.prototype['getFilterShaderData'] = PxScene.prototype.getFilterShaderData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxScene_getFilterShaderData_0(self), VoidPtr);
+};;
+
+PxScene.prototype['getFilterShaderDataSize'] = PxScene.prototype.getFilterShaderDataSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getFilterShaderDataSize_0(self);
+};;
+
+PxScene.prototype['getFilterShader'] = PxScene.prototype.getFilterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxScene_getFilterShader_0(self), PxSimulationFilterShader);
+};;
+
+PxScene.prototype['resetFiltering'] = PxScene.prototype.resetFiltering = /** @suppress {undefinedVars, duplicate} @this{Object} */function(actor) {
+  var self = this.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  _emscripten_bind_PxScene_resetFiltering_1(self, actor);
+};;
+
+PxScene.prototype['getKinematicKinematicFilteringMode'] = PxScene.prototype.getKinematicKinematicFilteringMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getKinematicKinematicFilteringMode_0(self);
+};;
+
+PxScene.prototype['getStaticKinematicFilteringMode'] = PxScene.prototype.getStaticKinematicFilteringMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getStaticKinematicFilteringMode_0(self);
+};;
+
 PxScene.prototype['simulate'] = PxScene.prototype.simulate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(elapsedTime, completionTask, scratchMemBlock, scratchMemBlockSize, controlSimulation) {
   var self = this.ptr;
   if (elapsedTime && typeof elapsedTime === 'object') elapsedTime = elapsedTime.ptr;
@@ -14986,11 +18922,59 @@ PxScene.prototype['simulate'] = PxScene.prototype.simulate = /** @suppress {unde
   _emscripten_bind_PxScene_simulate_5(self, elapsedTime, completionTask, scratchMemBlock, scratchMemBlockSize, controlSimulation);
 };;
 
+PxScene.prototype['advance'] = PxScene.prototype.advance = /** @suppress {undefinedVars, duplicate} @this{Object} */function(completionTask) {
+  var self = this.ptr;
+  if (completionTask && typeof completionTask === 'object') completionTask = completionTask.ptr;
+  if (completionTask === undefined) { _emscripten_bind_PxScene_advance_0(self);  return }
+  _emscripten_bind_PxScene_advance_1(self, completionTask);
+};;
+
+PxScene.prototype['collide'] = PxScene.prototype.collide = /** @suppress {undefinedVars, duplicate} @this{Object} */function(elapsedTime, completionTask, scratchMemBlock, scratchMemBlockSize, controlSimulation) {
+  var self = this.ptr;
+  if (elapsedTime && typeof elapsedTime === 'object') elapsedTime = elapsedTime.ptr;
+  if (completionTask && typeof completionTask === 'object') completionTask = completionTask.ptr;
+  if (scratchMemBlock && typeof scratchMemBlock === 'object') scratchMemBlock = scratchMemBlock.ptr;
+  if (scratchMemBlockSize && typeof scratchMemBlockSize === 'object') scratchMemBlockSize = scratchMemBlockSize.ptr;
+  if (controlSimulation && typeof controlSimulation === 'object') controlSimulation = controlSimulation.ptr;
+  if (completionTask === undefined) { _emscripten_bind_PxScene_collide_1(self, elapsedTime);  return }
+  if (scratchMemBlock === undefined) { _emscripten_bind_PxScene_collide_2(self, elapsedTime, completionTask);  return }
+  if (scratchMemBlockSize === undefined) { _emscripten_bind_PxScene_collide_3(self, elapsedTime, completionTask, scratchMemBlock);  return }
+  if (controlSimulation === undefined) { _emscripten_bind_PxScene_collide_4(self, elapsedTime, completionTask, scratchMemBlock, scratchMemBlockSize);  return }
+  _emscripten_bind_PxScene_collide_5(self, elapsedTime, completionTask, scratchMemBlock, scratchMemBlockSize, controlSimulation);
+};;
+
+PxScene.prototype['checkResults'] = PxScene.prototype.checkResults = /** @suppress {undefinedVars, duplicate} @this{Object} */function(block) {
+  var self = this.ptr;
+  if (block && typeof block === 'object') block = block.ptr;
+  if (block === undefined) { return !!(_emscripten_bind_PxScene_checkResults_0(self)) }
+  return !!(_emscripten_bind_PxScene_checkResults_1(self, block));
+};;
+
+PxScene.prototype['fetchCollision'] = PxScene.prototype.fetchCollision = /** @suppress {undefinedVars, duplicate} @this{Object} */function(block) {
+  var self = this.ptr;
+  if (block && typeof block === 'object') block = block.ptr;
+  if (block === undefined) { return !!(_emscripten_bind_PxScene_fetchCollision_0(self)) }
+  return !!(_emscripten_bind_PxScene_fetchCollision_1(self, block));
+};;
+
 PxScene.prototype['fetchResults'] = PxScene.prototype.fetchResults = /** @suppress {undefinedVars, duplicate} @this{Object} */function(block) {
   var self = this.ptr;
   if (block && typeof block === 'object') block = block.ptr;
   if (block === undefined) { return !!(_emscripten_bind_PxScene_fetchResults_0(self)) }
   return !!(_emscripten_bind_PxScene_fetchResults_1(self, block));
+};;
+
+PxScene.prototype['processCallbacks'] = PxScene.prototype.processCallbacks = /** @suppress {undefinedVars, duplicate} @this{Object} */function(continuation) {
+  var self = this.ptr;
+  if (continuation && typeof continuation === 'object') continuation = continuation.ptr;
+  _emscripten_bind_PxScene_processCallbacks_1(self, continuation);
+};;
+
+PxScene.prototype['flushSimulation'] = PxScene.prototype.flushSimulation = /** @suppress {undefinedVars, duplicate} @this{Object} */function(sendPendingReports) {
+  var self = this.ptr;
+  if (sendPendingReports && typeof sendPendingReports === 'object') sendPendingReports = sendPendingReports.ptr;
+  if (sendPendingReports === undefined) { _emscripten_bind_PxScene_flushSimulation_0(self);  return }
+  _emscripten_bind_PxScene_flushSimulation_1(self, sendPendingReports);
 };;
 
 PxScene.prototype['setGravity'] = PxScene.prototype.setGravity = /** @suppress {undefinedVars, duplicate} @this{Object} */function(vec) {
@@ -15004,10 +18988,277 @@ PxScene.prototype['getGravity'] = PxScene.prototype.getGravity = /** @suppress {
   return wrapPointer(_emscripten_bind_PxScene_getGravity_0(self), PxVec3);
 };;
 
+PxScene.prototype['setBounceThresholdVelocity'] = PxScene.prototype.setBounceThresholdVelocity = /** @suppress {undefinedVars, duplicate} @this{Object} */function(t) {
+  var self = this.ptr;
+  if (t && typeof t === 'object') t = t.ptr;
+  _emscripten_bind_PxScene_setBounceThresholdVelocity_1(self, t);
+};;
+
+PxScene.prototype['getBounceThresholdVelocity'] = PxScene.prototype.getBounceThresholdVelocity = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getBounceThresholdVelocity_0(self);
+};;
+
+PxScene.prototype['setCCDMaxPasses'] = PxScene.prototype.setCCDMaxPasses = /** @suppress {undefinedVars, duplicate} @this{Object} */function(ccdMaxPasses) {
+  var self = this.ptr;
+  if (ccdMaxPasses && typeof ccdMaxPasses === 'object') ccdMaxPasses = ccdMaxPasses.ptr;
+  _emscripten_bind_PxScene_setCCDMaxPasses_1(self, ccdMaxPasses);
+};;
+
+PxScene.prototype['getCCDMaxPasses'] = PxScene.prototype.getCCDMaxPasses = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getCCDMaxPasses_0(self);
+};;
+
+PxScene.prototype['getFrictionOffsetThreshold'] = PxScene.prototype.getFrictionOffsetThreshold = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getFrictionOffsetThreshold_0(self);
+};;
+
+PxScene.prototype['setFrictionType'] = PxScene.prototype.setFrictionType = /** @suppress {undefinedVars, duplicate} @this{Object} */function(frictionType) {
+  var self = this.ptr;
+  if (frictionType && typeof frictionType === 'object') frictionType = frictionType.ptr;
+  _emscripten_bind_PxScene_setFrictionType_1(self, frictionType);
+};;
+
+PxScene.prototype['getFrictionType'] = PxScene.prototype.getFrictionType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getFrictionType_0(self);
+};;
+
+PxScene.prototype['getSimulationStatistics'] = PxScene.prototype.getSimulationStatistics = /** @suppress {undefinedVars, duplicate} @this{Object} */function(stats) {
+  var self = this.ptr;
+  if (stats && typeof stats === 'object') stats = stats.ptr;
+  _emscripten_bind_PxScene_getSimulationStatistics_1(self, stats);
+};;
+
+PxScene.prototype['getStaticStructure'] = PxScene.prototype.getStaticStructure = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getStaticStructure_0(self);
+};;
+
+PxScene.prototype['getDynamicStructure'] = PxScene.prototype.getDynamicStructure = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getDynamicStructure_0(self);
+};;
+
+PxScene.prototype['flushQueryUpdates'] = PxScene.prototype.flushQueryUpdates = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxScene_flushQueryUpdates_0(self);
+};;
+
 PxScene.prototype['createBatchQuery'] = PxScene.prototype.createBatchQuery = /** @suppress {undefinedVars, duplicate} @this{Object} */function(desc) {
   var self = this.ptr;
   if (desc && typeof desc === 'object') desc = desc.ptr;
   return wrapPointer(_emscripten_bind_PxScene_createBatchQuery_1(self, desc), PxBatchQuery);
+};;
+
+PxScene.prototype['setDynamicTreeRebuildRateHint'] = PxScene.prototype.setDynamicTreeRebuildRateHint = /** @suppress {undefinedVars, duplicate} @this{Object} */function(dynamicTreeRebuildRateHint) {
+  var self = this.ptr;
+  if (dynamicTreeRebuildRateHint && typeof dynamicTreeRebuildRateHint === 'object') dynamicTreeRebuildRateHint = dynamicTreeRebuildRateHint.ptr;
+  _emscripten_bind_PxScene_setDynamicTreeRebuildRateHint_1(self, dynamicTreeRebuildRateHint);
+};;
+
+PxScene.prototype['getDynamicTreeRebuildRateHint'] = PxScene.prototype.getDynamicTreeRebuildRateHint = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getDynamicTreeRebuildRateHint_0(self);
+};;
+
+PxScene.prototype['forceDynamicTreeRebuild'] = PxScene.prototype.forceDynamicTreeRebuild = /** @suppress {undefinedVars, duplicate} @this{Object} */function(rebuildStaticStructure, rebuildDynamicStructure) {
+  var self = this.ptr;
+  if (rebuildStaticStructure && typeof rebuildStaticStructure === 'object') rebuildStaticStructure = rebuildStaticStructure.ptr;
+  if (rebuildDynamicStructure && typeof rebuildDynamicStructure === 'object') rebuildDynamicStructure = rebuildDynamicStructure.ptr;
+  _emscripten_bind_PxScene_forceDynamicTreeRebuild_2(self, rebuildStaticStructure, rebuildDynamicStructure);
+};;
+
+PxScene.prototype['setSceneQueryUpdateMode'] = PxScene.prototype.setSceneQueryUpdateMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(updateMode) {
+  var self = this.ptr;
+  if (updateMode && typeof updateMode === 'object') updateMode = updateMode.ptr;
+  _emscripten_bind_PxScene_setSceneQueryUpdateMode_1(self, updateMode);
+};;
+
+PxScene.prototype['getSceneQueryUpdateMode'] = PxScene.prototype.getSceneQueryUpdateMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getSceneQueryUpdateMode_0(self);
+};;
+
+PxScene.prototype['sceneQueriesUpdate'] = PxScene.prototype.sceneQueriesUpdate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(completionTask, controlSimulation) {
+  var self = this.ptr;
+  if (completionTask && typeof completionTask === 'object') completionTask = completionTask.ptr;
+  if (controlSimulation && typeof controlSimulation === 'object') controlSimulation = controlSimulation.ptr;
+  if (completionTask === undefined) { _emscripten_bind_PxScene_sceneQueriesUpdate_0(self);  return }
+  if (controlSimulation === undefined) { _emscripten_bind_PxScene_sceneQueriesUpdate_1(self, completionTask);  return }
+  _emscripten_bind_PxScene_sceneQueriesUpdate_2(self, completionTask, controlSimulation);
+};;
+
+PxScene.prototype['checkQueries'] = PxScene.prototype.checkQueries = /** @suppress {undefinedVars, duplicate} @this{Object} */function(block) {
+  var self = this.ptr;
+  if (block && typeof block === 'object') block = block.ptr;
+  if (block === undefined) { return !!(_emscripten_bind_PxScene_checkQueries_0(self)) }
+  return !!(_emscripten_bind_PxScene_checkQueries_1(self, block));
+};;
+
+PxScene.prototype['fetchQueries'] = PxScene.prototype.fetchQueries = /** @suppress {undefinedVars, duplicate} @this{Object} */function(block) {
+  var self = this.ptr;
+  if (block && typeof block === 'object') block = block.ptr;
+  if (block === undefined) { return !!(_emscripten_bind_PxScene_fetchQueries_0(self)) }
+  return !!(_emscripten_bind_PxScene_fetchQueries_1(self, block));
+};;
+
+PxScene.prototype['raycast'] = PxScene.prototype.raycast = /** @suppress {undefinedVars, duplicate} @this{Object} */function(origin, unitDir, distance, hitCall, hitFlags, filterData) {
+  var self = this.ptr;
+  if (origin && typeof origin === 'object') origin = origin.ptr;
+  if (unitDir && typeof unitDir === 'object') unitDir = unitDir.ptr;
+  if (distance && typeof distance === 'object') distance = distance.ptr;
+  if (hitCall && typeof hitCall === 'object') hitCall = hitCall.ptr;
+  if (hitFlags && typeof hitFlags === 'object') hitFlags = hitFlags.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (hitFlags === undefined) { return !!(_emscripten_bind_PxScene_raycast_4(self, origin, unitDir, distance, hitCall)) }
+  if (filterData === undefined) { return !!(_emscripten_bind_PxScene_raycast_5(self, origin, unitDir, distance, hitCall, hitFlags)) }
+  return !!(_emscripten_bind_PxScene_raycast_6(self, origin, unitDir, distance, hitCall, hitFlags, filterData));
+};;
+
+PxScene.prototype['sweep'] = PxScene.prototype.sweep = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry, pose, unitDir, distance, hitCall, hitFlags, filterData) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  if (pose && typeof pose === 'object') pose = pose.ptr;
+  if (unitDir && typeof unitDir === 'object') unitDir = unitDir.ptr;
+  if (distance && typeof distance === 'object') distance = distance.ptr;
+  if (hitCall && typeof hitCall === 'object') hitCall = hitCall.ptr;
+  if (hitFlags && typeof hitFlags === 'object') hitFlags = hitFlags.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (hitFlags === undefined) { return !!(_emscripten_bind_PxScene_sweep_5(self, geometry, pose, unitDir, distance, hitCall)) }
+  if (filterData === undefined) { return !!(_emscripten_bind_PxScene_sweep_6(self, geometry, pose, unitDir, distance, hitCall, hitFlags)) }
+  return !!(_emscripten_bind_PxScene_sweep_7(self, geometry, pose, unitDir, distance, hitCall, hitFlags, filterData));
+};;
+
+PxScene.prototype['overlap'] = PxScene.prototype.overlap = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry, pose, hitCall, filterData) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  if (pose && typeof pose === 'object') pose = pose.ptr;
+  if (hitCall && typeof hitCall === 'object') hitCall = hitCall.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (filterData === undefined) { return !!(_emscripten_bind_PxScene_overlap_3(self, geometry, pose, hitCall)) }
+  return !!(_emscripten_bind_PxScene_overlap_4(self, geometry, pose, hitCall, filterData));
+};;
+
+PxScene.prototype['getSceneQueryStaticTimestamp'] = PxScene.prototype.getSceneQueryStaticTimestamp = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getSceneQueryStaticTimestamp_0(self);
+};;
+
+PxScene.prototype['getBroadPhaseType'] = PxScene.prototype.getBroadPhaseType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getBroadPhaseType_0(self);
+};;
+
+PxScene.prototype['getBroadPhaseCaps'] = PxScene.prototype.getBroadPhaseCaps = /** @suppress {undefinedVars, duplicate} @this{Object} */function(caps) {
+  var self = this.ptr;
+  if (caps && typeof caps === 'object') caps = caps.ptr;
+  return !!(_emscripten_bind_PxScene_getBroadPhaseCaps_1(self, caps));
+};;
+
+PxScene.prototype['getNbBroadPhaseRegions'] = PxScene.prototype.getNbBroadPhaseRegions = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getNbBroadPhaseRegions_0(self);
+};;
+
+PxScene.prototype['getBroadPhaseRegions'] = PxScene.prototype.getBroadPhaseRegions = /** @suppress {undefinedVars, duplicate} @this{Object} */function(userBuffer, bufferSize, startIndex) {
+  var self = this.ptr;
+  if (userBuffer && typeof userBuffer === 'object') userBuffer = userBuffer.ptr;
+  if (bufferSize && typeof bufferSize === 'object') bufferSize = bufferSize.ptr;
+  if (startIndex && typeof startIndex === 'object') startIndex = startIndex.ptr;
+  if (startIndex === undefined) { return _emscripten_bind_PxScene_getBroadPhaseRegions_2(self, userBuffer, bufferSize) }
+  return _emscripten_bind_PxScene_getBroadPhaseRegions_3(self, userBuffer, bufferSize, startIndex);
+};;
+
+PxScene.prototype['addBroadPhaseRegion'] = PxScene.prototype.addBroadPhaseRegion = /** @suppress {undefinedVars, duplicate} @this{Object} */function(region, populateRegion) {
+  var self = this.ptr;
+  if (region && typeof region === 'object') region = region.ptr;
+  if (populateRegion && typeof populateRegion === 'object') populateRegion = populateRegion.ptr;
+  if (populateRegion === undefined) { return _emscripten_bind_PxScene_addBroadPhaseRegion_1(self, region) }
+  return _emscripten_bind_PxScene_addBroadPhaseRegion_2(self, region, populateRegion);
+};;
+
+PxScene.prototype['removeBroadPhaseRegion'] = PxScene.prototype.removeBroadPhaseRegion = /** @suppress {undefinedVars, duplicate} @this{Object} */function(handle) {
+  var self = this.ptr;
+  if (handle && typeof handle === 'object') handle = handle.ptr;
+  return !!(_emscripten_bind_PxScene_removeBroadPhaseRegion_1(self, handle));
+};;
+
+PxScene.prototype['lockRead'] = PxScene.prototype.lockRead = /** @suppress {undefinedVars, duplicate} @this{Object} */function(file, line) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (file && typeof file === 'object') file = file.ptr;
+  else file = ensureString(file);
+  if (line && typeof line === 'object') line = line.ptr;
+  if (file === undefined) { _emscripten_bind_PxScene_lockRead_0(self);  return }
+  if (line === undefined) { _emscripten_bind_PxScene_lockRead_1(self, file);  return }
+  _emscripten_bind_PxScene_lockRead_2(self, file, line);
+};;
+
+PxScene.prototype['unlockRead'] = PxScene.prototype.unlockRead = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxScene_unlockRead_0(self);
+};;
+
+PxScene.prototype['lockWrite'] = PxScene.prototype.lockWrite = /** @suppress {undefinedVars, duplicate} @this{Object} */function(file, line) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (file && typeof file === 'object') file = file.ptr;
+  else file = ensureString(file);
+  if (line && typeof line === 'object') line = line.ptr;
+  if (file === undefined) { _emscripten_bind_PxScene_lockWrite_0(self);  return }
+  if (line === undefined) { _emscripten_bind_PxScene_lockWrite_1(self, file);  return }
+  _emscripten_bind_PxScene_lockWrite_2(self, file, line);
+};;
+
+PxScene.prototype['unlockWrite'] = PxScene.prototype.unlockWrite = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxScene_unlockWrite_0(self);
+};;
+
+PxScene.prototype['setNbContactDataBlocks'] = PxScene.prototype.setNbContactDataBlocks = /** @suppress {undefinedVars, duplicate} @this{Object} */function(numBlocks) {
+  var self = this.ptr;
+  if (numBlocks && typeof numBlocks === 'object') numBlocks = numBlocks.ptr;
+  _emscripten_bind_PxScene_setNbContactDataBlocks_1(self, numBlocks);
+};;
+
+PxScene.prototype['getNbContactDataBlocksUsed'] = PxScene.prototype.getNbContactDataBlocksUsed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getNbContactDataBlocksUsed_0(self);
+};;
+
+PxScene.prototype['getMaxNbContactDataBlocksUsed'] = PxScene.prototype.getMaxNbContactDataBlocksUsed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getMaxNbContactDataBlocksUsed_0(self);
+};;
+
+PxScene.prototype['getContactReportStreamBufferSize'] = PxScene.prototype.getContactReportStreamBufferSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getContactReportStreamBufferSize_0(self);
+};;
+
+PxScene.prototype['setSolverBatchSize'] = PxScene.prototype.setSolverBatchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(solverBatchSize) {
+  var self = this.ptr;
+  if (solverBatchSize && typeof solverBatchSize === 'object') solverBatchSize = solverBatchSize.ptr;
+  _emscripten_bind_PxScene_setSolverBatchSize_1(self, solverBatchSize);
+};;
+
+PxScene.prototype['getSolverBatchSize'] = PxScene.prototype.getSolverBatchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getSolverBatchSize_0(self);
+};;
+
+PxScene.prototype['setSolverArticulationBatchSize'] = PxScene.prototype.setSolverArticulationBatchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(solverBatchSize) {
+  var self = this.ptr;
+  if (solverBatchSize && typeof solverBatchSize === 'object') solverBatchSize = solverBatchSize.ptr;
+  _emscripten_bind_PxScene_setSolverArticulationBatchSize_1(self, solverBatchSize);
+};;
+
+PxScene.prototype['getSolverArticulationBatchSize'] = PxScene.prototype.getSolverArticulationBatchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxScene_getSolverArticulationBatchSize_0(self);
 };;
 
 PxScene.prototype['release'] = PxScene.prototype.release = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -15027,6 +19278,17 @@ PxScene.prototype['getFlags'] = PxScene.prototype.getFlags = /** @suppress {unde
   return wrapPointer(_emscripten_bind_PxScene_getFlags_0(self), PxSceneFlags);
 };;
 
+PxScene.prototype['setLimits'] = PxScene.prototype.setLimits = /** @suppress {undefinedVars, duplicate} @this{Object} */function(limits) {
+  var self = this.ptr;
+  if (limits && typeof limits === 'object') limits = limits.ptr;
+  _emscripten_bind_PxScene_setLimits_1(self, limits);
+};;
+
+PxScene.prototype['getLimits'] = PxScene.prototype.getLimits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxScene_getLimits_0(self), PxSceneLimits);
+};;
+
 PxScene.prototype['getPhysics'] = PxScene.prototype.getPhysics = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return wrapPointer(_emscripten_bind_PxScene_getPhysics_0(self), PxPhysics);
@@ -15037,6 +19299,16 @@ PxScene.prototype['getTimestamp'] = PxScene.prototype.getTimestamp = /** @suppre
   return _emscripten_bind_PxScene_getTimestamp_0(self);
 };;
 
+  PxScene.prototype['get_userData'] = PxScene.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxScene_get_userData_0(self), VoidPtr);
+};
+    PxScene.prototype['set_userData'] = PxScene.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxScene_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxScene.prototype, 'userData', { get: PxScene.prototype.get_userData, set: PxScene.prototype.set_userData });
 // PxSceneDesc
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxSceneDesc(scale) {
   if (scale && typeof scale === 'object') scale = scale.ptr;
@@ -15048,6 +19320,17 @@ PxSceneDesc.prototype.constructor = PxSceneDesc;
 PxSceneDesc.prototype.__class__ = PxSceneDesc;
 PxSceneDesc.__cache__ = {};
 Module['PxSceneDesc'] = PxSceneDesc;
+
+PxSceneDesc.prototype['setToDefault'] = PxSceneDesc.prototype.setToDefault = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scale) {
+  var self = this.ptr;
+  if (scale && typeof scale === 'object') scale = scale.ptr;
+  _emscripten_bind_PxSceneDesc_setToDefault_1(self, scale);
+};;
+
+PxSceneDesc.prototype['isValid'] = PxSceneDesc.prototype.isValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxSceneDesc_isValid_0(self));
+};;
 
   PxSceneDesc.prototype['get_gravity'] = PxSceneDesc.prototype.get_gravity = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
@@ -15069,6 +19352,26 @@ Module['PxSceneDesc'] = PxSceneDesc;
   _emscripten_bind_PxSceneDesc_set_simulationEventCallback_1(self, arg0);
 };
     Object.defineProperty(PxSceneDesc.prototype, 'simulationEventCallback', { get: PxSceneDesc.prototype.get_simulationEventCallback, set: PxSceneDesc.prototype.set_simulationEventCallback });
+  PxSceneDesc.prototype['get_filterShaderData'] = PxSceneDesc.prototype.get_filterShaderData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxSceneDesc_get_filterShaderData_0(self), VoidPtr);
+};
+    PxSceneDesc.prototype['set_filterShaderData'] = PxSceneDesc.prototype.set_filterShaderData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_filterShaderData_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'filterShaderData', { get: PxSceneDesc.prototype.get_filterShaderData, set: PxSceneDesc.prototype.set_filterShaderData });
+  PxSceneDesc.prototype['get_filterShaderDataSize'] = PxSceneDesc.prototype.get_filterShaderDataSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_filterShaderDataSize_0(self);
+};
+    PxSceneDesc.prototype['set_filterShaderDataSize'] = PxSceneDesc.prototype.set_filterShaderDataSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_filterShaderDataSize_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'filterShaderDataSize', { get: PxSceneDesc.prototype.get_filterShaderDataSize, set: PxSceneDesc.prototype.set_filterShaderDataSize });
   PxSceneDesc.prototype['get_filterShader'] = PxSceneDesc.prototype.get_filterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return wrapPointer(_emscripten_bind_PxSceneDesc_get_filterShader_0(self), PxSimulationFilterShader);
@@ -15079,16 +19382,106 @@ Module['PxSceneDesc'] = PxSceneDesc;
   _emscripten_bind_PxSceneDesc_set_filterShader_1(self, arg0);
 };
     Object.defineProperty(PxSceneDesc.prototype, 'filterShader', { get: PxSceneDesc.prototype.get_filterShader, set: PxSceneDesc.prototype.set_filterShader });
-  PxSceneDesc.prototype['get_cpuDispatcher'] = PxSceneDesc.prototype.get_cpuDispatcher = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  PxSceneDesc.prototype['get_kineKineFilteringMode'] = PxSceneDesc.prototype.get_kineKineFilteringMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
-  return wrapPointer(_emscripten_bind_PxSceneDesc_get_cpuDispatcher_0(self), PxCpuDispatcher);
+  return _emscripten_bind_PxSceneDesc_get_kineKineFilteringMode_0(self);
 };
-    PxSceneDesc.prototype['set_cpuDispatcher'] = PxSceneDesc.prototype.set_cpuDispatcher = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+    PxSceneDesc.prototype['set_kineKineFilteringMode'] = PxSceneDesc.prototype.set_kineKineFilteringMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
   var self = this.ptr;
   if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_PxSceneDesc_set_cpuDispatcher_1(self, arg0);
+  _emscripten_bind_PxSceneDesc_set_kineKineFilteringMode_1(self, arg0);
 };
-    Object.defineProperty(PxSceneDesc.prototype, 'cpuDispatcher', { get: PxSceneDesc.prototype.get_cpuDispatcher, set: PxSceneDesc.prototype.set_cpuDispatcher });
+    Object.defineProperty(PxSceneDesc.prototype, 'kineKineFilteringMode', { get: PxSceneDesc.prototype.get_kineKineFilteringMode, set: PxSceneDesc.prototype.set_kineKineFilteringMode });
+  PxSceneDesc.prototype['get_staticKineFilteringMode'] = PxSceneDesc.prototype.get_staticKineFilteringMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_staticKineFilteringMode_0(self);
+};
+    PxSceneDesc.prototype['set_staticKineFilteringMode'] = PxSceneDesc.prototype.set_staticKineFilteringMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_staticKineFilteringMode_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'staticKineFilteringMode', { get: PxSceneDesc.prototype.get_staticKineFilteringMode, set: PxSceneDesc.prototype.set_staticKineFilteringMode });
+  PxSceneDesc.prototype['get_broadPhaseType'] = PxSceneDesc.prototype.get_broadPhaseType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_broadPhaseType_0(self);
+};
+    PxSceneDesc.prototype['set_broadPhaseType'] = PxSceneDesc.prototype.set_broadPhaseType = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_broadPhaseType_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'broadPhaseType', { get: PxSceneDesc.prototype.get_broadPhaseType, set: PxSceneDesc.prototype.set_broadPhaseType });
+  PxSceneDesc.prototype['get_limits'] = PxSceneDesc.prototype.get_limits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxSceneDesc_get_limits_0(self), PxSceneLimits);
+};
+    PxSceneDesc.prototype['set_limits'] = PxSceneDesc.prototype.set_limits = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_limits_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'limits', { get: PxSceneDesc.prototype.get_limits, set: PxSceneDesc.prototype.set_limits });
+  PxSceneDesc.prototype['get_frictionType'] = PxSceneDesc.prototype.get_frictionType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_frictionType_0(self);
+};
+    PxSceneDesc.prototype['set_frictionType'] = PxSceneDesc.prototype.set_frictionType = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_frictionType_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'frictionType', { get: PxSceneDesc.prototype.get_frictionType, set: PxSceneDesc.prototype.set_frictionType });
+  PxSceneDesc.prototype['get_solverType'] = PxSceneDesc.prototype.get_solverType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_solverType_0(self);
+};
+    PxSceneDesc.prototype['set_solverType'] = PxSceneDesc.prototype.set_solverType = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_solverType_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'solverType', { get: PxSceneDesc.prototype.get_solverType, set: PxSceneDesc.prototype.set_solverType });
+  PxSceneDesc.prototype['get_bounceThresholdVelocity'] = PxSceneDesc.prototype.get_bounceThresholdVelocity = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_bounceThresholdVelocity_0(self);
+};
+    PxSceneDesc.prototype['set_bounceThresholdVelocity'] = PxSceneDesc.prototype.set_bounceThresholdVelocity = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_bounceThresholdVelocity_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'bounceThresholdVelocity', { get: PxSceneDesc.prototype.get_bounceThresholdVelocity, set: PxSceneDesc.prototype.set_bounceThresholdVelocity });
+  PxSceneDesc.prototype['get_frictionOffsetThreshold'] = PxSceneDesc.prototype.get_frictionOffsetThreshold = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_frictionOffsetThreshold_0(self);
+};
+    PxSceneDesc.prototype['set_frictionOffsetThreshold'] = PxSceneDesc.prototype.set_frictionOffsetThreshold = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_frictionOffsetThreshold_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'frictionOffsetThreshold', { get: PxSceneDesc.prototype.get_frictionOffsetThreshold, set: PxSceneDesc.prototype.set_frictionOffsetThreshold });
+  PxSceneDesc.prototype['get_ccdMaxSeparation'] = PxSceneDesc.prototype.get_ccdMaxSeparation = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_ccdMaxSeparation_0(self);
+};
+    PxSceneDesc.prototype['set_ccdMaxSeparation'] = PxSceneDesc.prototype.set_ccdMaxSeparation = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_ccdMaxSeparation_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'ccdMaxSeparation', { get: PxSceneDesc.prototype.get_ccdMaxSeparation, set: PxSceneDesc.prototype.set_ccdMaxSeparation });
+  PxSceneDesc.prototype['get_solverOffsetSlop'] = PxSceneDesc.prototype.get_solverOffsetSlop = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_solverOffsetSlop_0(self);
+};
+    PxSceneDesc.prototype['set_solverOffsetSlop'] = PxSceneDesc.prototype.set_solverOffsetSlop = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_solverOffsetSlop_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'solverOffsetSlop', { get: PxSceneDesc.prototype.get_solverOffsetSlop, set: PxSceneDesc.prototype.set_solverOffsetSlop });
   PxSceneDesc.prototype['get_flags'] = PxSceneDesc.prototype.get_flags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return wrapPointer(_emscripten_bind_PxSceneDesc_get_flags_0(self), PxSceneFlags);
@@ -15099,6 +19492,196 @@ Module['PxSceneDesc'] = PxSceneDesc;
   _emscripten_bind_PxSceneDesc_set_flags_1(self, arg0);
 };
     Object.defineProperty(PxSceneDesc.prototype, 'flags', { get: PxSceneDesc.prototype.get_flags, set: PxSceneDesc.prototype.set_flags });
+  PxSceneDesc.prototype['get_cpuDispatcher'] = PxSceneDesc.prototype.get_cpuDispatcher = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxSceneDesc_get_cpuDispatcher_0(self), PxCpuDispatcher);
+};
+    PxSceneDesc.prototype['set_cpuDispatcher'] = PxSceneDesc.prototype.set_cpuDispatcher = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_cpuDispatcher_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'cpuDispatcher', { get: PxSceneDesc.prototype.get_cpuDispatcher, set: PxSceneDesc.prototype.set_cpuDispatcher });
+  PxSceneDesc.prototype['get_cudaContextManager'] = PxSceneDesc.prototype.get_cudaContextManager = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxSceneDesc_get_cudaContextManager_0(self), PxCudaContextManager);
+};
+    PxSceneDesc.prototype['set_cudaContextManager'] = PxSceneDesc.prototype.set_cudaContextManager = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_cudaContextManager_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'cudaContextManager', { get: PxSceneDesc.prototype.get_cudaContextManager, set: PxSceneDesc.prototype.set_cudaContextManager });
+  PxSceneDesc.prototype['get_staticStructure'] = PxSceneDesc.prototype.get_staticStructure = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_staticStructure_0(self);
+};
+    PxSceneDesc.prototype['set_staticStructure'] = PxSceneDesc.prototype.set_staticStructure = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_staticStructure_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'staticStructure', { get: PxSceneDesc.prototype.get_staticStructure, set: PxSceneDesc.prototype.set_staticStructure });
+  PxSceneDesc.prototype['get_dynamicStructure'] = PxSceneDesc.prototype.get_dynamicStructure = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_dynamicStructure_0(self);
+};
+    PxSceneDesc.prototype['set_dynamicStructure'] = PxSceneDesc.prototype.set_dynamicStructure = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_dynamicStructure_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'dynamicStructure', { get: PxSceneDesc.prototype.get_dynamicStructure, set: PxSceneDesc.prototype.set_dynamicStructure });
+  PxSceneDesc.prototype['get_dynamicTreeRebuildRateHint'] = PxSceneDesc.prototype.get_dynamicTreeRebuildRateHint = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_dynamicTreeRebuildRateHint_0(self);
+};
+    PxSceneDesc.prototype['set_dynamicTreeRebuildRateHint'] = PxSceneDesc.prototype.set_dynamicTreeRebuildRateHint = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_dynamicTreeRebuildRateHint_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'dynamicTreeRebuildRateHint', { get: PxSceneDesc.prototype.get_dynamicTreeRebuildRateHint, set: PxSceneDesc.prototype.set_dynamicTreeRebuildRateHint });
+  PxSceneDesc.prototype['get_sceneQueryUpdateMode'] = PxSceneDesc.prototype.get_sceneQueryUpdateMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_sceneQueryUpdateMode_0(self);
+};
+    PxSceneDesc.prototype['set_sceneQueryUpdateMode'] = PxSceneDesc.prototype.set_sceneQueryUpdateMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_sceneQueryUpdateMode_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'sceneQueryUpdateMode', { get: PxSceneDesc.prototype.get_sceneQueryUpdateMode, set: PxSceneDesc.prototype.set_sceneQueryUpdateMode });
+  PxSceneDesc.prototype['get_userData'] = PxSceneDesc.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxSceneDesc_get_userData_0(self), VoidPtr);
+};
+    PxSceneDesc.prototype['set_userData'] = PxSceneDesc.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'userData', { get: PxSceneDesc.prototype.get_userData, set: PxSceneDesc.prototype.set_userData });
+  PxSceneDesc.prototype['get_solverBatchSize'] = PxSceneDesc.prototype.get_solverBatchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_solverBatchSize_0(self);
+};
+    PxSceneDesc.prototype['set_solverBatchSize'] = PxSceneDesc.prototype.set_solverBatchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_solverBatchSize_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'solverBatchSize', { get: PxSceneDesc.prototype.get_solverBatchSize, set: PxSceneDesc.prototype.set_solverBatchSize });
+  PxSceneDesc.prototype['get_solverArticulationBatchSize'] = PxSceneDesc.prototype.get_solverArticulationBatchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_solverArticulationBatchSize_0(self);
+};
+    PxSceneDesc.prototype['set_solverArticulationBatchSize'] = PxSceneDesc.prototype.set_solverArticulationBatchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_solverArticulationBatchSize_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'solverArticulationBatchSize', { get: PxSceneDesc.prototype.get_solverArticulationBatchSize, set: PxSceneDesc.prototype.set_solverArticulationBatchSize });
+  PxSceneDesc.prototype['get_nbContactDataBlocks'] = PxSceneDesc.prototype.get_nbContactDataBlocks = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_nbContactDataBlocks_0(self);
+};
+    PxSceneDesc.prototype['set_nbContactDataBlocks'] = PxSceneDesc.prototype.set_nbContactDataBlocks = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_nbContactDataBlocks_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'nbContactDataBlocks', { get: PxSceneDesc.prototype.get_nbContactDataBlocks, set: PxSceneDesc.prototype.set_nbContactDataBlocks });
+  PxSceneDesc.prototype['get_maxBiasCoefficient'] = PxSceneDesc.prototype.get_maxBiasCoefficient = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_maxBiasCoefficient_0(self);
+};
+    PxSceneDesc.prototype['set_maxBiasCoefficient'] = PxSceneDesc.prototype.set_maxBiasCoefficient = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_maxBiasCoefficient_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'maxBiasCoefficient', { get: PxSceneDesc.prototype.get_maxBiasCoefficient, set: PxSceneDesc.prototype.set_maxBiasCoefficient });
+  PxSceneDesc.prototype['get_contactReportStreamBufferSize'] = PxSceneDesc.prototype.get_contactReportStreamBufferSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_contactReportStreamBufferSize_0(self);
+};
+    PxSceneDesc.prototype['set_contactReportStreamBufferSize'] = PxSceneDesc.prototype.set_contactReportStreamBufferSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_contactReportStreamBufferSize_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'contactReportStreamBufferSize', { get: PxSceneDesc.prototype.get_contactReportStreamBufferSize, set: PxSceneDesc.prototype.set_contactReportStreamBufferSize });
+  PxSceneDesc.prototype['get_ccdMaxPasses'] = PxSceneDesc.prototype.get_ccdMaxPasses = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_ccdMaxPasses_0(self);
+};
+    PxSceneDesc.prototype['set_ccdMaxPasses'] = PxSceneDesc.prototype.set_ccdMaxPasses = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_ccdMaxPasses_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'ccdMaxPasses', { get: PxSceneDesc.prototype.get_ccdMaxPasses, set: PxSceneDesc.prototype.set_ccdMaxPasses });
+  PxSceneDesc.prototype['get_ccdThreshold'] = PxSceneDesc.prototype.get_ccdThreshold = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_ccdThreshold_0(self);
+};
+    PxSceneDesc.prototype['set_ccdThreshold'] = PxSceneDesc.prototype.set_ccdThreshold = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_ccdThreshold_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'ccdThreshold', { get: PxSceneDesc.prototype.get_ccdThreshold, set: PxSceneDesc.prototype.set_ccdThreshold });
+  PxSceneDesc.prototype['get_wakeCounterResetValue'] = PxSceneDesc.prototype.get_wakeCounterResetValue = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_wakeCounterResetValue_0(self);
+};
+    PxSceneDesc.prototype['set_wakeCounterResetValue'] = PxSceneDesc.prototype.set_wakeCounterResetValue = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_wakeCounterResetValue_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'wakeCounterResetValue', { get: PxSceneDesc.prototype.get_wakeCounterResetValue, set: PxSceneDesc.prototype.set_wakeCounterResetValue });
+  PxSceneDesc.prototype['get_sanityBounds'] = PxSceneDesc.prototype.get_sanityBounds = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxSceneDesc_get_sanityBounds_0(self), PxBounds3);
+};
+    PxSceneDesc.prototype['set_sanityBounds'] = PxSceneDesc.prototype.set_sanityBounds = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_sanityBounds_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'sanityBounds', { get: PxSceneDesc.prototype.get_sanityBounds, set: PxSceneDesc.prototype.set_sanityBounds });
+  PxSceneDesc.prototype['get_gpuDynamicsConfig'] = PxSceneDesc.prototype.get_gpuDynamicsConfig = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxSceneDesc_get_gpuDynamicsConfig_0(self), PxgDynamicsMemoryConfig);
+};
+    PxSceneDesc.prototype['set_gpuDynamicsConfig'] = PxSceneDesc.prototype.set_gpuDynamicsConfig = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_gpuDynamicsConfig_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'gpuDynamicsConfig', { get: PxSceneDesc.prototype.get_gpuDynamicsConfig, set: PxSceneDesc.prototype.set_gpuDynamicsConfig });
+  PxSceneDesc.prototype['get_gpuMaxNumPartitions'] = PxSceneDesc.prototype.get_gpuMaxNumPartitions = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_gpuMaxNumPartitions_0(self);
+};
+    PxSceneDesc.prototype['set_gpuMaxNumPartitions'] = PxSceneDesc.prototype.set_gpuMaxNumPartitions = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_gpuMaxNumPartitions_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'gpuMaxNumPartitions', { get: PxSceneDesc.prototype.get_gpuMaxNumPartitions, set: PxSceneDesc.prototype.set_gpuMaxNumPartitions });
+  PxSceneDesc.prototype['get_gpuComputeVersion'] = PxSceneDesc.prototype.get_gpuComputeVersion = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneDesc_get_gpuComputeVersion_0(self);
+};
+    PxSceneDesc.prototype['set_gpuComputeVersion'] = PxSceneDesc.prototype.set_gpuComputeVersion = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneDesc_set_gpuComputeVersion_1(self, arg0);
+};
+    Object.defineProperty(PxSceneDesc.prototype, 'gpuComputeVersion', { get: PxSceneDesc.prototype.get_gpuComputeVersion, set: PxSceneDesc.prototype.set_gpuComputeVersion });
   PxSceneDesc.prototype['__destroy__'] = PxSceneDesc.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxSceneDesc___destroy___0(self);
@@ -15137,6 +19720,111 @@ PxSceneFlags.prototype['clear'] = PxSceneFlags.prototype.clear = /** @suppress {
   var self = this.ptr;
   _emscripten_bind_PxSceneFlags___destroy___0(self);
 };
+// PxSceneLimits
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSceneLimits() {
+  this.ptr = _emscripten_bind_PxSceneLimits_PxSceneLimits_0();
+  getCache(PxSceneLimits)[this.ptr] = this;
+};;
+PxSceneLimits.prototype = Object.create(WrapperObject.prototype);
+PxSceneLimits.prototype.constructor = PxSceneLimits;
+PxSceneLimits.prototype.__class__ = PxSceneLimits;
+PxSceneLimits.__cache__ = {};
+Module['PxSceneLimits'] = PxSceneLimits;
+
+PxSceneLimits.prototype['setToDefault'] = PxSceneLimits.prototype.setToDefault = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxSceneLimits_setToDefault_0(self);
+};;
+
+PxSceneLimits.prototype['isValid'] = PxSceneLimits.prototype.isValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxSceneLimits_isValid_0(self));
+};;
+
+  PxSceneLimits.prototype['get_maxNbActors'] = PxSceneLimits.prototype.get_maxNbActors = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneLimits_get_maxNbActors_0(self);
+};
+    PxSceneLimits.prototype['set_maxNbActors'] = PxSceneLimits.prototype.set_maxNbActors = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneLimits_set_maxNbActors_1(self, arg0);
+};
+    Object.defineProperty(PxSceneLimits.prototype, 'maxNbActors', { get: PxSceneLimits.prototype.get_maxNbActors, set: PxSceneLimits.prototype.set_maxNbActors });
+  PxSceneLimits.prototype['get_maxNbBodies'] = PxSceneLimits.prototype.get_maxNbBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneLimits_get_maxNbBodies_0(self);
+};
+    PxSceneLimits.prototype['set_maxNbBodies'] = PxSceneLimits.prototype.set_maxNbBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneLimits_set_maxNbBodies_1(self, arg0);
+};
+    Object.defineProperty(PxSceneLimits.prototype, 'maxNbBodies', { get: PxSceneLimits.prototype.get_maxNbBodies, set: PxSceneLimits.prototype.set_maxNbBodies });
+  PxSceneLimits.prototype['get_maxNbStaticShapes'] = PxSceneLimits.prototype.get_maxNbStaticShapes = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneLimits_get_maxNbStaticShapes_0(self);
+};
+    PxSceneLimits.prototype['set_maxNbStaticShapes'] = PxSceneLimits.prototype.set_maxNbStaticShapes = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneLimits_set_maxNbStaticShapes_1(self, arg0);
+};
+    Object.defineProperty(PxSceneLimits.prototype, 'maxNbStaticShapes', { get: PxSceneLimits.prototype.get_maxNbStaticShapes, set: PxSceneLimits.prototype.set_maxNbStaticShapes });
+  PxSceneLimits.prototype['get_maxNbDynamicShapes'] = PxSceneLimits.prototype.get_maxNbDynamicShapes = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneLimits_get_maxNbDynamicShapes_0(self);
+};
+    PxSceneLimits.prototype['set_maxNbDynamicShapes'] = PxSceneLimits.prototype.set_maxNbDynamicShapes = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneLimits_set_maxNbDynamicShapes_1(self, arg0);
+};
+    Object.defineProperty(PxSceneLimits.prototype, 'maxNbDynamicShapes', { get: PxSceneLimits.prototype.get_maxNbDynamicShapes, set: PxSceneLimits.prototype.set_maxNbDynamicShapes });
+  PxSceneLimits.prototype['get_maxNbAggregates'] = PxSceneLimits.prototype.get_maxNbAggregates = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneLimits_get_maxNbAggregates_0(self);
+};
+    PxSceneLimits.prototype['set_maxNbAggregates'] = PxSceneLimits.prototype.set_maxNbAggregates = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneLimits_set_maxNbAggregates_1(self, arg0);
+};
+    Object.defineProperty(PxSceneLimits.prototype, 'maxNbAggregates', { get: PxSceneLimits.prototype.get_maxNbAggregates, set: PxSceneLimits.prototype.set_maxNbAggregates });
+  PxSceneLimits.prototype['get_maxNbConstraints'] = PxSceneLimits.prototype.get_maxNbConstraints = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneLimits_get_maxNbConstraints_0(self);
+};
+    PxSceneLimits.prototype['set_maxNbConstraints'] = PxSceneLimits.prototype.set_maxNbConstraints = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneLimits_set_maxNbConstraints_1(self, arg0);
+};
+    Object.defineProperty(PxSceneLimits.prototype, 'maxNbConstraints', { get: PxSceneLimits.prototype.get_maxNbConstraints, set: PxSceneLimits.prototype.set_maxNbConstraints });
+  PxSceneLimits.prototype['get_maxNbRegions'] = PxSceneLimits.prototype.get_maxNbRegions = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneLimits_get_maxNbRegions_0(self);
+};
+    PxSceneLimits.prototype['set_maxNbRegions'] = PxSceneLimits.prototype.set_maxNbRegions = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneLimits_set_maxNbRegions_1(self, arg0);
+};
+    Object.defineProperty(PxSceneLimits.prototype, 'maxNbRegions', { get: PxSceneLimits.prototype.get_maxNbRegions, set: PxSceneLimits.prototype.set_maxNbRegions });
+  PxSceneLimits.prototype['get_maxNbBroadPhaseOverlaps'] = PxSceneLimits.prototype.get_maxNbBroadPhaseOverlaps = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSceneLimits_get_maxNbBroadPhaseOverlaps_0(self);
+};
+    PxSceneLimits.prototype['set_maxNbBroadPhaseOverlaps'] = PxSceneLimits.prototype.set_maxNbBroadPhaseOverlaps = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSceneLimits_set_maxNbBroadPhaseOverlaps_1(self, arg0);
+};
+    Object.defineProperty(PxSceneLimits.prototype, 'maxNbBroadPhaseOverlaps', { get: PxSceneLimits.prototype.get_maxNbBroadPhaseOverlaps, set: PxSceneLimits.prototype.set_maxNbBroadPhaseOverlaps });
+  PxSceneLimits.prototype['__destroy__'] = PxSceneLimits.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxSceneLimits___destroy___0(self);
+};
 // PxShape
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxShape() { throw "cannot construct a PxShape, no constructor in IDL" }
 PxShape.prototype = Object.create(PxBase.prototype);
@@ -15144,6 +19832,185 @@ PxShape.prototype.constructor = PxShape;
 PxShape.prototype.__class__ = PxShape;
 PxShape.__cache__ = {};
 Module['PxShape'] = PxShape;
+
+PxShape.prototype['getReferenceCount'] = PxShape.prototype.getReferenceCount = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxShape_getReferenceCount_0(self);
+};;
+
+PxShape.prototype['acquireReference'] = PxShape.prototype.acquireReference = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxShape_acquireReference_0(self);
+};;
+
+PxShape.prototype['getGeometryType'] = PxShape.prototype.getGeometryType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxShape_getGeometryType_0(self);
+};;
+
+PxShape.prototype['setGeometry'] = PxShape.prototype.setGeometry = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  _emscripten_bind_PxShape_setGeometry_1(self, geometry);
+};;
+
+PxShape.prototype['getGeometry'] = PxShape.prototype.getGeometry = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxShape_getGeometry_0(self), PxGeometryHolder);
+};;
+
+PxShape.prototype['getBoxGeometry'] = PxShape.prototype.getBoxGeometry = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  return !!(_emscripten_bind_PxShape_getBoxGeometry_1(self, geometry));
+};;
+
+PxShape.prototype['getSphereGeometry'] = PxShape.prototype.getSphereGeometry = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  return !!(_emscripten_bind_PxShape_getSphereGeometry_1(self, geometry));
+};;
+
+PxShape.prototype['getCapsuleGeometry'] = PxShape.prototype.getCapsuleGeometry = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  return !!(_emscripten_bind_PxShape_getCapsuleGeometry_1(self, geometry));
+};;
+
+PxShape.prototype['getPlaneGeometry'] = PxShape.prototype.getPlaneGeometry = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  return !!(_emscripten_bind_PxShape_getPlaneGeometry_1(self, geometry));
+};;
+
+PxShape.prototype['getConvexMeshGeometry'] = PxShape.prototype.getConvexMeshGeometry = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  return !!(_emscripten_bind_PxShape_getConvexMeshGeometry_1(self, geometry));
+};;
+
+PxShape.prototype['getTriangleMeshGeometry'] = PxShape.prototype.getTriangleMeshGeometry = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  return !!(_emscripten_bind_PxShape_getTriangleMeshGeometry_1(self, geometry));
+};;
+
+PxShape.prototype['getHeightFieldGeometry'] = PxShape.prototype.getHeightFieldGeometry = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  return !!(_emscripten_bind_PxShape_getHeightFieldGeometry_1(self, geometry));
+};;
+
+PxShape.prototype['getActor'] = PxShape.prototype.getActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxShape_getActor_0(self), PxRigidActor);
+};;
+
+PxShape.prototype['setMaterials'] = PxShape.prototype.setMaterials = /** @suppress {undefinedVars, duplicate} @this{Object} */function(materials, materialCount) {
+  var self = this.ptr;
+  if (materials && typeof materials === 'object') materials = materials.ptr;
+  if (materialCount && typeof materialCount === 'object') materialCount = materialCount.ptr;
+  _emscripten_bind_PxShape_setMaterials_2(self, materials, materialCount);
+};;
+
+PxShape.prototype['getNbMaterials'] = PxShape.prototype.getNbMaterials = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxShape_getNbMaterials_0(self);
+};;
+
+PxShape.prototype['getMaterials'] = PxShape.prototype.getMaterials = /** @suppress {undefinedVars, duplicate} @this{Object} */function(userBuffer, bufferSize, startIndex) {
+  var self = this.ptr;
+  if (userBuffer && typeof userBuffer === 'object') userBuffer = userBuffer.ptr;
+  if (bufferSize && typeof bufferSize === 'object') bufferSize = bufferSize.ptr;
+  if (startIndex && typeof startIndex === 'object') startIndex = startIndex.ptr;
+  return _emscripten_bind_PxShape_getMaterials_3(self, userBuffer, bufferSize, startIndex);
+};;
+
+PxShape.prototype['getMaterialFromInternalFaceIndex'] = PxShape.prototype.getMaterialFromInternalFaceIndex = /** @suppress {undefinedVars, duplicate} @this{Object} */function(faceIndex) {
+  var self = this.ptr;
+  if (faceIndex && typeof faceIndex === 'object') faceIndex = faceIndex.ptr;
+  return wrapPointer(_emscripten_bind_PxShape_getMaterialFromInternalFaceIndex_1(self, faceIndex), PxMaterial);
+};;
+
+PxShape.prototype['setContactOffset'] = PxShape.prototype.setContactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(contactOffset) {
+  var self = this.ptr;
+  if (contactOffset && typeof contactOffset === 'object') contactOffset = contactOffset.ptr;
+  _emscripten_bind_PxShape_setContactOffset_1(self, contactOffset);
+};;
+
+PxShape.prototype['getContactOffset'] = PxShape.prototype.getContactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxShape_getContactOffset_0(self);
+};;
+
+PxShape.prototype['setRestOffset'] = PxShape.prototype.setRestOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(restOffset) {
+  var self = this.ptr;
+  if (restOffset && typeof restOffset === 'object') restOffset = restOffset.ptr;
+  _emscripten_bind_PxShape_setRestOffset_1(self, restOffset);
+};;
+
+PxShape.prototype['getRestOffset'] = PxShape.prototype.getRestOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxShape_getRestOffset_0(self);
+};;
+
+PxShape.prototype['setTorsionalPatchRadius'] = PxShape.prototype.setTorsionalPatchRadius = /** @suppress {undefinedVars, duplicate} @this{Object} */function(radius) {
+  var self = this.ptr;
+  if (radius && typeof radius === 'object') radius = radius.ptr;
+  _emscripten_bind_PxShape_setTorsionalPatchRadius_1(self, radius);
+};;
+
+PxShape.prototype['getTorsionalPatchRadius'] = PxShape.prototype.getTorsionalPatchRadius = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxShape_getTorsionalPatchRadius_0(self);
+};;
+
+PxShape.prototype['setMinTorsionalPatchRadius'] = PxShape.prototype.setMinTorsionalPatchRadius = /** @suppress {undefinedVars, duplicate} @this{Object} */function(radius) {
+  var self = this.ptr;
+  if (radius && typeof radius === 'object') radius = radius.ptr;
+  _emscripten_bind_PxShape_setMinTorsionalPatchRadius_1(self, radius);
+};;
+
+PxShape.prototype['getMinTorsionalPatchRadius'] = PxShape.prototype.getMinTorsionalPatchRadius = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxShape_getMinTorsionalPatchRadius_0(self);
+};;
+
+PxShape.prototype['setFlag'] = PxShape.prototype.setFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxShape_setFlag_2(self, flag, value);
+};;
+
+PxShape.prototype['setFlags'] = PxShape.prototype.setFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(inFlags) {
+  var self = this.ptr;
+  if (inFlags && typeof inFlags === 'object') inFlags = inFlags.ptr;
+  _emscripten_bind_PxShape_setFlags_1(self, inFlags);
+};;
+
+PxShape.prototype['getFlags'] = PxShape.prototype.getFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxShape_getFlags_0(self), PxShapeFlags);
+};;
+
+PxShape.prototype['isExclusive'] = PxShape.prototype.isExclusive = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxShape_isExclusive_0(self));
+};;
+
+PxShape.prototype['setName'] = PxShape.prototype.setName = /** @suppress {undefinedVars, duplicate} @this{Object} */function(name) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (name && typeof name === 'object') name = name.ptr;
+  else name = ensureString(name);
+  _emscripten_bind_PxShape_setName_1(self, name);
+};;
+
+PxShape.prototype['getName'] = PxShape.prototype.getName = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return UTF8ToString(_emscripten_bind_PxShape_getName_0(self));
+};;
 
 PxShape.prototype['setLocalPose'] = PxShape.prototype.setLocalPose = /** @suppress {undefinedVars, duplicate} @this{Object} */function(pose) {
   var self = this.ptr;
@@ -15211,6 +20078,16 @@ PxShape.prototype['isReleasable'] = PxShape.prototype.isReleasable = /** @suppre
   return !!(_emscripten_bind_PxShape_isReleasable_0(self));
 };;
 
+  PxShape.prototype['get_userData'] = PxShape.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxShape_get_userData_0(self), VoidPtr);
+};
+    PxShape.prototype['set_userData'] = PxShape.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxShape_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxShape.prototype, 'userData', { get: PxShape.prototype.get_userData, set: PxShape.prototype.set_userData });
 // PxShapeFlags
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxShapeFlags(flags) {
   if (flags && typeof flags === 'object') flags = flags.ptr;
@@ -15246,17 +20123,15 @@ PxShapeFlags.prototype['clear'] = PxShapeFlags.prototype.clear = /** @suppress {
   _emscripten_bind_PxShapeFlags___destroy___0(self);
 };
 // JavaSimulationEventCallback
-/** @suppress {undefinedVars, duplicate} @this{Object} */function JavaSimulationEventCallback() { throw "cannot construct a JavaSimulationEventCallback, no constructor in IDL" }
+/** @suppress {undefinedVars, duplicate} @this{Object} */function JavaSimulationEventCallback() {
+  this.ptr = _emscripten_bind_JavaSimulationEventCallback_JavaSimulationEventCallback_0();
+  getCache(JavaSimulationEventCallback)[this.ptr] = this;
+};;
 JavaSimulationEventCallback.prototype = Object.create(SimpleSimulationEventCallback.prototype);
 JavaSimulationEventCallback.prototype.constructor = JavaSimulationEventCallback;
 JavaSimulationEventCallback.prototype.__class__ = JavaSimulationEventCallback;
 JavaSimulationEventCallback.__cache__ = {};
 Module['JavaSimulationEventCallback'] = JavaSimulationEventCallback;
-
-JavaSimulationEventCallback.prototype['JavaSimpleSimulationEventCallback'] = JavaSimulationEventCallback.prototype.JavaSimpleSimulationEventCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_JavaSimulationEventCallback_JavaSimpleSimulationEventCallback_0(self);
-};;
 
 JavaSimulationEventCallback.prototype['onConstraintBreak'] = JavaSimulationEventCallback.prototype.onConstraintBreak = /** @suppress {undefinedVars, duplicate} @this{Object} */function(constraints, count) {
   var self = this.ptr;
@@ -15310,6 +20185,251 @@ Module['PxSimulationFilterShader'] = PxSimulationFilterShader;
   var self = this.ptr;
   _emscripten_bind_PxSimulationFilterShader___destroy___0(self);
 };
+// PxSimulationStatistics
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSimulationStatistics() { throw "cannot construct a PxSimulationStatistics, no constructor in IDL" }
+PxSimulationStatistics.prototype = Object.create(WrapperObject.prototype);
+PxSimulationStatistics.prototype.constructor = PxSimulationStatistics;
+PxSimulationStatistics.prototype.__class__ = PxSimulationStatistics;
+PxSimulationStatistics.__cache__ = {};
+Module['PxSimulationStatistics'] = PxSimulationStatistics;
+
+  PxSimulationStatistics.prototype['get_nbActiveConstraints'] = PxSimulationStatistics.prototype.get_nbActiveConstraints = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbActiveConstraints_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbActiveConstraints'] = PxSimulationStatistics.prototype.set_nbActiveConstraints = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbActiveConstraints_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbActiveConstraints', { get: PxSimulationStatistics.prototype.get_nbActiveConstraints, set: PxSimulationStatistics.prototype.set_nbActiveConstraints });
+  PxSimulationStatistics.prototype['get_nbActiveDynamicBodies'] = PxSimulationStatistics.prototype.get_nbActiveDynamicBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbActiveDynamicBodies_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbActiveDynamicBodies'] = PxSimulationStatistics.prototype.set_nbActiveDynamicBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbActiveDynamicBodies_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbActiveDynamicBodies', { get: PxSimulationStatistics.prototype.get_nbActiveDynamicBodies, set: PxSimulationStatistics.prototype.set_nbActiveDynamicBodies });
+  PxSimulationStatistics.prototype['get_nbActiveKinematicBodies'] = PxSimulationStatistics.prototype.get_nbActiveKinematicBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbActiveKinematicBodies_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbActiveKinematicBodies'] = PxSimulationStatistics.prototype.set_nbActiveKinematicBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbActiveKinematicBodies_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbActiveKinematicBodies', { get: PxSimulationStatistics.prototype.get_nbActiveKinematicBodies, set: PxSimulationStatistics.prototype.set_nbActiveKinematicBodies });
+  PxSimulationStatistics.prototype['get_nbStaticBodies'] = PxSimulationStatistics.prototype.get_nbStaticBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbStaticBodies_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbStaticBodies'] = PxSimulationStatistics.prototype.set_nbStaticBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbStaticBodies_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbStaticBodies', { get: PxSimulationStatistics.prototype.get_nbStaticBodies, set: PxSimulationStatistics.prototype.set_nbStaticBodies });
+  PxSimulationStatistics.prototype['get_nbDynamicBodies'] = PxSimulationStatistics.prototype.get_nbDynamicBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbDynamicBodies_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbDynamicBodies'] = PxSimulationStatistics.prototype.set_nbDynamicBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbDynamicBodies_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbDynamicBodies', { get: PxSimulationStatistics.prototype.get_nbDynamicBodies, set: PxSimulationStatistics.prototype.set_nbDynamicBodies });
+  PxSimulationStatistics.prototype['get_nbKinematicBodies'] = PxSimulationStatistics.prototype.get_nbKinematicBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbKinematicBodies_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbKinematicBodies'] = PxSimulationStatistics.prototype.set_nbKinematicBodies = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbKinematicBodies_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbKinematicBodies', { get: PxSimulationStatistics.prototype.get_nbKinematicBodies, set: PxSimulationStatistics.prototype.set_nbKinematicBodies });
+  PxSimulationStatistics.prototype['get_nbShapes'] = PxSimulationStatistics.prototype.get_nbShapes = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbShapes_1(self, arg0);
+};
+    PxSimulationStatistics.prototype['set_nbShapes'] = PxSimulationStatistics.prototype.set_nbShapes = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbShapes_2(self, arg0, arg1);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbShapes', { get: PxSimulationStatistics.prototype.get_nbShapes, set: PxSimulationStatistics.prototype.set_nbShapes });
+  PxSimulationStatistics.prototype['get_nbAggregates'] = PxSimulationStatistics.prototype.get_nbAggregates = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbAggregates_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbAggregates'] = PxSimulationStatistics.prototype.set_nbAggregates = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbAggregates_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbAggregates', { get: PxSimulationStatistics.prototype.get_nbAggregates, set: PxSimulationStatistics.prototype.set_nbAggregates });
+  PxSimulationStatistics.prototype['get_nbArticulations'] = PxSimulationStatistics.prototype.get_nbArticulations = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbArticulations_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbArticulations'] = PxSimulationStatistics.prototype.set_nbArticulations = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbArticulations_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbArticulations', { get: PxSimulationStatistics.prototype.get_nbArticulations, set: PxSimulationStatistics.prototype.set_nbArticulations });
+  PxSimulationStatistics.prototype['get_nbAxisSolverConstraints'] = PxSimulationStatistics.prototype.get_nbAxisSolverConstraints = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbAxisSolverConstraints_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbAxisSolverConstraints'] = PxSimulationStatistics.prototype.set_nbAxisSolverConstraints = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbAxisSolverConstraints_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbAxisSolverConstraints', { get: PxSimulationStatistics.prototype.get_nbAxisSolverConstraints, set: PxSimulationStatistics.prototype.set_nbAxisSolverConstraints });
+  PxSimulationStatistics.prototype['get_compressedContactSize'] = PxSimulationStatistics.prototype.get_compressedContactSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_compressedContactSize_0(self);
+};
+    PxSimulationStatistics.prototype['set_compressedContactSize'] = PxSimulationStatistics.prototype.set_compressedContactSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_compressedContactSize_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'compressedContactSize', { get: PxSimulationStatistics.prototype.get_compressedContactSize, set: PxSimulationStatistics.prototype.set_compressedContactSize });
+  PxSimulationStatistics.prototype['get_requiredContactConstraintMemory'] = PxSimulationStatistics.prototype.get_requiredContactConstraintMemory = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_requiredContactConstraintMemory_0(self);
+};
+    PxSimulationStatistics.prototype['set_requiredContactConstraintMemory'] = PxSimulationStatistics.prototype.set_requiredContactConstraintMemory = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_requiredContactConstraintMemory_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'requiredContactConstraintMemory', { get: PxSimulationStatistics.prototype.get_requiredContactConstraintMemory, set: PxSimulationStatistics.prototype.set_requiredContactConstraintMemory });
+  PxSimulationStatistics.prototype['get_peakConstraintMemory'] = PxSimulationStatistics.prototype.get_peakConstraintMemory = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_peakConstraintMemory_0(self);
+};
+    PxSimulationStatistics.prototype['set_peakConstraintMemory'] = PxSimulationStatistics.prototype.set_peakConstraintMemory = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_peakConstraintMemory_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'peakConstraintMemory', { get: PxSimulationStatistics.prototype.get_peakConstraintMemory, set: PxSimulationStatistics.prototype.set_peakConstraintMemory });
+  PxSimulationStatistics.prototype['get_nbDiscreteContactPairsTotal'] = PxSimulationStatistics.prototype.get_nbDiscreteContactPairsTotal = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsTotal_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbDiscreteContactPairsTotal'] = PxSimulationStatistics.prototype.set_nbDiscreteContactPairsTotal = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsTotal_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbDiscreteContactPairsTotal', { get: PxSimulationStatistics.prototype.get_nbDiscreteContactPairsTotal, set: PxSimulationStatistics.prototype.set_nbDiscreteContactPairsTotal });
+  PxSimulationStatistics.prototype['get_nbDiscreteContactPairsWithCacheHits'] = PxSimulationStatistics.prototype.get_nbDiscreteContactPairsWithCacheHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsWithCacheHits_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbDiscreteContactPairsWithCacheHits'] = PxSimulationStatistics.prototype.set_nbDiscreteContactPairsWithCacheHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsWithCacheHits_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbDiscreteContactPairsWithCacheHits', { get: PxSimulationStatistics.prototype.get_nbDiscreteContactPairsWithCacheHits, set: PxSimulationStatistics.prototype.set_nbDiscreteContactPairsWithCacheHits });
+  PxSimulationStatistics.prototype['get_nbDiscreteContactPairsWithContacts'] = PxSimulationStatistics.prototype.get_nbDiscreteContactPairsWithContacts = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbDiscreteContactPairsWithContacts_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbDiscreteContactPairsWithContacts'] = PxSimulationStatistics.prototype.set_nbDiscreteContactPairsWithContacts = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbDiscreteContactPairsWithContacts_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbDiscreteContactPairsWithContacts', { get: PxSimulationStatistics.prototype.get_nbDiscreteContactPairsWithContacts, set: PxSimulationStatistics.prototype.set_nbDiscreteContactPairsWithContacts });
+  PxSimulationStatistics.prototype['get_nbNewPairs'] = PxSimulationStatistics.prototype.get_nbNewPairs = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbNewPairs_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbNewPairs'] = PxSimulationStatistics.prototype.set_nbNewPairs = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbNewPairs_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbNewPairs', { get: PxSimulationStatistics.prototype.get_nbNewPairs, set: PxSimulationStatistics.prototype.set_nbNewPairs });
+  PxSimulationStatistics.prototype['get_nbLostPairs'] = PxSimulationStatistics.prototype.get_nbLostPairs = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbLostPairs_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbLostPairs'] = PxSimulationStatistics.prototype.set_nbLostPairs = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbLostPairs_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbLostPairs', { get: PxSimulationStatistics.prototype.get_nbLostPairs, set: PxSimulationStatistics.prototype.set_nbLostPairs });
+  PxSimulationStatistics.prototype['get_nbNewTouches'] = PxSimulationStatistics.prototype.get_nbNewTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbNewTouches_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbNewTouches'] = PxSimulationStatistics.prototype.set_nbNewTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbNewTouches_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbNewTouches', { get: PxSimulationStatistics.prototype.get_nbNewTouches, set: PxSimulationStatistics.prototype.set_nbNewTouches });
+  PxSimulationStatistics.prototype['get_nbLostTouches'] = PxSimulationStatistics.prototype.get_nbLostTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbLostTouches_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbLostTouches'] = PxSimulationStatistics.prototype.set_nbLostTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbLostTouches_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbLostTouches', { get: PxSimulationStatistics.prototype.get_nbLostTouches, set: PxSimulationStatistics.prototype.set_nbLostTouches });
+  PxSimulationStatistics.prototype['get_nbPartitions'] = PxSimulationStatistics.prototype.get_nbPartitions = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbPartitions_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbPartitions'] = PxSimulationStatistics.prototype.set_nbPartitions = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbPartitions_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbPartitions', { get: PxSimulationStatistics.prototype.get_nbPartitions, set: PxSimulationStatistics.prototype.set_nbPartitions });
+  PxSimulationStatistics.prototype['get_nbBroadPhaseAdds'] = PxSimulationStatistics.prototype.get_nbBroadPhaseAdds = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbBroadPhaseAdds_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbBroadPhaseAdds'] = PxSimulationStatistics.prototype.set_nbBroadPhaseAdds = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbBroadPhaseAdds_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbBroadPhaseAdds', { get: PxSimulationStatistics.prototype.get_nbBroadPhaseAdds, set: PxSimulationStatistics.prototype.set_nbBroadPhaseAdds });
+  PxSimulationStatistics.prototype['get_nbBroadPhaseRemoves'] = PxSimulationStatistics.prototype.get_nbBroadPhaseRemoves = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSimulationStatistics_get_nbBroadPhaseRemoves_0(self);
+};
+    PxSimulationStatistics.prototype['set_nbBroadPhaseRemoves'] = PxSimulationStatistics.prototype.set_nbBroadPhaseRemoves = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSimulationStatistics_set_nbBroadPhaseRemoves_1(self, arg0);
+};
+    Object.defineProperty(PxSimulationStatistics.prototype, 'nbBroadPhaseRemoves', { get: PxSimulationStatistics.prototype.get_nbBroadPhaseRemoves, set: PxSimulationStatistics.prototype.set_nbBroadPhaseRemoves });
+  PxSimulationStatistics.prototype['__destroy__'] = PxSimulationStatistics.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxSimulationStatistics___destroy___0(self);
+};
 // PxSpatialVelocity
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxSpatialVelocity() { throw "cannot construct a PxSpatialVelocity, no constructor in IDL" }
 PxSpatialVelocity.prototype = Object.create(WrapperObject.prototype);
@@ -15341,6 +20461,78 @@ Module['PxSpatialVelocity'] = PxSpatialVelocity;
   PxSpatialVelocity.prototype['__destroy__'] = PxSpatialVelocity.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxSpatialVelocity___destroy___0(self);
+};
+// PxSweepBuffer10
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSweepBuffer10() {
+  this.ptr = _emscripten_bind_PxSweepBuffer10_PxSweepBuffer10_0();
+  getCache(PxSweepBuffer10)[this.ptr] = this;
+};;
+PxSweepBuffer10.prototype = Object.create(PxSweepCallback.prototype);
+PxSweepBuffer10.prototype.constructor = PxSweepBuffer10;
+PxSweepBuffer10.prototype.__class__ = PxSweepBuffer10;
+PxSweepBuffer10.__cache__ = {};
+Module['PxSweepBuffer10'] = PxSweepBuffer10;
+
+PxSweepBuffer10.prototype['getNbAnyHits'] = PxSweepBuffer10.prototype.getNbAnyHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSweepBuffer10_getNbAnyHits_0(self);
+};;
+
+PxSweepBuffer10.prototype['getAnyHit'] = PxSweepBuffer10.prototype.getAnyHit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_PxSweepBuffer10_getAnyHit_1(self, index), PxSweepHit);
+};;
+
+PxSweepBuffer10.prototype['getNbTouches'] = PxSweepBuffer10.prototype.getNbTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSweepBuffer10_getNbTouches_0(self);
+};;
+
+PxSweepBuffer10.prototype['getTouches'] = PxSweepBuffer10.prototype.getTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxSweepBuffer10_getTouches_0(self), PxSweepHit);
+};;
+
+PxSweepBuffer10.prototype['getTouch'] = PxSweepBuffer10.prototype.getTouch = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_PxSweepBuffer10_getTouch_1(self, index), PxSweepHit);
+};;
+
+PxSweepBuffer10.prototype['getMaxNbTouches'] = PxSweepBuffer10.prototype.getMaxNbTouches = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSweepBuffer10_getMaxNbTouches_0(self);
+};;
+
+PxSweepBuffer10.prototype['hasAnyHits'] = PxSweepBuffer10.prototype.hasAnyHits = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxSweepBuffer10_hasAnyHits_0(self));
+};;
+
+  PxSweepBuffer10.prototype['get_block'] = PxSweepBuffer10.prototype.get_block = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxSweepBuffer10_get_block_0(self), PxSweepHit);
+};
+    PxSweepBuffer10.prototype['set_block'] = PxSweepBuffer10.prototype.set_block = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSweepBuffer10_set_block_1(self, arg0);
+};
+    Object.defineProperty(PxSweepBuffer10.prototype, 'block', { get: PxSweepBuffer10.prototype.get_block, set: PxSweepBuffer10.prototype.set_block });
+  PxSweepBuffer10.prototype['get_hasBlock'] = PxSweepBuffer10.prototype.get_hasBlock = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxSweepBuffer10_get_hasBlock_0(self));
+};
+    PxSweepBuffer10.prototype['set_hasBlock'] = PxSweepBuffer10.prototype.set_hasBlock = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxSweepBuffer10_set_hasBlock_1(self, arg0);
+};
+    Object.defineProperty(PxSweepBuffer10.prototype, 'hasBlock', { get: PxSweepBuffer10.prototype.get_hasBlock, set: PxSweepBuffer10.prototype.set_hasBlock });
+  PxSweepBuffer10.prototype['__destroy__'] = PxSweepBuffer10.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxSweepBuffer10___destroy___0(self);
 };
 // PxSweepHit
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxSweepHit() { throw "cannot construct a PxSweepHit, no constructor in IDL" }
@@ -17842,6 +23034,11 @@ PxBoxGeometry.prototype.__class__ = PxBoxGeometry;
 PxBoxGeometry.__cache__ = {};
 Module['PxBoxGeometry'] = PxBoxGeometry;
 
+PxBoxGeometry.prototype['getType'] = PxBoxGeometry.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxGeometry_getType_0(self);
+};;
+
   PxBoxGeometry.prototype['__destroy__'] = PxBoxGeometry.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxBoxGeometry___destroy___0(self);
@@ -17900,6 +23097,11 @@ PxCapsuleGeometry.prototype.__class__ = PxCapsuleGeometry;
 PxCapsuleGeometry.__cache__ = {};
 Module['PxCapsuleGeometry'] = PxCapsuleGeometry;
 
+PxCapsuleGeometry.prototype['getType'] = PxCapsuleGeometry.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleGeometry_getType_0(self);
+};;
+
   PxCapsuleGeometry.prototype['__destroy__'] = PxCapsuleGeometry.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxCapsuleGeometry___destroy___0(self);
@@ -17924,7 +23126,7 @@ PxConvexMesh.prototype['getVertices'] = PxConvexMesh.prototype.getVertices = /**
 
 PxConvexMesh.prototype['getIndexBuffer'] = PxConvexMesh.prototype.getIndexBuffer = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
-  return wrapPointer(_emscripten_bind_PxConvexMesh_getIndexBuffer_0(self), PxU8Ptr);
+  return wrapPointer(_emscripten_bind_PxConvexMesh_getIndexBuffer_0(self), PxU8ConstPtr);
 };;
 
 PxConvexMesh.prototype['getNbPolygons'] = PxConvexMesh.prototype.getNbPolygons = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -18008,6 +23210,11 @@ PxConvexMeshGeometry.prototype.__class__ = PxConvexMeshGeometry;
 PxConvexMeshGeometry.__cache__ = {};
 Module['PxConvexMeshGeometry'] = PxConvexMeshGeometry;
 
+PxConvexMeshGeometry.prototype['getType'] = PxConvexMeshGeometry.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxConvexMeshGeometry_getType_0(self);
+};;
+
   PxConvexMeshGeometry.prototype['__destroy__'] = PxConvexMeshGeometry.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxConvexMeshGeometry___destroy___0(self);
@@ -18045,6 +23252,519 @@ PxConvexMeshGeometryFlags.prototype['clear'] = PxConvexMeshGeometryFlags.prototy
   PxConvexMeshGeometryFlags.prototype['__destroy__'] = PxConvexMeshGeometryFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxConvexMeshGeometryFlags___destroy___0(self);
+};
+// PxGeometryHolder
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxGeometryHolder(geometry) {
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  if (geometry === undefined) { this.ptr = _emscripten_bind_PxGeometryHolder_PxGeometryHolder_0(); getCache(PxGeometryHolder)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_PxGeometryHolder_PxGeometryHolder_1(geometry);
+  getCache(PxGeometryHolder)[this.ptr] = this;
+};;
+PxGeometryHolder.prototype = Object.create(WrapperObject.prototype);
+PxGeometryHolder.prototype.constructor = PxGeometryHolder;
+PxGeometryHolder.prototype.__class__ = PxGeometryHolder;
+PxGeometryHolder.__cache__ = {};
+Module['PxGeometryHolder'] = PxGeometryHolder;
+
+PxGeometryHolder.prototype['getType'] = PxGeometryHolder.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxGeometryHolder_getType_0(self);
+};;
+
+PxGeometryHolder.prototype['sphere'] = PxGeometryHolder.prototype.sphere = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxGeometryHolder_sphere_0(self), PxSphereGeometry);
+};;
+
+PxGeometryHolder.prototype['plane'] = PxGeometryHolder.prototype.plane = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxGeometryHolder_plane_0(self), PxPlaneGeometry);
+};;
+
+PxGeometryHolder.prototype['capsule'] = PxGeometryHolder.prototype.capsule = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxGeometryHolder_capsule_0(self), PxCapsuleGeometry);
+};;
+
+PxGeometryHolder.prototype['box'] = PxGeometryHolder.prototype.box = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxGeometryHolder_box_0(self), PxBoxGeometry);
+};;
+
+PxGeometryHolder.prototype['convexMesh'] = PxGeometryHolder.prototype.convexMesh = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxGeometryHolder_convexMesh_0(self), PxConvexMeshGeometry);
+};;
+
+PxGeometryHolder.prototype['triangleMesh'] = PxGeometryHolder.prototype.triangleMesh = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxGeometryHolder_triangleMesh_0(self), PxTriangleMeshGeometry);
+};;
+
+PxGeometryHolder.prototype['heightField'] = PxGeometryHolder.prototype.heightField = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxGeometryHolder_heightField_0(self), PxHeightFieldGeometry);
+};;
+
+PxGeometryHolder.prototype['storeAny'] = PxGeometryHolder.prototype.storeAny = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geometry) {
+  var self = this.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  _emscripten_bind_PxGeometryHolder_storeAny_1(self, geometry);
+};;
+
+  PxGeometryHolder.prototype['__destroy__'] = PxGeometryHolder.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxGeometryHolder___destroy___0(self);
+};
+// PxGeometryQuery
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxGeometryQuery() { throw "cannot construct a PxGeometryQuery, no constructor in IDL" }
+PxGeometryQuery.prototype = Object.create(WrapperObject.prototype);
+PxGeometryQuery.prototype.constructor = PxGeometryQuery;
+PxGeometryQuery.prototype.__class__ = PxGeometryQuery;
+PxGeometryQuery.__cache__ = {};
+Module['PxGeometryQuery'] = PxGeometryQuery;
+
+PxGeometryQuery.prototype['sweep'] = PxGeometryQuery.prototype.sweep = /** @suppress {undefinedVars, duplicate} @this{Object} */function(unitDir, maxDist, geom0, pose0, geom1, pose1, sweepHit, hitFlags, inflation) {
+  var self = this.ptr;
+  if (unitDir && typeof unitDir === 'object') unitDir = unitDir.ptr;
+  if (maxDist && typeof maxDist === 'object') maxDist = maxDist.ptr;
+  if (geom0 && typeof geom0 === 'object') geom0 = geom0.ptr;
+  if (pose0 && typeof pose0 === 'object') pose0 = pose0.ptr;
+  if (geom1 && typeof geom1 === 'object') geom1 = geom1.ptr;
+  if (pose1 && typeof pose1 === 'object') pose1 = pose1.ptr;
+  if (sweepHit && typeof sweepHit === 'object') sweepHit = sweepHit.ptr;
+  if (hitFlags && typeof hitFlags === 'object') hitFlags = hitFlags.ptr;
+  if (inflation && typeof inflation === 'object') inflation = inflation.ptr;
+  if (hitFlags === undefined) { return !!(_emscripten_bind_PxGeometryQuery_sweep_7(self, unitDir, maxDist, geom0, pose0, geom1, pose1, sweepHit)) }
+  if (inflation === undefined) { return !!(_emscripten_bind_PxGeometryQuery_sweep_8(self, unitDir, maxDist, geom0, pose0, geom1, pose1, sweepHit, hitFlags)) }
+  return !!(_emscripten_bind_PxGeometryQuery_sweep_9(self, unitDir, maxDist, geom0, pose0, geom1, pose1, sweepHit, hitFlags, inflation));
+};;
+
+PxGeometryQuery.prototype['overlap'] = PxGeometryQuery.prototype.overlap = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geom0, pose0, geom1, pose1) {
+  var self = this.ptr;
+  if (geom0 && typeof geom0 === 'object') geom0 = geom0.ptr;
+  if (pose0 && typeof pose0 === 'object') pose0 = pose0.ptr;
+  if (geom1 && typeof geom1 === 'object') geom1 = geom1.ptr;
+  if (pose1 && typeof pose1 === 'object') pose1 = pose1.ptr;
+  return !!(_emscripten_bind_PxGeometryQuery_overlap_4(self, geom0, pose0, geom1, pose1));
+};;
+
+PxGeometryQuery.prototype['raycast'] = PxGeometryQuery.prototype.raycast = /** @suppress {undefinedVars, duplicate} @this{Object} */function(origin, unitDir, geom, pose, maxDist, hitFlags, maxHits, rayHits) {
+  var self = this.ptr;
+  if (origin && typeof origin === 'object') origin = origin.ptr;
+  if (unitDir && typeof unitDir === 'object') unitDir = unitDir.ptr;
+  if (geom && typeof geom === 'object') geom = geom.ptr;
+  if (pose && typeof pose === 'object') pose = pose.ptr;
+  if (maxDist && typeof maxDist === 'object') maxDist = maxDist.ptr;
+  if (hitFlags && typeof hitFlags === 'object') hitFlags = hitFlags.ptr;
+  if (maxHits && typeof maxHits === 'object') maxHits = maxHits.ptr;
+  if (rayHits && typeof rayHits === 'object') rayHits = rayHits.ptr;
+  return _emscripten_bind_PxGeometryQuery_raycast_8(self, origin, unitDir, geom, pose, maxDist, hitFlags, maxHits, rayHits);
+};;
+
+PxGeometryQuery.prototype['pointDistance'] = PxGeometryQuery.prototype.pointDistance = /** @suppress {undefinedVars, duplicate} @this{Object} */function(point, geom, pose, closestPoint) {
+  var self = this.ptr;
+  if (point && typeof point === 'object') point = point.ptr;
+  if (geom && typeof geom === 'object') geom = geom.ptr;
+  if (pose && typeof pose === 'object') pose = pose.ptr;
+  if (closestPoint && typeof closestPoint === 'object') closestPoint = closestPoint.ptr;
+  if (closestPoint === undefined) { return _emscripten_bind_PxGeometryQuery_pointDistance_3(self, point, geom, pose) }
+  return _emscripten_bind_PxGeometryQuery_pointDistance_4(self, point, geom, pose, closestPoint);
+};;
+
+PxGeometryQuery.prototype['getWorldBounds'] = PxGeometryQuery.prototype.getWorldBounds = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geom, pose, inflation) {
+  var self = this.ptr;
+  if (geom && typeof geom === 'object') geom = geom.ptr;
+  if (pose && typeof pose === 'object') pose = pose.ptr;
+  if (inflation && typeof inflation === 'object') inflation = inflation.ptr;
+  if (inflation === undefined) { return wrapPointer(_emscripten_bind_PxGeometryQuery_getWorldBounds_2(self, geom, pose), PxBounds3) }
+  return wrapPointer(_emscripten_bind_PxGeometryQuery_getWorldBounds_3(self, geom, pose, inflation), PxBounds3);
+};;
+
+PxGeometryQuery.prototype['isValid'] = PxGeometryQuery.prototype.isValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geom) {
+  var self = this.ptr;
+  if (geom && typeof geom === 'object') geom = geom.ptr;
+  return !!(_emscripten_bind_PxGeometryQuery_isValid_1(self, geom));
+};;
+
+  PxGeometryQuery.prototype['__destroy__'] = PxGeometryQuery.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxGeometryQuery___destroy___0(self);
+};
+// PxHeightField
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxHeightField() { throw "cannot construct a PxHeightField, no constructor in IDL" }
+PxHeightField.prototype = Object.create(PxBase.prototype);
+PxHeightField.prototype.constructor = PxHeightField;
+PxHeightField.prototype.__class__ = PxHeightField;
+PxHeightField.__cache__ = {};
+Module['PxHeightField'] = PxHeightField;
+
+PxHeightField.prototype['saveCells'] = PxHeightField.prototype.saveCells = /** @suppress {undefinedVars, duplicate} @this{Object} */function(destBuffer, destBufferSize) {
+  var self = this.ptr;
+  if (destBuffer && typeof destBuffer === 'object') destBuffer = destBuffer.ptr;
+  if (destBufferSize && typeof destBufferSize === 'object') destBufferSize = destBufferSize.ptr;
+  return _emscripten_bind_PxHeightField_saveCells_2(self, destBuffer, destBufferSize);
+};;
+
+PxHeightField.prototype['modifySamples'] = PxHeightField.prototype.modifySamples = /** @suppress {undefinedVars, duplicate} @this{Object} */function(startCol, startRow, subfieldDesc, shrinkBounds) {
+  var self = this.ptr;
+  if (startCol && typeof startCol === 'object') startCol = startCol.ptr;
+  if (startRow && typeof startRow === 'object') startRow = startRow.ptr;
+  if (subfieldDesc && typeof subfieldDesc === 'object') subfieldDesc = subfieldDesc.ptr;
+  if (shrinkBounds && typeof shrinkBounds === 'object') shrinkBounds = shrinkBounds.ptr;
+  if (shrinkBounds === undefined) { return !!(_emscripten_bind_PxHeightField_modifySamples_3(self, startCol, startRow, subfieldDesc)) }
+  return !!(_emscripten_bind_PxHeightField_modifySamples_4(self, startCol, startRow, subfieldDesc, shrinkBounds));
+};;
+
+PxHeightField.prototype['getNbRows'] = PxHeightField.prototype.getNbRows = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightField_getNbRows_0(self);
+};;
+
+PxHeightField.prototype['getNbColumns'] = PxHeightField.prototype.getNbColumns = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightField_getNbColumns_0(self);
+};;
+
+PxHeightField.prototype['getFormat'] = PxHeightField.prototype.getFormat = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightField_getFormat_0(self);
+};;
+
+PxHeightField.prototype['getSampleStride'] = PxHeightField.prototype.getSampleStride = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightField_getSampleStride_0(self);
+};;
+
+PxHeightField.prototype['getConvexEdgeThreshold'] = PxHeightField.prototype.getConvexEdgeThreshold = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightField_getConvexEdgeThreshold_0(self);
+};;
+
+PxHeightField.prototype['getFlags'] = PxHeightField.prototype.getFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxHeightField_getFlags_0(self), PxHeightFieldFlags);
+};;
+
+PxHeightField.prototype['getHeight'] = PxHeightField.prototype.getHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(x, z) {
+  var self = this.ptr;
+  if (x && typeof x === 'object') x = x.ptr;
+  if (z && typeof z === 'object') z = z.ptr;
+  return _emscripten_bind_PxHeightField_getHeight_2(self, x, z);
+};;
+
+PxHeightField.prototype['getReferenceCount'] = PxHeightField.prototype.getReferenceCount = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightField_getReferenceCount_0(self);
+};;
+
+PxHeightField.prototype['acquireReference'] = PxHeightField.prototype.acquireReference = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxHeightField_acquireReference_0(self);
+};;
+
+PxHeightField.prototype['getTriangleMaterialIndex'] = PxHeightField.prototype.getTriangleMaterialIndex = /** @suppress {undefinedVars, duplicate} @this{Object} */function(triangleIndex) {
+  var self = this.ptr;
+  if (triangleIndex && typeof triangleIndex === 'object') triangleIndex = triangleIndex.ptr;
+  return _emscripten_bind_PxHeightField_getTriangleMaterialIndex_1(self, triangleIndex);
+};;
+
+PxHeightField.prototype['getTriangleNormal'] = PxHeightField.prototype.getTriangleNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function(triangleIndex) {
+  var self = this.ptr;
+  if (triangleIndex && typeof triangleIndex === 'object') triangleIndex = triangleIndex.ptr;
+  return wrapPointer(_emscripten_bind_PxHeightField_getTriangleNormal_1(self, triangleIndex), PxVec3);
+};;
+
+PxHeightField.prototype['getSample'] = PxHeightField.prototype.getSample = /** @suppress {undefinedVars, duplicate} @this{Object} */function(row, column) {
+  var self = this.ptr;
+  if (row && typeof row === 'object') row = row.ptr;
+  if (column && typeof column === 'object') column = column.ptr;
+  return wrapPointer(_emscripten_bind_PxHeightField_getSample_2(self, row, column), PxHeightFieldSample);
+};;
+
+PxHeightField.prototype['getTimestamp'] = PxHeightField.prototype.getTimestamp = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightField_getTimestamp_0(self);
+};;
+
+PxHeightField.prototype['getConcreteTypeName'] = PxHeightField.prototype.getConcreteTypeName = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return UTF8ToString(_emscripten_bind_PxHeightField_getConcreteTypeName_0(self));
+};;
+
+PxHeightField.prototype['getConcreteType'] = PxHeightField.prototype.getConcreteType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightField_getConcreteType_0(self);
+};;
+
+PxHeightField.prototype['setBaseFlag'] = PxHeightField.prototype.setBaseFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxHeightField_setBaseFlag_2(self, flag, value);
+};;
+
+PxHeightField.prototype['setBaseFlags'] = PxHeightField.prototype.setBaseFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(inFlags) {
+  var self = this.ptr;
+  if (inFlags && typeof inFlags === 'object') inFlags = inFlags.ptr;
+  _emscripten_bind_PxHeightField_setBaseFlags_1(self, inFlags);
+};;
+
+PxHeightField.prototype['getBaseFlags'] = PxHeightField.prototype.getBaseFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxHeightField_getBaseFlags_0(self), PxBaseFlags);
+};;
+
+PxHeightField.prototype['isReleasable'] = PxHeightField.prototype.isReleasable = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxHeightField_isReleasable_0(self));
+};;
+
+// PxHeightFieldDesc
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxHeightFieldDesc() {
+  this.ptr = _emscripten_bind_PxHeightFieldDesc_PxHeightFieldDesc_0();
+  getCache(PxHeightFieldDesc)[this.ptr] = this;
+};;
+PxHeightFieldDesc.prototype = Object.create(WrapperObject.prototype);
+PxHeightFieldDesc.prototype.constructor = PxHeightFieldDesc;
+PxHeightFieldDesc.prototype.__class__ = PxHeightFieldDesc;
+PxHeightFieldDesc.__cache__ = {};
+Module['PxHeightFieldDesc'] = PxHeightFieldDesc;
+
+PxHeightFieldDesc.prototype['setToDefault'] = PxHeightFieldDesc.prototype.setToDefault = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxHeightFieldDesc_setToDefault_0(self);
+};;
+
+PxHeightFieldDesc.prototype['isValid'] = PxHeightFieldDesc.prototype.isValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxHeightFieldDesc_isValid_0(self));
+};;
+
+  PxHeightFieldDesc.prototype['get_nbRows'] = PxHeightFieldDesc.prototype.get_nbRows = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldDesc_get_nbRows_0(self);
+};
+    PxHeightFieldDesc.prototype['set_nbRows'] = PxHeightFieldDesc.prototype.set_nbRows = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldDesc_set_nbRows_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldDesc.prototype, 'nbRows', { get: PxHeightFieldDesc.prototype.get_nbRows, set: PxHeightFieldDesc.prototype.set_nbRows });
+  PxHeightFieldDesc.prototype['get_nbColumns'] = PxHeightFieldDesc.prototype.get_nbColumns = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldDesc_get_nbColumns_0(self);
+};
+    PxHeightFieldDesc.prototype['set_nbColumns'] = PxHeightFieldDesc.prototype.set_nbColumns = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldDesc_set_nbColumns_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldDesc.prototype, 'nbColumns', { get: PxHeightFieldDesc.prototype.get_nbColumns, set: PxHeightFieldDesc.prototype.set_nbColumns });
+  PxHeightFieldDesc.prototype['get_format'] = PxHeightFieldDesc.prototype.get_format = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldDesc_get_format_0(self);
+};
+    PxHeightFieldDesc.prototype['set_format'] = PxHeightFieldDesc.prototype.set_format = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldDesc_set_format_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldDesc.prototype, 'format', { get: PxHeightFieldDesc.prototype.get_format, set: PxHeightFieldDesc.prototype.set_format });
+  PxHeightFieldDesc.prototype['get_samples'] = PxHeightFieldDesc.prototype.get_samples = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxHeightFieldDesc_get_samples_0(self), PxStridedData);
+};
+    PxHeightFieldDesc.prototype['set_samples'] = PxHeightFieldDesc.prototype.set_samples = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldDesc_set_samples_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldDesc.prototype, 'samples', { get: PxHeightFieldDesc.prototype.get_samples, set: PxHeightFieldDesc.prototype.set_samples });
+  PxHeightFieldDesc.prototype['get_convexEdgeThreshold'] = PxHeightFieldDesc.prototype.get_convexEdgeThreshold = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldDesc_get_convexEdgeThreshold_0(self);
+};
+    PxHeightFieldDesc.prototype['set_convexEdgeThreshold'] = PxHeightFieldDesc.prototype.set_convexEdgeThreshold = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldDesc_set_convexEdgeThreshold_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldDesc.prototype, 'convexEdgeThreshold', { get: PxHeightFieldDesc.prototype.get_convexEdgeThreshold, set: PxHeightFieldDesc.prototype.set_convexEdgeThreshold });
+  PxHeightFieldDesc.prototype['get_flags'] = PxHeightFieldDesc.prototype.get_flags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxHeightFieldDesc_get_flags_0(self), PxHeightFieldFlags);
+};
+    PxHeightFieldDesc.prototype['set_flags'] = PxHeightFieldDesc.prototype.set_flags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldDesc_set_flags_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldDesc.prototype, 'flags', { get: PxHeightFieldDesc.prototype.get_flags, set: PxHeightFieldDesc.prototype.set_flags });
+  PxHeightFieldDesc.prototype['__destroy__'] = PxHeightFieldDesc.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxHeightFieldDesc___destroy___0(self);
+};
+// PxHeightFieldFlags
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxHeightFieldFlags(flags) {
+  if (flags && typeof flags === 'object') flags = flags.ptr;
+  this.ptr = _emscripten_bind_PxHeightFieldFlags_PxHeightFieldFlags_1(flags);
+  getCache(PxHeightFieldFlags)[this.ptr] = this;
+};;
+PxHeightFieldFlags.prototype = Object.create(WrapperObject.prototype);
+PxHeightFieldFlags.prototype.constructor = PxHeightFieldFlags;
+PxHeightFieldFlags.prototype.__class__ = PxHeightFieldFlags;
+PxHeightFieldFlags.__cache__ = {};
+Module['PxHeightFieldFlags'] = PxHeightFieldFlags;
+
+PxHeightFieldFlags.prototype['isSet'] = PxHeightFieldFlags.prototype.isSet = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  return !!(_emscripten_bind_PxHeightFieldFlags_isSet_1(self, flag));
+};;
+
+PxHeightFieldFlags.prototype['set'] = PxHeightFieldFlags.prototype.set = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxHeightFieldFlags_set_1(self, flag);
+};;
+
+PxHeightFieldFlags.prototype['clear'] = PxHeightFieldFlags.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxHeightFieldFlags_clear_1(self, flag);
+};;
+
+  PxHeightFieldFlags.prototype['__destroy__'] = PxHeightFieldFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxHeightFieldFlags___destroy___0(self);
+};
+// PxHeightFieldGeometry
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxHeightFieldGeometry(hf, flags, heightScale, rowScale, columnScale) {
+  if (hf && typeof hf === 'object') hf = hf.ptr;
+  if (flags && typeof flags === 'object') flags = flags.ptr;
+  if (heightScale && typeof heightScale === 'object') heightScale = heightScale.ptr;
+  if (rowScale && typeof rowScale === 'object') rowScale = rowScale.ptr;
+  if (columnScale && typeof columnScale === 'object') columnScale = columnScale.ptr;
+  if (hf === undefined) { this.ptr = _emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_0(); getCache(PxHeightFieldGeometry)[this.ptr] = this;return }
+  if (flags === undefined) { this.ptr = _emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_1(hf); getCache(PxHeightFieldGeometry)[this.ptr] = this;return }
+  if (heightScale === undefined) { this.ptr = _emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_2(hf, flags); getCache(PxHeightFieldGeometry)[this.ptr] = this;return }
+  if (rowScale === undefined) { this.ptr = _emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_3(hf, flags, heightScale); getCache(PxHeightFieldGeometry)[this.ptr] = this;return }
+  if (columnScale === undefined) { this.ptr = _emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_4(hf, flags, heightScale, rowScale); getCache(PxHeightFieldGeometry)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_PxHeightFieldGeometry_PxHeightFieldGeometry_5(hf, flags, heightScale, rowScale, columnScale);
+  getCache(PxHeightFieldGeometry)[this.ptr] = this;
+};;
+PxHeightFieldGeometry.prototype = Object.create(PxGeometry.prototype);
+PxHeightFieldGeometry.prototype.constructor = PxHeightFieldGeometry;
+PxHeightFieldGeometry.prototype.__class__ = PxHeightFieldGeometry;
+PxHeightFieldGeometry.__cache__ = {};
+Module['PxHeightFieldGeometry'] = PxHeightFieldGeometry;
+
+PxHeightFieldGeometry.prototype['isValid'] = PxHeightFieldGeometry.prototype.isValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxHeightFieldGeometry_isValid_0(self));
+};;
+
+PxHeightFieldGeometry.prototype['getType'] = PxHeightFieldGeometry.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldGeometry_getType_0(self);
+};;
+
+  PxHeightFieldGeometry.prototype['get_heightField'] = PxHeightFieldGeometry.prototype.get_heightField = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxHeightFieldGeometry_get_heightField_0(self), PxHeightField);
+};
+    PxHeightFieldGeometry.prototype['set_heightField'] = PxHeightFieldGeometry.prototype.set_heightField = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldGeometry_set_heightField_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldGeometry.prototype, 'heightField', { get: PxHeightFieldGeometry.prototype.get_heightField, set: PxHeightFieldGeometry.prototype.set_heightField });
+  PxHeightFieldGeometry.prototype['get_heightScale'] = PxHeightFieldGeometry.prototype.get_heightScale = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldGeometry_get_heightScale_0(self);
+};
+    PxHeightFieldGeometry.prototype['set_heightScale'] = PxHeightFieldGeometry.prototype.set_heightScale = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldGeometry_set_heightScale_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldGeometry.prototype, 'heightScale', { get: PxHeightFieldGeometry.prototype.get_heightScale, set: PxHeightFieldGeometry.prototype.set_heightScale });
+  PxHeightFieldGeometry.prototype['get_rowScale'] = PxHeightFieldGeometry.prototype.get_rowScale = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldGeometry_get_rowScale_0(self);
+};
+    PxHeightFieldGeometry.prototype['set_rowScale'] = PxHeightFieldGeometry.prototype.set_rowScale = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldGeometry_set_rowScale_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldGeometry.prototype, 'rowScale', { get: PxHeightFieldGeometry.prototype.get_rowScale, set: PxHeightFieldGeometry.prototype.set_rowScale });
+  PxHeightFieldGeometry.prototype['get_columnScale'] = PxHeightFieldGeometry.prototype.get_columnScale = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldGeometry_get_columnScale_0(self);
+};
+    PxHeightFieldGeometry.prototype['set_columnScale'] = PxHeightFieldGeometry.prototype.set_columnScale = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldGeometry_set_columnScale_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldGeometry.prototype, 'columnScale', { get: PxHeightFieldGeometry.prototype.get_columnScale, set: PxHeightFieldGeometry.prototype.set_columnScale });
+  PxHeightFieldGeometry.prototype['get_heightFieldFlags'] = PxHeightFieldGeometry.prototype.get_heightFieldFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxHeightFieldGeometry_get_heightFieldFlags_0(self), PxMeshGeometryFlags);
+};
+    PxHeightFieldGeometry.prototype['set_heightFieldFlags'] = PxHeightFieldGeometry.prototype.set_heightFieldFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldGeometry_set_heightFieldFlags_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldGeometry.prototype, 'heightFieldFlags', { get: PxHeightFieldGeometry.prototype.get_heightFieldFlags, set: PxHeightFieldGeometry.prototype.set_heightFieldFlags });
+  PxHeightFieldGeometry.prototype['__destroy__'] = PxHeightFieldGeometry.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxHeightFieldGeometry___destroy___0(self);
+};
+// PxHeightFieldSample
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxHeightFieldSample() { throw "cannot construct a PxHeightFieldSample, no constructor in IDL" }
+PxHeightFieldSample.prototype = Object.create(WrapperObject.prototype);
+PxHeightFieldSample.prototype.constructor = PxHeightFieldSample;
+PxHeightFieldSample.prototype.__class__ = PxHeightFieldSample;
+PxHeightFieldSample.__cache__ = {};
+Module['PxHeightFieldSample'] = PxHeightFieldSample;
+
+  PxHeightFieldSample.prototype['get_height'] = PxHeightFieldSample.prototype.get_height = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldSample_get_height_0(self);
+};
+    PxHeightFieldSample.prototype['set_height'] = PxHeightFieldSample.prototype.set_height = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldSample_set_height_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldSample.prototype, 'height', { get: PxHeightFieldSample.prototype.get_height, set: PxHeightFieldSample.prototype.set_height });
+  PxHeightFieldSample.prototype['get_materialIndex0'] = PxHeightFieldSample.prototype.get_materialIndex0 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldSample_get_materialIndex0_0(self);
+};
+    PxHeightFieldSample.prototype['set_materialIndex0'] = PxHeightFieldSample.prototype.set_materialIndex0 = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldSample_set_materialIndex0_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldSample.prototype, 'materialIndex0', { get: PxHeightFieldSample.prototype.get_materialIndex0, set: PxHeightFieldSample.prototype.set_materialIndex0 });
+  PxHeightFieldSample.prototype['get_materialIndex1'] = PxHeightFieldSample.prototype.get_materialIndex1 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldSample_get_materialIndex1_0(self);
+};
+    PxHeightFieldSample.prototype['set_materialIndex1'] = PxHeightFieldSample.prototype.set_materialIndex1 = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxHeightFieldSample_set_materialIndex1_1(self, arg0);
+};
+    Object.defineProperty(PxHeightFieldSample.prototype, 'materialIndex1', { get: PxHeightFieldSample.prototype.get_materialIndex1, set: PxHeightFieldSample.prototype.set_materialIndex1 });
+  PxHeightFieldSample.prototype['__destroy__'] = PxHeightFieldSample.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxHeightFieldSample___destroy___0(self);
 };
 // PxHullPolygon
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxHullPolygon() {
@@ -18192,6 +23912,11 @@ PxPlaneGeometry.prototype.__class__ = PxPlaneGeometry;
 PxPlaneGeometry.__cache__ = {};
 Module['PxPlaneGeometry'] = PxPlaneGeometry;
 
+PxPlaneGeometry.prototype['getType'] = PxPlaneGeometry.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxPlaneGeometry_getType_0(self);
+};;
+
   PxPlaneGeometry.prototype['__destroy__'] = PxPlaneGeometry.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxPlaneGeometry___destroy___0(self);
@@ -18208,9 +23933,59 @@ PxSphereGeometry.prototype.__class__ = PxSphereGeometry;
 PxSphereGeometry.__cache__ = {};
 Module['PxSphereGeometry'] = PxSphereGeometry;
 
+PxSphereGeometry.prototype['getType'] = PxSphereGeometry.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxSphereGeometry_getType_0(self);
+};;
+
   PxSphereGeometry.prototype['__destroy__'] = PxSphereGeometry.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxSphereGeometry___destroy___0(self);
+};
+// PxTriangle
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxTriangle(p0, p1, p2) {
+  if (p0 && typeof p0 === 'object') p0 = p0.ptr;
+  if (p1 && typeof p1 === 'object') p1 = p1.ptr;
+  if (p2 && typeof p2 === 'object') p2 = p2.ptr;
+  if (p0 === undefined) { this.ptr = _emscripten_bind_PxTriangle_PxTriangle_0(); getCache(PxTriangle)[this.ptr] = this;return }
+  if (p1 === undefined) { this.ptr = _emscripten_bind_PxTriangle_PxTriangle_1(p0); getCache(PxTriangle)[this.ptr] = this;return }
+  if (p2 === undefined) { this.ptr = _emscripten_bind_PxTriangle_PxTriangle_2(p0, p1); getCache(PxTriangle)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_PxTriangle_PxTriangle_3(p0, p1, p2);
+  getCache(PxTriangle)[this.ptr] = this;
+};;
+PxTriangle.prototype = Object.create(WrapperObject.prototype);
+PxTriangle.prototype.constructor = PxTriangle;
+PxTriangle.prototype.__class__ = PxTriangle;
+PxTriangle.__cache__ = {};
+Module['PxTriangle'] = PxTriangle;
+
+PxTriangle.prototype['normal'] = PxTriangle.prototype.normal = /** @suppress {undefinedVars, duplicate} @this{Object} */function(normal) {
+  var self = this.ptr;
+  if (normal && typeof normal === 'object') normal = normal.ptr;
+  _emscripten_bind_PxTriangle_normal_1(self, normal);
+};;
+
+PxTriangle.prototype['denormalizedNormal'] = PxTriangle.prototype.denormalizedNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function(normal) {
+  var self = this.ptr;
+  if (normal && typeof normal === 'object') normal = normal.ptr;
+  _emscripten_bind_PxTriangle_denormalizedNormal_1(self, normal);
+};;
+
+PxTriangle.prototype['area'] = PxTriangle.prototype.area = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxTriangle_area_0(self);
+};;
+
+PxTriangle.prototype['pointFromUV'] = PxTriangle.prototype.pointFromUV = /** @suppress {undefinedVars, duplicate} @this{Object} */function(u, v) {
+  var self = this.ptr;
+  if (u && typeof u === 'object') u = u.ptr;
+  if (v && typeof v === 'object') v = v.ptr;
+  return wrapPointer(_emscripten_bind_PxTriangle_pointFromUV_2(self, u, v), PxVec3);
+};;
+
+  PxTriangle.prototype['__destroy__'] = PxTriangle.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxTriangle___destroy___0(self);
 };
 // PxTriangleMesh
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxTriangleMesh() { throw "cannot construct a PxTriangleMesh, no constructor in IDL" }
@@ -18257,7 +24032,7 @@ PxTriangleMesh.prototype['getTriangleMeshFlags'] = PxTriangleMesh.prototype.getT
 
 PxTriangleMesh.prototype['getTrianglesRemap'] = PxTriangleMesh.prototype.getTrianglesRemap = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
-  return wrapPointer(_emscripten_bind_PxTriangleMesh_getTrianglesRemap_0(self), PxU32Ptr);
+  return wrapPointer(_emscripten_bind_PxTriangleMesh_getTrianglesRemap_0(self), PxU32ConstPtr);
 };;
 
 PxTriangleMesh.prototype['getTriangleMaterialIndex'] = PxTriangleMesh.prototype.getTriangleMaterialIndex = /** @suppress {undefinedVars, duplicate} @this{Object} */function(triangleIndex) {
@@ -18367,6 +24142,11 @@ Module['PxTriangleMeshGeometry'] = PxTriangleMeshGeometry;
 PxTriangleMeshGeometry.prototype['isValid'] = PxTriangleMeshGeometry.prototype.isValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return !!(_emscripten_bind_PxTriangleMeshGeometry_isValid_0(self));
+};;
+
+PxTriangleMeshGeometry.prototype['getType'] = PxTriangleMeshGeometry.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxTriangleMeshGeometry_getType_0(self);
 };;
 
   PxTriangleMeshGeometry.prototype['__destroy__'] = PxTriangleMeshGeometry.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -18541,6 +24321,13 @@ PxCooking.prototype['createTriangleMesh'] = PxCooking.prototype.createTriangleMe
   if (desc && typeof desc === 'object') desc = desc.ptr;
   if (insertionCallback && typeof insertionCallback === 'object') insertionCallback = insertionCallback.ptr;
   return wrapPointer(_emscripten_bind_PxCooking_createTriangleMesh_2(self, desc, insertionCallback), PxTriangleMesh);
+};;
+
+PxCooking.prototype['createHeightField'] = PxCooking.prototype.createHeightField = /** @suppress {undefinedVars, duplicate} @this{Object} */function(desc, insertionCallback) {
+  var self = this.ptr;
+  if (desc && typeof desc === 'object') desc = desc.ptr;
+  if (insertionCallback && typeof insertionCallback === 'object') insertionCallback = insertionCallback.ptr;
+  return wrapPointer(_emscripten_bind_PxCooking_createHeightField_2(self, desc, insertionCallback), PxHeightField);
 };;
 
 // PxCookingParams
@@ -19044,6 +24831,14 @@ PxBounds3.prototype['isValid'] = PxBounds3.prototype.isValid = /** @suppress {un
   var self = this.ptr;
   _emscripten_bind_PxBounds3___destroy___0(self);
 };
+// PxCudaContextManager
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxCudaContextManager() { throw "cannot construct a PxCudaContextManager, no constructor in IDL" }
+PxCudaContextManager.prototype = Object.create(WrapperObject.prototype);
+PxCudaContextManager.prototype.constructor = PxCudaContextManager;
+PxCudaContextManager.prototype.__class__ = PxCudaContextManager;
+PxCudaContextManager.__cache__ = {};
+Module['PxCudaContextManager'] = PxCudaContextManager;
+
 // PxDefaultErrorCallback
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxDefaultErrorCallback() {
   this.ptr = _emscripten_bind_PxDefaultErrorCallback_PxDefaultErrorCallback_0();
@@ -19235,6 +25030,38 @@ Module['PxTransform'] = PxTransform;
   var self = this.ptr;
   _emscripten_bind_PxTransform___destroy___0(self);
 };
+// PxStridedData
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxStridedData() { throw "cannot construct a PxStridedData, no constructor in IDL" }
+PxStridedData.prototype = Object.create(WrapperObject.prototype);
+PxStridedData.prototype.constructor = PxStridedData;
+PxStridedData.prototype.__class__ = PxStridedData;
+PxStridedData.__cache__ = {};
+Module['PxStridedData'] = PxStridedData;
+
+  PxStridedData.prototype['get_stride'] = PxStridedData.prototype.get_stride = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxStridedData_get_stride_0(self);
+};
+    PxStridedData.prototype['set_stride'] = PxStridedData.prototype.set_stride = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxStridedData_set_stride_1(self, arg0);
+};
+    Object.defineProperty(PxStridedData.prototype, 'stride', { get: PxStridedData.prototype.get_stride, set: PxStridedData.prototype.set_stride });
+  PxStridedData.prototype['get_data'] = PxStridedData.prototype.get_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxStridedData_get_data_0(self), VoidPtr);
+};
+    PxStridedData.prototype['set_data'] = PxStridedData.prototype.set_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxStridedData_set_data_1(self, arg0);
+};
+    Object.defineProperty(PxStridedData.prototype, 'data', { get: PxStridedData.prototype.get_data, set: PxStridedData.prototype.set_data });
+  PxStridedData.prototype['__destroy__'] = PxStridedData.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxStridedData___destroy___0(self);
+};
 // PxU16StridedData
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxU16StridedData() { throw "cannot construct a PxU16StridedData, no constructor in IDL" }
 PxU16StridedData.prototype = Object.create(WrapperObject.prototype);
@@ -19255,7 +25082,7 @@ Module['PxU16StridedData'] = PxU16StridedData;
     Object.defineProperty(PxU16StridedData.prototype, 'stride', { get: PxU16StridedData.prototype.get_stride, set: PxU16StridedData.prototype.set_stride });
   PxU16StridedData.prototype['get_data'] = PxU16StridedData.prototype.get_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
-  return wrapPointer(_emscripten_bind_PxU16StridedData_get_data_0(self), PxU16Ptr);
+  return wrapPointer(_emscripten_bind_PxU16StridedData_get_data_0(self), PxU16ConstPtr);
 };
     PxU16StridedData.prototype['set_data'] = PxU16StridedData.prototype.set_data = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
   var self = this.ptr;
@@ -21373,6 +27200,1610 @@ PxSphericalJointFlags.prototype['clear'] = PxSphericalJointFlags.prototype.clear
   var self = this.ptr;
   _emscripten_bind_PxSphericalJointFlags___destroy___0(self);
 };
+// PxBoxController
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxBoxController() { throw "cannot construct a PxBoxController, no constructor in IDL" }
+PxBoxController.prototype = Object.create(PxController.prototype);
+PxBoxController.prototype.constructor = PxBoxController;
+PxBoxController.prototype.__class__ = PxBoxController;
+PxBoxController.__cache__ = {};
+Module['PxBoxController'] = PxBoxController;
+
+PxBoxController.prototype['getHalfHeight'] = PxBoxController.prototype.getHalfHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxController_getHalfHeight_0(self);
+};;
+
+PxBoxController.prototype['getHalfSideExtent'] = PxBoxController.prototype.getHalfSideExtent = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxController_getHalfSideExtent_0(self);
+};;
+
+PxBoxController.prototype['getHalfForwardExtent'] = PxBoxController.prototype.getHalfForwardExtent = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxController_getHalfForwardExtent_0(self);
+};;
+
+PxBoxController.prototype['setHalfHeight'] = PxBoxController.prototype.setHalfHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(halfHeight) {
+  var self = this.ptr;
+  if (halfHeight && typeof halfHeight === 'object') halfHeight = halfHeight.ptr;
+  _emscripten_bind_PxBoxController_setHalfHeight_1(self, halfHeight);
+};;
+
+PxBoxController.prototype['setHalfSideExtent'] = PxBoxController.prototype.setHalfSideExtent = /** @suppress {undefinedVars, duplicate} @this{Object} */function(halfSideExtent) {
+  var self = this.ptr;
+  if (halfSideExtent && typeof halfSideExtent === 'object') halfSideExtent = halfSideExtent.ptr;
+  _emscripten_bind_PxBoxController_setHalfSideExtent_1(self, halfSideExtent);
+};;
+
+PxBoxController.prototype['setHalfForwardExtent'] = PxBoxController.prototype.setHalfForwardExtent = /** @suppress {undefinedVars, duplicate} @this{Object} */function(halfForwardExtent) {
+  var self = this.ptr;
+  if (halfForwardExtent && typeof halfForwardExtent === 'object') halfForwardExtent = halfForwardExtent.ptr;
+  _emscripten_bind_PxBoxController_setHalfForwardExtent_1(self, halfForwardExtent);
+};;
+
+PxBoxController.prototype['getType'] = PxBoxController.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxController_getType_0(self);
+};;
+
+PxBoxController.prototype['release'] = PxBoxController.prototype.release = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxBoxController_release_0(self);
+};;
+
+PxBoxController.prototype['move'] = PxBoxController.prototype.move = /** @suppress {undefinedVars, duplicate} @this{Object} */function(disp, minDist, elapsedTime, filters, obstacles) {
+  var self = this.ptr;
+  if (disp && typeof disp === 'object') disp = disp.ptr;
+  if (minDist && typeof minDist === 'object') minDist = minDist.ptr;
+  if (elapsedTime && typeof elapsedTime === 'object') elapsedTime = elapsedTime.ptr;
+  if (filters && typeof filters === 'object') filters = filters.ptr;
+  if (obstacles && typeof obstacles === 'object') obstacles = obstacles.ptr;
+  if (obstacles === undefined) { return wrapPointer(_emscripten_bind_PxBoxController_move_4(self, disp, minDist, elapsedTime, filters), PxControllerCollisionFlags) }
+  return wrapPointer(_emscripten_bind_PxBoxController_move_5(self, disp, minDist, elapsedTime, filters, obstacles), PxControllerCollisionFlags);
+};;
+
+PxBoxController.prototype['setPosition'] = PxBoxController.prototype.setPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function(position) {
+  var self = this.ptr;
+  if (position && typeof position === 'object') position = position.ptr;
+  return !!(_emscripten_bind_PxBoxController_setPosition_1(self, position));
+};;
+
+PxBoxController.prototype['getPosition'] = PxBoxController.prototype.getPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxController_getPosition_0(self), PxExtendedVec3);
+};;
+
+PxBoxController.prototype['setFootPosition'] = PxBoxController.prototype.setFootPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function(position) {
+  var self = this.ptr;
+  if (position && typeof position === 'object') position = position.ptr;
+  return !!(_emscripten_bind_PxBoxController_setFootPosition_1(self, position));
+};;
+
+PxBoxController.prototype['getFootPosition'] = PxBoxController.prototype.getFootPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxController_getFootPosition_0(self), PxExtendedVec3);
+};;
+
+PxBoxController.prototype['getActor'] = PxBoxController.prototype.getActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxController_getActor_0(self), PxRigidDynamic);
+};;
+
+PxBoxController.prototype['setStepOffset'] = PxBoxController.prototype.setStepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(offset) {
+  var self = this.ptr;
+  if (offset && typeof offset === 'object') offset = offset.ptr;
+  _emscripten_bind_PxBoxController_setStepOffset_1(self, offset);
+};;
+
+PxBoxController.prototype['getStepOffset'] = PxBoxController.prototype.getStepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxController_getStepOffset_0(self);
+};;
+
+PxBoxController.prototype['setNonWalkableMode'] = PxBoxController.prototype.setNonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxBoxController_setNonWalkableMode_1(self, flag);
+};;
+
+PxBoxController.prototype['getNonWalkableMode'] = PxBoxController.prototype.getNonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxController_getNonWalkableMode_0(self);
+};;
+
+PxBoxController.prototype['getContactOffset'] = PxBoxController.prototype.getContactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxController_getContactOffset_0(self);
+};;
+
+PxBoxController.prototype['setContactOffset'] = PxBoxController.prototype.setContactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(offset) {
+  var self = this.ptr;
+  if (offset && typeof offset === 'object') offset = offset.ptr;
+  _emscripten_bind_PxBoxController_setContactOffset_1(self, offset);
+};;
+
+PxBoxController.prototype['getUpDirection'] = PxBoxController.prototype.getUpDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxController_getUpDirection_0(self), PxVec3);
+};;
+
+PxBoxController.prototype['setUpDirection'] = PxBoxController.prototype.setUpDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function(up) {
+  var self = this.ptr;
+  if (up && typeof up === 'object') up = up.ptr;
+  _emscripten_bind_PxBoxController_setUpDirection_1(self, up);
+};;
+
+PxBoxController.prototype['getSlopeLimit'] = PxBoxController.prototype.getSlopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxController_getSlopeLimit_0(self);
+};;
+
+PxBoxController.prototype['setSlopeLimit'] = PxBoxController.prototype.setSlopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(slopeLimit) {
+  var self = this.ptr;
+  if (slopeLimit && typeof slopeLimit === 'object') slopeLimit = slopeLimit.ptr;
+  _emscripten_bind_PxBoxController_setSlopeLimit_1(self, slopeLimit);
+};;
+
+PxBoxController.prototype['invalidateCache'] = PxBoxController.prototype.invalidateCache = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxBoxController_invalidateCache_0(self);
+};;
+
+PxBoxController.prototype['getScene'] = PxBoxController.prototype.getScene = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxController_getScene_0(self), PxScene);
+};;
+
+PxBoxController.prototype['getUserData'] = PxBoxController.prototype.getUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxController_getUserData_0(self), VoidPtr);
+};;
+
+PxBoxController.prototype['setUserData'] = PxBoxController.prototype.setUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(userData) {
+  var self = this.ptr;
+  if (userData && typeof userData === 'object') userData = userData.ptr;
+  _emscripten_bind_PxBoxController_setUserData_1(self, userData);
+};;
+
+PxBoxController.prototype['getState'] = PxBoxController.prototype.getState = /** @suppress {undefinedVars, duplicate} @this{Object} */function(state) {
+  var self = this.ptr;
+  if (state && typeof state === 'object') state = state.ptr;
+  _emscripten_bind_PxBoxController_getState_1(self, state);
+};;
+
+PxBoxController.prototype['getStats'] = PxBoxController.prototype.getStats = /** @suppress {undefinedVars, duplicate} @this{Object} */function(stats) {
+  var self = this.ptr;
+  if (stats && typeof stats === 'object') stats = stats.ptr;
+  _emscripten_bind_PxBoxController_getStats_1(self, stats);
+};;
+
+PxBoxController.prototype['resize'] = PxBoxController.prototype.resize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(height) {
+  var self = this.ptr;
+  if (height && typeof height === 'object') height = height.ptr;
+  _emscripten_bind_PxBoxController_resize_1(self, height);
+};;
+
+// PxBoxControllerDesc
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxBoxControllerDesc() {
+  this.ptr = _emscripten_bind_PxBoxControllerDesc_PxBoxControllerDesc_0();
+  getCache(PxBoxControllerDesc)[this.ptr] = this;
+};;
+PxBoxControllerDesc.prototype = Object.create(PxControllerDesc.prototype);
+PxBoxControllerDesc.prototype.constructor = PxBoxControllerDesc;
+PxBoxControllerDesc.prototype.__class__ = PxBoxControllerDesc;
+PxBoxControllerDesc.__cache__ = {};
+Module['PxBoxControllerDesc'] = PxBoxControllerDesc;
+
+PxBoxControllerDesc.prototype['setToDefault'] = PxBoxControllerDesc.prototype.setToDefault = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxBoxControllerDesc_setToDefault_0(self);
+};;
+
+PxBoxControllerDesc.prototype['isValid'] = PxBoxControllerDesc.prototype.isValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxBoxControllerDesc_isValid_0(self));
+};;
+
+PxBoxControllerDesc.prototype['getType'] = PxBoxControllerDesc.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_getType_0(self);
+};;
+
+  PxBoxControllerDesc.prototype['get_halfHeight'] = PxBoxControllerDesc.prototype.get_halfHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_halfHeight_0(self);
+};
+    PxBoxControllerDesc.prototype['set_halfHeight'] = PxBoxControllerDesc.prototype.set_halfHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_halfHeight_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'halfHeight', { get: PxBoxControllerDesc.prototype.get_halfHeight, set: PxBoxControllerDesc.prototype.set_halfHeight });
+  PxBoxControllerDesc.prototype['get_halfSideExtent'] = PxBoxControllerDesc.prototype.get_halfSideExtent = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_halfSideExtent_0(self);
+};
+    PxBoxControllerDesc.prototype['set_halfSideExtent'] = PxBoxControllerDesc.prototype.set_halfSideExtent = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_halfSideExtent_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'halfSideExtent', { get: PxBoxControllerDesc.prototype.get_halfSideExtent, set: PxBoxControllerDesc.prototype.set_halfSideExtent });
+  PxBoxControllerDesc.prototype['get_halfForwardExtent'] = PxBoxControllerDesc.prototype.get_halfForwardExtent = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_halfForwardExtent_0(self);
+};
+    PxBoxControllerDesc.prototype['set_halfForwardExtent'] = PxBoxControllerDesc.prototype.set_halfForwardExtent = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_halfForwardExtent_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'halfForwardExtent', { get: PxBoxControllerDesc.prototype.get_halfForwardExtent, set: PxBoxControllerDesc.prototype.set_halfForwardExtent });
+  PxBoxControllerDesc.prototype['get_position'] = PxBoxControllerDesc.prototype.get_position = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxControllerDesc_get_position_0(self), PxExtendedVec3);
+};
+    PxBoxControllerDesc.prototype['set_position'] = PxBoxControllerDesc.prototype.set_position = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_position_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'position', { get: PxBoxControllerDesc.prototype.get_position, set: PxBoxControllerDesc.prototype.set_position });
+  PxBoxControllerDesc.prototype['get_upDirection'] = PxBoxControllerDesc.prototype.get_upDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxControllerDesc_get_upDirection_0(self), PxVec3);
+};
+    PxBoxControllerDesc.prototype['set_upDirection'] = PxBoxControllerDesc.prototype.set_upDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_upDirection_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'upDirection', { get: PxBoxControllerDesc.prototype.get_upDirection, set: PxBoxControllerDesc.prototype.set_upDirection });
+  PxBoxControllerDesc.prototype['get_slopeLimit'] = PxBoxControllerDesc.prototype.get_slopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_slopeLimit_0(self);
+};
+    PxBoxControllerDesc.prototype['set_slopeLimit'] = PxBoxControllerDesc.prototype.set_slopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_slopeLimit_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'slopeLimit', { get: PxBoxControllerDesc.prototype.get_slopeLimit, set: PxBoxControllerDesc.prototype.set_slopeLimit });
+  PxBoxControllerDesc.prototype['get_invisibleWallHeight'] = PxBoxControllerDesc.prototype.get_invisibleWallHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_invisibleWallHeight_0(self);
+};
+    PxBoxControllerDesc.prototype['set_invisibleWallHeight'] = PxBoxControllerDesc.prototype.set_invisibleWallHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_invisibleWallHeight_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'invisibleWallHeight', { get: PxBoxControllerDesc.prototype.get_invisibleWallHeight, set: PxBoxControllerDesc.prototype.set_invisibleWallHeight });
+  PxBoxControllerDesc.prototype['get_maxJumpHeight'] = PxBoxControllerDesc.prototype.get_maxJumpHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_maxJumpHeight_0(self);
+};
+    PxBoxControllerDesc.prototype['set_maxJumpHeight'] = PxBoxControllerDesc.prototype.set_maxJumpHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_maxJumpHeight_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'maxJumpHeight', { get: PxBoxControllerDesc.prototype.get_maxJumpHeight, set: PxBoxControllerDesc.prototype.set_maxJumpHeight });
+  PxBoxControllerDesc.prototype['get_contactOffset'] = PxBoxControllerDesc.prototype.get_contactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_contactOffset_0(self);
+};
+    PxBoxControllerDesc.prototype['set_contactOffset'] = PxBoxControllerDesc.prototype.set_contactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_contactOffset_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'contactOffset', { get: PxBoxControllerDesc.prototype.get_contactOffset, set: PxBoxControllerDesc.prototype.set_contactOffset });
+  PxBoxControllerDesc.prototype['get_stepOffset'] = PxBoxControllerDesc.prototype.get_stepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_stepOffset_0(self);
+};
+    PxBoxControllerDesc.prototype['set_stepOffset'] = PxBoxControllerDesc.prototype.set_stepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_stepOffset_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'stepOffset', { get: PxBoxControllerDesc.prototype.get_stepOffset, set: PxBoxControllerDesc.prototype.set_stepOffset });
+  PxBoxControllerDesc.prototype['get_density'] = PxBoxControllerDesc.prototype.get_density = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_density_0(self);
+};
+    PxBoxControllerDesc.prototype['set_density'] = PxBoxControllerDesc.prototype.set_density = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_density_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'density', { get: PxBoxControllerDesc.prototype.get_density, set: PxBoxControllerDesc.prototype.set_density });
+  PxBoxControllerDesc.prototype['get_scaleCoeff'] = PxBoxControllerDesc.prototype.get_scaleCoeff = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_scaleCoeff_0(self);
+};
+    PxBoxControllerDesc.prototype['set_scaleCoeff'] = PxBoxControllerDesc.prototype.set_scaleCoeff = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_scaleCoeff_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'scaleCoeff', { get: PxBoxControllerDesc.prototype.get_scaleCoeff, set: PxBoxControllerDesc.prototype.set_scaleCoeff });
+  PxBoxControllerDesc.prototype['get_volumeGrowth'] = PxBoxControllerDesc.prototype.get_volumeGrowth = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_volumeGrowth_0(self);
+};
+    PxBoxControllerDesc.prototype['set_volumeGrowth'] = PxBoxControllerDesc.prototype.set_volumeGrowth = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_volumeGrowth_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'volumeGrowth', { get: PxBoxControllerDesc.prototype.get_volumeGrowth, set: PxBoxControllerDesc.prototype.set_volumeGrowth });
+  PxBoxControllerDesc.prototype['get_reportCallback'] = PxBoxControllerDesc.prototype.get_reportCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxControllerDesc_get_reportCallback_0(self), PxUserControllerHitReport);
+};
+    PxBoxControllerDesc.prototype['set_reportCallback'] = PxBoxControllerDesc.prototype.set_reportCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_reportCallback_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'reportCallback', { get: PxBoxControllerDesc.prototype.get_reportCallback, set: PxBoxControllerDesc.prototype.set_reportCallback });
+  PxBoxControllerDesc.prototype['get_nonWalkableMode'] = PxBoxControllerDesc.prototype.get_nonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxControllerDesc_get_nonWalkableMode_0(self);
+};
+    PxBoxControllerDesc.prototype['set_nonWalkableMode'] = PxBoxControllerDesc.prototype.set_nonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_nonWalkableMode_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'nonWalkableMode', { get: PxBoxControllerDesc.prototype.get_nonWalkableMode, set: PxBoxControllerDesc.prototype.set_nonWalkableMode });
+  PxBoxControllerDesc.prototype['get_material'] = PxBoxControllerDesc.prototype.get_material = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxControllerDesc_get_material_0(self), PxMaterial);
+};
+    PxBoxControllerDesc.prototype['set_material'] = PxBoxControllerDesc.prototype.set_material = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_material_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'material', { get: PxBoxControllerDesc.prototype.get_material, set: PxBoxControllerDesc.prototype.set_material });
+  PxBoxControllerDesc.prototype['get_registerDeletionListener'] = PxBoxControllerDesc.prototype.get_registerDeletionListener = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxBoxControllerDesc_get_registerDeletionListener_0(self));
+};
+    PxBoxControllerDesc.prototype['set_registerDeletionListener'] = PxBoxControllerDesc.prototype.set_registerDeletionListener = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_registerDeletionListener_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'registerDeletionListener', { get: PxBoxControllerDesc.prototype.get_registerDeletionListener, set: PxBoxControllerDesc.prototype.set_registerDeletionListener });
+  PxBoxControllerDesc.prototype['get_userData'] = PxBoxControllerDesc.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxControllerDesc_get_userData_0(self), VoidPtr);
+};
+    PxBoxControllerDesc.prototype['set_userData'] = PxBoxControllerDesc.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'userData', { get: PxBoxControllerDesc.prototype.get_userData, set: PxBoxControllerDesc.prototype.set_userData });
+  PxBoxControllerDesc.prototype['__destroy__'] = PxBoxControllerDesc.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxBoxControllerDesc___destroy___0(self);
+};
+// PxBoxObstacle
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxBoxObstacle() {
+  this.ptr = _emscripten_bind_PxBoxObstacle_PxBoxObstacle_0();
+  getCache(PxBoxObstacle)[this.ptr] = this;
+};;
+PxBoxObstacle.prototype = Object.create(PxObstacle.prototype);
+PxBoxObstacle.prototype.constructor = PxBoxObstacle;
+PxBoxObstacle.prototype.__class__ = PxBoxObstacle;
+PxBoxObstacle.__cache__ = {};
+Module['PxBoxObstacle'] = PxBoxObstacle;
+
+PxBoxObstacle.prototype['getType'] = PxBoxObstacle.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxBoxObstacle_getType_0(self);
+};;
+
+  PxBoxObstacle.prototype['get_mHalfExtents'] = PxBoxObstacle.prototype.get_mHalfExtents = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxObstacle_get_mHalfExtents_0(self), PxVec3);
+};
+    PxBoxObstacle.prototype['set_mHalfExtents'] = PxBoxObstacle.prototype.set_mHalfExtents = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxObstacle_set_mHalfExtents_1(self, arg0);
+};
+    Object.defineProperty(PxBoxObstacle.prototype, 'mHalfExtents', { get: PxBoxObstacle.prototype.get_mHalfExtents, set: PxBoxObstacle.prototype.set_mHalfExtents });
+  PxBoxObstacle.prototype['get_mUserData'] = PxBoxObstacle.prototype.get_mUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxObstacle_get_mUserData_0(self), VoidPtr);
+};
+    PxBoxObstacle.prototype['set_mUserData'] = PxBoxObstacle.prototype.set_mUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxObstacle_set_mUserData_1(self, arg0);
+};
+    Object.defineProperty(PxBoxObstacle.prototype, 'mUserData', { get: PxBoxObstacle.prototype.get_mUserData, set: PxBoxObstacle.prototype.set_mUserData });
+  PxBoxObstacle.prototype['get_mPos'] = PxBoxObstacle.prototype.get_mPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxObstacle_get_mPos_0(self), PxExtendedVec3);
+};
+    PxBoxObstacle.prototype['set_mPos'] = PxBoxObstacle.prototype.set_mPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxObstacle_set_mPos_1(self, arg0);
+};
+    Object.defineProperty(PxBoxObstacle.prototype, 'mPos', { get: PxBoxObstacle.prototype.get_mPos, set: PxBoxObstacle.prototype.set_mPos });
+  PxBoxObstacle.prototype['get_mRot'] = PxBoxObstacle.prototype.get_mRot = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxObstacle_get_mRot_0(self), PxQuat);
+};
+    PxBoxObstacle.prototype['set_mRot'] = PxBoxObstacle.prototype.set_mRot = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxObstacle_set_mRot_1(self, arg0);
+};
+    Object.defineProperty(PxBoxObstacle.prototype, 'mRot', { get: PxBoxObstacle.prototype.get_mRot, set: PxBoxObstacle.prototype.set_mRot });
+  PxBoxObstacle.prototype['__destroy__'] = PxBoxObstacle.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxBoxObstacle___destroy___0(self);
+};
+// PxCapsuleController
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxCapsuleController() { throw "cannot construct a PxCapsuleController, no constructor in IDL" }
+PxCapsuleController.prototype = Object.create(PxController.prototype);
+PxCapsuleController.prototype.constructor = PxCapsuleController;
+PxCapsuleController.prototype.__class__ = PxCapsuleController;
+PxCapsuleController.__cache__ = {};
+Module['PxCapsuleController'] = PxCapsuleController;
+
+PxCapsuleController.prototype['getRadius'] = PxCapsuleController.prototype.getRadius = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleController_getRadius_0(self);
+};;
+
+PxCapsuleController.prototype['setRadius'] = PxCapsuleController.prototype.setRadius = /** @suppress {undefinedVars, duplicate} @this{Object} */function(radius) {
+  var self = this.ptr;
+  if (radius && typeof radius === 'object') radius = radius.ptr;
+  _emscripten_bind_PxCapsuleController_setRadius_1(self, radius);
+};;
+
+PxCapsuleController.prototype['getHeight'] = PxCapsuleController.prototype.getHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleController_getHeight_0(self);
+};;
+
+PxCapsuleController.prototype['setHeight'] = PxCapsuleController.prototype.setHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(height) {
+  var self = this.ptr;
+  if (height && typeof height === 'object') height = height.ptr;
+  _emscripten_bind_PxCapsuleController_setHeight_1(self, height);
+};;
+
+PxCapsuleController.prototype['getClimbingMode'] = PxCapsuleController.prototype.getClimbingMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleController_getClimbingMode_0(self);
+};;
+
+PxCapsuleController.prototype['setClimbingMode'] = PxCapsuleController.prototype.setClimbingMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(mode) {
+  var self = this.ptr;
+  if (mode && typeof mode === 'object') mode = mode.ptr;
+  return !!(_emscripten_bind_PxCapsuleController_setClimbingMode_1(self, mode));
+};;
+
+PxCapsuleController.prototype['getType'] = PxCapsuleController.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleController_getType_0(self);
+};;
+
+PxCapsuleController.prototype['release'] = PxCapsuleController.prototype.release = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxCapsuleController_release_0(self);
+};;
+
+PxCapsuleController.prototype['move'] = PxCapsuleController.prototype.move = /** @suppress {undefinedVars, duplicate} @this{Object} */function(disp, minDist, elapsedTime, filters, obstacles) {
+  var self = this.ptr;
+  if (disp && typeof disp === 'object') disp = disp.ptr;
+  if (minDist && typeof minDist === 'object') minDist = minDist.ptr;
+  if (elapsedTime && typeof elapsedTime === 'object') elapsedTime = elapsedTime.ptr;
+  if (filters && typeof filters === 'object') filters = filters.ptr;
+  if (obstacles && typeof obstacles === 'object') obstacles = obstacles.ptr;
+  if (obstacles === undefined) { return wrapPointer(_emscripten_bind_PxCapsuleController_move_4(self, disp, minDist, elapsedTime, filters), PxControllerCollisionFlags) }
+  return wrapPointer(_emscripten_bind_PxCapsuleController_move_5(self, disp, minDist, elapsedTime, filters, obstacles), PxControllerCollisionFlags);
+};;
+
+PxCapsuleController.prototype['setPosition'] = PxCapsuleController.prototype.setPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function(position) {
+  var self = this.ptr;
+  if (position && typeof position === 'object') position = position.ptr;
+  return !!(_emscripten_bind_PxCapsuleController_setPosition_1(self, position));
+};;
+
+PxCapsuleController.prototype['getPosition'] = PxCapsuleController.prototype.getPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleController_getPosition_0(self), PxExtendedVec3);
+};;
+
+PxCapsuleController.prototype['setFootPosition'] = PxCapsuleController.prototype.setFootPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function(position) {
+  var self = this.ptr;
+  if (position && typeof position === 'object') position = position.ptr;
+  return !!(_emscripten_bind_PxCapsuleController_setFootPosition_1(self, position));
+};;
+
+PxCapsuleController.prototype['getFootPosition'] = PxCapsuleController.prototype.getFootPosition = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleController_getFootPosition_0(self), PxExtendedVec3);
+};;
+
+PxCapsuleController.prototype['getActor'] = PxCapsuleController.prototype.getActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleController_getActor_0(self), PxRigidDynamic);
+};;
+
+PxCapsuleController.prototype['setStepOffset'] = PxCapsuleController.prototype.setStepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(offset) {
+  var self = this.ptr;
+  if (offset && typeof offset === 'object') offset = offset.ptr;
+  _emscripten_bind_PxCapsuleController_setStepOffset_1(self, offset);
+};;
+
+PxCapsuleController.prototype['getStepOffset'] = PxCapsuleController.prototype.getStepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleController_getStepOffset_0(self);
+};;
+
+PxCapsuleController.prototype['setNonWalkableMode'] = PxCapsuleController.prototype.setNonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxCapsuleController_setNonWalkableMode_1(self, flag);
+};;
+
+PxCapsuleController.prototype['getNonWalkableMode'] = PxCapsuleController.prototype.getNonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleController_getNonWalkableMode_0(self);
+};;
+
+PxCapsuleController.prototype['getContactOffset'] = PxCapsuleController.prototype.getContactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleController_getContactOffset_0(self);
+};;
+
+PxCapsuleController.prototype['setContactOffset'] = PxCapsuleController.prototype.setContactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(offset) {
+  var self = this.ptr;
+  if (offset && typeof offset === 'object') offset = offset.ptr;
+  _emscripten_bind_PxCapsuleController_setContactOffset_1(self, offset);
+};;
+
+PxCapsuleController.prototype['getUpDirection'] = PxCapsuleController.prototype.getUpDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleController_getUpDirection_0(self), PxVec3);
+};;
+
+PxCapsuleController.prototype['setUpDirection'] = PxCapsuleController.prototype.setUpDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function(up) {
+  var self = this.ptr;
+  if (up && typeof up === 'object') up = up.ptr;
+  _emscripten_bind_PxCapsuleController_setUpDirection_1(self, up);
+};;
+
+PxCapsuleController.prototype['getSlopeLimit'] = PxCapsuleController.prototype.getSlopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleController_getSlopeLimit_0(self);
+};;
+
+PxCapsuleController.prototype['setSlopeLimit'] = PxCapsuleController.prototype.setSlopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(slopeLimit) {
+  var self = this.ptr;
+  if (slopeLimit && typeof slopeLimit === 'object') slopeLimit = slopeLimit.ptr;
+  _emscripten_bind_PxCapsuleController_setSlopeLimit_1(self, slopeLimit);
+};;
+
+PxCapsuleController.prototype['invalidateCache'] = PxCapsuleController.prototype.invalidateCache = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxCapsuleController_invalidateCache_0(self);
+};;
+
+PxCapsuleController.prototype['getScene'] = PxCapsuleController.prototype.getScene = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleController_getScene_0(self), PxScene);
+};;
+
+PxCapsuleController.prototype['getUserData'] = PxCapsuleController.prototype.getUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleController_getUserData_0(self), VoidPtr);
+};;
+
+PxCapsuleController.prototype['setUserData'] = PxCapsuleController.prototype.setUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(userData) {
+  var self = this.ptr;
+  if (userData && typeof userData === 'object') userData = userData.ptr;
+  _emscripten_bind_PxCapsuleController_setUserData_1(self, userData);
+};;
+
+PxCapsuleController.prototype['getState'] = PxCapsuleController.prototype.getState = /** @suppress {undefinedVars, duplicate} @this{Object} */function(state) {
+  var self = this.ptr;
+  if (state && typeof state === 'object') state = state.ptr;
+  _emscripten_bind_PxCapsuleController_getState_1(self, state);
+};;
+
+PxCapsuleController.prototype['getStats'] = PxCapsuleController.prototype.getStats = /** @suppress {undefinedVars, duplicate} @this{Object} */function(stats) {
+  var self = this.ptr;
+  if (stats && typeof stats === 'object') stats = stats.ptr;
+  _emscripten_bind_PxCapsuleController_getStats_1(self, stats);
+};;
+
+PxCapsuleController.prototype['resize'] = PxCapsuleController.prototype.resize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(height) {
+  var self = this.ptr;
+  if (height && typeof height === 'object') height = height.ptr;
+  _emscripten_bind_PxCapsuleController_resize_1(self, height);
+};;
+
+// PxCapsuleControllerDesc
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxCapsuleControllerDesc() {
+  this.ptr = _emscripten_bind_PxCapsuleControllerDesc_PxCapsuleControllerDesc_0();
+  getCache(PxCapsuleControllerDesc)[this.ptr] = this;
+};;
+PxCapsuleControllerDesc.prototype = Object.create(PxControllerDesc.prototype);
+PxCapsuleControllerDesc.prototype.constructor = PxCapsuleControllerDesc;
+PxCapsuleControllerDesc.prototype.__class__ = PxCapsuleControllerDesc;
+PxCapsuleControllerDesc.__cache__ = {};
+Module['PxCapsuleControllerDesc'] = PxCapsuleControllerDesc;
+
+PxCapsuleControllerDesc.prototype['setToDefault'] = PxCapsuleControllerDesc.prototype.setToDefault = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_setToDefault_0(self);
+};;
+
+PxCapsuleControllerDesc.prototype['isValid'] = PxCapsuleControllerDesc.prototype.isValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCapsuleControllerDesc_isValid_0(self));
+};;
+
+PxCapsuleControllerDesc.prototype['getType'] = PxCapsuleControllerDesc.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_getType_0(self);
+};;
+
+  PxCapsuleControllerDesc.prototype['get_radius'] = PxCapsuleControllerDesc.prototype.get_radius = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_radius_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_radius'] = PxCapsuleControllerDesc.prototype.set_radius = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_radius_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'radius', { get: PxCapsuleControllerDesc.prototype.get_radius, set: PxCapsuleControllerDesc.prototype.set_radius });
+  PxCapsuleControllerDesc.prototype['get_height'] = PxCapsuleControllerDesc.prototype.get_height = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_height_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_height'] = PxCapsuleControllerDesc.prototype.set_height = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_height_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'height', { get: PxCapsuleControllerDesc.prototype.get_height, set: PxCapsuleControllerDesc.prototype.set_height });
+  PxCapsuleControllerDesc.prototype['get_climbingMode'] = PxCapsuleControllerDesc.prototype.get_climbingMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_climbingMode_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_climbingMode'] = PxCapsuleControllerDesc.prototype.set_climbingMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_climbingMode_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'climbingMode', { get: PxCapsuleControllerDesc.prototype.get_climbingMode, set: PxCapsuleControllerDesc.prototype.set_climbingMode });
+  PxCapsuleControllerDesc.prototype['get_position'] = PxCapsuleControllerDesc.prototype.get_position = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleControllerDesc_get_position_0(self), PxExtendedVec3);
+};
+    PxCapsuleControllerDesc.prototype['set_position'] = PxCapsuleControllerDesc.prototype.set_position = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_position_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'position', { get: PxCapsuleControllerDesc.prototype.get_position, set: PxCapsuleControllerDesc.prototype.set_position });
+  PxCapsuleControllerDesc.prototype['get_upDirection'] = PxCapsuleControllerDesc.prototype.get_upDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleControllerDesc_get_upDirection_0(self), PxVec3);
+};
+    PxCapsuleControllerDesc.prototype['set_upDirection'] = PxCapsuleControllerDesc.prototype.set_upDirection = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_upDirection_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'upDirection', { get: PxCapsuleControllerDesc.prototype.get_upDirection, set: PxCapsuleControllerDesc.prototype.set_upDirection });
+  PxCapsuleControllerDesc.prototype['get_slopeLimit'] = PxCapsuleControllerDesc.prototype.get_slopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_slopeLimit_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_slopeLimit'] = PxCapsuleControllerDesc.prototype.set_slopeLimit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_slopeLimit_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'slopeLimit', { get: PxCapsuleControllerDesc.prototype.get_slopeLimit, set: PxCapsuleControllerDesc.prototype.set_slopeLimit });
+  PxCapsuleControllerDesc.prototype['get_invisibleWallHeight'] = PxCapsuleControllerDesc.prototype.get_invisibleWallHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_invisibleWallHeight_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_invisibleWallHeight'] = PxCapsuleControllerDesc.prototype.set_invisibleWallHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_invisibleWallHeight_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'invisibleWallHeight', { get: PxCapsuleControllerDesc.prototype.get_invisibleWallHeight, set: PxCapsuleControllerDesc.prototype.set_invisibleWallHeight });
+  PxCapsuleControllerDesc.prototype['get_maxJumpHeight'] = PxCapsuleControllerDesc.prototype.get_maxJumpHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_maxJumpHeight_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_maxJumpHeight'] = PxCapsuleControllerDesc.prototype.set_maxJumpHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_maxJumpHeight_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'maxJumpHeight', { get: PxCapsuleControllerDesc.prototype.get_maxJumpHeight, set: PxCapsuleControllerDesc.prototype.set_maxJumpHeight });
+  PxCapsuleControllerDesc.prototype['get_contactOffset'] = PxCapsuleControllerDesc.prototype.get_contactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_contactOffset_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_contactOffset'] = PxCapsuleControllerDesc.prototype.set_contactOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_contactOffset_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'contactOffset', { get: PxCapsuleControllerDesc.prototype.get_contactOffset, set: PxCapsuleControllerDesc.prototype.set_contactOffset });
+  PxCapsuleControllerDesc.prototype['get_stepOffset'] = PxCapsuleControllerDesc.prototype.get_stepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_stepOffset_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_stepOffset'] = PxCapsuleControllerDesc.prototype.set_stepOffset = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_stepOffset_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'stepOffset', { get: PxCapsuleControllerDesc.prototype.get_stepOffset, set: PxCapsuleControllerDesc.prototype.set_stepOffset });
+  PxCapsuleControllerDesc.prototype['get_density'] = PxCapsuleControllerDesc.prototype.get_density = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_density_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_density'] = PxCapsuleControllerDesc.prototype.set_density = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_density_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'density', { get: PxCapsuleControllerDesc.prototype.get_density, set: PxCapsuleControllerDesc.prototype.set_density });
+  PxCapsuleControllerDesc.prototype['get_scaleCoeff'] = PxCapsuleControllerDesc.prototype.get_scaleCoeff = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_scaleCoeff_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_scaleCoeff'] = PxCapsuleControllerDesc.prototype.set_scaleCoeff = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_scaleCoeff_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'scaleCoeff', { get: PxCapsuleControllerDesc.prototype.get_scaleCoeff, set: PxCapsuleControllerDesc.prototype.set_scaleCoeff });
+  PxCapsuleControllerDesc.prototype['get_volumeGrowth'] = PxCapsuleControllerDesc.prototype.get_volumeGrowth = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_volumeGrowth_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_volumeGrowth'] = PxCapsuleControllerDesc.prototype.set_volumeGrowth = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_volumeGrowth_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'volumeGrowth', { get: PxCapsuleControllerDesc.prototype.get_volumeGrowth, set: PxCapsuleControllerDesc.prototype.set_volumeGrowth });
+  PxCapsuleControllerDesc.prototype['get_reportCallback'] = PxCapsuleControllerDesc.prototype.get_reportCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleControllerDesc_get_reportCallback_0(self), PxUserControllerHitReport);
+};
+    PxCapsuleControllerDesc.prototype['set_reportCallback'] = PxCapsuleControllerDesc.prototype.set_reportCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_reportCallback_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'reportCallback', { get: PxCapsuleControllerDesc.prototype.get_reportCallback, set: PxCapsuleControllerDesc.prototype.set_reportCallback });
+  PxCapsuleControllerDesc.prototype['get_nonWalkableMode'] = PxCapsuleControllerDesc.prototype.get_nonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleControllerDesc_get_nonWalkableMode_0(self);
+};
+    PxCapsuleControllerDesc.prototype['set_nonWalkableMode'] = PxCapsuleControllerDesc.prototype.set_nonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_nonWalkableMode_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'nonWalkableMode', { get: PxCapsuleControllerDesc.prototype.get_nonWalkableMode, set: PxCapsuleControllerDesc.prototype.set_nonWalkableMode });
+  PxCapsuleControllerDesc.prototype['get_material'] = PxCapsuleControllerDesc.prototype.get_material = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleControllerDesc_get_material_0(self), PxMaterial);
+};
+    PxCapsuleControllerDesc.prototype['set_material'] = PxCapsuleControllerDesc.prototype.set_material = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_material_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'material', { get: PxCapsuleControllerDesc.prototype.get_material, set: PxCapsuleControllerDesc.prototype.set_material });
+  PxCapsuleControllerDesc.prototype['get_registerDeletionListener'] = PxCapsuleControllerDesc.prototype.get_registerDeletionListener = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCapsuleControllerDesc_get_registerDeletionListener_0(self));
+};
+    PxCapsuleControllerDesc.prototype['set_registerDeletionListener'] = PxCapsuleControllerDesc.prototype.set_registerDeletionListener = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_registerDeletionListener_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'registerDeletionListener', { get: PxCapsuleControllerDesc.prototype.get_registerDeletionListener, set: PxCapsuleControllerDesc.prototype.set_registerDeletionListener });
+  PxCapsuleControllerDesc.prototype['get_userData'] = PxCapsuleControllerDesc.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleControllerDesc_get_userData_0(self), VoidPtr);
+};
+    PxCapsuleControllerDesc.prototype['set_userData'] = PxCapsuleControllerDesc.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'userData', { get: PxCapsuleControllerDesc.prototype.get_userData, set: PxCapsuleControllerDesc.prototype.set_userData });
+  PxCapsuleControllerDesc.prototype['__destroy__'] = PxCapsuleControllerDesc.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc___destroy___0(self);
+};
+// PxCapsuleObstacle
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxCapsuleObstacle() {
+  this.ptr = _emscripten_bind_PxCapsuleObstacle_PxCapsuleObstacle_0();
+  getCache(PxCapsuleObstacle)[this.ptr] = this;
+};;
+PxCapsuleObstacle.prototype = Object.create(PxObstacle.prototype);
+PxCapsuleObstacle.prototype.constructor = PxCapsuleObstacle;
+PxCapsuleObstacle.prototype.__class__ = PxCapsuleObstacle;
+PxCapsuleObstacle.__cache__ = {};
+Module['PxCapsuleObstacle'] = PxCapsuleObstacle;
+
+PxCapsuleObstacle.prototype['getType'] = PxCapsuleObstacle.prototype.getType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleObstacle_getType_0(self);
+};;
+
+  PxCapsuleObstacle.prototype['get_mHalfHeight'] = PxCapsuleObstacle.prototype.get_mHalfHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleObstacle_get_mHalfHeight_0(self);
+};
+    PxCapsuleObstacle.prototype['set_mHalfHeight'] = PxCapsuleObstacle.prototype.set_mHalfHeight = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleObstacle_set_mHalfHeight_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleObstacle.prototype, 'mHalfHeight', { get: PxCapsuleObstacle.prototype.get_mHalfHeight, set: PxCapsuleObstacle.prototype.set_mHalfHeight });
+  PxCapsuleObstacle.prototype['get_mRadius'] = PxCapsuleObstacle.prototype.get_mRadius = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCapsuleObstacle_get_mRadius_0(self);
+};
+    PxCapsuleObstacle.prototype['set_mRadius'] = PxCapsuleObstacle.prototype.set_mRadius = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleObstacle_set_mRadius_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleObstacle.prototype, 'mRadius', { get: PxCapsuleObstacle.prototype.get_mRadius, set: PxCapsuleObstacle.prototype.set_mRadius });
+  PxCapsuleObstacle.prototype['get_mUserData'] = PxCapsuleObstacle.prototype.get_mUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleObstacle_get_mUserData_0(self), VoidPtr);
+};
+    PxCapsuleObstacle.prototype['set_mUserData'] = PxCapsuleObstacle.prototype.set_mUserData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleObstacle_set_mUserData_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleObstacle.prototype, 'mUserData', { get: PxCapsuleObstacle.prototype.get_mUserData, set: PxCapsuleObstacle.prototype.set_mUserData });
+  PxCapsuleObstacle.prototype['get_mPos'] = PxCapsuleObstacle.prototype.get_mPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleObstacle_get_mPos_0(self), PxExtendedVec3);
+};
+    PxCapsuleObstacle.prototype['set_mPos'] = PxCapsuleObstacle.prototype.set_mPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleObstacle_set_mPos_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleObstacle.prototype, 'mPos', { get: PxCapsuleObstacle.prototype.get_mPos, set: PxCapsuleObstacle.prototype.set_mPos });
+  PxCapsuleObstacle.prototype['get_mRot'] = PxCapsuleObstacle.prototype.get_mRot = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleObstacle_get_mRot_0(self), PxQuat);
+};
+    PxCapsuleObstacle.prototype['set_mRot'] = PxCapsuleObstacle.prototype.set_mRot = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleObstacle_set_mRot_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleObstacle.prototype, 'mRot', { get: PxCapsuleObstacle.prototype.get_mRot, set: PxCapsuleObstacle.prototype.set_mRot });
+  PxCapsuleObstacle.prototype['__destroy__'] = PxCapsuleObstacle.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxCapsuleObstacle___destroy___0(self);
+};
+// PxControllerCollisionFlags
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerCollisionFlags(flags) {
+  if (flags && typeof flags === 'object') flags = flags.ptr;
+  this.ptr = _emscripten_bind_PxControllerCollisionFlags_PxControllerCollisionFlags_1(flags);
+  getCache(PxControllerCollisionFlags)[this.ptr] = this;
+};;
+PxControllerCollisionFlags.prototype = Object.create(WrapperObject.prototype);
+PxControllerCollisionFlags.prototype.constructor = PxControllerCollisionFlags;
+PxControllerCollisionFlags.prototype.__class__ = PxControllerCollisionFlags;
+PxControllerCollisionFlags.__cache__ = {};
+Module['PxControllerCollisionFlags'] = PxControllerCollisionFlags;
+
+PxControllerCollisionFlags.prototype['isSet'] = PxControllerCollisionFlags.prototype.isSet = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  return !!(_emscripten_bind_PxControllerCollisionFlags_isSet_1(self, flag));
+};;
+
+PxControllerCollisionFlags.prototype['set'] = PxControllerCollisionFlags.prototype.set = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxControllerCollisionFlags_set_1(self, flag);
+};;
+
+PxControllerCollisionFlags.prototype['clear'] = PxControllerCollisionFlags.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxControllerCollisionFlags_clear_1(self, flag);
+};;
+
+  PxControllerCollisionFlags.prototype['__destroy__'] = PxControllerCollisionFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerCollisionFlags___destroy___0(self);
+};
+// PxControllerFilters
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerFilters(filterData) {
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  this.ptr = _emscripten_bind_PxControllerFilters_PxControllerFilters_1(filterData);
+  getCache(PxControllerFilters)[this.ptr] = this;
+};;
+PxControllerFilters.prototype = Object.create(WrapperObject.prototype);
+PxControllerFilters.prototype.constructor = PxControllerFilters;
+PxControllerFilters.prototype.__class__ = PxControllerFilters;
+PxControllerFilters.__cache__ = {};
+Module['PxControllerFilters'] = PxControllerFilters;
+
+  PxControllerFilters.prototype['get_mFilterData'] = PxControllerFilters.prototype.get_mFilterData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerFilters_get_mFilterData_0(self), PxFilterData);
+};
+    PxControllerFilters.prototype['set_mFilterData'] = PxControllerFilters.prototype.set_mFilterData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerFilters_set_mFilterData_1(self, arg0);
+};
+    Object.defineProperty(PxControllerFilters.prototype, 'mFilterData', { get: PxControllerFilters.prototype.get_mFilterData, set: PxControllerFilters.prototype.set_mFilterData });
+  PxControllerFilters.prototype['get_mFilterFlags'] = PxControllerFilters.prototype.get_mFilterFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerFilters_get_mFilterFlags_0(self), PxQueryFlags);
+};
+    PxControllerFilters.prototype['set_mFilterFlags'] = PxControllerFilters.prototype.set_mFilterFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerFilters_set_mFilterFlags_1(self, arg0);
+};
+    Object.defineProperty(PxControllerFilters.prototype, 'mFilterFlags', { get: PxControllerFilters.prototype.get_mFilterFlags, set: PxControllerFilters.prototype.set_mFilterFlags });
+  PxControllerFilters.prototype['__destroy__'] = PxControllerFilters.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerFilters___destroy___0(self);
+};
+// PxControllerManager
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerManager() { throw "cannot construct a PxControllerManager, no constructor in IDL" }
+PxControllerManager.prototype = Object.create(WrapperObject.prototype);
+PxControllerManager.prototype.constructor = PxControllerManager;
+PxControllerManager.prototype.__class__ = PxControllerManager;
+PxControllerManager.__cache__ = {};
+Module['PxControllerManager'] = PxControllerManager;
+
+PxControllerManager.prototype['release'] = PxControllerManager.prototype.release = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerManager_release_0(self);
+};;
+
+PxControllerManager.prototype['getScene'] = PxControllerManager.prototype.getScene = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerManager_getScene_0(self), PxScene);
+};;
+
+PxControllerManager.prototype['getNbControllers'] = PxControllerManager.prototype.getNbControllers = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerManager_getNbControllers_0(self);
+};;
+
+PxControllerManager.prototype['getController'] = PxControllerManager.prototype.getController = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerManager_getController_1(self, index), PxController);
+};;
+
+PxControllerManager.prototype['createController'] = PxControllerManager.prototype.createController = /** @suppress {undefinedVars, duplicate} @this{Object} */function(desc) {
+  var self = this.ptr;
+  if (desc && typeof desc === 'object') desc = desc.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerManager_createController_1(self, desc), PxController);
+};;
+
+PxControllerManager.prototype['purgeControllers'] = PxControllerManager.prototype.purgeControllers = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerManager_purgeControllers_0(self);
+};;
+
+PxControllerManager.prototype['getNbObstacleContexts'] = PxControllerManager.prototype.getNbObstacleContexts = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerManager_getNbObstacleContexts_0(self);
+};;
+
+PxControllerManager.prototype['getObstacleContext'] = PxControllerManager.prototype.getObstacleContext = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerManager_getObstacleContext_1(self, index), PxObstacleContext);
+};;
+
+PxControllerManager.prototype['createObstacleContext'] = PxControllerManager.prototype.createObstacleContext = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerManager_createObstacleContext_0(self), PxObstacleContext);
+};;
+
+PxControllerManager.prototype['computeInteractions'] = PxControllerManager.prototype.computeInteractions = /** @suppress {undefinedVars, duplicate} @this{Object} */function(elapsedTime) {
+  var self = this.ptr;
+  if (elapsedTime && typeof elapsedTime === 'object') elapsedTime = elapsedTime.ptr;
+  _emscripten_bind_PxControllerManager_computeInteractions_1(self, elapsedTime);
+};;
+
+PxControllerManager.prototype['setTessellation'] = PxControllerManager.prototype.setTessellation = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, maxEdgeLength) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (maxEdgeLength && typeof maxEdgeLength === 'object') maxEdgeLength = maxEdgeLength.ptr;
+  _emscripten_bind_PxControllerManager_setTessellation_2(self, flag, maxEdgeLength);
+};;
+
+PxControllerManager.prototype['setOverlapRecoveryModule'] = PxControllerManager.prototype.setOverlapRecoveryModule = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxControllerManager_setOverlapRecoveryModule_1(self, flag);
+};;
+
+PxControllerManager.prototype['setPreciseSweeps'] = PxControllerManager.prototype.setPreciseSweeps = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flags) {
+  var self = this.ptr;
+  if (flags && typeof flags === 'object') flags = flags.ptr;
+  _emscripten_bind_PxControllerManager_setPreciseSweeps_1(self, flags);
+};;
+
+PxControllerManager.prototype['setPreventVerticalSlidingAgainstCeiling'] = PxControllerManager.prototype.setPreventVerticalSlidingAgainstCeiling = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxControllerManager_setPreventVerticalSlidingAgainstCeiling_1(self, flag);
+};;
+
+PxControllerManager.prototype['shiftOrigin'] = PxControllerManager.prototype.shiftOrigin = /** @suppress {undefinedVars, duplicate} @this{Object} */function(shift) {
+  var self = this.ptr;
+  if (shift && typeof shift === 'object') shift = shift.ptr;
+  _emscripten_bind_PxControllerManager_shiftOrigin_1(self, shift);
+};;
+
+// PxControllerObstacleHit
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerObstacleHit() { throw "cannot construct a PxControllerObstacleHit, no constructor in IDL" }
+PxControllerObstacleHit.prototype = Object.create(PxControllerHit.prototype);
+PxControllerObstacleHit.prototype.constructor = PxControllerObstacleHit;
+PxControllerObstacleHit.prototype.__class__ = PxControllerObstacleHit;
+PxControllerObstacleHit.__cache__ = {};
+Module['PxControllerObstacleHit'] = PxControllerObstacleHit;
+
+  PxControllerObstacleHit.prototype['get_userData'] = PxControllerObstacleHit.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerObstacleHit_get_userData_0(self), VoidPtr);
+};
+    PxControllerObstacleHit.prototype['set_userData'] = PxControllerObstacleHit.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerObstacleHit_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxControllerObstacleHit.prototype, 'userData', { get: PxControllerObstacleHit.prototype.get_userData, set: PxControllerObstacleHit.prototype.set_userData });
+  PxControllerObstacleHit.prototype['get_controller'] = PxControllerObstacleHit.prototype.get_controller = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerObstacleHit_get_controller_0(self), PxController);
+};
+    PxControllerObstacleHit.prototype['set_controller'] = PxControllerObstacleHit.prototype.set_controller = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerObstacleHit_set_controller_1(self, arg0);
+};
+    Object.defineProperty(PxControllerObstacleHit.prototype, 'controller', { get: PxControllerObstacleHit.prototype.get_controller, set: PxControllerObstacleHit.prototype.set_controller });
+  PxControllerObstacleHit.prototype['get_worldPos'] = PxControllerObstacleHit.prototype.get_worldPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerObstacleHit_get_worldPos_0(self), PxExtendedVec3);
+};
+    PxControllerObstacleHit.prototype['set_worldPos'] = PxControllerObstacleHit.prototype.set_worldPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerObstacleHit_set_worldPos_1(self, arg0);
+};
+    Object.defineProperty(PxControllerObstacleHit.prototype, 'worldPos', { get: PxControllerObstacleHit.prototype.get_worldPos, set: PxControllerObstacleHit.prototype.set_worldPos });
+  PxControllerObstacleHit.prototype['get_worldNormal'] = PxControllerObstacleHit.prototype.get_worldNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerObstacleHit_get_worldNormal_0(self), PxVec3);
+};
+    PxControllerObstacleHit.prototype['set_worldNormal'] = PxControllerObstacleHit.prototype.set_worldNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerObstacleHit_set_worldNormal_1(self, arg0);
+};
+    Object.defineProperty(PxControllerObstacleHit.prototype, 'worldNormal', { get: PxControllerObstacleHit.prototype.get_worldNormal, set: PxControllerObstacleHit.prototype.set_worldNormal });
+  PxControllerObstacleHit.prototype['get_dir'] = PxControllerObstacleHit.prototype.get_dir = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerObstacleHit_get_dir_0(self), PxVec3);
+};
+    PxControllerObstacleHit.prototype['set_dir'] = PxControllerObstacleHit.prototype.set_dir = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerObstacleHit_set_dir_1(self, arg0);
+};
+    Object.defineProperty(PxControllerObstacleHit.prototype, 'dir', { get: PxControllerObstacleHit.prototype.get_dir, set: PxControllerObstacleHit.prototype.set_dir });
+  PxControllerObstacleHit.prototype['get_length'] = PxControllerObstacleHit.prototype.get_length = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerObstacleHit_get_length_0(self);
+};
+    PxControllerObstacleHit.prototype['set_length'] = PxControllerObstacleHit.prototype.set_length = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerObstacleHit_set_length_1(self, arg0);
+};
+    Object.defineProperty(PxControllerObstacleHit.prototype, 'length', { get: PxControllerObstacleHit.prototype.get_length, set: PxControllerObstacleHit.prototype.set_length });
+  PxControllerObstacleHit.prototype['__destroy__'] = PxControllerObstacleHit.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerObstacleHit___destroy___0(self);
+};
+// PxControllerShapeHit
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerShapeHit() { throw "cannot construct a PxControllerShapeHit, no constructor in IDL" }
+PxControllerShapeHit.prototype = Object.create(PxControllerHit.prototype);
+PxControllerShapeHit.prototype.constructor = PxControllerShapeHit;
+PxControllerShapeHit.prototype.__class__ = PxControllerShapeHit;
+PxControllerShapeHit.__cache__ = {};
+Module['PxControllerShapeHit'] = PxControllerShapeHit;
+
+  PxControllerShapeHit.prototype['get_shape'] = PxControllerShapeHit.prototype.get_shape = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerShapeHit_get_shape_0(self), PxShape);
+};
+    PxControllerShapeHit.prototype['set_shape'] = PxControllerShapeHit.prototype.set_shape = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerShapeHit_set_shape_1(self, arg0);
+};
+    Object.defineProperty(PxControllerShapeHit.prototype, 'shape', { get: PxControllerShapeHit.prototype.get_shape, set: PxControllerShapeHit.prototype.set_shape });
+  PxControllerShapeHit.prototype['get_actor'] = PxControllerShapeHit.prototype.get_actor = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerShapeHit_get_actor_0(self), PxRigidActor);
+};
+    PxControllerShapeHit.prototype['set_actor'] = PxControllerShapeHit.prototype.set_actor = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerShapeHit_set_actor_1(self, arg0);
+};
+    Object.defineProperty(PxControllerShapeHit.prototype, 'actor', { get: PxControllerShapeHit.prototype.get_actor, set: PxControllerShapeHit.prototype.set_actor });
+  PxControllerShapeHit.prototype['get_triangleIndex'] = PxControllerShapeHit.prototype.get_triangleIndex = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerShapeHit_get_triangleIndex_0(self);
+};
+    PxControllerShapeHit.prototype['set_triangleIndex'] = PxControllerShapeHit.prototype.set_triangleIndex = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerShapeHit_set_triangleIndex_1(self, arg0);
+};
+    Object.defineProperty(PxControllerShapeHit.prototype, 'triangleIndex', { get: PxControllerShapeHit.prototype.get_triangleIndex, set: PxControllerShapeHit.prototype.set_triangleIndex });
+  PxControllerShapeHit.prototype['get_controller'] = PxControllerShapeHit.prototype.get_controller = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerShapeHit_get_controller_0(self), PxController);
+};
+    PxControllerShapeHit.prototype['set_controller'] = PxControllerShapeHit.prototype.set_controller = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerShapeHit_set_controller_1(self, arg0);
+};
+    Object.defineProperty(PxControllerShapeHit.prototype, 'controller', { get: PxControllerShapeHit.prototype.get_controller, set: PxControllerShapeHit.prototype.set_controller });
+  PxControllerShapeHit.prototype['get_worldPos'] = PxControllerShapeHit.prototype.get_worldPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerShapeHit_get_worldPos_0(self), PxExtendedVec3);
+};
+    PxControllerShapeHit.prototype['set_worldPos'] = PxControllerShapeHit.prototype.set_worldPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerShapeHit_set_worldPos_1(self, arg0);
+};
+    Object.defineProperty(PxControllerShapeHit.prototype, 'worldPos', { get: PxControllerShapeHit.prototype.get_worldPos, set: PxControllerShapeHit.prototype.set_worldPos });
+  PxControllerShapeHit.prototype['get_worldNormal'] = PxControllerShapeHit.prototype.get_worldNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerShapeHit_get_worldNormal_0(self), PxVec3);
+};
+    PxControllerShapeHit.prototype['set_worldNormal'] = PxControllerShapeHit.prototype.set_worldNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerShapeHit_set_worldNormal_1(self, arg0);
+};
+    Object.defineProperty(PxControllerShapeHit.prototype, 'worldNormal', { get: PxControllerShapeHit.prototype.get_worldNormal, set: PxControllerShapeHit.prototype.set_worldNormal });
+  PxControllerShapeHit.prototype['get_dir'] = PxControllerShapeHit.prototype.get_dir = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerShapeHit_get_dir_0(self), PxVec3);
+};
+    PxControllerShapeHit.prototype['set_dir'] = PxControllerShapeHit.prototype.set_dir = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerShapeHit_set_dir_1(self, arg0);
+};
+    Object.defineProperty(PxControllerShapeHit.prototype, 'dir', { get: PxControllerShapeHit.prototype.get_dir, set: PxControllerShapeHit.prototype.set_dir });
+  PxControllerShapeHit.prototype['get_length'] = PxControllerShapeHit.prototype.get_length = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerShapeHit_get_length_0(self);
+};
+    PxControllerShapeHit.prototype['set_length'] = PxControllerShapeHit.prototype.set_length = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerShapeHit_set_length_1(self, arg0);
+};
+    Object.defineProperty(PxControllerShapeHit.prototype, 'length', { get: PxControllerShapeHit.prototype.get_length, set: PxControllerShapeHit.prototype.set_length });
+  PxControllerShapeHit.prototype['__destroy__'] = PxControllerShapeHit.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerShapeHit___destroy___0(self);
+};
+// PxControllersHit
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllersHit() { throw "cannot construct a PxControllersHit, no constructor in IDL" }
+PxControllersHit.prototype = Object.create(PxControllerHit.prototype);
+PxControllersHit.prototype.constructor = PxControllersHit;
+PxControllersHit.prototype.__class__ = PxControllersHit;
+PxControllersHit.__cache__ = {};
+Module['PxControllersHit'] = PxControllersHit;
+
+  PxControllersHit.prototype['get_other'] = PxControllersHit.prototype.get_other = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllersHit_get_other_0(self), PxController);
+};
+    PxControllersHit.prototype['set_other'] = PxControllersHit.prototype.set_other = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllersHit_set_other_1(self, arg0);
+};
+    Object.defineProperty(PxControllersHit.prototype, 'other', { get: PxControllersHit.prototype.get_other, set: PxControllersHit.prototype.set_other });
+  PxControllersHit.prototype['get_controller'] = PxControllersHit.prototype.get_controller = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllersHit_get_controller_0(self), PxController);
+};
+    PxControllersHit.prototype['set_controller'] = PxControllersHit.prototype.set_controller = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllersHit_set_controller_1(self, arg0);
+};
+    Object.defineProperty(PxControllersHit.prototype, 'controller', { get: PxControllersHit.prototype.get_controller, set: PxControllersHit.prototype.set_controller });
+  PxControllersHit.prototype['get_worldPos'] = PxControllersHit.prototype.get_worldPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllersHit_get_worldPos_0(self), PxExtendedVec3);
+};
+    PxControllersHit.prototype['set_worldPos'] = PxControllersHit.prototype.set_worldPos = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllersHit_set_worldPos_1(self, arg0);
+};
+    Object.defineProperty(PxControllersHit.prototype, 'worldPos', { get: PxControllersHit.prototype.get_worldPos, set: PxControllersHit.prototype.set_worldPos });
+  PxControllersHit.prototype['get_worldNormal'] = PxControllersHit.prototype.get_worldNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllersHit_get_worldNormal_0(self), PxVec3);
+};
+    PxControllersHit.prototype['set_worldNormal'] = PxControllersHit.prototype.set_worldNormal = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllersHit_set_worldNormal_1(self, arg0);
+};
+    Object.defineProperty(PxControllersHit.prototype, 'worldNormal', { get: PxControllersHit.prototype.get_worldNormal, set: PxControllersHit.prototype.set_worldNormal });
+  PxControllersHit.prototype['get_dir'] = PxControllersHit.prototype.get_dir = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllersHit_get_dir_0(self), PxVec3);
+};
+    PxControllersHit.prototype['set_dir'] = PxControllersHit.prototype.set_dir = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllersHit_set_dir_1(self, arg0);
+};
+    Object.defineProperty(PxControllersHit.prototype, 'dir', { get: PxControllersHit.prototype.get_dir, set: PxControllersHit.prototype.set_dir });
+  PxControllersHit.prototype['get_length'] = PxControllersHit.prototype.get_length = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllersHit_get_length_0(self);
+};
+    PxControllersHit.prototype['set_length'] = PxControllersHit.prototype.set_length = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllersHit_set_length_1(self, arg0);
+};
+    Object.defineProperty(PxControllersHit.prototype, 'length', { get: PxControllersHit.prototype.get_length, set: PxControllersHit.prototype.set_length });
+  PxControllersHit.prototype['__destroy__'] = PxControllersHit.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllersHit___destroy___0(self);
+};
+// PxControllerState
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerState() {
+  this.ptr = _emscripten_bind_PxControllerState_PxControllerState_0();
+  getCache(PxControllerState)[this.ptr] = this;
+};;
+PxControllerState.prototype = Object.create(WrapperObject.prototype);
+PxControllerState.prototype.constructor = PxControllerState;
+PxControllerState.prototype.__class__ = PxControllerState;
+PxControllerState.__cache__ = {};
+Module['PxControllerState'] = PxControllerState;
+
+  PxControllerState.prototype['get_deltaXP'] = PxControllerState.prototype.get_deltaXP = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerState_get_deltaXP_0(self), PxVec3);
+};
+    PxControllerState.prototype['set_deltaXP'] = PxControllerState.prototype.set_deltaXP = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerState_set_deltaXP_1(self, arg0);
+};
+    Object.defineProperty(PxControllerState.prototype, 'deltaXP', { get: PxControllerState.prototype.get_deltaXP, set: PxControllerState.prototype.set_deltaXP });
+  PxControllerState.prototype['get_touchedShape'] = PxControllerState.prototype.get_touchedShape = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerState_get_touchedShape_0(self), PxShape);
+};
+    PxControllerState.prototype['set_touchedShape'] = PxControllerState.prototype.set_touchedShape = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerState_set_touchedShape_1(self, arg0);
+};
+    Object.defineProperty(PxControllerState.prototype, 'touchedShape', { get: PxControllerState.prototype.get_touchedShape, set: PxControllerState.prototype.set_touchedShape });
+  PxControllerState.prototype['get_touchedActor'] = PxControllerState.prototype.get_touchedActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerState_get_touchedActor_0(self), PxRigidActor);
+};
+    PxControllerState.prototype['set_touchedActor'] = PxControllerState.prototype.set_touchedActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerState_set_touchedActor_1(self, arg0);
+};
+    Object.defineProperty(PxControllerState.prototype, 'touchedActor', { get: PxControllerState.prototype.get_touchedActor, set: PxControllerState.prototype.set_touchedActor });
+  PxControllerState.prototype['get_touchedObstacleHandle'] = PxControllerState.prototype.get_touchedObstacleHandle = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerState_get_touchedObstacleHandle_0(self);
+};
+    PxControllerState.prototype['set_touchedObstacleHandle'] = PxControllerState.prototype.set_touchedObstacleHandle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerState_set_touchedObstacleHandle_1(self, arg0);
+};
+    Object.defineProperty(PxControllerState.prototype, 'touchedObstacleHandle', { get: PxControllerState.prototype.get_touchedObstacleHandle, set: PxControllerState.prototype.set_touchedObstacleHandle });
+  PxControllerState.prototype['get_collisionFlags'] = PxControllerState.prototype.get_collisionFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerState_get_collisionFlags_0(self);
+};
+    PxControllerState.prototype['set_collisionFlags'] = PxControllerState.prototype.set_collisionFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerState_set_collisionFlags_1(self, arg0);
+};
+    Object.defineProperty(PxControllerState.prototype, 'collisionFlags', { get: PxControllerState.prototype.get_collisionFlags, set: PxControllerState.prototype.set_collisionFlags });
+  PxControllerState.prototype['get_standOnAnotherCCT'] = PxControllerState.prototype.get_standOnAnotherCCT = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxControllerState_get_standOnAnotherCCT_0(self));
+};
+    PxControllerState.prototype['set_standOnAnotherCCT'] = PxControllerState.prototype.set_standOnAnotherCCT = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerState_set_standOnAnotherCCT_1(self, arg0);
+};
+    Object.defineProperty(PxControllerState.prototype, 'standOnAnotherCCT', { get: PxControllerState.prototype.get_standOnAnotherCCT, set: PxControllerState.prototype.set_standOnAnotherCCT });
+  PxControllerState.prototype['get_standOnObstacle'] = PxControllerState.prototype.get_standOnObstacle = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxControllerState_get_standOnObstacle_0(self));
+};
+    PxControllerState.prototype['set_standOnObstacle'] = PxControllerState.prototype.set_standOnObstacle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerState_set_standOnObstacle_1(self, arg0);
+};
+    Object.defineProperty(PxControllerState.prototype, 'standOnObstacle', { get: PxControllerState.prototype.get_standOnObstacle, set: PxControllerState.prototype.set_standOnObstacle });
+  PxControllerState.prototype['get_isMovingUp'] = PxControllerState.prototype.get_isMovingUp = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxControllerState_get_isMovingUp_0(self));
+};
+    PxControllerState.prototype['set_isMovingUp'] = PxControllerState.prototype.set_isMovingUp = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerState_set_isMovingUp_1(self, arg0);
+};
+    Object.defineProperty(PxControllerState.prototype, 'isMovingUp', { get: PxControllerState.prototype.get_isMovingUp, set: PxControllerState.prototype.set_isMovingUp });
+  PxControllerState.prototype['__destroy__'] = PxControllerState.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerState___destroy___0(self);
+};
+// PxControllerStats
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerStats() { throw "cannot construct a PxControllerStats, no constructor in IDL" }
+PxControllerStats.prototype = Object.create(WrapperObject.prototype);
+PxControllerStats.prototype.constructor = PxControllerStats;
+PxControllerStats.prototype.__class__ = PxControllerStats;
+PxControllerStats.__cache__ = {};
+Module['PxControllerStats'] = PxControllerStats;
+
+  PxControllerStats.prototype['get_nbIterations'] = PxControllerStats.prototype.get_nbIterations = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerStats_get_nbIterations_0(self);
+};
+    PxControllerStats.prototype['set_nbIterations'] = PxControllerStats.prototype.set_nbIterations = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerStats_set_nbIterations_1(self, arg0);
+};
+    Object.defineProperty(PxControllerStats.prototype, 'nbIterations', { get: PxControllerStats.prototype.get_nbIterations, set: PxControllerStats.prototype.set_nbIterations });
+  PxControllerStats.prototype['get_nbFullUpdates'] = PxControllerStats.prototype.get_nbFullUpdates = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerStats_get_nbFullUpdates_0(self);
+};
+    PxControllerStats.prototype['set_nbFullUpdates'] = PxControllerStats.prototype.set_nbFullUpdates = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerStats_set_nbFullUpdates_1(self, arg0);
+};
+    Object.defineProperty(PxControllerStats.prototype, 'nbFullUpdates', { get: PxControllerStats.prototype.get_nbFullUpdates, set: PxControllerStats.prototype.set_nbFullUpdates });
+  PxControllerStats.prototype['get_nbPartialUpdates'] = PxControllerStats.prototype.get_nbPartialUpdates = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerStats_get_nbPartialUpdates_0(self);
+};
+    PxControllerStats.prototype['set_nbPartialUpdates'] = PxControllerStats.prototype.set_nbPartialUpdates = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerStats_set_nbPartialUpdates_1(self, arg0);
+};
+    Object.defineProperty(PxControllerStats.prototype, 'nbPartialUpdates', { get: PxControllerStats.prototype.get_nbPartialUpdates, set: PxControllerStats.prototype.set_nbPartialUpdates });
+  PxControllerStats.prototype['get_nbTessellation'] = PxControllerStats.prototype.get_nbTessellation = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxControllerStats_get_nbTessellation_0(self);
+};
+    PxControllerStats.prototype['set_nbTessellation'] = PxControllerStats.prototype.set_nbTessellation = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerStats_set_nbTessellation_1(self, arg0);
+};
+    Object.defineProperty(PxControllerStats.prototype, 'nbTessellation', { get: PxControllerStats.prototype.get_nbTessellation, set: PxControllerStats.prototype.set_nbTessellation });
+  PxControllerStats.prototype['__destroy__'] = PxControllerStats.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerStats___destroy___0(self);
+};
+// PxExtendedVec3
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxExtendedVec3(x, y, z) {
+  if (x && typeof x === 'object') x = x.ptr;
+  if (y && typeof y === 'object') y = y.ptr;
+  if (z && typeof z === 'object') z = z.ptr;
+  if (x === undefined) { this.ptr = _emscripten_bind_PxExtendedVec3_PxExtendedVec3_0(); getCache(PxExtendedVec3)[this.ptr] = this;return }
+  if (y === undefined) { this.ptr = _emscripten_bind_PxExtendedVec3_PxExtendedVec3_1(x); getCache(PxExtendedVec3)[this.ptr] = this;return }
+  if (z === undefined) { this.ptr = _emscripten_bind_PxExtendedVec3_PxExtendedVec3_2(x, y); getCache(PxExtendedVec3)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_PxExtendedVec3_PxExtendedVec3_3(x, y, z);
+  getCache(PxExtendedVec3)[this.ptr] = this;
+};;
+PxExtendedVec3.prototype = Object.create(WrapperObject.prototype);
+PxExtendedVec3.prototype.constructor = PxExtendedVec3;
+PxExtendedVec3.prototype.__class__ = PxExtendedVec3;
+PxExtendedVec3.__cache__ = {};
+Module['PxExtendedVec3'] = PxExtendedVec3;
+
+  PxExtendedVec3.prototype['get_x'] = PxExtendedVec3.prototype.get_x = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxExtendedVec3_get_x_0(self);
+};
+    PxExtendedVec3.prototype['set_x'] = PxExtendedVec3.prototype.set_x = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxExtendedVec3_set_x_1(self, arg0);
+};
+    Object.defineProperty(PxExtendedVec3.prototype, 'x', { get: PxExtendedVec3.prototype.get_x, set: PxExtendedVec3.prototype.set_x });
+  PxExtendedVec3.prototype['get_y'] = PxExtendedVec3.prototype.get_y = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxExtendedVec3_get_y_0(self);
+};
+    PxExtendedVec3.prototype['set_y'] = PxExtendedVec3.prototype.set_y = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxExtendedVec3_set_y_1(self, arg0);
+};
+    Object.defineProperty(PxExtendedVec3.prototype, 'y', { get: PxExtendedVec3.prototype.get_y, set: PxExtendedVec3.prototype.set_y });
+  PxExtendedVec3.prototype['get_z'] = PxExtendedVec3.prototype.get_z = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxExtendedVec3_get_z_0(self);
+};
+    PxExtendedVec3.prototype['set_z'] = PxExtendedVec3.prototype.set_z = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxExtendedVec3_set_z_1(self, arg0);
+};
+    Object.defineProperty(PxExtendedVec3.prototype, 'z', { get: PxExtendedVec3.prototype.get_z, set: PxExtendedVec3.prototype.set_z });
+  PxExtendedVec3.prototype['__destroy__'] = PxExtendedVec3.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxExtendedVec3___destroy___0(self);
+};
+// PxObstacleContext
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxObstacleContext() { throw "cannot construct a PxObstacleContext, no constructor in IDL" }
+PxObstacleContext.prototype = Object.create(WrapperObject.prototype);
+PxObstacleContext.prototype.constructor = PxObstacleContext;
+PxObstacleContext.prototype.__class__ = PxObstacleContext;
+PxObstacleContext.__cache__ = {};
+Module['PxObstacleContext'] = PxObstacleContext;
+
+PxObstacleContext.prototype['release'] = PxObstacleContext.prototype.release = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxObstacleContext_release_0(self);
+};;
+
+PxObstacleContext.prototype['getControllerManager'] = PxObstacleContext.prototype.getControllerManager = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxObstacleContext_getControllerManager_0(self), PxControllerManager);
+};;
+
+PxObstacleContext.prototype['addObstacle'] = PxObstacleContext.prototype.addObstacle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(obstacle) {
+  var self = this.ptr;
+  if (obstacle && typeof obstacle === 'object') obstacle = obstacle.ptr;
+  return _emscripten_bind_PxObstacleContext_addObstacle_1(self, obstacle);
+};;
+
+PxObstacleContext.prototype['removeObstacle'] = PxObstacleContext.prototype.removeObstacle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(handle) {
+  var self = this.ptr;
+  if (handle && typeof handle === 'object') handle = handle.ptr;
+  return !!(_emscripten_bind_PxObstacleContext_removeObstacle_1(self, handle));
+};;
+
+PxObstacleContext.prototype['updateObstacle'] = PxObstacleContext.prototype.updateObstacle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(handle, obstacle) {
+  var self = this.ptr;
+  if (handle && typeof handle === 'object') handle = handle.ptr;
+  if (obstacle && typeof obstacle === 'object') obstacle = obstacle.ptr;
+  return !!(_emscripten_bind_PxObstacleContext_updateObstacle_2(self, handle, obstacle));
+};;
+
+PxObstacleContext.prototype['getNbObstacles'] = PxObstacleContext.prototype.getNbObstacles = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxObstacleContext_getNbObstacles_0(self);
+};;
+
+PxObstacleContext.prototype['getObstacle'] = PxObstacleContext.prototype.getObstacle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(i) {
+  var self = this.ptr;
+  if (i && typeof i === 'object') i = i.ptr;
+  return wrapPointer(_emscripten_bind_PxObstacleContext_getObstacle_1(self, i), PxObstacle);
+};;
+
+PxObstacleContext.prototype['getObstacleByHandle'] = PxObstacleContext.prototype.getObstacleByHandle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(handle) {
+  var self = this.ptr;
+  if (handle && typeof handle === 'object') handle = handle.ptr;
+  return wrapPointer(_emscripten_bind_PxObstacleContext_getObstacleByHandle_1(self, handle), PxObstacle);
+};;
+
+  PxObstacleContext.prototype['__destroy__'] = PxObstacleContext.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxObstacleContext___destroy___0(self);
+};
+// JavaUserControllerHitReport
+/** @suppress {undefinedVars, duplicate} @this{Object} */function JavaUserControllerHitReport() {
+  this.ptr = _emscripten_bind_JavaUserControllerHitReport_JavaUserControllerHitReport_0();
+  getCache(JavaUserControllerHitReport)[this.ptr] = this;
+};;
+JavaUserControllerHitReport.prototype = Object.create(PxUserControllerHitReport.prototype);
+JavaUserControllerHitReport.prototype.constructor = JavaUserControllerHitReport;
+JavaUserControllerHitReport.prototype.__class__ = JavaUserControllerHitReport;
+JavaUserControllerHitReport.__cache__ = {};
+Module['JavaUserControllerHitReport'] = JavaUserControllerHitReport;
+
+JavaUserControllerHitReport.prototype['onShapeHit'] = JavaUserControllerHitReport.prototype.onShapeHit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(hit) {
+  var self = this.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  _emscripten_bind_JavaUserControllerHitReport_onShapeHit_1(self, hit);
+};;
+
+JavaUserControllerHitReport.prototype['onControllerHit'] = JavaUserControllerHitReport.prototype.onControllerHit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(hit) {
+  var self = this.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  _emscripten_bind_JavaUserControllerHitReport_onControllerHit_1(self, hit);
+};;
+
+JavaUserControllerHitReport.prototype['onObstacleHit'] = JavaUserControllerHitReport.prototype.onObstacleHit = /** @suppress {undefinedVars, duplicate} @this{Object} */function(hit) {
+  var self = this.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  _emscripten_bind_JavaUserControllerHitReport_onObstacleHit_1(self, hit);
+};;
+
+  JavaUserControllerHitReport.prototype['__destroy__'] = JavaUserControllerHitReport.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_JavaUserControllerHitReport___destroy___0(self);
+};
 // PxActorPtr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxActorPtr() { throw "cannot construct a PxActorPtr, no constructor in IDL" }
 PxActorPtr.prototype = Object.create(WrapperObject.prototype);
@@ -21396,6 +28827,18 @@ Module['PxMaterialPtr'] = PxMaterialPtr;
   PxMaterialPtr.prototype['__destroy__'] = PxMaterialPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxMaterialPtr___destroy___0(self);
+};
+// PxMaterialConstPtr
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxMaterialConstPtr() { throw "cannot construct a PxMaterialConstPtr, no constructor in IDL" }
+PxMaterialConstPtr.prototype = Object.create(WrapperObject.prototype);
+PxMaterialConstPtr.prototype.constructor = PxMaterialConstPtr;
+PxMaterialConstPtr.prototype.__class__ = PxMaterialConstPtr;
+PxMaterialConstPtr.__cache__ = {};
+Module['PxMaterialConstPtr'] = PxMaterialConstPtr;
+
+  PxMaterialConstPtr.prototype['__destroy__'] = PxMaterialConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxMaterialConstPtr___destroy___0(self);
 };
 // PxVehicleWheelsPtr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleWheelsPtr() { throw "cannot construct a PxVehicleWheelsPtr, no constructor in IDL" }
@@ -21433,6 +28876,18 @@ Module['PxU8Ptr'] = PxU8Ptr;
   var self = this.ptr;
   _emscripten_bind_PxU8Ptr___destroy___0(self);
 };
+// PxU8ConstPtr
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxU8ConstPtr() { throw "cannot construct a PxU8ConstPtr, no constructor in IDL" }
+PxU8ConstPtr.prototype = Object.create(WrapperObject.prototype);
+PxU8ConstPtr.prototype.constructor = PxU8ConstPtr;
+PxU8ConstPtr.prototype.__class__ = PxU8ConstPtr;
+PxU8ConstPtr.__cache__ = {};
+Module['PxU8ConstPtr'] = PxU8ConstPtr;
+
+  PxU8ConstPtr.prototype['__destroy__'] = PxU8ConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxU8ConstPtr___destroy___0(self);
+};
 // PxU16Ptr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxU16Ptr() { throw "cannot construct a PxU16Ptr, no constructor in IDL" }
 PxU16Ptr.prototype = Object.create(WrapperObject.prototype);
@@ -21445,6 +28900,18 @@ Module['PxU16Ptr'] = PxU16Ptr;
   var self = this.ptr;
   _emscripten_bind_PxU16Ptr___destroy___0(self);
 };
+// PxU16ConstPtr
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxU16ConstPtr() { throw "cannot construct a PxU16ConstPtr, no constructor in IDL" }
+PxU16ConstPtr.prototype = Object.create(WrapperObject.prototype);
+PxU16ConstPtr.prototype.constructor = PxU16ConstPtr;
+PxU16ConstPtr.prototype.__class__ = PxU16ConstPtr;
+PxU16ConstPtr.__cache__ = {};
+Module['PxU16ConstPtr'] = PxU16ConstPtr;
+
+  PxU16ConstPtr.prototype['__destroy__'] = PxU16ConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxU16ConstPtr___destroy___0(self);
+};
 // PxU32Ptr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxU32Ptr() { throw "cannot construct a PxU32Ptr, no constructor in IDL" }
 PxU32Ptr.prototype = Object.create(WrapperObject.prototype);
@@ -21456,6 +28923,18 @@ Module['PxU32Ptr'] = PxU32Ptr;
   PxU32Ptr.prototype['__destroy__'] = PxU32Ptr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxU32Ptr___destroy___0(self);
+};
+// PxU32ConstPtr
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxU32ConstPtr() { throw "cannot construct a PxU32ConstPtr, no constructor in IDL" }
+PxU32ConstPtr.prototype = Object.create(WrapperObject.prototype);
+PxU32ConstPtr.prototype.constructor = PxU32ConstPtr;
+PxU32ConstPtr.prototype.__class__ = PxU32ConstPtr;
+PxU32ConstPtr.__cache__ = {};
+Module['PxU32ConstPtr'] = PxU32ConstPtr;
+
+  PxU32ConstPtr.prototype['__destroy__'] = PxU32ConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxU32ConstPtr___destroy___0(self);
 };
 // TypeHelpers
 /** @suppress {undefinedVars, duplicate} @this{Object} */function TypeHelpers() { throw "cannot construct a TypeHelpers, no constructor in IDL" }
@@ -21514,22 +28993,22 @@ TypeHelpers.prototype['getVec3At'] = TypeHelpers.prototype.getVec3At = /** @supp
   return wrapPointer(_emscripten_bind_TypeHelpers_getVec3At_2(self, base, index), PxVec3);
 };;
 
-TypeHelpers.prototype['voidToU8Ptr'] = TypeHelpers.prototype.voidToU8Ptr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
+TypeHelpers.prototype['voidToU8ConstPtr'] = TypeHelpers.prototype.voidToU8ConstPtr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
   var self = this.ptr;
   if (voidPtr && typeof voidPtr === 'object') voidPtr = voidPtr.ptr;
-  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU8Ptr_1(self, voidPtr), PxU8Ptr);
+  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU8ConstPtr_1(self, voidPtr), PxU8ConstPtr);
 };;
 
-TypeHelpers.prototype['voidToU16Ptr'] = TypeHelpers.prototype.voidToU16Ptr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
+TypeHelpers.prototype['voidToU16ConstPtr'] = TypeHelpers.prototype.voidToU16ConstPtr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
   var self = this.ptr;
   if (voidPtr && typeof voidPtr === 'object') voidPtr = voidPtr.ptr;
-  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU16Ptr_1(self, voidPtr), PxU16Ptr);
+  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU16ConstPtr_1(self, voidPtr), PxU16ConstPtr);
 };;
 
-TypeHelpers.prototype['voidToU32Ptr'] = TypeHelpers.prototype.voidToU32Ptr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
+TypeHelpers.prototype['voidToU32ConstPtr'] = TypeHelpers.prototype.voidToU32ConstPtr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
   var self = this.ptr;
   if (voidPtr && typeof voidPtr === 'object') voidPtr = voidPtr.ptr;
-  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU32Ptr_1(self, voidPtr), PxU32Ptr);
+  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU32ConstPtr_1(self, voidPtr), PxU32ConstPtr);
 };;
 
 TypeHelpers.prototype['voidToRealPtr'] = TypeHelpers.prototype.voidToRealPtr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
@@ -21538,48 +29017,99 @@ TypeHelpers.prototype['voidToRealPtr'] = TypeHelpers.prototype.voidToRealPtr = /
   return wrapPointer(_emscripten_bind_TypeHelpers_voidToRealPtr_1(self, voidPtr), PxRealPtr);
 };;
 
+TypeHelpers.prototype['articulationBaseJointToJoint'] = TypeHelpers.prototype.articulationBaseJointToJoint = /** @suppress {undefinedVars, duplicate} @this{Object} */function(baseJoint) {
+  var self = this.ptr;
+  if (baseJoint && typeof baseJoint === 'object') baseJoint = baseJoint.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_articulationBaseJointToJoint_1(self, baseJoint), PxArticulationJoint);
+};;
+
+TypeHelpers.prototype['voidToAny'] = TypeHelpers.prototype.voidToAny = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
+  var self = this.ptr;
+  if (voidPtr && typeof voidPtr === 'object') voidPtr = voidPtr.ptr;
+  return _emscripten_bind_TypeHelpers_voidToAny_1(self, voidPtr);
+};;
+
   TypeHelpers.prototype['__destroy__'] = TypeHelpers.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_TypeHelpers___destroy___0(self);
 };
-// Vector_PxMaterial
-/** @suppress {undefinedVars, duplicate} @this{Object} */function Vector_PxMaterial(size) {
+// Vector_PxMaterialConst
+/** @suppress {undefinedVars, duplicate} @this{Object} */function Vector_PxMaterialConst(size) {
   if (size && typeof size === 'object') size = size.ptr;
-  if (size === undefined) { this.ptr = _emscripten_bind_Vector_PxMaterial_Vector_PxMaterial_0(); getCache(Vector_PxMaterial)[this.ptr] = this;return }
-  this.ptr = _emscripten_bind_Vector_PxMaterial_Vector_PxMaterial_1(size);
-  getCache(Vector_PxMaterial)[this.ptr] = this;
+  if (size === undefined) { this.ptr = _emscripten_bind_Vector_PxMaterialConst_Vector_PxMaterialConst_0(); getCache(Vector_PxMaterialConst)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_Vector_PxMaterialConst_Vector_PxMaterialConst_1(size);
+  getCache(Vector_PxMaterialConst)[this.ptr] = this;
 };;
-Vector_PxMaterial.prototype = Object.create(WrapperObject.prototype);
-Vector_PxMaterial.prototype.constructor = Vector_PxMaterial;
-Vector_PxMaterial.prototype.__class__ = Vector_PxMaterial;
-Vector_PxMaterial.__cache__ = {};
-Module['Vector_PxMaterial'] = Vector_PxMaterial;
+Vector_PxMaterialConst.prototype = Object.create(WrapperObject.prototype);
+Vector_PxMaterialConst.prototype.constructor = Vector_PxMaterialConst;
+Vector_PxMaterialConst.prototype.__class__ = Vector_PxMaterialConst;
+Vector_PxMaterialConst.__cache__ = {};
+Module['Vector_PxMaterialConst'] = Vector_PxMaterialConst;
 
-Vector_PxMaterial.prototype['at'] = Vector_PxMaterial.prototype.at = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+Vector_PxMaterialConst.prototype['at'] = Vector_PxMaterialConst.prototype.at = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
   var self = this.ptr;
   if (index && typeof index === 'object') index = index.ptr;
-  return wrapPointer(_emscripten_bind_Vector_PxMaterial_at_1(self, index), PxMaterial);
+  return wrapPointer(_emscripten_bind_Vector_PxMaterialConst_at_1(self, index), PxMaterial);
 };;
 
-Vector_PxMaterial.prototype['data'] = Vector_PxMaterial.prototype.data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+Vector_PxMaterialConst.prototype['data'] = Vector_PxMaterialConst.prototype.data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
-  return wrapPointer(_emscripten_bind_Vector_PxMaterial_data_0(self), PxMaterialPtr);
+  return wrapPointer(_emscripten_bind_Vector_PxMaterialConst_data_0(self), PxMaterialConstPtr);
 };;
 
-Vector_PxMaterial.prototype['size'] = Vector_PxMaterial.prototype.size = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+Vector_PxMaterialConst.prototype['size'] = Vector_PxMaterialConst.prototype.size = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
-  return _emscripten_bind_Vector_PxMaterial_size_0(self);
+  return _emscripten_bind_Vector_PxMaterialConst_size_0(self);
 };;
 
-Vector_PxMaterial.prototype['push_back'] = Vector_PxMaterial.prototype.push_back = /** @suppress {undefinedVars, duplicate} @this{Object} */function(value) {
+Vector_PxMaterialConst.prototype['push_back'] = Vector_PxMaterialConst.prototype.push_back = /** @suppress {undefinedVars, duplicate} @this{Object} */function(value) {
   var self = this.ptr;
   if (value && typeof value === 'object') value = value.ptr;
-  _emscripten_bind_Vector_PxMaterial_push_back_1(self, value);
+  _emscripten_bind_Vector_PxMaterialConst_push_back_1(self, value);
 };;
 
-  Vector_PxMaterial.prototype['__destroy__'] = Vector_PxMaterial.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  Vector_PxMaterialConst.prototype['__destroy__'] = Vector_PxMaterialConst.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
-  _emscripten_bind_Vector_PxMaterial___destroy___0(self);
+  _emscripten_bind_Vector_PxMaterialConst___destroy___0(self);
+};
+// Vector_PxHeightFieldSample
+/** @suppress {undefinedVars, duplicate} @this{Object} */function Vector_PxHeightFieldSample(size) {
+  if (size && typeof size === 'object') size = size.ptr;
+  if (size === undefined) { this.ptr = _emscripten_bind_Vector_PxHeightFieldSample_Vector_PxHeightFieldSample_0(); getCache(Vector_PxHeightFieldSample)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_Vector_PxHeightFieldSample_Vector_PxHeightFieldSample_1(size);
+  getCache(Vector_PxHeightFieldSample)[this.ptr] = this;
+};;
+Vector_PxHeightFieldSample.prototype = Object.create(WrapperObject.prototype);
+Vector_PxHeightFieldSample.prototype.constructor = Vector_PxHeightFieldSample;
+Vector_PxHeightFieldSample.prototype.__class__ = Vector_PxHeightFieldSample;
+Vector_PxHeightFieldSample.__cache__ = {};
+Module['Vector_PxHeightFieldSample'] = Vector_PxHeightFieldSample;
+
+Vector_PxHeightFieldSample.prototype['at'] = Vector_PxHeightFieldSample.prototype.at = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_Vector_PxHeightFieldSample_at_1(self, index), PxHeightFieldSample);
+};;
+
+Vector_PxHeightFieldSample.prototype['data'] = Vector_PxHeightFieldSample.prototype.data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_Vector_PxHeightFieldSample_data_0(self), PxHeightFieldSample);
+};;
+
+Vector_PxHeightFieldSample.prototype['size'] = Vector_PxHeightFieldSample.prototype.size = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_Vector_PxHeightFieldSample_size_0(self);
+};;
+
+Vector_PxHeightFieldSample.prototype['push_back'] = Vector_PxHeightFieldSample.prototype.push_back = /** @suppress {undefinedVars, duplicate} @this{Object} */function(value) {
+  var self = this.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_Vector_PxHeightFieldSample_push_back_1(self, value);
+};;
+
+  Vector_PxHeightFieldSample.prototype['__destroy__'] = Vector_PxHeightFieldSample.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxHeightFieldSample___destroy___0(self);
 };
 // Vector_PxReal
 /** @suppress {undefinedVars, duplicate} @this{Object} */function Vector_PxReal(size) {
@@ -22040,6 +29570,14 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
 
     
 
+    // PxActorTypeFlagEnum
+
+    Module['eRIGID_STATIC'] = _emscripten_enum_PxActorTypeFlagEnum_eRIGID_STATIC();
+
+    Module['eRIGID_DYNAMIC'] = _emscripten_enum_PxActorTypeFlagEnum_eRIGID_DYNAMIC();
+
+    
+
     // PxArticulationAxisEnum
 
     Module['eTWIST'] = _emscripten_enum_PxArticulationAxisEnum_eTWIST();
@@ -22132,6 +29670,20 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
 
     
 
+    // PxBroadPhaseTypeEnum
+
+    Module['eSAP'] = _emscripten_enum_PxBroadPhaseTypeEnum_eSAP();
+
+    Module['eMBP'] = _emscripten_enum_PxBroadPhaseTypeEnum_eMBP();
+
+    Module['eABP'] = _emscripten_enum_PxBroadPhaseTypeEnum_eABP();
+
+    Module['eGPU'] = _emscripten_enum_PxBroadPhaseTypeEnum_eGPU();
+
+    Module['eLAST'] = _emscripten_enum_PxBroadPhaseTypeEnum_eLAST();
+
+    
+
     // PxConstraintFlagEnum
 
     Module['eBROKEN'] = _emscripten_enum_PxConstraintFlagEnum_eBROKEN();
@@ -22194,6 +29746,18 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
 
     
 
+    // PxFrictionTypeEnum
+
+    Module['ePATCH'] = _emscripten_enum_PxFrictionTypeEnum_ePATCH();
+
+    Module['eONE_DIRECTIONAL'] = _emscripten_enum_PxFrictionTypeEnum_eONE_DIRECTIONAL();
+
+    Module['eTWO_DIRECTIONAL'] = _emscripten_enum_PxFrictionTypeEnum_eTWO_DIRECTIONAL();
+
+    Module['eFRICTION_COUNT'] = _emscripten_enum_PxFrictionTypeEnum_eFRICTION_COUNT();
+
+    
+
     // PxHitFlagEnum
 
     Module['ePOSITION'] = _emscripten_enum_PxHitFlagEnum_ePOSITION();
@@ -22219,6 +29783,18 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
     Module['eDEFAULT'] = _emscripten_enum_PxHitFlagEnum_eDEFAULT();
 
     Module['eMODIFIABLE_FLAGS'] = _emscripten_enum_PxHitFlagEnum_eMODIFIABLE_FLAGS();
+
+    
+
+    // PxPairFilteringModeEnum
+
+    Module['eKEEP'] = _emscripten_enum_PxPairFilteringModeEnum_eKEEP();
+
+    Module['eSUPPRESS'] = _emscripten_enum_PxPairFilteringModeEnum_eSUPPRESS();
+
+    Module['eKILL'] = _emscripten_enum_PxPairFilteringModeEnum_eKILL();
+
+    Module['eDEFAULT'] = _emscripten_enum_PxPairFilteringModeEnum_eDEFAULT();
 
     
 
@@ -22257,6 +29833,34 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
     Module['eNEXT_FREE'] = _emscripten_enum_PxPairFlagEnum_eNEXT_FREE();
 
     Module['eCONTACT_DEFAULT'] = _emscripten_enum_PxPairFlagEnum_eCONTACT_DEFAULT();
+
+    
+
+    // PxPruningStructureTypeEnum
+
+    Module['eNONE'] = _emscripten_enum_PxPruningStructureTypeEnum_eNONE();
+
+    Module['eDYNAMIC_AABB_TREE'] = _emscripten_enum_PxPruningStructureTypeEnum_eDYNAMIC_AABB_TREE();
+
+    Module['eSTATIC_AABB_TREE'] = _emscripten_enum_PxPruningStructureTypeEnum_eSTATIC_AABB_TREE();
+
+    Module['eLAST'] = _emscripten_enum_PxPruningStructureTypeEnum_eLAST();
+
+    
+
+    // PxQueryFlagEnum
+
+    Module['eSTATIC'] = _emscripten_enum_PxQueryFlagEnum_eSTATIC();
+
+    Module['eDYNAMIC'] = _emscripten_enum_PxQueryFlagEnum_eDYNAMIC();
+
+    Module['ePREFILTER'] = _emscripten_enum_PxQueryFlagEnum_ePREFILTER();
+
+    Module['ePOSTFILTER'] = _emscripten_enum_PxQueryFlagEnum_ePOSTFILTER();
+
+    Module['eANY_HIT'] = _emscripten_enum_PxQueryFlagEnum_eANY_HIT();
+
+    Module['eNO_BLOCK'] = _emscripten_enum_PxQueryFlagEnum_eNO_BLOCK();
 
     
 
@@ -22330,6 +29934,16 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
 
     
 
+    // PxSceneQueryUpdateModeEnum
+
+    Module['eBUILD_ENABLED_COMMIT_ENABLED'] = _emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_ENABLED_COMMIT_ENABLED();
+
+    Module['eBUILD_ENABLED_COMMIT_DISABLED'] = _emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_ENABLED_COMMIT_DISABLED();
+
+    Module['eBUILD_DISABLED_COMMIT_DISABLED'] = _emscripten_enum_PxSceneQueryUpdateModeEnum_eBUILD_DISABLED_COMMIT_DISABLED();
+
+    
+
     // PxShapeFlagEnum
 
     Module['eSIMULATION_SHAPE'] = _emscripten_enum_PxShapeFlagEnum_eSIMULATION_SHAPE();
@@ -22339,6 +29953,14 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
     Module['eTRIGGER_SHAPE'] = _emscripten_enum_PxShapeFlagEnum_eTRIGGER_SHAPE();
 
     Module['eVISUALIZATION'] = _emscripten_enum_PxShapeFlagEnum_eVISUALIZATION();
+
+    
+
+    // PxSolverTypeEnum
+
+    Module['ePGS'] = _emscripten_enum_PxSolverTypeEnum_ePGS();
+
+    Module['eTGS'] = _emscripten_enum_PxSolverTypeEnum_eTGS();
 
     
 
@@ -22489,6 +30111,36 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
     // PxConvexMeshGeometryFlagEnum
 
     Module['eTIGHT_BOUNDS'] = _emscripten_enum_PxConvexMeshGeometryFlagEnum_eTIGHT_BOUNDS();
+
+    
+
+    // PxGeometryTypeEnum
+
+    Module['eSPHERE'] = _emscripten_enum_PxGeometryTypeEnum_eSPHERE();
+
+    Module['ePLANE'] = _emscripten_enum_PxGeometryTypeEnum_ePLANE();
+
+    Module['eCAPSULE'] = _emscripten_enum_PxGeometryTypeEnum_eCAPSULE();
+
+    Module['eBOX'] = _emscripten_enum_PxGeometryTypeEnum_eBOX();
+
+    Module['eCONVEXMESH'] = _emscripten_enum_PxGeometryTypeEnum_eCONVEXMESH();
+
+    Module['eTRIANGLEMESH'] = _emscripten_enum_PxGeometryTypeEnum_eTRIANGLEMESH();
+
+    Module['eHEIGHTFIELD'] = _emscripten_enum_PxGeometryTypeEnum_eHEIGHTFIELD();
+
+    
+
+    // PxHeightFieldFlagEnum
+
+    Module['eNO_BOUNDARY_EDGES'] = _emscripten_enum_PxHeightFieldFlagEnum_eNO_BOUNDARY_EDGES();
+
+    
+
+    // PxHeightFieldFormatEnum
+
+    Module['eS16_TM'] = _emscripten_enum_PxHeightFieldFormatEnum_eS16_TM();
 
     
 
@@ -22699,6 +30351,40 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
     // PxSphericalJointFlagEnum
 
     Module['eLIMIT_ENABLED'] = _emscripten_enum_PxSphericalJointFlagEnum_eLIMIT_ENABLED();
+
+    
+
+    // PxCapsuleClimbingModeEnum
+
+    Module['eEASY'] = _emscripten_enum_PxCapsuleClimbingModeEnum_eEASY();
+
+    Module['eCONSTRAINED'] = _emscripten_enum_PxCapsuleClimbingModeEnum_eCONSTRAINED();
+
+    
+
+    // PxControllerCollisionFlagEnum
+
+    Module['eCOLLISION_SIDES'] = _emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_SIDES();
+
+    Module['eCOLLISION_UP'] = _emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_UP();
+
+    Module['eCOLLISION_DOWN'] = _emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_DOWN();
+
+    
+
+    // PxControllerNonWalkableModeEnum
+
+    Module['ePREVENT_CLIMBING'] = _emscripten_enum_PxControllerNonWalkableModeEnum_ePREVENT_CLIMBING();
+
+    Module['ePREVENT_CLIMBING_AND_FORCE_SLIDING'] = _emscripten_enum_PxControllerNonWalkableModeEnum_ePREVENT_CLIMBING_AND_FORCE_SLIDING();
+
+    
+
+    // PxControllerShapeTypeEnum
+
+    Module['eBOX'] = _emscripten_enum_PxControllerShapeTypeEnum_eBOX();
+
+    Module['eCAPSULE'] = _emscripten_enum_PxControllerShapeTypeEnum_eCAPSULE();
 
   }
   if (runtimeInitialized) setupEnums();
