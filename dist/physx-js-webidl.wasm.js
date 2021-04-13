@@ -1264,9 +1264,9 @@ function updateGlobalBufferAndViews(buf) {
   Module['HEAPF64'] = HEAPF64 = new Float64Array(buf);
 }
 
-var STACK_BASE = 5431424,
+var STACK_BASE = 5431968,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 188544;
+    STACK_MAX = 189088;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 
@@ -1781,15 +1781,15 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  1388: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onConstraintBreak')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onConstraintBreak.'; self['onConstraintBreak']($1,$2);},  
- 1668: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onWake')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onWake.'; self['onWake']($1,$2);},  
- 1911: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onSleep')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onSleep.'; self['onSleep']($1,$2);},  
- 2157: function($0, $1, $2, $3) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onContact')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onContact.'; self['onContact']($1,$2,$3);},  
- 2417: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onTrigger')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onTrigger.'; self['onTrigger']($1,$2);},  
- 2780: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);},  
- 3500: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
- 3755: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
- 4025: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);}
+  1568: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onConstraintBreak')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onConstraintBreak.'; self['onConstraintBreak']($1,$2);},  
+ 1848: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onWake')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onWake.'; self['onWake']($1,$2);},  
+ 2091: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onSleep')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onSleep.'; self['onSleep']($1,$2);},  
+ 2337: function($0, $1, $2, $3) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onContact')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onContact.'; self['onContact']($1,$2,$3);},  
+ 2597: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onTrigger')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onTrigger.'; self['onTrigger']($1,$2);},  
+ 2964: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);},  
+ 4216: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
+ 4471: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
+ 4741: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);}
 };
 function array_bounds_check_error(idx,size){ throw 'Array index ' + idx + ' out of bounds: [0,' + size + ')'; }
 
@@ -1888,6 +1888,13 @@ function array_bounds_check_error(idx,size){ throw 'Array index ' + idx + ' out 
       // Thrown object is prepended by exception metadata block
       return _malloc(size + ExceptionInfoAttrs.SIZE) + ExceptionInfoAttrs.SIZE;
     }
+
+  function _atexit(func, arg) {
+    }
+  function ___cxa_atexit(a0,a1
+  ) {
+  return _atexit(a0,a1);
+  }
 
   function ExceptionInfo(excPtr) {
       this.excPtr = excPtr;
@@ -2189,6 +2196,7 @@ function intArrayToString(array) {
 __ATINIT__.push({ func: function() { ___wasm_call_ctors() } });
 var asmLibraryArg = {
   "__cxa_allocate_exception": ___cxa_allocate_exception,
+  "__cxa_atexit": ___cxa_atexit,
   "__cxa_throw": ___cxa_throw,
   "abort": _abort,
   "array_bounds_check_error": array_bounds_check_error,
@@ -2296,6 +2304,12 @@ var _emscripten_bind_PxActor_getBaseFlags_0 = Module["_emscripten_bind_PxActor_g
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxActor_isReleasable_0 = Module["_emscripten_bind_PxActor_isReleasable_0"] = createExportWrapper("emscripten_bind_PxActor_isReleasable_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxActor_get_userData_0 = Module["_emscripten_bind_PxActor_get_userData_0"] = createExportWrapper("emscripten_bind_PxActor_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxActor_set_userData_1 = Module["_emscripten_bind_PxActor_set_userData_1"] = createExportWrapper("emscripten_bind_PxActor_set_userData_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxActorShape_get_actor_0 = Module["_emscripten_bind_PxActorShape_get_actor_0"] = createExportWrapper("emscripten_bind_PxActorShape_get_actor_0");
@@ -2410,6 +2424,12 @@ var _emscripten_bind_PxRigidActor_getBaseFlags_0 = Module["_emscripten_bind_PxRi
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRigidActor_isReleasable_0 = Module["_emscripten_bind_PxRigidActor_isReleasable_0"] = createExportWrapper("emscripten_bind_PxRigidActor_isReleasable_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidActor_get_userData_0 = Module["_emscripten_bind_PxRigidActor_get_userData_0"] = createExportWrapper("emscripten_bind_PxRigidActor_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidActor_set_userData_1 = Module["_emscripten_bind_PxRigidActor_set_userData_1"] = createExportWrapper("emscripten_bind_PxRigidActor_set_userData_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSimulationEventCallback___destroy___0 = Module["_emscripten_bind_PxSimulationEventCallback___destroy___0"] = createExportWrapper("emscripten_bind_PxSimulationEventCallback___destroy___0");
@@ -2830,6 +2850,12 @@ var _emscripten_bind_PxRigidBody_detachShape_2 = Module["_emscripten_bind_PxRigi
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRigidBody_getNbShapes_0 = Module["_emscripten_bind_PxRigidBody_getNbShapes_0"] = createExportWrapper("emscripten_bind_PxRigidBody_getNbShapes_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidBody_get_userData_0 = Module["_emscripten_bind_PxRigidBody_get_userData_0"] = createExportWrapper("emscripten_bind_PxRigidBody_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidBody_set_userData_1 = Module["_emscripten_bind_PxRigidBody_set_userData_1"] = createExportWrapper("emscripten_bind_PxRigidBody_set_userData_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_SimpleSimulationEventCallback_onConstraintBreak_2 = Module["_emscripten_bind_SimpleSimulationEventCallback_onConstraintBreak_2"] = createExportWrapper("emscripten_bind_SimpleSimulationEventCallback_onConstraintBreak_2");
@@ -3385,6 +3411,9 @@ var _emscripten_bind_PxTopLevelFunctions_DefaultCpuDispatcherCreate_1 = Module["
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_InitExtensions_1 = Module["_emscripten_bind_PxTopLevelFunctions_InitExtensions_1"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_InitExtensions_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTopLevelFunctions_CreateCudaContextManager_2 = Module["_emscripten_bind_PxTopLevelFunctions_CreateCudaContextManager_2"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreateCudaContextManager_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_D6JointCreate_5 = Module["_emscripten_bind_PxTopLevelFunctions_D6JointCreate_5"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_D6JointCreate_5");
@@ -4054,6 +4083,12 @@ var _emscripten_bind_PxArticulationLink_getMaxContactImpulse_0 = Module["_emscri
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxArticulationLink_getInternalIslandNodeIndex_0 = Module["_emscripten_bind_PxArticulationLink_getInternalIslandNodeIndex_0"] = createExportWrapper("emscripten_bind_PxArticulationLink_getInternalIslandNodeIndex_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxArticulationLink_get_userData_0 = Module["_emscripten_bind_PxArticulationLink_get_userData_0"] = createExportWrapper("emscripten_bind_PxArticulationLink_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxArticulationLink_set_userData_1 = Module["_emscripten_bind_PxArticulationLink_set_userData_1"] = createExportWrapper("emscripten_bind_PxArticulationLink_set_userData_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxArticulationReducedCoordinate_setArticulationFlags_1 = Module["_emscripten_bind_PxArticulationReducedCoordinate_setArticulationFlags_1"] = createExportWrapper("emscripten_bind_PxArticulationReducedCoordinate_setArticulationFlags_1");
@@ -4842,6 +4877,12 @@ var _emscripten_bind_PxMaterial_getBaseFlags_0 = Module["_emscripten_bind_PxMate
 var _emscripten_bind_PxMaterial_isReleasable_0 = Module["_emscripten_bind_PxMaterial_isReleasable_0"] = createExportWrapper("emscripten_bind_PxMaterial_isReleasable_0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxMaterial_get_userData_0 = Module["_emscripten_bind_PxMaterial_get_userData_0"] = createExportWrapper("emscripten_bind_PxMaterial_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxMaterial_set_userData_1 = Module["_emscripten_bind_PxMaterial_set_userData_1"] = createExportWrapper("emscripten_bind_PxMaterial_set_userData_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxPairFlags_PxPairFlags_1 = Module["_emscripten_bind_PxPairFlags_PxPairFlags_1"] = createExportWrapper("emscripten_bind_PxPairFlags_PxPairFlags_1");
 
 /** @type {function(...*):?} */
@@ -5352,6 +5393,12 @@ var _emscripten_bind_PxRigidDynamic_getMaxContactImpulse_0 = Module["_emscripten
 var _emscripten_bind_PxRigidDynamic_getInternalIslandNodeIndex_0 = Module["_emscripten_bind_PxRigidDynamic_getInternalIslandNodeIndex_0"] = createExportWrapper("emscripten_bind_PxRigidDynamic_getInternalIslandNodeIndex_0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxRigidDynamic_get_userData_0 = Module["_emscripten_bind_PxRigidDynamic_get_userData_0"] = createExportWrapper("emscripten_bind_PxRigidDynamic_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidDynamic_set_userData_1 = Module["_emscripten_bind_PxRigidDynamic_set_userData_1"] = createExportWrapper("emscripten_bind_PxRigidDynamic_set_userData_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxRigidDynamicLockFlags_PxRigidDynamicLockFlags_1 = Module["_emscripten_bind_PxRigidDynamicLockFlags_PxRigidDynamicLockFlags_1"] = createExportWrapper("emscripten_bind_PxRigidDynamicLockFlags_PxRigidDynamicLockFlags_1");
 
 /** @type {function(...*):?} */
@@ -5440,6 +5487,12 @@ var _emscripten_bind_PxRigidStatic_detachShape_2 = Module["_emscripten_bind_PxRi
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRigidStatic_getNbShapes_0 = Module["_emscripten_bind_PxRigidStatic_getNbShapes_0"] = createExportWrapper("emscripten_bind_PxRigidStatic_getNbShapes_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidStatic_get_userData_0 = Module["_emscripten_bind_PxRigidStatic_get_userData_0"] = createExportWrapper("emscripten_bind_PxRigidStatic_get_userData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidStatic_set_userData_1 = Module["_emscripten_bind_PxRigidStatic_set_userData_1"] = createExportWrapper("emscripten_bind_PxRigidStatic_set_userData_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxScene_addActor_1 = Module["_emscripten_bind_PxScene_addActor_1"] = createExportWrapper("emscripten_bind_PxScene_addActor_1");
@@ -6819,6 +6872,24 @@ var _emscripten_bind_PxVehicleDifferential4WData_set_mType_1 = Module["_emscript
 var _emscripten_bind_PxVehicleDifferential4WData___destroy___0 = Module["_emscripten_bind_PxVehicleDifferential4WData___destroy___0"] = createExportWrapper("emscripten_bind_PxVehicleDifferential4WData___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDifferentialNWData_PxVehicleDifferentialNWData_0 = Module["_emscripten_bind_PxVehicleDifferentialNWData_PxVehicleDifferentialNWData_0"] = createExportWrapper("emscripten_bind_PxVehicleDifferentialNWData_PxVehicleDifferentialNWData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDifferentialNWData_setDrivenWheel_2 = Module["_emscripten_bind_PxVehicleDifferentialNWData_setDrivenWheel_2"] = createExportWrapper("emscripten_bind_PxVehicleDifferentialNWData_setDrivenWheel_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDifferentialNWData_getIsDrivenWheel_1 = Module["_emscripten_bind_PxVehicleDifferentialNWData_getIsDrivenWheel_1"] = createExportWrapper("emscripten_bind_PxVehicleDifferentialNWData_getIsDrivenWheel_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDifferentialNWData_getDrivenWheelStatus_0 = Module["_emscripten_bind_PxVehicleDifferentialNWData_getDrivenWheelStatus_0"] = createExportWrapper("emscripten_bind_PxVehicleDifferentialNWData_getDrivenWheelStatus_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDifferentialNWData_setDrivenWheelStatus_1 = Module["_emscripten_bind_PxVehicleDifferentialNWData_setDrivenWheelStatus_1"] = createExportWrapper("emscripten_bind_PxVehicleDifferentialNWData_setDrivenWheelStatus_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDifferentialNWData___destroy___0 = Module["_emscripten_bind_PxVehicleDifferentialNWData___destroy___0"] = createExportWrapper("emscripten_bind_PxVehicleDifferentialNWData___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleDrivableSurfaceToTireFrictionPairs_allocate_2 = Module["_emscripten_bind_PxVehicleDrivableSurfaceToTireFrictionPairs_allocate_2"] = createExportWrapper("emscripten_bind_PxVehicleDrivableSurfaceToTireFrictionPairs_allocate_2");
 
 /** @type {function(...*):?} */
@@ -7053,6 +7124,75 @@ var _emscripten_bind_PxVehicleDriveDynData_set_mAutoBoxSwitchTime_1 = Module["_e
 var _emscripten_bind_PxVehicleDriveDynData___destroy___0 = Module["_emscripten_bind_PxVehicleDriveDynData___destroy___0"] = createExportWrapper("emscripten_bind_PxVehicleDriveDynData___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_allocate_1 = Module["_emscripten_bind_PxVehicleDriveNW_allocate_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_allocate_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_free_0 = Module["_emscripten_bind_PxVehicleDriveNW_free_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_free_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_setup_5 = Module["_emscripten_bind_PxVehicleDriveNW_setup_5"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_setup_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_setToRestState_0 = Module["_emscripten_bind_PxVehicleDriveNW_setToRestState_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_setToRestState_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_getConcreteTypeName_0 = Module["_emscripten_bind_PxVehicleDriveNW_getConcreteTypeName_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_getConcreteTypeName_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_getConcreteType_0 = Module["_emscripten_bind_PxVehicleDriveNW_getConcreteType_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_getConcreteType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_setBaseFlag_2 = Module["_emscripten_bind_PxVehicleDriveNW_setBaseFlag_2"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_setBaseFlag_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_setBaseFlags_1 = Module["_emscripten_bind_PxVehicleDriveNW_setBaseFlags_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_setBaseFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_getBaseFlags_0 = Module["_emscripten_bind_PxVehicleDriveNW_getBaseFlags_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_getBaseFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_isReleasable_0 = Module["_emscripten_bind_PxVehicleDriveNW_isReleasable_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_isReleasable_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_getVehicleType_0 = Module["_emscripten_bind_PxVehicleDriveNW_getVehicleType_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_getVehicleType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_getRigidDynamicActor_0 = Module["_emscripten_bind_PxVehicleDriveNW_getRigidDynamicActor_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_getRigidDynamicActor_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_computeForwardSpeed_0 = Module["_emscripten_bind_PxVehicleDriveNW_computeForwardSpeed_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_computeForwardSpeed_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_computeSidewaysSpeed_0 = Module["_emscripten_bind_PxVehicleDriveNW_computeSidewaysSpeed_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_computeSidewaysSpeed_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_getNbNonDrivenWheels_0 = Module["_emscripten_bind_PxVehicleDriveNW_getNbNonDrivenWheels_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_getNbNonDrivenWheels_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_get_mDriveSimData_0 = Module["_emscripten_bind_PxVehicleDriveNW_get_mDriveSimData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_get_mDriveSimData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_set_mDriveSimData_1 = Module["_emscripten_bind_PxVehicleDriveNW_set_mDriveSimData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_set_mDriveSimData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_get_mDriveDynData_0 = Module["_emscripten_bind_PxVehicleDriveNW_get_mDriveDynData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_get_mDriveDynData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_set_mDriveDynData_1 = Module["_emscripten_bind_PxVehicleDriveNW_set_mDriveDynData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_set_mDriveDynData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_get_mWheelsSimData_0 = Module["_emscripten_bind_PxVehicleDriveNW_get_mWheelsSimData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_get_mWheelsSimData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_set_mWheelsSimData_1 = Module["_emscripten_bind_PxVehicleDriveNW_set_mWheelsSimData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_set_mWheelsSimData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_get_mWheelsDynData_0 = Module["_emscripten_bind_PxVehicleDriveNW_get_mWheelsDynData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_get_mWheelsDynData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveNW_set_mWheelsDynData_1 = Module["_emscripten_bind_PxVehicleDriveNW_set_mWheelsDynData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveNW_set_mWheelsDynData_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleDriveSimData4W_PxVehicleDriveSimData4W_0 = Module["_emscripten_bind_PxVehicleDriveSimData4W_PxVehicleDriveSimData4W_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimData4W_PxVehicleDriveSimData4W_0");
 
 /** @type {function(...*):?} */
@@ -7093,6 +7233,117 @@ var _emscripten_bind_PxVehicleDriveSimData4W_setAutoBoxData_1 = Module["_emscrip
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleDriveSimData4W___destroy___0 = Module["_emscripten_bind_PxVehicleDriveSimData4W___destroy___0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimData4W___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_PxVehicleDriveSimDataNW_0 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_PxVehicleDriveSimDataNW_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_PxVehicleDriveSimDataNW_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_getDiffData_0 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_getDiffData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_getDiffData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_setDiffData_1 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_setDiffData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_setDiffData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_getEngineData_0 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_getEngineData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_getEngineData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_setEngineData_1 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_setEngineData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_setEngineData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_getGearsData_0 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_getGearsData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_getGearsData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_setGearsData_1 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_setGearsData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_setGearsData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_getClutchData_0 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_getClutchData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_getClutchData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_setClutchData_1 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_setClutchData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_setClutchData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_getAutoBoxData_0 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_getAutoBoxData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_getAutoBoxData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW_setAutoBoxData_1 = Module["_emscripten_bind_PxVehicleDriveSimDataNW_setAutoBoxData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW_setAutoBoxData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveSimDataNW___destroy___0 = Module["_emscripten_bind_PxVehicleDriveSimDataNW___destroy___0"] = createExportWrapper("emscripten_bind_PxVehicleDriveSimDataNW___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_allocate_1 = Module["_emscripten_bind_PxVehicleDriveTank_allocate_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_allocate_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_free_0 = Module["_emscripten_bind_PxVehicleDriveTank_free_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_free_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_setup_5 = Module["_emscripten_bind_PxVehicleDriveTank_setup_5"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_setup_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_setDriveModel_1 = Module["_emscripten_bind_PxVehicleDriveTank_setDriveModel_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_setDriveModel_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_getDriveModel_0 = Module["_emscripten_bind_PxVehicleDriveTank_getDriveModel_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_getDriveModel_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_setToRestState_0 = Module["_emscripten_bind_PxVehicleDriveTank_setToRestState_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_setToRestState_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_getConcreteTypeName_0 = Module["_emscripten_bind_PxVehicleDriveTank_getConcreteTypeName_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_getConcreteTypeName_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_getConcreteType_0 = Module["_emscripten_bind_PxVehicleDriveTank_getConcreteType_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_getConcreteType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_setBaseFlag_2 = Module["_emscripten_bind_PxVehicleDriveTank_setBaseFlag_2"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_setBaseFlag_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_setBaseFlags_1 = Module["_emscripten_bind_PxVehicleDriveTank_setBaseFlags_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_setBaseFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_getBaseFlags_0 = Module["_emscripten_bind_PxVehicleDriveTank_getBaseFlags_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_getBaseFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_isReleasable_0 = Module["_emscripten_bind_PxVehicleDriveTank_isReleasable_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_isReleasable_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_getVehicleType_0 = Module["_emscripten_bind_PxVehicleDriveTank_getVehicleType_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_getVehicleType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_getRigidDynamicActor_0 = Module["_emscripten_bind_PxVehicleDriveTank_getRigidDynamicActor_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_getRigidDynamicActor_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_computeForwardSpeed_0 = Module["_emscripten_bind_PxVehicleDriveTank_computeForwardSpeed_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_computeForwardSpeed_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_computeSidewaysSpeed_0 = Module["_emscripten_bind_PxVehicleDriveTank_computeSidewaysSpeed_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_computeSidewaysSpeed_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_getNbNonDrivenWheels_0 = Module["_emscripten_bind_PxVehicleDriveTank_getNbNonDrivenWheels_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_getNbNonDrivenWheels_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_get_mDriveSimData_0 = Module["_emscripten_bind_PxVehicleDriveTank_get_mDriveSimData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_get_mDriveSimData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_set_mDriveSimData_1 = Module["_emscripten_bind_PxVehicleDriveTank_set_mDriveSimData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_set_mDriveSimData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_get_mDriveDynData_0 = Module["_emscripten_bind_PxVehicleDriveTank_get_mDriveDynData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_get_mDriveDynData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_set_mDriveDynData_1 = Module["_emscripten_bind_PxVehicleDriveTank_set_mDriveDynData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_set_mDriveDynData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_get_mWheelsSimData_0 = Module["_emscripten_bind_PxVehicleDriveTank_get_mWheelsSimData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_get_mWheelsSimData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_set_mWheelsSimData_1 = Module["_emscripten_bind_PxVehicleDriveTank_set_mWheelsSimData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_set_mWheelsSimData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_get_mWheelsDynData_0 = Module["_emscripten_bind_PxVehicleDriveTank_get_mWheelsDynData_0"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_get_mWheelsDynData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleDriveTank_set_mWheelsDynData_1 = Module["_emscripten_bind_PxVehicleDriveTank_set_mWheelsDynData_1"] = createExportWrapper("emscripten_bind_PxVehicleDriveTank_set_mWheelsDynData_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleEngineData_PxVehicleEngineData_0 = Module["_emscripten_bind_PxVehicleEngineData_PxVehicleEngineData_0"] = createExportWrapper("emscripten_bind_PxVehicleEngineData_PxVehicleEngineData_0");
@@ -7213,6 +7464,90 @@ var _emscripten_bind_PxVehicleGearsData_set_mSwitchTime_1 = Module["_emscripten_
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleGearsData___destroy___0 = Module["_emscripten_bind_PxVehicleGearsData___destroy___0"] = createExportWrapper("emscripten_bind_PxVehicleGearsData___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_allocate_1 = Module["_emscripten_bind_PxVehicleNoDrive_allocate_1"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_allocate_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_free_0 = Module["_emscripten_bind_PxVehicleNoDrive_free_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_free_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_setup_3 = Module["_emscripten_bind_PxVehicleNoDrive_setup_3"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_setup_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_setToRestState_0 = Module["_emscripten_bind_PxVehicleNoDrive_setToRestState_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_setToRestState_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_setBrakeTorque_2 = Module["_emscripten_bind_PxVehicleNoDrive_setBrakeTorque_2"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_setBrakeTorque_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_setDriveTorque_2 = Module["_emscripten_bind_PxVehicleNoDrive_setDriveTorque_2"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_setDriveTorque_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_setSteerAngle_2 = Module["_emscripten_bind_PxVehicleNoDrive_setSteerAngle_2"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_setSteerAngle_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getBrakeTorque_1 = Module["_emscripten_bind_PxVehicleNoDrive_getBrakeTorque_1"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getBrakeTorque_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getDriveTorque_1 = Module["_emscripten_bind_PxVehicleNoDrive_getDriveTorque_1"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getDriveTorque_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getSteerAngle_1 = Module["_emscripten_bind_PxVehicleNoDrive_getSteerAngle_1"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getSteerAngle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getNbSteerAngle_0 = Module["_emscripten_bind_PxVehicleNoDrive_getNbSteerAngle_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getNbSteerAngle_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getNbDriveTorque_0 = Module["_emscripten_bind_PxVehicleNoDrive_getNbDriveTorque_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getNbDriveTorque_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getNbBrakeTorque_0 = Module["_emscripten_bind_PxVehicleNoDrive_getNbBrakeTorque_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getNbBrakeTorque_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getConcreteTypeName_0 = Module["_emscripten_bind_PxVehicleNoDrive_getConcreteTypeName_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getConcreteTypeName_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getConcreteType_0 = Module["_emscripten_bind_PxVehicleNoDrive_getConcreteType_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getConcreteType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_setBaseFlag_2 = Module["_emscripten_bind_PxVehicleNoDrive_setBaseFlag_2"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_setBaseFlag_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_setBaseFlags_1 = Module["_emscripten_bind_PxVehicleNoDrive_setBaseFlags_1"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_setBaseFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getBaseFlags_0 = Module["_emscripten_bind_PxVehicleNoDrive_getBaseFlags_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getBaseFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_isReleasable_0 = Module["_emscripten_bind_PxVehicleNoDrive_isReleasable_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_isReleasable_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getVehicleType_0 = Module["_emscripten_bind_PxVehicleNoDrive_getVehicleType_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getVehicleType_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getRigidDynamicActor_0 = Module["_emscripten_bind_PxVehicleNoDrive_getRigidDynamicActor_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getRigidDynamicActor_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_computeForwardSpeed_0 = Module["_emscripten_bind_PxVehicleNoDrive_computeForwardSpeed_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_computeForwardSpeed_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_computeSidewaysSpeed_0 = Module["_emscripten_bind_PxVehicleNoDrive_computeSidewaysSpeed_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_computeSidewaysSpeed_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_getNbNonDrivenWheels_0 = Module["_emscripten_bind_PxVehicleNoDrive_getNbNonDrivenWheels_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_getNbNonDrivenWheels_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_get_mWheelsSimData_0 = Module["_emscripten_bind_PxVehicleNoDrive_get_mWheelsSimData_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_get_mWheelsSimData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_set_mWheelsSimData_1 = Module["_emscripten_bind_PxVehicleNoDrive_set_mWheelsSimData_1"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_set_mWheelsSimData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_get_mWheelsDynData_0 = Module["_emscripten_bind_PxVehicleNoDrive_get_mWheelsDynData_0"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_get_mWheelsDynData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleNoDrive_set_mWheelsDynData_1 = Module["_emscripten_bind_PxVehicleNoDrive_set_mWheelsDynData_1"] = createExportWrapper("emscripten_bind_PxVehicleNoDrive_set_mWheelsDynData_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleSuspensionData_PxVehicleSuspensionData_0 = Module["_emscripten_bind_PxVehicleSuspensionData_PxVehicleSuspensionData_0"] = createExportWrapper("emscripten_bind_PxVehicleSuspensionData_PxVehicleSuspensionData_0");
@@ -8670,6 +9005,114 @@ var _emscripten_bind_PxBounds3_set_maximum_1 = Module["_emscripten_bind_PxBounds
 var _emscripten_bind_PxBounds3___destroy___0 = Module["_emscripten_bind_PxBounds3___destroy___0"] = createExportWrapper("emscripten_bind_PxBounds3___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_contextIsValid_0 = Module["_emscripten_bind_PxCudaContextManager_contextIsValid_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_contextIsValid_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_supportsArchSM10_0 = Module["_emscripten_bind_PxCudaContextManager_supportsArchSM10_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_supportsArchSM10_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_supportsArchSM11_0 = Module["_emscripten_bind_PxCudaContextManager_supportsArchSM11_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_supportsArchSM11_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_supportsArchSM12_0 = Module["_emscripten_bind_PxCudaContextManager_supportsArchSM12_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_supportsArchSM12_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_supportsArchSM13_0 = Module["_emscripten_bind_PxCudaContextManager_supportsArchSM13_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_supportsArchSM13_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_supportsArchSM20_0 = Module["_emscripten_bind_PxCudaContextManager_supportsArchSM20_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_supportsArchSM20_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_supportsArchSM30_0 = Module["_emscripten_bind_PxCudaContextManager_supportsArchSM30_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_supportsArchSM30_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_supportsArchSM35_0 = Module["_emscripten_bind_PxCudaContextManager_supportsArchSM35_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_supportsArchSM35_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_supportsArchSM50_0 = Module["_emscripten_bind_PxCudaContextManager_supportsArchSM50_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_supportsArchSM50_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_supportsArchSM52_0 = Module["_emscripten_bind_PxCudaContextManager_supportsArchSM52_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_supportsArchSM52_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_isIntegrated_0 = Module["_emscripten_bind_PxCudaContextManager_isIntegrated_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_isIntegrated_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_canMapHostMemory_0 = Module["_emscripten_bind_PxCudaContextManager_canMapHostMemory_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_canMapHostMemory_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_getDriverVersion_0 = Module["_emscripten_bind_PxCudaContextManager_getDriverVersion_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_getDriverVersion_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_getDeviceTotalMemBytes_0 = Module["_emscripten_bind_PxCudaContextManager_getDeviceTotalMemBytes_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_getDeviceTotalMemBytes_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_getMultiprocessorCount_0 = Module["_emscripten_bind_PxCudaContextManager_getMultiprocessorCount_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_getMultiprocessorCount_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_getClockRate_0 = Module["_emscripten_bind_PxCudaContextManager_getClockRate_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_getClockRate_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_getSharedMemPerBlock_0 = Module["_emscripten_bind_PxCudaContextManager_getSharedMemPerBlock_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_getSharedMemPerBlock_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_getMaxThreadsPerBlock_0 = Module["_emscripten_bind_PxCudaContextManager_getMaxThreadsPerBlock_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_getMaxThreadsPerBlock_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_getDeviceName_0 = Module["_emscripten_bind_PxCudaContextManager_getDeviceName_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_getDeviceName_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_getInteropMode_0 = Module["_emscripten_bind_PxCudaContextManager_getInteropMode_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_getInteropMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_setUsingConcurrentStreams_1 = Module["_emscripten_bind_PxCudaContextManager_setUsingConcurrentStreams_1"] = createExportWrapper("emscripten_bind_PxCudaContextManager_setUsingConcurrentStreams_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_getUsingConcurrentStreams_0 = Module["_emscripten_bind_PxCudaContextManager_getUsingConcurrentStreams_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_getUsingConcurrentStreams_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_usingDedicatedGPU_0 = Module["_emscripten_bind_PxCudaContextManager_usingDedicatedGPU_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_usingDedicatedGPU_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManager_release_0 = Module["_emscripten_bind_PxCudaContextManager_release_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_release_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_PxCudaContextManagerDesc_0 = Module["_emscripten_bind_PxCudaContextManagerDesc_PxCudaContextManagerDesc_0"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_PxCudaContextManagerDesc_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_get_graphicsDevice_0 = Module["_emscripten_bind_PxCudaContextManagerDesc_get_graphicsDevice_0"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_get_graphicsDevice_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_set_graphicsDevice_1 = Module["_emscripten_bind_PxCudaContextManagerDesc_set_graphicsDevice_1"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_set_graphicsDevice_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_get_interopMode_0 = Module["_emscripten_bind_PxCudaContextManagerDesc_get_interopMode_0"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_get_interopMode_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_set_interopMode_1 = Module["_emscripten_bind_PxCudaContextManagerDesc_set_interopMode_1"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_set_interopMode_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_get_maxMemorySize_1 = Module["_emscripten_bind_PxCudaContextManagerDesc_get_maxMemorySize_1"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_get_maxMemorySize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_set_maxMemorySize_2 = Module["_emscripten_bind_PxCudaContextManagerDesc_set_maxMemorySize_2"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_set_maxMemorySize_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_get_memoryBaseSize_1 = Module["_emscripten_bind_PxCudaContextManagerDesc_get_memoryBaseSize_1"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_get_memoryBaseSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_set_memoryBaseSize_2 = Module["_emscripten_bind_PxCudaContextManagerDesc_set_memoryBaseSize_2"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_set_memoryBaseSize_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_get_memoryPageSize_1 = Module["_emscripten_bind_PxCudaContextManagerDesc_get_memoryPageSize_1"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_get_memoryPageSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc_set_memoryPageSize_2 = Module["_emscripten_bind_PxCudaContextManagerDesc_set_memoryPageSize_2"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc_set_memoryPageSize_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCudaContextManagerDesc___destroy___0 = Module["_emscripten_bind_PxCudaContextManagerDesc___destroy___0"] = createExportWrapper("emscripten_bind_PxCudaContextManagerDesc___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxDefaultErrorCallback_PxDefaultErrorCallback_0 = Module["_emscripten_bind_PxDefaultErrorCallback_PxDefaultErrorCallback_0"] = createExportWrapper("emscripten_bind_PxDefaultErrorCallback_PxDefaultErrorCallback_0");
 
 /** @type {function(...*):?} */
@@ -9865,6 +10308,96 @@ var _emscripten_bind_PxSphericalJointFlags_clear_1 = Module["_emscripten_bind_Px
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSphericalJointFlags___destroy___0 = Module["_emscripten_bind_PxSphericalJointFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxSphericalJointFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_BatchVehicleUpdateDesc_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_BatchVehicleUpdateDesc_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_BatchVehicleUpdateDesc_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_foundation_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_foundation_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_foundation_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_foundation_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_foundation_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_foundation_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_scene_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_scene_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_scene_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_scene_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_scene_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_scene_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_frictionPairs_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_frictionPairs_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_frictionPairs_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_frictionPairs_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_frictionPairs_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_frictionPairs_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_maxNbVehicles_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_maxNbVehicles_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_maxNbVehicles_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_maxNbVehicles_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_maxNbVehicles_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_maxNbVehicles_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_maxNbWheelsPerVehicle_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_maxNbWheelsPerVehicle_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_maxNbWheelsPerVehicle_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_maxNbWheelsPerVehicle_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_maxNbWheelsPerVehicle_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_maxNbWheelsPerVehicle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_maxNbHitPointsPerWheel_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_maxNbHitPointsPerWheel_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_maxNbHitPointsPerWheel_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_maxNbHitPointsPerWheel_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_maxNbHitPointsPerWheel_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_maxNbHitPointsPerWheel_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_numWorkers_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_numWorkers_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_numWorkers_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_numWorkers_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_numWorkers_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_numWorkers_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_batchSize_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_batchSize_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_batchSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_batchSize_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_batchSize_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_batchSize_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_preFilterShader_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_preFilterShader_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_preFilterShader_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_preFilterShader_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_preFilterShader_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_preFilterShader_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_get_postFilterShader_0 = Module["_emscripten_bind_BatchVehicleUpdateDesc_get_postFilterShader_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_get_postFilterShader_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc_set_postFilterShader_1 = Module["_emscripten_bind_BatchVehicleUpdateDesc_set_postFilterShader_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc_set_postFilterShader_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdateDesc___destroy___0 = Module["_emscripten_bind_BatchVehicleUpdateDesc___destroy___0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdateDesc___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdate_BatchVehicleUpdate_1 = Module["_emscripten_bind_BatchVehicleUpdate_BatchVehicleUpdate_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdate_BatchVehicleUpdate_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdate_addVehicle_1 = Module["_emscripten_bind_BatchVehicleUpdate_addVehicle_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdate_addVehicle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdate_removeVehicle_1 = Module["_emscripten_bind_BatchVehicleUpdate_removeVehicle_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdate_removeVehicle_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdate_removeAllVehicles_0 = Module["_emscripten_bind_BatchVehicleUpdate_removeAllVehicles_0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdate_removeAllVehicles_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdate_indexOf_1 = Module["_emscripten_bind_BatchVehicleUpdate_indexOf_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdate_indexOf_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdate_batchUpdate_1 = Module["_emscripten_bind_BatchVehicleUpdate_batchUpdate_1"] = createExportWrapper("emscripten_bind_BatchVehicleUpdate_batchUpdate_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdate_getWheelQueryResult_2 = Module["_emscripten_bind_BatchVehicleUpdate_getWheelQueryResult_2"] = createExportWrapper("emscripten_bind_BatchVehicleUpdate_getWheelQueryResult_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_BatchVehicleUpdate___destroy___0 = Module["_emscripten_bind_BatchVehicleUpdate___destroy___0"] = createExportWrapper("emscripten_bind_BatchVehicleUpdate___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxBoxController_getHalfHeight_0 = Module["_emscripten_bind_PxBoxController_getHalfHeight_0"] = createExportWrapper("emscripten_bind_PxBoxController_getHalfHeight_0");
@@ -11604,6 +12137,12 @@ var _emscripten_enum_PxVehicleDrive4WControlEnum_eANALOG_INPUT_STEER_RIGHT = Mod
 var _emscripten_enum_PxVehicleDrive4WControlEnum_eMAX_NB_DRIVE4W_ANALOG_INPUTS = Module["_emscripten_enum_PxVehicleDrive4WControlEnum_eMAX_NB_DRIVE4W_ANALOG_INPUTS"] = createExportWrapper("emscripten_enum_PxVehicleDrive4WControlEnum_eMAX_NB_DRIVE4W_ANALOG_INPUTS");
 
 /** @type {function(...*):?} */
+var _emscripten_enum_PxVehicleDriveTankControlModelEnum_eSTANDARD = Module["_emscripten_enum_PxVehicleDriveTankControlModelEnum_eSTANDARD"] = createExportWrapper("emscripten_enum_PxVehicleDriveTankControlModelEnum_eSTANDARD");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxVehicleDriveTankControlModelEnum_eSPECIAL = Module["_emscripten_enum_PxVehicleDriveTankControlModelEnum_eSPECIAL"] = createExportWrapper("emscripten_enum_PxVehicleDriveTankControlModelEnum_eSPECIAL");
+
+/** @type {function(...*):?} */
 var _emscripten_enum_PxVehicleGearEnum_eREVERSE = Module["_emscripten_enum_PxVehicleGearEnum_eREVERSE"] = createExportWrapper("emscripten_enum_PxVehicleGearEnum_eREVERSE");
 
 /** @type {function(...*):?} */
@@ -11821,6 +12360,30 @@ var _emscripten_enum_PxBaseFlagEnum_eOWNS_MEMORY = Module["_emscripten_enum_PxBa
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxBaseFlagEnum_eIS_RELEASABLE = Module["_emscripten_enum_PxBaseFlagEnum_eIS_RELEASABLE"] = createExportWrapper("emscripten_enum_PxBaseFlagEnum_eIS_RELEASABLE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxCudaBufferMemorySpaceEnum_T_GPU = Module["_emscripten_enum_PxCudaBufferMemorySpaceEnum_T_GPU"] = createExportWrapper("emscripten_enum_PxCudaBufferMemorySpaceEnum_T_GPU");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxCudaBufferMemorySpaceEnum_T_PINNED_HOST = Module["_emscripten_enum_PxCudaBufferMemorySpaceEnum_T_PINNED_HOST"] = createExportWrapper("emscripten_enum_PxCudaBufferMemorySpaceEnum_T_PINNED_HOST");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxCudaBufferMemorySpaceEnum_T_WRITE_COMBINED = Module["_emscripten_enum_PxCudaBufferMemorySpaceEnum_T_WRITE_COMBINED"] = createExportWrapper("emscripten_enum_PxCudaBufferMemorySpaceEnum_T_WRITE_COMBINED");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxCudaBufferMemorySpaceEnum_T_HOST = Module["_emscripten_enum_PxCudaBufferMemorySpaceEnum_T_HOST"] = createExportWrapper("emscripten_enum_PxCudaBufferMemorySpaceEnum_T_HOST");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxCudaInteropModeEnum_NO_INTEROP = Module["_emscripten_enum_PxCudaInteropModeEnum_NO_INTEROP"] = createExportWrapper("emscripten_enum_PxCudaInteropModeEnum_NO_INTEROP");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxCudaInteropModeEnum_D3D10_INTEROP = Module["_emscripten_enum_PxCudaInteropModeEnum_D3D10_INTEROP"] = createExportWrapper("emscripten_enum_PxCudaInteropModeEnum_D3D10_INTEROP");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxCudaInteropModeEnum_D3D11_INTEROP = Module["_emscripten_enum_PxCudaInteropModeEnum_D3D11_INTEROP"] = createExportWrapper("emscripten_enum_PxCudaInteropModeEnum_D3D11_INTEROP");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxCudaInteropModeEnum_OGL_INTEROP = Module["_emscripten_enum_PxCudaInteropModeEnum_OGL_INTEROP"] = createExportWrapper("emscripten_enum_PxCudaInteropModeEnum_OGL_INTEROP");
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxErrorCodeEnum_eNO_ERROR = Module["_emscripten_enum_PxErrorCodeEnum_eNO_ERROR"] = createExportWrapper("emscripten_enum_PxErrorCodeEnum_eNO_ERROR");
@@ -12677,6 +13240,16 @@ PxActor.prototype['isReleasable'] = PxActor.prototype.isReleasable = /** @suppre
   return !!(_emscripten_bind_PxActor_isReleasable_0(self));
 };;
 
+  PxActor.prototype['get_userData'] = PxActor.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxActor_get_userData_0(self), VoidPtr);
+};
+    PxActor.prototype['set_userData'] = PxActor.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxActor_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxActor.prototype, 'userData', { get: PxActor.prototype.get_userData, set: PxActor.prototype.set_userData });
 // PxActorShape
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxActorShape() { throw "cannot construct a PxActorShape, no constructor in IDL" }
 PxActorShape.prototype = Object.create(WrapperObject.prototype);
@@ -12892,6 +13465,16 @@ PxRigidActor.prototype['isReleasable'] = PxRigidActor.prototype.isReleasable = /
   return !!(_emscripten_bind_PxRigidActor_isReleasable_0(self));
 };;
 
+  PxRigidActor.prototype['get_userData'] = PxRigidActor.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxRigidActor_get_userData_0(self), VoidPtr);
+};
+    PxRigidActor.prototype['set_userData'] = PxRigidActor.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxRigidActor_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxRigidActor.prototype, 'userData', { get: PxRigidActor.prototype.get_userData, set: PxRigidActor.prototype.set_userData });
 // PxSimulationEventCallback
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxSimulationEventCallback() { throw "cannot construct a PxSimulationEventCallback, no constructor in IDL" }
 PxSimulationEventCallback.prototype = Object.create(WrapperObject.prototype);
@@ -13676,6 +14259,16 @@ PxRigidBody.prototype['getNbShapes'] = PxRigidBody.prototype.getNbShapes = /** @
   return _emscripten_bind_PxRigidBody_getNbShapes_0(self);
 };;
 
+  PxRigidBody.prototype['get_userData'] = PxRigidBody.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxRigidBody_get_userData_0(self), VoidPtr);
+};
+    PxRigidBody.prototype['set_userData'] = PxRigidBody.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxRigidBody_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxRigidBody.prototype, 'userData', { get: PxRigidBody.prototype.get_userData, set: PxRigidBody.prototype.set_userData });
 // SimpleSimulationEventCallback
 /** @suppress {undefinedVars, duplicate} @this{Object} */function SimpleSimulationEventCallback() { throw "cannot construct a SimpleSimulationEventCallback, no constructor in IDL" }
 SimpleSimulationEventCallback.prototype = Object.create(PxSimulationEventCallback.prototype);
@@ -14790,6 +15383,13 @@ PxTopLevelFunctions.prototype['InitExtensions'] = PxTopLevelFunctions.prototype.
   var self = this.ptr;
   if (physics && typeof physics === 'object') physics = physics.ptr;
   return !!(_emscripten_bind_PxTopLevelFunctions_InitExtensions_1(self, physics));
+};;
+
+PxTopLevelFunctions.prototype['CreateCudaContextManager'] = PxTopLevelFunctions.prototype.CreateCudaContextManager = /** @suppress {undefinedVars, duplicate} @this{Object} */function(foundation, desc) {
+  var self = this.ptr;
+  if (foundation && typeof foundation === 'object') foundation = foundation.ptr;
+  if (desc && typeof desc === 'object') desc = desc.ptr;
+  return wrapPointer(_emscripten_bind_PxTopLevelFunctions_CreateCudaContextManager_2(self, foundation, desc), PxCudaContextManager);
 };;
 
 PxTopLevelFunctions.prototype['D6JointCreate'] = PxTopLevelFunctions.prototype.D6JointCreate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(physics, actor0, localFrame0, actor1, localFrame1) {
@@ -16111,6 +16711,16 @@ PxArticulationLink.prototype['getInternalIslandNodeIndex'] = PxArticulationLink.
   return _emscripten_bind_PxArticulationLink_getInternalIslandNodeIndex_0(self);
 };;
 
+  PxArticulationLink.prototype['get_userData'] = PxArticulationLink.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxArticulationLink_get_userData_0(self), VoidPtr);
+};
+    PxArticulationLink.prototype['set_userData'] = PxArticulationLink.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxArticulationLink_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxArticulationLink.prototype, 'userData', { get: PxArticulationLink.prototype.get_userData, set: PxArticulationLink.prototype.set_userData });
 // PxArticulationReducedCoordinate
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxArticulationReducedCoordinate() { throw "cannot construct a PxArticulationReducedCoordinate, no constructor in IDL" }
 PxArticulationReducedCoordinate.prototype = Object.create(PxArticulationBase.prototype);
@@ -17659,6 +18269,16 @@ PxMaterial.prototype['isReleasable'] = PxMaterial.prototype.isReleasable = /** @
   return !!(_emscripten_bind_PxMaterial_isReleasable_0(self));
 };;
 
+  PxMaterial.prototype['get_userData'] = PxMaterial.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxMaterial_get_userData_0(self), VoidPtr);
+};
+    PxMaterial.prototype['set_userData'] = PxMaterial.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxMaterial_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxMaterial.prototype, 'userData', { get: PxMaterial.prototype.get_userData, set: PxMaterial.prototype.set_userData });
 // PxPairFlags
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxPairFlags(flags) {
   if (flags && typeof flags === 'object') flags = flags.ptr;
@@ -18582,6 +19202,16 @@ PxRigidDynamic.prototype['getInternalIslandNodeIndex'] = PxRigidDynamic.prototyp
   return _emscripten_bind_PxRigidDynamic_getInternalIslandNodeIndex_0(self);
 };;
 
+  PxRigidDynamic.prototype['get_userData'] = PxRigidDynamic.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxRigidDynamic_get_userData_0(self), VoidPtr);
+};
+    PxRigidDynamic.prototype['set_userData'] = PxRigidDynamic.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxRigidDynamic_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxRigidDynamic.prototype, 'userData', { get: PxRigidDynamic.prototype.get_userData, set: PxRigidDynamic.prototype.set_userData });
 // PxRigidDynamicLockFlags
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxRigidDynamicLockFlags(flags) {
   if (flags && typeof flags === 'object') flags = flags.ptr;
@@ -18752,6 +19382,16 @@ PxRigidStatic.prototype['getNbShapes'] = PxRigidStatic.prototype.getNbShapes = /
   return _emscripten_bind_PxRigidStatic_getNbShapes_0(self);
 };;
 
+  PxRigidStatic.prototype['get_userData'] = PxRigidStatic.prototype.get_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxRigidStatic_get_userData_0(self), VoidPtr);
+};
+    PxRigidStatic.prototype['set_userData'] = PxRigidStatic.prototype.set_userData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxRigidStatic_set_userData_1(self, arg0);
+};
+    Object.defineProperty(PxRigidStatic.prototype, 'userData', { get: PxRigidStatic.prototype.get_userData, set: PxRigidStatic.prototype.set_userData });
 // PxScene
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxScene() { throw "cannot construct a PxScene, no constructor in IDL" }
 PxScene.prototype = Object.create(WrapperObject.prototype);
@@ -21236,6 +21876,45 @@ Module['PxVehicleDifferential4WData'] = PxVehicleDifferential4WData;
   var self = this.ptr;
   _emscripten_bind_PxVehicleDifferential4WData___destroy___0(self);
 };
+// PxVehicleDifferentialNWData
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleDifferentialNWData() {
+  this.ptr = _emscripten_bind_PxVehicleDifferentialNWData_PxVehicleDifferentialNWData_0();
+  getCache(PxVehicleDifferentialNWData)[this.ptr] = this;
+};;
+PxVehicleDifferentialNWData.prototype = Object.create(WrapperObject.prototype);
+PxVehicleDifferentialNWData.prototype.constructor = PxVehicleDifferentialNWData;
+PxVehicleDifferentialNWData.prototype.__class__ = PxVehicleDifferentialNWData;
+PxVehicleDifferentialNWData.__cache__ = {};
+Module['PxVehicleDifferentialNWData'] = PxVehicleDifferentialNWData;
+
+PxVehicleDifferentialNWData.prototype['setDrivenWheel'] = PxVehicleDifferentialNWData.prototype.setDrivenWheel = /** @suppress {undefinedVars, duplicate} @this{Object} */function(wheelId, drivenState) {
+  var self = this.ptr;
+  if (wheelId && typeof wheelId === 'object') wheelId = wheelId.ptr;
+  if (drivenState && typeof drivenState === 'object') drivenState = drivenState.ptr;
+  _emscripten_bind_PxVehicleDifferentialNWData_setDrivenWheel_2(self, wheelId, drivenState);
+};;
+
+PxVehicleDifferentialNWData.prototype['getIsDrivenWheel'] = PxVehicleDifferentialNWData.prototype.getIsDrivenWheel = /** @suppress {undefinedVars, duplicate} @this{Object} */function(wheelId) {
+  var self = this.ptr;
+  if (wheelId && typeof wheelId === 'object') wheelId = wheelId.ptr;
+  return !!(_emscripten_bind_PxVehicleDifferentialNWData_getIsDrivenWheel_1(self, wheelId));
+};;
+
+PxVehicleDifferentialNWData.prototype['getDrivenWheelStatus'] = PxVehicleDifferentialNWData.prototype.getDrivenWheelStatus = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDifferentialNWData_getDrivenWheelStatus_0(self);
+};;
+
+PxVehicleDifferentialNWData.prototype['setDrivenWheelStatus'] = PxVehicleDifferentialNWData.prototype.setDrivenWheelStatus = /** @suppress {undefinedVars, duplicate} @this{Object} */function(status) {
+  var self = this.ptr;
+  if (status && typeof status === 'object') status = status.ptr;
+  _emscripten_bind_PxVehicleDifferentialNWData_setDrivenWheelStatus_1(self, status);
+};;
+
+  PxVehicleDifferentialNWData.prototype['__destroy__'] = PxVehicleDifferentialNWData.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxVehicleDifferentialNWData___destroy___0(self);
+};
 // PxVehicleDrivableSurfaceToTireFrictionPairs
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleDrivableSurfaceToTireFrictionPairs() { throw "cannot construct a PxVehicleDrivableSurfaceToTireFrictionPairs, no constructor in IDL" }
 PxVehicleDrivableSurfaceToTireFrictionPairs.prototype = Object.create(WrapperObject.prototype);
@@ -21691,6 +22370,138 @@ PxVehicleDriveDynData.prototype['setAutoBoxSwitchTime'] = PxVehicleDriveDynData.
   var self = this.ptr;
   _emscripten_bind_PxVehicleDriveDynData___destroy___0(self);
 };
+// PxVehicleDriveNW
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleDriveNW() { throw "cannot construct a PxVehicleDriveNW, no constructor in IDL" }
+PxVehicleDriveNW.prototype = Object.create(PxVehicleDrive.prototype);
+PxVehicleDriveNW.prototype.constructor = PxVehicleDriveNW;
+PxVehicleDriveNW.prototype.__class__ = PxVehicleDriveNW;
+PxVehicleDriveNW.__cache__ = {};
+Module['PxVehicleDriveNW'] = PxVehicleDriveNW;
+
+PxVehicleDriveNW.prototype['allocate'] = PxVehicleDriveNW.prototype.allocate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(nbWheels) {
+  var self = this.ptr;
+  if (nbWheels && typeof nbWheels === 'object') nbWheels = nbWheels.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveNW_allocate_1(self, nbWheels), PxVehicleDriveNW);
+};;
+
+PxVehicleDriveNW.prototype['free'] = PxVehicleDriveNW.prototype.free = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxVehicleDriveNW_free_0(self);
+};;
+
+PxVehicleDriveNW.prototype['setup'] = PxVehicleDriveNW.prototype.setup = /** @suppress {undefinedVars, duplicate} @this{Object} */function(physics, vehActor, wheelsData, driveData, nbWheels) {
+  var self = this.ptr;
+  if (physics && typeof physics === 'object') physics = physics.ptr;
+  if (vehActor && typeof vehActor === 'object') vehActor = vehActor.ptr;
+  if (wheelsData && typeof wheelsData === 'object') wheelsData = wheelsData.ptr;
+  if (driveData && typeof driveData === 'object') driveData = driveData.ptr;
+  if (nbWheels && typeof nbWheels === 'object') nbWheels = nbWheels.ptr;
+  _emscripten_bind_PxVehicleDriveNW_setup_5(self, physics, vehActor, wheelsData, driveData, nbWheels);
+};;
+
+PxVehicleDriveNW.prototype['setToRestState'] = PxVehicleDriveNW.prototype.setToRestState = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxVehicleDriveNW_setToRestState_0(self);
+};;
+
+PxVehicleDriveNW.prototype['getConcreteTypeName'] = PxVehicleDriveNW.prototype.getConcreteTypeName = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return UTF8ToString(_emscripten_bind_PxVehicleDriveNW_getConcreteTypeName_0(self));
+};;
+
+PxVehicleDriveNW.prototype['getConcreteType'] = PxVehicleDriveNW.prototype.getConcreteType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveNW_getConcreteType_0(self);
+};;
+
+PxVehicleDriveNW.prototype['setBaseFlag'] = PxVehicleDriveNW.prototype.setBaseFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxVehicleDriveNW_setBaseFlag_2(self, flag, value);
+};;
+
+PxVehicleDriveNW.prototype['setBaseFlags'] = PxVehicleDriveNW.prototype.setBaseFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(inFlags) {
+  var self = this.ptr;
+  if (inFlags && typeof inFlags === 'object') inFlags = inFlags.ptr;
+  _emscripten_bind_PxVehicleDriveNW_setBaseFlags_1(self, inFlags);
+};;
+
+PxVehicleDriveNW.prototype['getBaseFlags'] = PxVehicleDriveNW.prototype.getBaseFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveNW_getBaseFlags_0(self), PxBaseFlags);
+};;
+
+PxVehicleDriveNW.prototype['isReleasable'] = PxVehicleDriveNW.prototype.isReleasable = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxVehicleDriveNW_isReleasable_0(self));
+};;
+
+PxVehicleDriveNW.prototype['getVehicleType'] = PxVehicleDriveNW.prototype.getVehicleType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveNW_getVehicleType_0(self);
+};;
+
+PxVehicleDriveNW.prototype['getRigidDynamicActor'] = PxVehicleDriveNW.prototype.getRigidDynamicActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveNW_getRigidDynamicActor_0(self), PxRigidDynamic);
+};;
+
+PxVehicleDriveNW.prototype['computeForwardSpeed'] = PxVehicleDriveNW.prototype.computeForwardSpeed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveNW_computeForwardSpeed_0(self);
+};;
+
+PxVehicleDriveNW.prototype['computeSidewaysSpeed'] = PxVehicleDriveNW.prototype.computeSidewaysSpeed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveNW_computeSidewaysSpeed_0(self);
+};;
+
+PxVehicleDriveNW.prototype['getNbNonDrivenWheels'] = PxVehicleDriveNW.prototype.getNbNonDrivenWheels = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveNW_getNbNonDrivenWheels_0(self);
+};;
+
+  PxVehicleDriveNW.prototype['get_mDriveSimData'] = PxVehicleDriveNW.prototype.get_mDriveSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveNW_get_mDriveSimData_0(self), PxVehicleDriveSimDataNW);
+};
+    PxVehicleDriveNW.prototype['set_mDriveSimData'] = PxVehicleDriveNW.prototype.set_mDriveSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleDriveNW_set_mDriveSimData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleDriveNW.prototype, 'mDriveSimData', { get: PxVehicleDriveNW.prototype.get_mDriveSimData, set: PxVehicleDriveNW.prototype.set_mDriveSimData });
+  PxVehicleDriveNW.prototype['get_mDriveDynData'] = PxVehicleDriveNW.prototype.get_mDriveDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveNW_get_mDriveDynData_0(self), PxVehicleDriveDynData);
+};
+    PxVehicleDriveNW.prototype['set_mDriveDynData'] = PxVehicleDriveNW.prototype.set_mDriveDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleDriveNW_set_mDriveDynData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleDriveNW.prototype, 'mDriveDynData', { get: PxVehicleDriveNW.prototype.get_mDriveDynData, set: PxVehicleDriveNW.prototype.set_mDriveDynData });
+  PxVehicleDriveNW.prototype['get_mWheelsSimData'] = PxVehicleDriveNW.prototype.get_mWheelsSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveNW_get_mWheelsSimData_0(self), PxVehicleWheelsSimData);
+};
+    PxVehicleDriveNW.prototype['set_mWheelsSimData'] = PxVehicleDriveNW.prototype.set_mWheelsSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleDriveNW_set_mWheelsSimData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleDriveNW.prototype, 'mWheelsSimData', { get: PxVehicleDriveNW.prototype.get_mWheelsSimData, set: PxVehicleDriveNW.prototype.set_mWheelsSimData });
+  PxVehicleDriveNW.prototype['get_mWheelsDynData'] = PxVehicleDriveNW.prototype.get_mWheelsDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveNW_get_mWheelsDynData_0(self), PxVehicleWheelsDynData);
+};
+    PxVehicleDriveNW.prototype['set_mWheelsDynData'] = PxVehicleDriveNW.prototype.set_mWheelsDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleDriveNW_set_mWheelsDynData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleDriveNW.prototype, 'mWheelsDynData', { get: PxVehicleDriveNW.prototype.get_mWheelsDynData, set: PxVehicleDriveNW.prototype.set_mWheelsDynData });
 // PxVehicleDriveSimData4W
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleDriveSimData4W() {
   this.ptr = _emscripten_bind_PxVehicleDriveSimData4W_PxVehicleDriveSimData4W_0();
@@ -21772,6 +22583,219 @@ PxVehicleDriveSimData4W.prototype['setAutoBoxData'] = PxVehicleDriveSimData4W.pr
   var self = this.ptr;
   _emscripten_bind_PxVehicleDriveSimData4W___destroy___0(self);
 };
+// PxVehicleDriveSimDataNW
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleDriveSimDataNW() {
+  this.ptr = _emscripten_bind_PxVehicleDriveSimDataNW_PxVehicleDriveSimDataNW_0();
+  getCache(PxVehicleDriveSimDataNW)[this.ptr] = this;
+};;
+PxVehicleDriveSimDataNW.prototype = Object.create(PxVehicleDriveSimData.prototype);
+PxVehicleDriveSimDataNW.prototype.constructor = PxVehicleDriveSimDataNW;
+PxVehicleDriveSimDataNW.prototype.__class__ = PxVehicleDriveSimDataNW;
+PxVehicleDriveSimDataNW.__cache__ = {};
+Module['PxVehicleDriveSimDataNW'] = PxVehicleDriveSimDataNW;
+
+PxVehicleDriveSimDataNW.prototype['getDiffData'] = PxVehicleDriveSimDataNW.prototype.getDiffData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveSimDataNW_getDiffData_0(self), PxVehicleDifferentialNWData);
+};;
+
+PxVehicleDriveSimDataNW.prototype['setDiffData'] = PxVehicleDriveSimDataNW.prototype.setDiffData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(diff) {
+  var self = this.ptr;
+  if (diff && typeof diff === 'object') diff = diff.ptr;
+  _emscripten_bind_PxVehicleDriveSimDataNW_setDiffData_1(self, diff);
+};;
+
+PxVehicleDriveSimDataNW.prototype['getEngineData'] = PxVehicleDriveSimDataNW.prototype.getEngineData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveSimDataNW_getEngineData_0(self), PxVehicleEngineData);
+};;
+
+PxVehicleDriveSimDataNW.prototype['setEngineData'] = PxVehicleDriveSimDataNW.prototype.setEngineData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(engine) {
+  var self = this.ptr;
+  if (engine && typeof engine === 'object') engine = engine.ptr;
+  _emscripten_bind_PxVehicleDriveSimDataNW_setEngineData_1(self, engine);
+};;
+
+PxVehicleDriveSimDataNW.prototype['getGearsData'] = PxVehicleDriveSimDataNW.prototype.getGearsData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveSimDataNW_getGearsData_0(self), PxVehicleGearsData);
+};;
+
+PxVehicleDriveSimDataNW.prototype['setGearsData'] = PxVehicleDriveSimDataNW.prototype.setGearsData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(gears) {
+  var self = this.ptr;
+  if (gears && typeof gears === 'object') gears = gears.ptr;
+  _emscripten_bind_PxVehicleDriveSimDataNW_setGearsData_1(self, gears);
+};;
+
+PxVehicleDriveSimDataNW.prototype['getClutchData'] = PxVehicleDriveSimDataNW.prototype.getClutchData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveSimDataNW_getClutchData_0(self), PxVehicleClutchData);
+};;
+
+PxVehicleDriveSimDataNW.prototype['setClutchData'] = PxVehicleDriveSimDataNW.prototype.setClutchData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(clutch) {
+  var self = this.ptr;
+  if (clutch && typeof clutch === 'object') clutch = clutch.ptr;
+  _emscripten_bind_PxVehicleDriveSimDataNW_setClutchData_1(self, clutch);
+};;
+
+PxVehicleDriveSimDataNW.prototype['getAutoBoxData'] = PxVehicleDriveSimDataNW.prototype.getAutoBoxData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveSimDataNW_getAutoBoxData_0(self), PxVehicleAutoBoxData);
+};;
+
+PxVehicleDriveSimDataNW.prototype['setAutoBoxData'] = PxVehicleDriveSimDataNW.prototype.setAutoBoxData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(clutch) {
+  var self = this.ptr;
+  if (clutch && typeof clutch === 'object') clutch = clutch.ptr;
+  _emscripten_bind_PxVehicleDriveSimDataNW_setAutoBoxData_1(self, clutch);
+};;
+
+  PxVehicleDriveSimDataNW.prototype['__destroy__'] = PxVehicleDriveSimDataNW.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxVehicleDriveSimDataNW___destroy___0(self);
+};
+// PxVehicleDriveTank
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleDriveTank() { throw "cannot construct a PxVehicleDriveTank, no constructor in IDL" }
+PxVehicleDriveTank.prototype = Object.create(PxVehicleDrive.prototype);
+PxVehicleDriveTank.prototype.constructor = PxVehicleDriveTank;
+PxVehicleDriveTank.prototype.__class__ = PxVehicleDriveTank;
+PxVehicleDriveTank.__cache__ = {};
+Module['PxVehicleDriveTank'] = PxVehicleDriveTank;
+
+PxVehicleDriveTank.prototype['allocate'] = PxVehicleDriveTank.prototype.allocate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(nbWheels) {
+  var self = this.ptr;
+  if (nbWheels && typeof nbWheels === 'object') nbWheels = nbWheels.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveTank_allocate_1(self, nbWheels), PxVehicleDriveTank);
+};;
+
+PxVehicleDriveTank.prototype['free'] = PxVehicleDriveTank.prototype.free = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxVehicleDriveTank_free_0(self);
+};;
+
+PxVehicleDriveTank.prototype['setup'] = PxVehicleDriveTank.prototype.setup = /** @suppress {undefinedVars, duplicate} @this{Object} */function(physics, vehActor, wheelsData, driveData, nbDrivenWheels) {
+  var self = this.ptr;
+  if (physics && typeof physics === 'object') physics = physics.ptr;
+  if (vehActor && typeof vehActor === 'object') vehActor = vehActor.ptr;
+  if (wheelsData && typeof wheelsData === 'object') wheelsData = wheelsData.ptr;
+  if (driveData && typeof driveData === 'object') driveData = driveData.ptr;
+  if (nbDrivenWheels && typeof nbDrivenWheels === 'object') nbDrivenWheels = nbDrivenWheels.ptr;
+  _emscripten_bind_PxVehicleDriveTank_setup_5(self, physics, vehActor, wheelsData, driveData, nbDrivenWheels);
+};;
+
+PxVehicleDriveTank.prototype['setDriveModel'] = PxVehicleDriveTank.prototype.setDriveModel = /** @suppress {undefinedVars, duplicate} @this{Object} */function(driveModel) {
+  var self = this.ptr;
+  if (driveModel && typeof driveModel === 'object') driveModel = driveModel.ptr;
+  _emscripten_bind_PxVehicleDriveTank_setDriveModel_1(self, driveModel);
+};;
+
+PxVehicleDriveTank.prototype['getDriveModel'] = PxVehicleDriveTank.prototype.getDriveModel = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveTank_getDriveModel_0(self);
+};;
+
+PxVehicleDriveTank.prototype['setToRestState'] = PxVehicleDriveTank.prototype.setToRestState = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxVehicleDriveTank_setToRestState_0(self);
+};;
+
+PxVehicleDriveTank.prototype['getConcreteTypeName'] = PxVehicleDriveTank.prototype.getConcreteTypeName = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return UTF8ToString(_emscripten_bind_PxVehicleDriveTank_getConcreteTypeName_0(self));
+};;
+
+PxVehicleDriveTank.prototype['getConcreteType'] = PxVehicleDriveTank.prototype.getConcreteType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveTank_getConcreteType_0(self);
+};;
+
+PxVehicleDriveTank.prototype['setBaseFlag'] = PxVehicleDriveTank.prototype.setBaseFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxVehicleDriveTank_setBaseFlag_2(self, flag, value);
+};;
+
+PxVehicleDriveTank.prototype['setBaseFlags'] = PxVehicleDriveTank.prototype.setBaseFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(inFlags) {
+  var self = this.ptr;
+  if (inFlags && typeof inFlags === 'object') inFlags = inFlags.ptr;
+  _emscripten_bind_PxVehicleDriveTank_setBaseFlags_1(self, inFlags);
+};;
+
+PxVehicleDriveTank.prototype['getBaseFlags'] = PxVehicleDriveTank.prototype.getBaseFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveTank_getBaseFlags_0(self), PxBaseFlags);
+};;
+
+PxVehicleDriveTank.prototype['isReleasable'] = PxVehicleDriveTank.prototype.isReleasable = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxVehicleDriveTank_isReleasable_0(self));
+};;
+
+PxVehicleDriveTank.prototype['getVehicleType'] = PxVehicleDriveTank.prototype.getVehicleType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveTank_getVehicleType_0(self);
+};;
+
+PxVehicleDriveTank.prototype['getRigidDynamicActor'] = PxVehicleDriveTank.prototype.getRigidDynamicActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveTank_getRigidDynamicActor_0(self), PxRigidDynamic);
+};;
+
+PxVehicleDriveTank.prototype['computeForwardSpeed'] = PxVehicleDriveTank.prototype.computeForwardSpeed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveTank_computeForwardSpeed_0(self);
+};;
+
+PxVehicleDriveTank.prototype['computeSidewaysSpeed'] = PxVehicleDriveTank.prototype.computeSidewaysSpeed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveTank_computeSidewaysSpeed_0(self);
+};;
+
+PxVehicleDriveTank.prototype['getNbNonDrivenWheels'] = PxVehicleDriveTank.prototype.getNbNonDrivenWheels = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleDriveTank_getNbNonDrivenWheels_0(self);
+};;
+
+  PxVehicleDriveTank.prototype['get_mDriveSimData'] = PxVehicleDriveTank.prototype.get_mDriveSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveTank_get_mDriveSimData_0(self), PxVehicleDriveSimData);
+};
+    PxVehicleDriveTank.prototype['set_mDriveSimData'] = PxVehicleDriveTank.prototype.set_mDriveSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleDriveTank_set_mDriveSimData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleDriveTank.prototype, 'mDriveSimData', { get: PxVehicleDriveTank.prototype.get_mDriveSimData, set: PxVehicleDriveTank.prototype.set_mDriveSimData });
+  PxVehicleDriveTank.prototype['get_mDriveDynData'] = PxVehicleDriveTank.prototype.get_mDriveDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveTank_get_mDriveDynData_0(self), PxVehicleDriveDynData);
+};
+    PxVehicleDriveTank.prototype['set_mDriveDynData'] = PxVehicleDriveTank.prototype.set_mDriveDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleDriveTank_set_mDriveDynData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleDriveTank.prototype, 'mDriveDynData', { get: PxVehicleDriveTank.prototype.get_mDriveDynData, set: PxVehicleDriveTank.prototype.set_mDriveDynData });
+  PxVehicleDriveTank.prototype['get_mWheelsSimData'] = PxVehicleDriveTank.prototype.get_mWheelsSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveTank_get_mWheelsSimData_0(self), PxVehicleWheelsSimData);
+};
+    PxVehicleDriveTank.prototype['set_mWheelsSimData'] = PxVehicleDriveTank.prototype.set_mWheelsSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleDriveTank_set_mWheelsSimData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleDriveTank.prototype, 'mWheelsSimData', { get: PxVehicleDriveTank.prototype.get_mWheelsSimData, set: PxVehicleDriveTank.prototype.set_mWheelsSimData });
+  PxVehicleDriveTank.prototype['get_mWheelsDynData'] = PxVehicleDriveTank.prototype.get_mWheelsDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleDriveTank_get_mWheelsDynData_0(self), PxVehicleWheelsDynData);
+};
+    PxVehicleDriveTank.prototype['set_mWheelsDynData'] = PxVehicleDriveTank.prototype.set_mWheelsDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleDriveTank_set_mWheelsDynData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleDriveTank.prototype, 'mWheelsDynData', { get: PxVehicleDriveTank.prototype.get_mWheelsDynData, set: PxVehicleDriveTank.prototype.set_mWheelsDynData });
 // PxVehicleEngineData
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleEngineData() {
   this.ptr = _emscripten_bind_PxVehicleEngineData_PxVehicleEngineData_0();
@@ -22001,6 +23025,170 @@ PxVehicleGearsData.prototype['setGearRatio'] = PxVehicleGearsData.prototype.setG
   var self = this.ptr;
   _emscripten_bind_PxVehicleGearsData___destroy___0(self);
 };
+// PxVehicleNoDrive
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleNoDrive() { throw "cannot construct a PxVehicleNoDrive, no constructor in IDL" }
+PxVehicleNoDrive.prototype = Object.create(PxVehicleWheels.prototype);
+PxVehicleNoDrive.prototype.constructor = PxVehicleNoDrive;
+PxVehicleNoDrive.prototype.__class__ = PxVehicleNoDrive;
+PxVehicleNoDrive.__cache__ = {};
+Module['PxVehicleNoDrive'] = PxVehicleNoDrive;
+
+PxVehicleNoDrive.prototype['allocate'] = PxVehicleNoDrive.prototype.allocate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(nbWheels) {
+  var self = this.ptr;
+  if (nbWheels && typeof nbWheels === 'object') nbWheels = nbWheels.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleNoDrive_allocate_1(self, nbWheels), PxVehicleNoDrive);
+};;
+
+PxVehicleNoDrive.prototype['free'] = PxVehicleNoDrive.prototype.free = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxVehicleNoDrive_free_0(self);
+};;
+
+PxVehicleNoDrive.prototype['setup'] = PxVehicleNoDrive.prototype.setup = /** @suppress {undefinedVars, duplicate} @this{Object} */function(physics, vehActor, wheelsData) {
+  var self = this.ptr;
+  if (physics && typeof physics === 'object') physics = physics.ptr;
+  if (vehActor && typeof vehActor === 'object') vehActor = vehActor.ptr;
+  if (wheelsData && typeof wheelsData === 'object') wheelsData = wheelsData.ptr;
+  _emscripten_bind_PxVehicleNoDrive_setup_3(self, physics, vehActor, wheelsData);
+};;
+
+PxVehicleNoDrive.prototype['setToRestState'] = PxVehicleNoDrive.prototype.setToRestState = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxVehicleNoDrive_setToRestState_0(self);
+};;
+
+PxVehicleNoDrive.prototype['setBrakeTorque'] = PxVehicleNoDrive.prototype.setBrakeTorque = /** @suppress {undefinedVars, duplicate} @this{Object} */function(id, brakeTorque) {
+  var self = this.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  if (brakeTorque && typeof brakeTorque === 'object') brakeTorque = brakeTorque.ptr;
+  _emscripten_bind_PxVehicleNoDrive_setBrakeTorque_2(self, id, brakeTorque);
+};;
+
+PxVehicleNoDrive.prototype['setDriveTorque'] = PxVehicleNoDrive.prototype.setDriveTorque = /** @suppress {undefinedVars, duplicate} @this{Object} */function(id, driveTorque) {
+  var self = this.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  if (driveTorque && typeof driveTorque === 'object') driveTorque = driveTorque.ptr;
+  _emscripten_bind_PxVehicleNoDrive_setDriveTorque_2(self, id, driveTorque);
+};;
+
+PxVehicleNoDrive.prototype['setSteerAngle'] = PxVehicleNoDrive.prototype.setSteerAngle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(id, steerAngle) {
+  var self = this.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  if (steerAngle && typeof steerAngle === 'object') steerAngle = steerAngle.ptr;
+  _emscripten_bind_PxVehicleNoDrive_setSteerAngle_2(self, id, steerAngle);
+};;
+
+PxVehicleNoDrive.prototype['getBrakeTorque'] = PxVehicleNoDrive.prototype.getBrakeTorque = /** @suppress {undefinedVars, duplicate} @this{Object} */function(id) {
+  var self = this.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_getBrakeTorque_1(self, id);
+};;
+
+PxVehicleNoDrive.prototype['getDriveTorque'] = PxVehicleNoDrive.prototype.getDriveTorque = /** @suppress {undefinedVars, duplicate} @this{Object} */function(id) {
+  var self = this.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_getDriveTorque_1(self, id);
+};;
+
+PxVehicleNoDrive.prototype['getSteerAngle'] = PxVehicleNoDrive.prototype.getSteerAngle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(id) {
+  var self = this.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_getSteerAngle_1(self, id);
+};;
+
+PxVehicleNoDrive.prototype['getNbSteerAngle'] = PxVehicleNoDrive.prototype.getNbSteerAngle = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_getNbSteerAngle_0(self);
+};;
+
+PxVehicleNoDrive.prototype['getNbDriveTorque'] = PxVehicleNoDrive.prototype.getNbDriveTorque = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_getNbDriveTorque_0(self);
+};;
+
+PxVehicleNoDrive.prototype['getNbBrakeTorque'] = PxVehicleNoDrive.prototype.getNbBrakeTorque = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_getNbBrakeTorque_0(self);
+};;
+
+PxVehicleNoDrive.prototype['getConcreteTypeName'] = PxVehicleNoDrive.prototype.getConcreteTypeName = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return UTF8ToString(_emscripten_bind_PxVehicleNoDrive_getConcreteTypeName_0(self));
+};;
+
+PxVehicleNoDrive.prototype['getConcreteType'] = PxVehicleNoDrive.prototype.getConcreteType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_getConcreteType_0(self);
+};;
+
+PxVehicleNoDrive.prototype['setBaseFlag'] = PxVehicleNoDrive.prototype.setBaseFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxVehicleNoDrive_setBaseFlag_2(self, flag, value);
+};;
+
+PxVehicleNoDrive.prototype['setBaseFlags'] = PxVehicleNoDrive.prototype.setBaseFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(inFlags) {
+  var self = this.ptr;
+  if (inFlags && typeof inFlags === 'object') inFlags = inFlags.ptr;
+  _emscripten_bind_PxVehicleNoDrive_setBaseFlags_1(self, inFlags);
+};;
+
+PxVehicleNoDrive.prototype['getBaseFlags'] = PxVehicleNoDrive.prototype.getBaseFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleNoDrive_getBaseFlags_0(self), PxBaseFlags);
+};;
+
+PxVehicleNoDrive.prototype['isReleasable'] = PxVehicleNoDrive.prototype.isReleasable = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxVehicleNoDrive_isReleasable_0(self));
+};;
+
+PxVehicleNoDrive.prototype['getVehicleType'] = PxVehicleNoDrive.prototype.getVehicleType = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_getVehicleType_0(self);
+};;
+
+PxVehicleNoDrive.prototype['getRigidDynamicActor'] = PxVehicleNoDrive.prototype.getRigidDynamicActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleNoDrive_getRigidDynamicActor_0(self), PxRigidDynamic);
+};;
+
+PxVehicleNoDrive.prototype['computeForwardSpeed'] = PxVehicleNoDrive.prototype.computeForwardSpeed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_computeForwardSpeed_0(self);
+};;
+
+PxVehicleNoDrive.prototype['computeSidewaysSpeed'] = PxVehicleNoDrive.prototype.computeSidewaysSpeed = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_computeSidewaysSpeed_0(self);
+};;
+
+PxVehicleNoDrive.prototype['getNbNonDrivenWheels'] = PxVehicleNoDrive.prototype.getNbNonDrivenWheels = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxVehicleNoDrive_getNbNonDrivenWheels_0(self);
+};;
+
+  PxVehicleNoDrive.prototype['get_mWheelsSimData'] = PxVehicleNoDrive.prototype.get_mWheelsSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleNoDrive_get_mWheelsSimData_0(self), PxVehicleWheelsSimData);
+};
+    PxVehicleNoDrive.prototype['set_mWheelsSimData'] = PxVehicleNoDrive.prototype.set_mWheelsSimData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleNoDrive_set_mWheelsSimData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleNoDrive.prototype, 'mWheelsSimData', { get: PxVehicleNoDrive.prototype.get_mWheelsSimData, set: PxVehicleNoDrive.prototype.set_mWheelsSimData });
+  PxVehicleNoDrive.prototype['get_mWheelsDynData'] = PxVehicleNoDrive.prototype.get_mWheelsDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleNoDrive_get_mWheelsDynData_0(self), PxVehicleWheelsDynData);
+};
+    PxVehicleNoDrive.prototype['set_mWheelsDynData'] = PxVehicleNoDrive.prototype.set_mWheelsDynData = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxVehicleNoDrive_set_mWheelsDynData_1(self, arg0);
+};
+    Object.defineProperty(PxVehicleNoDrive.prototype, 'mWheelsDynData', { get: PxVehicleNoDrive.prototype.get_mWheelsDynData, set: PxVehicleNoDrive.prototype.set_mWheelsDynData });
 // PxVehicleSuspensionData
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleSuspensionData() {
   this.ptr = _emscripten_bind_PxVehicleSuspensionData_PxVehicleSuspensionData_0();
@@ -24839,6 +26027,201 @@ PxCudaContextManager.prototype.__class__ = PxCudaContextManager;
 PxCudaContextManager.__cache__ = {};
 Module['PxCudaContextManager'] = PxCudaContextManager;
 
+PxCudaContextManager.prototype['contextIsValid'] = PxCudaContextManager.prototype.contextIsValid = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_contextIsValid_0(self));
+};;
+
+PxCudaContextManager.prototype['supportsArchSM10'] = PxCudaContextManager.prototype.supportsArchSM10 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_supportsArchSM10_0(self));
+};;
+
+PxCudaContextManager.prototype['supportsArchSM11'] = PxCudaContextManager.prototype.supportsArchSM11 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_supportsArchSM11_0(self));
+};;
+
+PxCudaContextManager.prototype['supportsArchSM12'] = PxCudaContextManager.prototype.supportsArchSM12 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_supportsArchSM12_0(self));
+};;
+
+PxCudaContextManager.prototype['supportsArchSM13'] = PxCudaContextManager.prototype.supportsArchSM13 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_supportsArchSM13_0(self));
+};;
+
+PxCudaContextManager.prototype['supportsArchSM20'] = PxCudaContextManager.prototype.supportsArchSM20 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_supportsArchSM20_0(self));
+};;
+
+PxCudaContextManager.prototype['supportsArchSM30'] = PxCudaContextManager.prototype.supportsArchSM30 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_supportsArchSM30_0(self));
+};;
+
+PxCudaContextManager.prototype['supportsArchSM35'] = PxCudaContextManager.prototype.supportsArchSM35 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_supportsArchSM35_0(self));
+};;
+
+PxCudaContextManager.prototype['supportsArchSM50'] = PxCudaContextManager.prototype.supportsArchSM50 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_supportsArchSM50_0(self));
+};;
+
+PxCudaContextManager.prototype['supportsArchSM52'] = PxCudaContextManager.prototype.supportsArchSM52 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_supportsArchSM52_0(self));
+};;
+
+PxCudaContextManager.prototype['isIntegrated'] = PxCudaContextManager.prototype.isIntegrated = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_isIntegrated_0(self));
+};;
+
+PxCudaContextManager.prototype['canMapHostMemory'] = PxCudaContextManager.prototype.canMapHostMemory = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_canMapHostMemory_0(self));
+};;
+
+PxCudaContextManager.prototype['getDriverVersion'] = PxCudaContextManager.prototype.getDriverVersion = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCudaContextManager_getDriverVersion_0(self);
+};;
+
+PxCudaContextManager.prototype['getDeviceTotalMemBytes'] = PxCudaContextManager.prototype.getDeviceTotalMemBytes = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCudaContextManager_getDeviceTotalMemBytes_0(self);
+};;
+
+PxCudaContextManager.prototype['getMultiprocessorCount'] = PxCudaContextManager.prototype.getMultiprocessorCount = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCudaContextManager_getMultiprocessorCount_0(self);
+};;
+
+PxCudaContextManager.prototype['getClockRate'] = PxCudaContextManager.prototype.getClockRate = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCudaContextManager_getClockRate_0(self);
+};;
+
+PxCudaContextManager.prototype['getSharedMemPerBlock'] = PxCudaContextManager.prototype.getSharedMemPerBlock = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCudaContextManager_getSharedMemPerBlock_0(self);
+};;
+
+PxCudaContextManager.prototype['getMaxThreadsPerBlock'] = PxCudaContextManager.prototype.getMaxThreadsPerBlock = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCudaContextManager_getMaxThreadsPerBlock_0(self);
+};;
+
+PxCudaContextManager.prototype['getDeviceName'] = PxCudaContextManager.prototype.getDeviceName = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return UTF8ToString(_emscripten_bind_PxCudaContextManager_getDeviceName_0(self));
+};;
+
+PxCudaContextManager.prototype['getInteropMode'] = PxCudaContextManager.prototype.getInteropMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCudaContextManager_getInteropMode_0(self);
+};;
+
+PxCudaContextManager.prototype['setUsingConcurrentStreams'] = PxCudaContextManager.prototype.setUsingConcurrentStreams = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxCudaContextManager_setUsingConcurrentStreams_1(self, flag);
+};;
+
+PxCudaContextManager.prototype['getUsingConcurrentStreams'] = PxCudaContextManager.prototype.getUsingConcurrentStreams = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxCudaContextManager_getUsingConcurrentStreams_0(self));
+};;
+
+PxCudaContextManager.prototype['usingDedicatedGPU'] = PxCudaContextManager.prototype.usingDedicatedGPU = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCudaContextManager_usingDedicatedGPU_0(self);
+};;
+
+PxCudaContextManager.prototype['release'] = PxCudaContextManager.prototype.release = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxCudaContextManager_release_0(self);
+};;
+
+// PxCudaContextManagerDesc
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxCudaContextManagerDesc() {
+  this.ptr = _emscripten_bind_PxCudaContextManagerDesc_PxCudaContextManagerDesc_0();
+  getCache(PxCudaContextManagerDesc)[this.ptr] = this;
+};;
+PxCudaContextManagerDesc.prototype = Object.create(WrapperObject.prototype);
+PxCudaContextManagerDesc.prototype.constructor = PxCudaContextManagerDesc;
+PxCudaContextManagerDesc.prototype.__class__ = PxCudaContextManagerDesc;
+PxCudaContextManagerDesc.__cache__ = {};
+Module['PxCudaContextManagerDesc'] = PxCudaContextManagerDesc;
+
+  PxCudaContextManagerDesc.prototype['get_graphicsDevice'] = PxCudaContextManagerDesc.prototype.get_graphicsDevice = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCudaContextManagerDesc_get_graphicsDevice_0(self), VoidPtr);
+};
+    PxCudaContextManagerDesc.prototype['set_graphicsDevice'] = PxCudaContextManagerDesc.prototype.set_graphicsDevice = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCudaContextManagerDesc_set_graphicsDevice_1(self, arg0);
+};
+    Object.defineProperty(PxCudaContextManagerDesc.prototype, 'graphicsDevice', { get: PxCudaContextManagerDesc.prototype.get_graphicsDevice, set: PxCudaContextManagerDesc.prototype.set_graphicsDevice });
+  PxCudaContextManagerDesc.prototype['get_interopMode'] = PxCudaContextManagerDesc.prototype.get_interopMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCudaContextManagerDesc_get_interopMode_0(self);
+};
+    PxCudaContextManagerDesc.prototype['set_interopMode'] = PxCudaContextManagerDesc.prototype.set_interopMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCudaContextManagerDesc_set_interopMode_1(self, arg0);
+};
+    Object.defineProperty(PxCudaContextManagerDesc.prototype, 'interopMode', { get: PxCudaContextManagerDesc.prototype.get_interopMode, set: PxCudaContextManagerDesc.prototype.set_interopMode });
+  PxCudaContextManagerDesc.prototype['get_maxMemorySize'] = PxCudaContextManagerDesc.prototype.get_maxMemorySize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_PxCudaContextManagerDesc_get_maxMemorySize_1(self, arg0);
+};
+    PxCudaContextManagerDesc.prototype['set_maxMemorySize'] = PxCudaContextManagerDesc.prototype.set_maxMemorySize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_PxCudaContextManagerDesc_set_maxMemorySize_2(self, arg0, arg1);
+};
+    Object.defineProperty(PxCudaContextManagerDesc.prototype, 'maxMemorySize', { get: PxCudaContextManagerDesc.prototype.get_maxMemorySize, set: PxCudaContextManagerDesc.prototype.set_maxMemorySize });
+  PxCudaContextManagerDesc.prototype['get_memoryBaseSize'] = PxCudaContextManagerDesc.prototype.get_memoryBaseSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_PxCudaContextManagerDesc_get_memoryBaseSize_1(self, arg0);
+};
+    PxCudaContextManagerDesc.prototype['set_memoryBaseSize'] = PxCudaContextManagerDesc.prototype.set_memoryBaseSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_PxCudaContextManagerDesc_set_memoryBaseSize_2(self, arg0, arg1);
+};
+    Object.defineProperty(PxCudaContextManagerDesc.prototype, 'memoryBaseSize', { get: PxCudaContextManagerDesc.prototype.get_memoryBaseSize, set: PxCudaContextManagerDesc.prototype.set_memoryBaseSize });
+  PxCudaContextManagerDesc.prototype['get_memoryPageSize'] = PxCudaContextManagerDesc.prototype.get_memoryPageSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return _emscripten_bind_PxCudaContextManagerDesc_get_memoryPageSize_1(self, arg0);
+};
+    PxCudaContextManagerDesc.prototype['set_memoryPageSize'] = PxCudaContextManagerDesc.prototype.set_memoryPageSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0, arg1) {
+  var self = this.ptr;
+  ensureCache.prepare();
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
+  _emscripten_bind_PxCudaContextManagerDesc_set_memoryPageSize_2(self, arg0, arg1);
+};
+    Object.defineProperty(PxCudaContextManagerDesc.prototype, 'memoryPageSize', { get: PxCudaContextManagerDesc.prototype.get_memoryPageSize, set: PxCudaContextManagerDesc.prototype.set_memoryPageSize });
+  PxCudaContextManagerDesc.prototype['__destroy__'] = PxCudaContextManagerDesc.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxCudaContextManagerDesc___destroy___0(self);
+};
 // PxDefaultErrorCallback
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxDefaultErrorCallback() {
   this.ptr = _emscripten_bind_PxDefaultErrorCallback_PxDefaultErrorCallback_0();
@@ -27199,6 +28582,173 @@ PxSphericalJointFlags.prototype['clear'] = PxSphericalJointFlags.prototype.clear
   PxSphericalJointFlags.prototype['__destroy__'] = PxSphericalJointFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxSphericalJointFlags___destroy___0(self);
+};
+// BatchVehicleUpdateDesc
+/** @suppress {undefinedVars, duplicate} @this{Object} */function BatchVehicleUpdateDesc() {
+  this.ptr = _emscripten_bind_BatchVehicleUpdateDesc_BatchVehicleUpdateDesc_0();
+  getCache(BatchVehicleUpdateDesc)[this.ptr] = this;
+};;
+BatchVehicleUpdateDesc.prototype = Object.create(WrapperObject.prototype);
+BatchVehicleUpdateDesc.prototype.constructor = BatchVehicleUpdateDesc;
+BatchVehicleUpdateDesc.prototype.__class__ = BatchVehicleUpdateDesc;
+BatchVehicleUpdateDesc.__cache__ = {};
+Module['BatchVehicleUpdateDesc'] = BatchVehicleUpdateDesc;
+
+  BatchVehicleUpdateDesc.prototype['get_foundation'] = BatchVehicleUpdateDesc.prototype.get_foundation = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_BatchVehicleUpdateDesc_get_foundation_0(self), PxFoundation);
+};
+    BatchVehicleUpdateDesc.prototype['set_foundation'] = BatchVehicleUpdateDesc.prototype.set_foundation = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_foundation_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'foundation', { get: BatchVehicleUpdateDesc.prototype.get_foundation, set: BatchVehicleUpdateDesc.prototype.set_foundation });
+  BatchVehicleUpdateDesc.prototype['get_scene'] = BatchVehicleUpdateDesc.prototype.get_scene = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_BatchVehicleUpdateDesc_get_scene_0(self), PxScene);
+};
+    BatchVehicleUpdateDesc.prototype['set_scene'] = BatchVehicleUpdateDesc.prototype.set_scene = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_scene_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'scene', { get: BatchVehicleUpdateDesc.prototype.get_scene, set: BatchVehicleUpdateDesc.prototype.set_scene });
+  BatchVehicleUpdateDesc.prototype['get_frictionPairs'] = BatchVehicleUpdateDesc.prototype.get_frictionPairs = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_BatchVehicleUpdateDesc_get_frictionPairs_0(self), PxVehicleDrivableSurfaceToTireFrictionPairs);
+};
+    BatchVehicleUpdateDesc.prototype['set_frictionPairs'] = BatchVehicleUpdateDesc.prototype.set_frictionPairs = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_frictionPairs_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'frictionPairs', { get: BatchVehicleUpdateDesc.prototype.get_frictionPairs, set: BatchVehicleUpdateDesc.prototype.set_frictionPairs });
+  BatchVehicleUpdateDesc.prototype['get_maxNbVehicles'] = BatchVehicleUpdateDesc.prototype.get_maxNbVehicles = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_BatchVehicleUpdateDesc_get_maxNbVehicles_0(self);
+};
+    BatchVehicleUpdateDesc.prototype['set_maxNbVehicles'] = BatchVehicleUpdateDesc.prototype.set_maxNbVehicles = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_maxNbVehicles_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'maxNbVehicles', { get: BatchVehicleUpdateDesc.prototype.get_maxNbVehicles, set: BatchVehicleUpdateDesc.prototype.set_maxNbVehicles });
+  BatchVehicleUpdateDesc.prototype['get_maxNbWheelsPerVehicle'] = BatchVehicleUpdateDesc.prototype.get_maxNbWheelsPerVehicle = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_BatchVehicleUpdateDesc_get_maxNbWheelsPerVehicle_0(self);
+};
+    BatchVehicleUpdateDesc.prototype['set_maxNbWheelsPerVehicle'] = BatchVehicleUpdateDesc.prototype.set_maxNbWheelsPerVehicle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_maxNbWheelsPerVehicle_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'maxNbWheelsPerVehicle', { get: BatchVehicleUpdateDesc.prototype.get_maxNbWheelsPerVehicle, set: BatchVehicleUpdateDesc.prototype.set_maxNbWheelsPerVehicle });
+  BatchVehicleUpdateDesc.prototype['get_maxNbHitPointsPerWheel'] = BatchVehicleUpdateDesc.prototype.get_maxNbHitPointsPerWheel = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_BatchVehicleUpdateDesc_get_maxNbHitPointsPerWheel_0(self);
+};
+    BatchVehicleUpdateDesc.prototype['set_maxNbHitPointsPerWheel'] = BatchVehicleUpdateDesc.prototype.set_maxNbHitPointsPerWheel = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_maxNbHitPointsPerWheel_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'maxNbHitPointsPerWheel', { get: BatchVehicleUpdateDesc.prototype.get_maxNbHitPointsPerWheel, set: BatchVehicleUpdateDesc.prototype.set_maxNbHitPointsPerWheel });
+  BatchVehicleUpdateDesc.prototype['get_numWorkers'] = BatchVehicleUpdateDesc.prototype.get_numWorkers = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_BatchVehicleUpdateDesc_get_numWorkers_0(self);
+};
+    BatchVehicleUpdateDesc.prototype['set_numWorkers'] = BatchVehicleUpdateDesc.prototype.set_numWorkers = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_numWorkers_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'numWorkers', { get: BatchVehicleUpdateDesc.prototype.get_numWorkers, set: BatchVehicleUpdateDesc.prototype.set_numWorkers });
+  BatchVehicleUpdateDesc.prototype['get_batchSize'] = BatchVehicleUpdateDesc.prototype.get_batchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_BatchVehicleUpdateDesc_get_batchSize_0(self);
+};
+    BatchVehicleUpdateDesc.prototype['set_batchSize'] = BatchVehicleUpdateDesc.prototype.set_batchSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_batchSize_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'batchSize', { get: BatchVehicleUpdateDesc.prototype.get_batchSize, set: BatchVehicleUpdateDesc.prototype.set_batchSize });
+  BatchVehicleUpdateDesc.prototype['get_preFilterShader'] = BatchVehicleUpdateDesc.prototype.get_preFilterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_BatchVehicleUpdateDesc_get_preFilterShader_0(self), PxBatchQueryPreFilterShader);
+};
+    BatchVehicleUpdateDesc.prototype['set_preFilterShader'] = BatchVehicleUpdateDesc.prototype.set_preFilterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_preFilterShader_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'preFilterShader', { get: BatchVehicleUpdateDesc.prototype.get_preFilterShader, set: BatchVehicleUpdateDesc.prototype.set_preFilterShader });
+  BatchVehicleUpdateDesc.prototype['get_postFilterShader'] = BatchVehicleUpdateDesc.prototype.get_postFilterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_BatchVehicleUpdateDesc_get_postFilterShader_0(self), PxBatchQueryPostFilterShader);
+};
+    BatchVehicleUpdateDesc.prototype['set_postFilterShader'] = BatchVehicleUpdateDesc.prototype.set_postFilterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc_set_postFilterShader_1(self, arg0);
+};
+    Object.defineProperty(BatchVehicleUpdateDesc.prototype, 'postFilterShader', { get: BatchVehicleUpdateDesc.prototype.get_postFilterShader, set: BatchVehicleUpdateDesc.prototype.set_postFilterShader });
+  BatchVehicleUpdateDesc.prototype['__destroy__'] = BatchVehicleUpdateDesc.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_BatchVehicleUpdateDesc___destroy___0(self);
+};
+// BatchVehicleUpdate
+/** @suppress {undefinedVars, duplicate} @this{Object} */function BatchVehicleUpdate(desc) {
+  if (desc && typeof desc === 'object') desc = desc.ptr;
+  this.ptr = _emscripten_bind_BatchVehicleUpdate_BatchVehicleUpdate_1(desc);
+  getCache(BatchVehicleUpdate)[this.ptr] = this;
+};;
+BatchVehicleUpdate.prototype = Object.create(WrapperObject.prototype);
+BatchVehicleUpdate.prototype.constructor = BatchVehicleUpdate;
+BatchVehicleUpdate.prototype.__class__ = BatchVehicleUpdate;
+BatchVehicleUpdate.__cache__ = {};
+Module['BatchVehicleUpdate'] = BatchVehicleUpdate;
+
+BatchVehicleUpdate.prototype['addVehicle'] = BatchVehicleUpdate.prototype.addVehicle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(vehicle) {
+  var self = this.ptr;
+  if (vehicle && typeof vehicle === 'object') vehicle = vehicle.ptr;
+  _emscripten_bind_BatchVehicleUpdate_addVehicle_1(self, vehicle);
+};;
+
+BatchVehicleUpdate.prototype['removeVehicle'] = BatchVehicleUpdate.prototype.removeVehicle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(vehicle) {
+  var self = this.ptr;
+  if (vehicle && typeof vehicle === 'object') vehicle = vehicle.ptr;
+  _emscripten_bind_BatchVehicleUpdate_removeVehicle_1(self, vehicle);
+};;
+
+BatchVehicleUpdate.prototype['removeAllVehicles'] = BatchVehicleUpdate.prototype.removeAllVehicles = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_BatchVehicleUpdate_removeAllVehicles_0(self);
+};;
+
+BatchVehicleUpdate.prototype['indexOf'] = BatchVehicleUpdate.prototype.indexOf = /** @suppress {undefinedVars, duplicate} @this{Object} */function(vehicle) {
+  var self = this.ptr;
+  if (vehicle && typeof vehicle === 'object') vehicle = vehicle.ptr;
+  return _emscripten_bind_BatchVehicleUpdate_indexOf_1(self, vehicle);
+};;
+
+BatchVehicleUpdate.prototype['batchUpdate'] = BatchVehicleUpdate.prototype.batchUpdate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(timestep) {
+  var self = this.ptr;
+  if (timestep && typeof timestep === 'object') timestep = timestep.ptr;
+  _emscripten_bind_BatchVehicleUpdate_batchUpdate_1(self, timestep);
+};;
+
+BatchVehicleUpdate.prototype['getWheelQueryResult'] = BatchVehicleUpdate.prototype.getWheelQueryResult = /** @suppress {undefinedVars, duplicate} @this{Object} */function(vehicleId, wheelId) {
+  var self = this.ptr;
+  if (vehicleId && typeof vehicleId === 'object') vehicleId = vehicleId.ptr;
+  if (wheelId && typeof wheelId === 'object') wheelId = wheelId.ptr;
+  return wrapPointer(_emscripten_bind_BatchVehicleUpdate_getWheelQueryResult_2(self, vehicleId, wheelId), PxWheelQueryResult);
+};;
+
+  BatchVehicleUpdate.prototype['__destroy__'] = BatchVehicleUpdate.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_BatchVehicleUpdate___destroy___0(self);
 };
 // PxBoxController
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxBoxController() { throw "cannot construct a PxBoxController, no constructor in IDL" }
@@ -30016,6 +31566,14 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
 
     
 
+    // PxVehicleDriveTankControlModelEnum
+
+    Module['eSTANDARD'] = _emscripten_enum_PxVehicleDriveTankControlModelEnum_eSTANDARD();
+
+    Module['eSPECIAL'] = _emscripten_enum_PxVehicleDriveTankControlModelEnum_eSPECIAL();
+
+    
+
     // PxVehicleGearEnum
 
     Module['eREVERSE'] = _emscripten_enum_PxVehicleGearEnum_eREVERSE();
@@ -30227,6 +31785,30 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
     Module['eOWNS_MEMORY'] = _emscripten_enum_PxBaseFlagEnum_eOWNS_MEMORY();
 
     Module['eIS_RELEASABLE'] = _emscripten_enum_PxBaseFlagEnum_eIS_RELEASABLE();
+
+    
+
+    // PxCudaBufferMemorySpaceEnum
+
+    Module['T_GPU'] = _emscripten_enum_PxCudaBufferMemorySpaceEnum_T_GPU();
+
+    Module['T_PINNED_HOST'] = _emscripten_enum_PxCudaBufferMemorySpaceEnum_T_PINNED_HOST();
+
+    Module['T_WRITE_COMBINED'] = _emscripten_enum_PxCudaBufferMemorySpaceEnum_T_WRITE_COMBINED();
+
+    Module['T_HOST'] = _emscripten_enum_PxCudaBufferMemorySpaceEnum_T_HOST();
+
+    
+
+    // PxCudaInteropModeEnum
+
+    Module['NO_INTEROP'] = _emscripten_enum_PxCudaInteropModeEnum_NO_INTEROP();
+
+    Module['D3D10_INTEROP'] = _emscripten_enum_PxCudaInteropModeEnum_D3D10_INTEROP();
+
+    Module['D3D11_INTEROP'] = _emscripten_enum_PxCudaInteropModeEnum_D3D11_INTEROP();
+
+    Module['OGL_INTEROP'] = _emscripten_enum_PxCudaInteropModeEnum_OGL_INTEROP();
 
     
 
