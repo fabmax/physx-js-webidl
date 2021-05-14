@@ -1264,9 +1264,9 @@ function updateGlobalBufferAndViews(buf) {
   Module['HEAPF64'] = HEAPF64 = new Float64Array(buf);
 }
 
-var STACK_BASE = 5431968,
+var STACK_BASE = 5431952,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 189088;
+    STACK_MAX = 189072;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 
@@ -3384,12 +3384,6 @@ var _emscripten_bind_VoidPtr___destroy___0 = Module["_emscripten_bind_VoidPtr___
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_DefaultFilterShader_0 = Module["_emscripten_bind_PxTopLevelFunctions_DefaultFilterShader_0"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_DefaultFilterShader_0");
-
-/** @type {function(...*):?} */
-var _emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPreFilterBlocking_0 = Module["_emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPreFilterBlocking_0"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPreFilterBlocking_0");
-
-/** @type {function(...*):?} */
-var _emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0 = Module["_emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1 = Module["_emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1");
@@ -6681,6 +6675,12 @@ var _emscripten_bind_PxVehicleTopLevelFunctions_PxVehicleTireData_getFrictionVsS
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleTopLevelFunctions_PxVehicleTireData_setFrictionVsSlipGraph_4 = Module["_emscripten_bind_PxVehicleTopLevelFunctions_PxVehicleTireData_setFrictionVsSlipGraph_4"] = createExportWrapper("emscripten_bind_PxVehicleTopLevelFunctions_PxVehicleTireData_setFrictionVsSlipGraph_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleTopLevelFunctions_DefaultWheelSceneQueryPreFilterBlocking_0 = Module["_emscripten_bind_PxVehicleTopLevelFunctions_DefaultWheelSceneQueryPreFilterBlocking_0"] = createExportWrapper("emscripten_bind_PxVehicleTopLevelFunctions_DefaultWheelSceneQueryPreFilterBlocking_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxVehicleTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0 = Module["_emscripten_bind_PxVehicleTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0"] = createExportWrapper("emscripten_bind_PxVehicleTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleTopLevelFunctions___destroy___0 = Module["_emscripten_bind_PxVehicleTopLevelFunctions___destroy___0"] = createExportWrapper("emscripten_bind_PxVehicleTopLevelFunctions___destroy___0");
@@ -10925,6 +10925,9 @@ var _emscripten_bind_PxControllerCollisionFlags_clear_1 = Module["_emscripten_bi
 var _emscripten_bind_PxControllerCollisionFlags___destroy___0 = Module["_emscripten_bind_PxControllerCollisionFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerCollisionFlags___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_PxControllerFilters_0 = Module["_emscripten_bind_PxControllerFilters_PxControllerFilters_0"] = createExportWrapper("emscripten_bind_PxControllerFilters_PxControllerFilters_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxControllerFilters_PxControllerFilters_1 = Module["_emscripten_bind_PxControllerFilters_PxControllerFilters_1"] = createExportWrapper("emscripten_bind_PxControllerFilters_PxControllerFilters_1");
 
 /** @type {function(...*):?} */
@@ -11265,6 +11268,12 @@ var _emscripten_bind_JavaUserControllerHitReport_onObstacleHit_1 = Module["_emsc
 
 /** @type {function(...*):?} */
 var _emscripten_bind_JavaUserControllerHitReport___destroy___0 = Module["_emscripten_bind_JavaUserControllerHitReport___destroy___0"] = createExportWrapper("emscripten_bind_JavaUserControllerHitReport___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SupportFunctions_PxActor_getShape_2 = Module["_emscripten_bind_SupportFunctions_PxActor_getShape_2"] = createExportWrapper("emscripten_bind_SupportFunctions_PxActor_getShape_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SupportFunctions___destroy___0 = Module["_emscripten_bind_SupportFunctions___destroy___0"] = createExportWrapper("emscripten_bind_SupportFunctions___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxActorPtr___destroy___0 = Module["_emscripten_bind_PxActorPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxActorPtr___destroy___0");
@@ -15329,16 +15338,6 @@ Module['PxTopLevelFunctions'] = PxTopLevelFunctions;
 PxTopLevelFunctions.prototype['DefaultFilterShader'] = PxTopLevelFunctions.prototype.DefaultFilterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return wrapPointer(_emscripten_bind_PxTopLevelFunctions_DefaultFilterShader_0(self), PxSimulationFilterShader);
-};;
-
-PxTopLevelFunctions.prototype['DefaultWheelSceneQueryPreFilterBlocking'] = PxTopLevelFunctions.prototype.DefaultWheelSceneQueryPreFilterBlocking = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return wrapPointer(_emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPreFilterBlocking_0(self), PxBatchQueryPreFilterShader);
-};;
-
-PxTopLevelFunctions.prototype['DefaultWheelSceneQueryPostFilterBlocking'] = PxTopLevelFunctions.prototype.DefaultWheelSceneQueryPostFilterBlocking = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  return wrapPointer(_emscripten_bind_PxTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0(self), PxBatchQueryPostFilterShader);
 };;
 
 PxTopLevelFunctions.prototype['CreateControllerManager'] = PxTopLevelFunctions.prototype.CreateControllerManager = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene, lockingEnabled) {
@@ -21517,6 +21516,16 @@ PxVehicleTopLevelFunctions.prototype['PxVehicleTireData_setFrictionVsSlipGraph']
   if (n && typeof n === 'object') n = n.ptr;
   if (value && typeof value === 'object') value = value.ptr;
   _emscripten_bind_PxVehicleTopLevelFunctions_PxVehicleTireData_setFrictionVsSlipGraph_4(self, tireData, m, n, value);
+};;
+
+PxVehicleTopLevelFunctions.prototype['DefaultWheelSceneQueryPreFilterBlocking'] = PxVehicleTopLevelFunctions.prototype.DefaultWheelSceneQueryPreFilterBlocking = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleTopLevelFunctions_DefaultWheelSceneQueryPreFilterBlocking_0(self), PxBatchQueryPreFilterShader);
+};;
+
+PxVehicleTopLevelFunctions.prototype['DefaultWheelSceneQueryPostFilterBlocking'] = PxVehicleTopLevelFunctions.prototype.DefaultWheelSceneQueryPostFilterBlocking = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxVehicleTopLevelFunctions_DefaultWheelSceneQueryPostFilterBlocking_0(self), PxBatchQueryPostFilterShader);
 };;
 
   PxVehicleTopLevelFunctions.prototype['__destroy__'] = PxVehicleTopLevelFunctions.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -29703,6 +29712,7 @@ PxControllerCollisionFlags.prototype['clear'] = PxControllerCollisionFlags.proto
 // PxControllerFilters
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerFilters(filterData) {
   if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (filterData === undefined) { this.ptr = _emscripten_bind_PxControllerFilters_PxControllerFilters_0(); getCache(PxControllerFilters)[this.ptr] = this;return }
   this.ptr = _emscripten_bind_PxControllerFilters_PxControllerFilters_1(filterData);
   getCache(PxControllerFilters)[this.ptr] = this;
 };;
@@ -30353,6 +30363,25 @@ JavaUserControllerHitReport.prototype['onObstacleHit'] = JavaUserControllerHitRe
   JavaUserControllerHitReport.prototype['__destroy__'] = JavaUserControllerHitReport.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_JavaUserControllerHitReport___destroy___0(self);
+};
+// SupportFunctions
+/** @suppress {undefinedVars, duplicate} @this{Object} */function SupportFunctions() { throw "cannot construct a SupportFunctions, no constructor in IDL" }
+SupportFunctions.prototype = Object.create(WrapperObject.prototype);
+SupportFunctions.prototype.constructor = SupportFunctions;
+SupportFunctions.prototype.__class__ = SupportFunctions;
+SupportFunctions.__cache__ = {};
+Module['SupportFunctions'] = SupportFunctions;
+
+SupportFunctions.prototype['PxActor_getShape'] = SupportFunctions.prototype.PxActor_getShape = /** @suppress {undefinedVars, duplicate} @this{Object} */function(actor, index) {
+  var self = this.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_SupportFunctions_PxActor_getShape_2(self, actor, index), PxShape);
+};;
+
+  SupportFunctions.prototype['__destroy__'] = SupportFunctions.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_SupportFunctions___destroy___0(self);
 };
 // PxActorPtr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxActorPtr() { throw "cannot construct a PxActorPtr, no constructor in IDL" }
