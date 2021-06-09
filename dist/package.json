@@ -4,6 +4,7 @@
   "description": "emscripten/WebIDL javascript bindings for Nvidia PhysX",
   "author": "fabmax",
   "main": "physx-js-webidl.wasm.js",
+  "types": "physx-js-webidl.wasm.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/fabmax/physx-js-webidl.git"
