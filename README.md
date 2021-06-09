@@ -64,8 +64,28 @@ To add bindings to additional PhysX interfaces you only have to edit the
 [PhysXJs.idl](https://github.com/fabmax/PhysX/blob/emscripten_webidl_wip/physx/source/physxwebbindings/src/PhysXJs.idl)
 file located in `PhysX/physx/source/physxwebbindings/src/`.
 
-# Build Types
+
+## Build Types
 
 ```
 npx webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
+```
+
+## Build with Docker
+
+```
+# Build the image
+docker build . -t physx-js-builder
+
+# Generate build-scripts
+docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./generate.sh
+
+# Build Release
+docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./make.sh
+
+# Build Profile
+docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./make-profile.sh
+
+# Build Debug
+docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./make-debug.sh
 ```
