@@ -73,7 +73,7 @@ file located in `PhysX/physx/source/physxwebbindings/src/`.
 ## Build Types
 
 ```
-npx webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
+npx milkshake-inc/webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
 ```
 
 ## Build with Docker
