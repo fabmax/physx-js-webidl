@@ -23,9 +23,9 @@ So far my expriences with WebIDL are:
 
 However there also are a few minor issues:
 - Enums, used as configuration flags everywhere in PhysX, are a bit troublesome (see this
-  [issue](https://github.com/emscripten-core/emscripten/issues/13243))
+    [issue](https://github.com/emscripten-core/emscripten/issues/13243))
 - WebIDL does not support top-level functions, so I had to wrap those in a class. This makes the bulk of the hand-written
-  code.
+    code.
 
 ## Examples
 None yet, I will add some as soon as I have time for that. However, I use this lib in my engine [kool](https://github.com/fabmax/kool)
@@ -64,7 +64,14 @@ To add bindings to additional PhysX interfaces you only have to edit the
 [PhysXJs.idl](https://github.com/fabmax/PhysX/blob/emscripten_webidl_wip/physx/source/physxwebbindings/src/PhysXJs.idl)
 file located in `PhysX/physx/source/physxwebbindings/src/`.
 
-# Build with Docker
+
+## Build Types
+
+```
+npx webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
+```
+
+## Build with Docker
 
 ```
 # Build the image
