@@ -1,6 +1,6 @@
 {
   "name": "physx-js-webidl",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "emscripten/WebIDL javascript bindings for Nvidia PhysX",
   "author": "fabmax",
   "main": "physx-js-webidl.wasm.js",

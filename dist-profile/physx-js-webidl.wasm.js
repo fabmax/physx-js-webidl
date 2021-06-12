@@ -1264,9 +1264,9 @@ function updateGlobalBufferAndViews(buf) {
   Module['HEAPF64'] = HEAPF64 = new Float64Array(buf);
 }
 
-var STACK_BASE = 5449840,
+var STACK_BASE = 5443664,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 206960;
+    STACK_MAX = 200784;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 
@@ -1781,15 +1781,15 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  1568: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onConstraintBreak')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onConstraintBreak.'; self['onConstraintBreak']($1,$2);},  
- 1848: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onWake')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onWake.'; self['onWake']($1,$2);},  
- 2091: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onSleep')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onSleep.'; self['onSleep']($1,$2);},  
- 2337: function($0, $1, $2, $3) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onContact')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onContact.'; self['onContact']($1,$2,$3);},  
- 2597: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onTrigger')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onTrigger.'; self['onTrigger']($1,$2);},  
- 2964: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);},  
- 4216: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
- 4471: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
- 4741: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);}
+  1544: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onConstraintBreak')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onConstraintBreak.'; self['onConstraintBreak']($1,$2);},  
+ 1824: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onWake')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onWake.'; self['onWake']($1,$2);},  
+ 2067: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onSleep')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onSleep.'; self['onSleep']($1,$2);},  
+ 2313: function($0, $1, $2, $3) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onContact')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onContact.'; self['onContact']($1,$2,$3);},  
+ 2573: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onTrigger')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onTrigger.'; self['onTrigger']($1,$2);},  
+ 2940: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);},  
+ 4172: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
+ 4427: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
+ 4697: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);}
 };
 function array_bounds_check_error(idx,size){ throw 'Array index ' + idx + ' out of bounds: [0,' + size + ')'; }
 
@@ -12564,19 +12564,19 @@ var _emscripten_enum_PxControllerShapeTypeEnum_eCAPSULE = Module["_emscripten_en
 var _free = Module["_free"] = createExportWrapper("free");
 
 /** @type {function(...*):?} */
-var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
-
-/** @type {function(...*):?} */
-var _malloc = Module["_malloc"] = createExportWrapper("malloc");
-
-/** @type {function(...*):?} */
 var _ntohs = Module["_ntohs"] = createExportWrapper("ntohs");
+
+/** @type {function(...*):?} */
+var _htons = Module["_htons"] = createExportWrapper("htons");
 
 /** @type {function(...*):?} */
 var _htonl = Module["_htonl"] = createExportWrapper("htonl");
 
 /** @type {function(...*):?} */
-var _htons = Module["_htons"] = createExportWrapper("htons");
+var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
+
+/** @type {function(...*):?} */
+var _malloc = Module["_malloc"] = createExportWrapper("malloc");
 
 /** @type {function(...*):?} */
 var stackSave = Module["stackSave"] = createExportWrapper("stackSave");
