@@ -30,16 +30,18 @@ However there also are a few minor issues:
 ## Examples
 None yet, I will add some as soon as I have time for that. However, I use this lib in my engine [kool](https://github.com/fabmax/kool)
 and have a few demos in place:
+- [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
 - [Vehicle](https://fabmax.github.io/kool/kool-js/?demo=phys-vehicle): Basic vehicle demo with a few obstacles.
 - [Joints](https://fabmax.github.io/kool/kool-js/?demo=phys-joints): A chain running over two gears.
-- [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box collision physics demo.
+- [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box (and other shapes) collision physics demo.
 
 ## Pre-built binaries
 This is published as a npm package:
 ```
 npm i physx-js-webidl
 ```
-Alternatively you can grab the pre-built binaries (.wasm + support .js) from the `dist` folder.
+Alternatively you can grab the pre-built binaries (.wasm + support .js) from the `dist` directory. In case you wanna dive deep, there
+are also binaries from the profile and debug builds in corresponding `dist-profile` / `dist-debug` directories.
 
 ## Building
 To build this you need the [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html). However,

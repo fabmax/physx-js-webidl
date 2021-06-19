@@ -30,19 +30,26 @@ However there also are a few minor issues:
 ## Examples
 None yet, I will add some as soon as I have time for that. However, I use this lib in my engine [kool](https://github.com/fabmax/kool)
 and have a few demos in place:
+- [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
 - [Vehicle](https://fabmax.github.io/kool/kool-js/?demo=phys-vehicle): Basic vehicle demo with a few obstacles.
 - [Joints](https://fabmax.github.io/kool/kool-js/?demo=phys-joints): A chain running over two gears.
-- [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box collision physics demo.
+- [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box (and other shapes) collision physics demo.
 
 ## Pre-built binaries
 This is published as a npm package:
 ```
 npm i physx-js-webidl
 ```
-Alternatively There are you can grab the pre-built binaries (.wasm + support .js) in from the `dist` folder.
+Alternatively you can grab the pre-built binaries (.wasm + support .js) from the `dist` directory. In case you wanna dive deep, there
+are also binaries from the profile and debug builds in corresponding `dist-profile` / `dist-debug` directories.
 
 ## Building
-To build this you only need an [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html).
+To build this you need the [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html). However,
+with recent emscripten versions, box-box collisions sometimes result in weird behavior: Even for very low-speed collisions
+the involved boxes bounce away from eacht other at very high speed (almost as if they would explode, at a larger scale
+it looks a bit like popcorn). This only happens sometimes and only for box shapes, moreover only the relase build is
+affected, so this is probably some compiler optimzation problem. The latest emscripten version not affected by this seems
+to be 2.0.7. So make sure to use that one (or the docker method from below which also uses emscripten 2.0.7).
 ```
 # Clone this repo
 git clone https://github.com/fabmax/physx-js-webidl
@@ -68,7 +75,7 @@ file located in `PhysX/physx/source/physxwebbindings/src/`.
 ## Build Types
 
 ```
-npx webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
+npx milkshake-inc/webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
 ```
 
 ## Build with Docker

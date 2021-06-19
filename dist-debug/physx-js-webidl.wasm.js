@@ -5157,6 +5157,12 @@ var _emscripten_bind_PxRigidBodyFlags_clear_1 = Module["_emscripten_bind_PxRigid
 var _emscripten_bind_PxRigidBodyFlags___destroy___0 = Module["_emscripten_bind_PxRigidBodyFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxRigidBodyFlags___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxRigidDynamic_setKinematicTarget_1 = Module["_emscripten_bind_PxRigidDynamic_setKinematicTarget_1"] = createExportWrapper("emscripten_bind_PxRigidDynamic_setKinematicTarget_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidDynamic_getKinematicTarget_1 = Module["_emscripten_bind_PxRigidDynamic_getKinematicTarget_1"] = createExportWrapper("emscripten_bind_PxRigidDynamic_getKinematicTarget_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxRigidDynamic_isSleeping_0 = Module["_emscripten_bind_PxRigidDynamic_isSleeping_0"] = createExportWrapper("emscripten_bind_PxRigidDynamic_isSleeping_0");
 
 /** @type {function(...*):?} */
@@ -18796,6 +18802,18 @@ PxRigidDynamic.prototype.constructor = PxRigidDynamic;
 PxRigidDynamic.prototype.__class__ = PxRigidDynamic;
 PxRigidDynamic.__cache__ = {};
 Module['PxRigidDynamic'] = PxRigidDynamic;
+
+PxRigidDynamic.prototype['setKinematicTarget'] = PxRigidDynamic.prototype.setKinematicTarget = /** @suppress {undefinedVars, duplicate} @this{Object} */function(destination) {
+  var self = this.ptr;
+  if (destination && typeof destination === 'object') destination = destination.ptr;
+  _emscripten_bind_PxRigidDynamic_setKinematicTarget_1(self, destination);
+};;
+
+PxRigidDynamic.prototype['getKinematicTarget'] = PxRigidDynamic.prototype.getKinematicTarget = /** @suppress {undefinedVars, duplicate} @this{Object} */function(target) {
+  var self = this.ptr;
+  if (target && typeof target === 'object') target = target.ptr;
+  return !!(_emscripten_bind_PxRigidDynamic_getKinematicTarget_1(self, target));
+};;
 
 PxRigidDynamic.prototype['isSleeping'] = PxRigidDynamic.prototype.isSleeping = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
