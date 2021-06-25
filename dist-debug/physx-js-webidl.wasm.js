@@ -1264,9 +1264,9 @@ function updateGlobalBufferAndViews(buf) {
   Module['HEAPF64'] = HEAPF64 = new Float64Array(buf);
 }
 
-var STACK_BASE = 5604976,
+var STACK_BASE = 5695312,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 362096;
+    STACK_MAX = 452432;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 
@@ -1789,7 +1789,9 @@ var ASM_CONSTS = {
  2940: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);},  
  4172: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
  4427: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
- 4697: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);}
+ 4697: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);},  
+ 5236: function($0) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('connect')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::connect.'; return self['connect']();},  
+ 5460: function($0, $1, $2) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('send')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::send.'; self['send']($1,$2);}
 };
 function array_bounds_check_error(idx,size){ throw 'Array index ' + idx + ' out of bounds: [0,' + size + ')'; }
 
@@ -2499,6 +2501,15 @@ var _emscripten_bind_PxVehicleWheels_get_mWheelsDynData_0 = Module["_emscripten_
 var _emscripten_bind_PxVehicleWheels_set_mWheelsDynData_1 = Module["_emscripten_bind_PxVehicleWheels_set_mWheelsDynData_1"] = createExportWrapper("emscripten_bind_PxVehicleWheels_set_mWheelsDynData_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxPvdTransport_connect_0 = Module["_emscripten_bind_PxPvdTransport_connect_0"] = createExportWrapper("emscripten_bind_PxPvdTransport_connect_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxPvdTransport_disconnect_0 = Module["_emscripten_bind_PxPvdTransport_disconnect_0"] = createExportWrapper("emscripten_bind_PxPvdTransport_disconnect_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxPvdTransport_isConnected_0 = Module["_emscripten_bind_PxPvdTransport_isConnected_0"] = createExportWrapper("emscripten_bind_PxPvdTransport_isConnected_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxArticulationBase_getScene_0 = Module["_emscripten_bind_PxArticulationBase_getScene_0"] = createExportWrapper("emscripten_bind_PxArticulationBase_getScene_0");
 
 /** @type {function(...*):?} */
@@ -3030,6 +3041,12 @@ var _emscripten_bind_PxErrorCallback_reportError_4 = Module["_emscripten_bind_Px
 var _emscripten_bind_PxErrorCallback___destroy___0 = Module["_emscripten_bind_PxErrorCallback___destroy___0"] = createExportWrapper("emscripten_bind_PxErrorCallback___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxInputData___destroy___0 = Module["_emscripten_bind_PxInputData___destroy___0"] = createExportWrapper("emscripten_bind_PxInputData___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxOutputStream___destroy___0 = Module["_emscripten_bind_PxOutputStream___destroy___0"] = createExportWrapper("emscripten_bind_PxOutputStream___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxJoint_setActors_2 = Module["_emscripten_bind_PxJoint_setActors_2"] = createExportWrapper("emscripten_bind_PxJoint_setActors_2");
 
 /** @type {function(...*):?} */
@@ -3399,6 +3416,30 @@ var _emscripten_bind_PxUserControllerHitReport_onControllerHit_1 = Module["_emsc
 var _emscripten_bind_PxUserControllerHitReport_onObstacleHit_1 = Module["_emscripten_bind_PxUserControllerHitReport_onObstacleHit_1"] = createExportWrapper("emscripten_bind_PxUserControllerHitReport_onObstacleHit_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxU8ConstPtr___destroy___0 = Module["_emscripten_bind_PxU8ConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxU8ConstPtr___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxU16ConstPtr___destroy___0 = Module["_emscripten_bind_PxU16ConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxU16ConstPtr___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxU32ConstPtr___destroy___0 = Module["_emscripten_bind_PxU32ConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxU32ConstPtr___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimplePvdTransport_connect_0 = Module["_emscripten_bind_SimplePvdTransport_connect_0"] = createExportWrapper("emscripten_bind_SimplePvdTransport_connect_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimplePvdTransport_send_2 = Module["_emscripten_bind_SimplePvdTransport_send_2"] = createExportWrapper("emscripten_bind_SimplePvdTransport_send_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimplePvdTransport_disconnect_0 = Module["_emscripten_bind_SimplePvdTransport_disconnect_0"] = createExportWrapper("emscripten_bind_SimplePvdTransport_disconnect_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimplePvdTransport_isConnected_0 = Module["_emscripten_bind_SimplePvdTransport_isConnected_0"] = createExportWrapper("emscripten_bind_SimplePvdTransport_isConnected_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimplePvdTransport___destroy___0 = Module["_emscripten_bind_SimplePvdTransport___destroy___0"] = createExportWrapper("emscripten_bind_SimplePvdTransport___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_VoidPtr___destroy___0 = Module["_emscripten_bind_VoidPtr___destroy___0"] = createExportWrapper("emscripten_bind_VoidPtr___destroy___0");
 
 /** @type {function(...*):?} */
@@ -3420,6 +3461,9 @@ var _emscripten_bind_PxTopLevelFunctions_CreateFoundation_3 = Module["_emscripte
 var _emscripten_bind_PxTopLevelFunctions_CreatePhysics_3 = Module["_emscripten_bind_PxTopLevelFunctions_CreatePhysics_3"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreatePhysics_3");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxTopLevelFunctions_CreatePhysics_4 = Module["_emscripten_bind_PxTopLevelFunctions_CreatePhysics_4"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreatePhysics_4");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_DefaultCpuDispatcherCreate_1 = Module["_emscripten_bind_PxTopLevelFunctions_DefaultCpuDispatcherCreate_1"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_DefaultCpuDispatcherCreate_1");
 
 /** @type {function(...*):?} */
@@ -3427,6 +3471,9 @@ var _emscripten_bind_PxTopLevelFunctions_InitExtensions_1 = Module["_emscripten_
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_CreateCudaContextManager_2 = Module["_emscripten_bind_PxTopLevelFunctions_CreateCudaContextManager_2"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreateCudaContextManager_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTopLevelFunctions_CreatePvd_1 = Module["_emscripten_bind_PxTopLevelFunctions_CreatePvd_1"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreatePvd_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_D6JointCreate_5 = Module["_emscripten_bind_PxTopLevelFunctions_D6JointCreate_5"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_D6JointCreate_5");
@@ -5533,6 +5580,9 @@ var _emscripten_bind_PxScene_removeAggregate_1 = Module["_emscripten_bind_PxScen
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxScene_removeAggregate_2 = Module["_emscripten_bind_PxScene_removeAggregate_2"] = createExportWrapper("emscripten_bind_PxScene_removeAggregate_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxScene_addCollection_1 = Module["_emscripten_bind_PxScene_addCollection_1"] = createExportWrapper("emscripten_bind_PxScene_addCollection_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxScene_getWakeCounterResetValue_0 = Module["_emscripten_bind_PxScene_getWakeCounterResetValue_0"] = createExportWrapper("emscripten_bind_PxScene_getWakeCounterResetValue_0");
@@ -9030,6 +9080,42 @@ var _emscripten_bind_PxBounds3_set_maximum_1 = Module["_emscripten_bind_PxBounds
 var _emscripten_bind_PxBounds3___destroy___0 = Module["_emscripten_bind_PxBounds3___destroy___0"] = createExportWrapper("emscripten_bind_PxBounds3___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_add_1 = Module["_emscripten_bind_PxCollection_add_1"] = createExportWrapper("emscripten_bind_PxCollection_add_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_add_2 = Module["_emscripten_bind_PxCollection_add_2"] = createExportWrapper("emscripten_bind_PxCollection_add_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_remove_1 = Module["_emscripten_bind_PxCollection_remove_1"] = createExportWrapper("emscripten_bind_PxCollection_remove_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_contains_1 = Module["_emscripten_bind_PxCollection_contains_1"] = createExportWrapper("emscripten_bind_PxCollection_contains_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_addId_2 = Module["_emscripten_bind_PxCollection_addId_2"] = createExportWrapper("emscripten_bind_PxCollection_addId_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_removeId_1 = Module["_emscripten_bind_PxCollection_removeId_1"] = createExportWrapper("emscripten_bind_PxCollection_removeId_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_getNbObjects_0 = Module["_emscripten_bind_PxCollection_getNbObjects_0"] = createExportWrapper("emscripten_bind_PxCollection_getNbObjects_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_getObject_1 = Module["_emscripten_bind_PxCollection_getObject_1"] = createExportWrapper("emscripten_bind_PxCollection_getObject_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_find_1 = Module["_emscripten_bind_PxCollection_find_1"] = createExportWrapper("emscripten_bind_PxCollection_find_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_getNbIds_0 = Module["_emscripten_bind_PxCollection_getNbIds_0"] = createExportWrapper("emscripten_bind_PxCollection_getNbIds_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_getId_1 = Module["_emscripten_bind_PxCollection_getId_1"] = createExportWrapper("emscripten_bind_PxCollection_getId_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollection_release_0 = Module["_emscripten_bind_PxCollection_release_0"] = createExportWrapper("emscripten_bind_PxCollection_release_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxCudaContextManager_contextIsValid_0 = Module["_emscripten_bind_PxCudaContextManager_contextIsValid_0"] = createExportWrapper("emscripten_bind_PxCudaContextManager_contextIsValid_0");
 
 /** @type {function(...*):?} */
@@ -9276,6 +9362,24 @@ var _emscripten_bind_PxVec3_set_z_1 = Module["_emscripten_bind_PxVec3_set_z_1"] 
 var _emscripten_bind_PxVec3___destroy___0 = Module["_emscripten_bind_PxVec3___destroy___0"] = createExportWrapper("emscripten_bind_PxVec3___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxCollectionExt_releaseObjects_1 = Module["_emscripten_bind_PxCollectionExt_releaseObjects_1"] = createExportWrapper("emscripten_bind_PxCollectionExt_releaseObjects_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollectionExt_releaseObjects_2 = Module["_emscripten_bind_PxCollectionExt_releaseObjects_2"] = createExportWrapper("emscripten_bind_PxCollectionExt_releaseObjects_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollectionExt_remove_2 = Module["_emscripten_bind_PxCollectionExt_remove_2"] = createExportWrapper("emscripten_bind_PxCollectionExt_remove_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollectionExt_remove_3 = Module["_emscripten_bind_PxCollectionExt_remove_3"] = createExportWrapper("emscripten_bind_PxCollectionExt_remove_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollectionExt_createCollection_1 = Module["_emscripten_bind_PxCollectionExt_createCollection_1"] = createExportWrapper("emscripten_bind_PxCollectionExt_createCollection_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCollectionExt___destroy___0 = Module["_emscripten_bind_PxCollectionExt___destroy___0"] = createExportWrapper("emscripten_bind_PxCollectionExt___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxD6Joint_setMotion_2 = Module["_emscripten_bind_PxD6Joint_setMotion_2"] = createExportWrapper("emscripten_bind_PxD6Joint_setMotion_2");
 
 /** @type {function(...*):?} */
@@ -9400,6 +9504,39 @@ var _emscripten_bind_PxDefaultAllocator___destroy___0 = Module["_emscripten_bind
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxDefaultCpuDispatcher___destroy___0 = Module["_emscripten_bind_PxDefaultCpuDispatcher___destroy___0"] = createExportWrapper("emscripten_bind_PxDefaultCpuDispatcher___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryInputData_PxDefaultMemoryInputData_2 = Module["_emscripten_bind_PxDefaultMemoryInputData_PxDefaultMemoryInputData_2"] = createExportWrapper("emscripten_bind_PxDefaultMemoryInputData_PxDefaultMemoryInputData_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryInputData_read_2 = Module["_emscripten_bind_PxDefaultMemoryInputData_read_2"] = createExportWrapper("emscripten_bind_PxDefaultMemoryInputData_read_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryInputData_getLength_0 = Module["_emscripten_bind_PxDefaultMemoryInputData_getLength_0"] = createExportWrapper("emscripten_bind_PxDefaultMemoryInputData_getLength_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryInputData_seek_1 = Module["_emscripten_bind_PxDefaultMemoryInputData_seek_1"] = createExportWrapper("emscripten_bind_PxDefaultMemoryInputData_seek_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryInputData_tell_0 = Module["_emscripten_bind_PxDefaultMemoryInputData_tell_0"] = createExportWrapper("emscripten_bind_PxDefaultMemoryInputData_tell_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryInputData___destroy___0 = Module["_emscripten_bind_PxDefaultMemoryInputData___destroy___0"] = createExportWrapper("emscripten_bind_PxDefaultMemoryInputData___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryOutputStream_PxDefaultMemoryOutputStream_0 = Module["_emscripten_bind_PxDefaultMemoryOutputStream_PxDefaultMemoryOutputStream_0"] = createExportWrapper("emscripten_bind_PxDefaultMemoryOutputStream_PxDefaultMemoryOutputStream_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryOutputStream_write_2 = Module["_emscripten_bind_PxDefaultMemoryOutputStream_write_2"] = createExportWrapper("emscripten_bind_PxDefaultMemoryOutputStream_write_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryOutputStream_getSize_0 = Module["_emscripten_bind_PxDefaultMemoryOutputStream_getSize_0"] = createExportWrapper("emscripten_bind_PxDefaultMemoryOutputStream_getSize_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryOutputStream_getData_0 = Module["_emscripten_bind_PxDefaultMemoryOutputStream_getData_0"] = createExportWrapper("emscripten_bind_PxDefaultMemoryOutputStream_getData_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxDefaultMemoryOutputStream___destroy___0 = Module["_emscripten_bind_PxDefaultMemoryOutputStream___destroy___0"] = createExportWrapper("emscripten_bind_PxDefaultMemoryOutputStream___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxDistanceJoint_getDistance_0 = Module["_emscripten_bind_PxDistanceJoint_getDistance_0"] = createExportWrapper("emscripten_bind_PxDistanceJoint_getDistance_0");
@@ -10216,6 +10353,63 @@ var _emscripten_bind_PxRevoluteJointFlags_clear_1 = Module["_emscripten_bind_PxR
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRevoluteJointFlags___destroy___0 = Module["_emscripten_bind_PxRevoluteJointFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxRevoluteJointFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_isSerializable_2 = Module["_emscripten_bind_PxSerialization_isSerializable_2"] = createExportWrapper("emscripten_bind_PxSerialization_isSerializable_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_isSerializable_3 = Module["_emscripten_bind_PxSerialization_isSerializable_3"] = createExportWrapper("emscripten_bind_PxSerialization_isSerializable_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_complete_2 = Module["_emscripten_bind_PxSerialization_complete_2"] = createExportWrapper("emscripten_bind_PxSerialization_complete_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_complete_3 = Module["_emscripten_bind_PxSerialization_complete_3"] = createExportWrapper("emscripten_bind_PxSerialization_complete_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_complete_4 = Module["_emscripten_bind_PxSerialization_complete_4"] = createExportWrapper("emscripten_bind_PxSerialization_complete_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_createSerialObjectIds_2 = Module["_emscripten_bind_PxSerialization_createSerialObjectIds_2"] = createExportWrapper("emscripten_bind_PxSerialization_createSerialObjectIds_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_createCollectionFromXml_3 = Module["_emscripten_bind_PxSerialization_createCollectionFromXml_3"] = createExportWrapper("emscripten_bind_PxSerialization_createCollectionFromXml_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_createCollectionFromXml_4 = Module["_emscripten_bind_PxSerialization_createCollectionFromXml_4"] = createExportWrapper("emscripten_bind_PxSerialization_createCollectionFromXml_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_createCollectionFromBinary_2 = Module["_emscripten_bind_PxSerialization_createCollectionFromBinary_2"] = createExportWrapper("emscripten_bind_PxSerialization_createCollectionFromBinary_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_createCollectionFromBinary_3 = Module["_emscripten_bind_PxSerialization_createCollectionFromBinary_3"] = createExportWrapper("emscripten_bind_PxSerialization_createCollectionFromBinary_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_serializeCollectionToXml_3 = Module["_emscripten_bind_PxSerialization_serializeCollectionToXml_3"] = createExportWrapper("emscripten_bind_PxSerialization_serializeCollectionToXml_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_serializeCollectionToXml_4 = Module["_emscripten_bind_PxSerialization_serializeCollectionToXml_4"] = createExportWrapper("emscripten_bind_PxSerialization_serializeCollectionToXml_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_serializeCollectionToXml_5 = Module["_emscripten_bind_PxSerialization_serializeCollectionToXml_5"] = createExportWrapper("emscripten_bind_PxSerialization_serializeCollectionToXml_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_serializeCollectionToBinary_3 = Module["_emscripten_bind_PxSerialization_serializeCollectionToBinary_3"] = createExportWrapper("emscripten_bind_PxSerialization_serializeCollectionToBinary_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_serializeCollectionToBinary_4 = Module["_emscripten_bind_PxSerialization_serializeCollectionToBinary_4"] = createExportWrapper("emscripten_bind_PxSerialization_serializeCollectionToBinary_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_serializeCollectionToBinary_5 = Module["_emscripten_bind_PxSerialization_serializeCollectionToBinary_5"] = createExportWrapper("emscripten_bind_PxSerialization_serializeCollectionToBinary_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization_createSerializationRegistry_1 = Module["_emscripten_bind_PxSerialization_createSerializationRegistry_1"] = createExportWrapper("emscripten_bind_PxSerialization_createSerializationRegistry_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerialization___destroy___0 = Module["_emscripten_bind_PxSerialization___destroy___0"] = createExportWrapper("emscripten_bind_PxSerialization___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSerializationRegistry_release_0 = Module["_emscripten_bind_PxSerializationRegistry_release_0"] = createExportWrapper("emscripten_bind_PxSerializationRegistry_release_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSphericalJoint_setLimitCone_1 = Module["_emscripten_bind_PxSphericalJoint_setLimitCone_1"] = createExportWrapper("emscripten_bind_PxSphericalJoint_setLimitCone_1");
@@ -11319,19 +11513,10 @@ var _emscripten_bind_PxRealPtr___destroy___0 = Module["_emscripten_bind_PxRealPt
 var _emscripten_bind_PxU8Ptr___destroy___0 = Module["_emscripten_bind_PxU8Ptr___destroy___0"] = createExportWrapper("emscripten_bind_PxU8Ptr___destroy___0");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_PxU8ConstPtr___destroy___0 = Module["_emscripten_bind_PxU8ConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxU8ConstPtr___destroy___0");
-
-/** @type {function(...*):?} */
 var _emscripten_bind_PxU16Ptr___destroy___0 = Module["_emscripten_bind_PxU16Ptr___destroy___0"] = createExportWrapper("emscripten_bind_PxU16Ptr___destroy___0");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_PxU16ConstPtr___destroy___0 = Module["_emscripten_bind_PxU16ConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxU16ConstPtr___destroy___0");
-
-/** @type {function(...*):?} */
 var _emscripten_bind_PxU32Ptr___destroy___0 = Module["_emscripten_bind_PxU32Ptr___destroy___0"] = createExportWrapper("emscripten_bind_PxU32Ptr___destroy___0");
-
-/** @type {function(...*):?} */
-var _emscripten_bind_PxU32ConstPtr___destroy___0 = Module["_emscripten_bind_PxU32ConstPtr___destroy___0"] = createExportWrapper("emscripten_bind_PxU32ConstPtr___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_getU8At_2 = Module["_emscripten_bind_TypeHelpers_getU8At_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getU8At_2");
@@ -11355,13 +11540,13 @@ var _emscripten_bind_TypeHelpers_getTriggerPairAt_2 = Module["_emscripten_bind_T
 var _emscripten_bind_TypeHelpers_getVec3At_2 = Module["_emscripten_bind_TypeHelpers_getVec3At_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getVec3At_2");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_TypeHelpers_voidToU8ConstPtr_1 = Module["_emscripten_bind_TypeHelpers_voidToU8ConstPtr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU8ConstPtr_1");
+var _emscripten_bind_TypeHelpers_voidToU8Ptr_1 = Module["_emscripten_bind_TypeHelpers_voidToU8Ptr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU8Ptr_1");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_TypeHelpers_voidToU16ConstPtr_1 = Module["_emscripten_bind_TypeHelpers_voidToU16ConstPtr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU16ConstPtr_1");
+var _emscripten_bind_TypeHelpers_voidToU16Ptr_1 = Module["_emscripten_bind_TypeHelpers_voidToU16Ptr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU16Ptr_1");
 
 /** @type {function(...*):?} */
-var _emscripten_bind_TypeHelpers_voidToU32ConstPtr_1 = Module["_emscripten_bind_TypeHelpers_voidToU32ConstPtr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU32ConstPtr_1");
+var _emscripten_bind_TypeHelpers_voidToU32Ptr_1 = Module["_emscripten_bind_TypeHelpers_voidToU32Ptr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToU32Ptr_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_voidToRealPtr_1 = Module["_emscripten_bind_TypeHelpers_voidToRealPtr_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToRealPtr_1");
@@ -11394,6 +11579,9 @@ var _emscripten_bind_Vector_PxMaterialConst_size_0 = Module["_emscripten_bind_Ve
 var _emscripten_bind_Vector_PxMaterialConst_push_back_1 = Module["_emscripten_bind_Vector_PxMaterialConst_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst_push_back_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxMaterialConst_clear_0 = Module["_emscripten_bind_Vector_PxMaterialConst_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst_clear_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxMaterialConst___destroy___0 = Module["_emscripten_bind_Vector_PxMaterialConst___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxMaterialConst___destroy___0");
 
 /** @type {function(...*):?} */
@@ -11413,6 +11601,9 @@ var _emscripten_bind_Vector_PxHeightFieldSample_size_0 = Module["_emscripten_bin
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxHeightFieldSample_push_back_1 = Module["_emscripten_bind_Vector_PxHeightFieldSample_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample_push_back_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxHeightFieldSample_clear_0 = Module["_emscripten_bind_Vector_PxHeightFieldSample_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample_clear_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxHeightFieldSample___destroy___0 = Module["_emscripten_bind_Vector_PxHeightFieldSample___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxHeightFieldSample___destroy___0");
@@ -11436,7 +11627,34 @@ var _emscripten_bind_Vector_PxReal_size_0 = Module["_emscripten_bind_Vector_PxRe
 var _emscripten_bind_Vector_PxReal_push_back_1 = Module["_emscripten_bind_Vector_PxReal_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxReal_push_back_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxReal_clear_0 = Module["_emscripten_bind_Vector_PxReal_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxReal_clear_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxReal___destroy___0 = Module["_emscripten_bind_Vector_PxReal___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxReal___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU8_Vector_PxU8_0 = Module["_emscripten_bind_Vector_PxU8_Vector_PxU8_0"] = createExportWrapper("emscripten_bind_Vector_PxU8_Vector_PxU8_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU8_Vector_PxU8_1 = Module["_emscripten_bind_Vector_PxU8_Vector_PxU8_1"] = createExportWrapper("emscripten_bind_Vector_PxU8_Vector_PxU8_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU8_at_1 = Module["_emscripten_bind_Vector_PxU8_at_1"] = createExportWrapper("emscripten_bind_Vector_PxU8_at_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU8_data_0 = Module["_emscripten_bind_Vector_PxU8_data_0"] = createExportWrapper("emscripten_bind_Vector_PxU8_data_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU8_size_0 = Module["_emscripten_bind_Vector_PxU8_size_0"] = createExportWrapper("emscripten_bind_Vector_PxU8_size_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU8_push_back_1 = Module["_emscripten_bind_Vector_PxU8_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxU8_push_back_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU8_clear_0 = Module["_emscripten_bind_Vector_PxU8_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxU8_clear_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU8___destroy___0 = Module["_emscripten_bind_Vector_PxU8___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxU8___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxU16_Vector_PxU16_0 = Module["_emscripten_bind_Vector_PxU16_Vector_PxU16_0"] = createExportWrapper("emscripten_bind_Vector_PxU16_Vector_PxU16_0");
@@ -11455,6 +11673,9 @@ var _emscripten_bind_Vector_PxU16_size_0 = Module["_emscripten_bind_Vector_PxU16
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxU16_push_back_1 = Module["_emscripten_bind_Vector_PxU16_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxU16_push_back_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU16_clear_0 = Module["_emscripten_bind_Vector_PxU16_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxU16_clear_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxU16___destroy___0 = Module["_emscripten_bind_Vector_PxU16___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxU16___destroy___0");
@@ -11478,6 +11699,9 @@ var _emscripten_bind_Vector_PxU32_size_0 = Module["_emscripten_bind_Vector_PxU32
 var _emscripten_bind_Vector_PxU32_push_back_1 = Module["_emscripten_bind_Vector_PxU32_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxU32_push_back_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxU32_clear_0 = Module["_emscripten_bind_Vector_PxU32_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxU32_clear_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxU32___destroy___0 = Module["_emscripten_bind_Vector_PxU32___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxU32___destroy___0");
 
 /** @type {function(...*):?} */
@@ -11497,6 +11721,9 @@ var _emscripten_bind_Vector_PxVec3_size_0 = Module["_emscripten_bind_Vector_PxVe
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxVec3_push_back_1 = Module["_emscripten_bind_Vector_PxVec3_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxVec3_push_back_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxVec3_clear_0 = Module["_emscripten_bind_Vector_PxVec3_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxVec3_clear_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxVec3___destroy___0 = Module["_emscripten_bind_Vector_PxVec3___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxVec3___destroy___0");
@@ -11520,6 +11747,9 @@ var _emscripten_bind_Vector_PxRaycastQueryResult_size_0 = Module["_emscripten_bi
 var _emscripten_bind_Vector_PxRaycastQueryResult_push_back_1 = Module["_emscripten_bind_Vector_PxRaycastQueryResult_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxRaycastQueryResult_push_back_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxRaycastQueryResult_clear_0 = Module["_emscripten_bind_Vector_PxRaycastQueryResult_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxRaycastQueryResult_clear_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxRaycastQueryResult___destroy___0 = Module["_emscripten_bind_Vector_PxRaycastQueryResult___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxRaycastQueryResult___destroy___0");
 
 /** @type {function(...*):?} */
@@ -11539,6 +11769,9 @@ var _emscripten_bind_Vector_PxSweepQueryResult_size_0 = Module["_emscripten_bind
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxSweepQueryResult_push_back_1 = Module["_emscripten_bind_Vector_PxSweepQueryResult_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxSweepQueryResult_push_back_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxSweepQueryResult_clear_0 = Module["_emscripten_bind_Vector_PxSweepQueryResult_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxSweepQueryResult_clear_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxSweepQueryResult___destroy___0 = Module["_emscripten_bind_Vector_PxSweepQueryResult___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxSweepQueryResult___destroy___0");
@@ -11562,6 +11795,9 @@ var _emscripten_bind_Vector_PxRaycastHit_size_0 = Module["_emscripten_bind_Vecto
 var _emscripten_bind_Vector_PxRaycastHit_push_back_1 = Module["_emscripten_bind_Vector_PxRaycastHit_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxRaycastHit_push_back_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxRaycastHit_clear_0 = Module["_emscripten_bind_Vector_PxRaycastHit_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxRaycastHit_clear_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxRaycastHit___destroy___0 = Module["_emscripten_bind_Vector_PxRaycastHit___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxRaycastHit___destroy___0");
 
 /** @type {function(...*):?} */
@@ -11581,6 +11817,9 @@ var _emscripten_bind_Vector_PxSweepHit_size_0 = Module["_emscripten_bind_Vector_
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxSweepHit_push_back_1 = Module["_emscripten_bind_Vector_PxSweepHit_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxSweepHit_push_back_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxSweepHit_clear_0 = Module["_emscripten_bind_Vector_PxSweepHit_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxSweepHit_clear_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxSweepHit___destroy___0 = Module["_emscripten_bind_Vector_PxSweepHit___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxSweepHit___destroy___0");
@@ -11604,6 +11843,9 @@ var _emscripten_bind_Vector_PxVehicleDrivableSurfaceType_size_0 = Module["_emscr
 var _emscripten_bind_Vector_PxVehicleDrivableSurfaceType_push_back_1 = Module["_emscripten_bind_Vector_PxVehicleDrivableSurfaceType_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxVehicleDrivableSurfaceType_push_back_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxVehicleDrivableSurfaceType_clear_0 = Module["_emscripten_bind_Vector_PxVehicleDrivableSurfaceType_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxVehicleDrivableSurfaceType_clear_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxVehicleDrivableSurfaceType___destroy___0 = Module["_emscripten_bind_Vector_PxVehicleDrivableSurfaceType___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxVehicleDrivableSurfaceType___destroy___0");
 
 /** @type {function(...*):?} */
@@ -11623,6 +11865,9 @@ var _emscripten_bind_Vector_PxWheelQueryResult_size_0 = Module["_emscripten_bind
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxWheelQueryResult_push_back_1 = Module["_emscripten_bind_Vector_PxWheelQueryResult_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxWheelQueryResult_push_back_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxWheelQueryResult_clear_0 = Module["_emscripten_bind_Vector_PxWheelQueryResult_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxWheelQueryResult_clear_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxWheelQueryResult___destroy___0 = Module["_emscripten_bind_Vector_PxWheelQueryResult___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxWheelQueryResult___destroy___0");
@@ -11646,7 +11891,40 @@ var _emscripten_bind_Vector_PxVehicleWheels_size_0 = Module["_emscripten_bind_Ve
 var _emscripten_bind_Vector_PxVehicleWheels_push_back_1 = Module["_emscripten_bind_Vector_PxVehicleWheels_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxVehicleWheels_push_back_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxVehicleWheels_clear_0 = Module["_emscripten_bind_Vector_PxVehicleWheels_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxVehicleWheels_clear_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxVehicleWheels___destroy___0 = Module["_emscripten_bind_Vector_PxVehicleWheels___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxVehicleWheels___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JSPvdTransport_JSPvdTransport_0 = Module["_emscripten_bind_JSPvdTransport_JSPvdTransport_0"] = createExportWrapper("emscripten_bind_JSPvdTransport_JSPvdTransport_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JSPvdTransport_connect_0 = Module["_emscripten_bind_JSPvdTransport_connect_0"] = createExportWrapper("emscripten_bind_JSPvdTransport_connect_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JSPvdTransport_send_2 = Module["_emscripten_bind_JSPvdTransport_send_2"] = createExportWrapper("emscripten_bind_JSPvdTransport_send_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JSPvdTransport___destroy___0 = Module["_emscripten_bind_JSPvdTransport___destroy___0"] = createExportWrapper("emscripten_bind_JSPvdTransport___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxPvdInstrumentationFlags_PxPvdInstrumentationFlags_1 = Module["_emscripten_bind_PxPvdInstrumentationFlags_PxPvdInstrumentationFlags_1"] = createExportWrapper("emscripten_bind_PxPvdInstrumentationFlags_PxPvdInstrumentationFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxPvdInstrumentationFlags_isSet_1 = Module["_emscripten_bind_PxPvdInstrumentationFlags_isSet_1"] = createExportWrapper("emscripten_bind_PxPvdInstrumentationFlags_isSet_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxPvdInstrumentationFlags_set_1 = Module["_emscripten_bind_PxPvdInstrumentationFlags_set_1"] = createExportWrapper("emscripten_bind_PxPvdInstrumentationFlags_set_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxPvdInstrumentationFlags_clear_1 = Module["_emscripten_bind_PxPvdInstrumentationFlags_clear_1"] = createExportWrapper("emscripten_bind_PxPvdInstrumentationFlags_clear_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxPvdInstrumentationFlags___destroy___0 = Module["_emscripten_bind_PxPvdInstrumentationFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxPvdInstrumentationFlags___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxPvd_connect_2 = Module["_emscripten_bind_PxPvd_connect_2"] = createExportWrapper("emscripten_bind_PxPvd_connect_2");
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxActorFlagEnum_eVISUALIZATION = Module["_emscripten_enum_PxActorFlagEnum_eVISUALIZATION"] = createExportWrapper("emscripten_enum_PxActorFlagEnum_eVISUALIZATION");
@@ -12567,7 +12845,22 @@ var _emscripten_enum_PxControllerShapeTypeEnum_eBOX = Module["_emscripten_enum_P
 var _emscripten_enum_PxControllerShapeTypeEnum_eCAPSULE = Module["_emscripten_enum_PxControllerShapeTypeEnum_eCAPSULE"] = createExportWrapper("emscripten_enum_PxControllerShapeTypeEnum_eCAPSULE");
 
 /** @type {function(...*):?} */
+var _emscripten_enum_PxPvdInstrumentationFlagEnum_eDEBUG = Module["_emscripten_enum_PxPvdInstrumentationFlagEnum_eDEBUG"] = createExportWrapper("emscripten_enum_PxPvdInstrumentationFlagEnum_eDEBUG");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPvdInstrumentationFlagEnum_ePROFILE = Module["_emscripten_enum_PxPvdInstrumentationFlagEnum_ePROFILE"] = createExportWrapper("emscripten_enum_PxPvdInstrumentationFlagEnum_ePROFILE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPvdInstrumentationFlagEnum_eMEMORY = Module["_emscripten_enum_PxPvdInstrumentationFlagEnum_eMEMORY"] = createExportWrapper("emscripten_enum_PxPvdInstrumentationFlagEnum_eMEMORY");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPvdInstrumentationFlagEnum_eALL = Module["_emscripten_enum_PxPvdInstrumentationFlagEnum_eALL"] = createExportWrapper("emscripten_enum_PxPvdInstrumentationFlagEnum_eALL");
+
+/** @type {function(...*):?} */
 var _free = Module["_free"] = createExportWrapper("free");
+
+/** @type {function(...*):?} */
+var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
 
 /** @type {function(...*):?} */
 var _ntohs = Module["_ntohs"] = createExportWrapper("ntohs");
@@ -12577,9 +12870,6 @@ var _htons = Module["_htons"] = createExportWrapper("htons");
 
 /** @type {function(...*):?} */
 var _htonl = Module["_htonl"] = createExportWrapper("htonl");
-
-/** @type {function(...*):?} */
-var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
 
 /** @type {function(...*):?} */
 var _malloc = Module["_malloc"] = createExportWrapper("malloc");
@@ -12600,10 +12890,40 @@ var _setThrew = Module["_setThrew"] = createExportWrapper("setThrew");
 var _emscripten_main_thread_process_queued_calls = Module["_emscripten_main_thread_process_queued_calls"] = createExportWrapper("emscripten_main_thread_process_queued_calls");
 
 /** @type {function(...*):?} */
+var dynCall_ji = Module["dynCall_ji"] = createExportWrapper("dynCall_ji");
+
+/** @type {function(...*):?} */
 var dynCall_iifiiiijii = Module["dynCall_iifiiiijii"] = createExportWrapper("dynCall_iifiiiijii");
 
 /** @type {function(...*):?} */
 var dynCall_vifijii = Module["dynCall_vifijii"] = createExportWrapper("dynCall_vifijii");
+
+/** @type {function(...*):?} */
+var dynCall_viij = Module["dynCall_viij"] = createExportWrapper("dynCall_viij");
+
+/** @type {function(...*):?} */
+var dynCall_vij = Module["dynCall_vij"] = createExportWrapper("dynCall_vij");
+
+/** @type {function(...*):?} */
+var dynCall_iij = Module["dynCall_iij"] = createExportWrapper("dynCall_iij");
+
+/** @type {function(...*):?} */
+var dynCall_jii = Module["dynCall_jii"] = createExportWrapper("dynCall_jii");
+
+/** @type {function(...*):?} */
+var dynCall_viiji = Module["dynCall_viiji"] = createExportWrapper("dynCall_viiji");
+
+/** @type {function(...*):?} */
+var dynCall_viijijj = Module["dynCall_viijijj"] = createExportWrapper("dynCall_viijijj");
+
+/** @type {function(...*):?} */
+var dynCall_viijj = Module["dynCall_viijj"] = createExportWrapper("dynCall_viijj");
+
+/** @type {function(...*):?} */
+var dynCall_iiiij = Module["dynCall_iiiij"] = createExportWrapper("dynCall_iiiij");
+
+/** @type {function(...*):?} */
+var dynCall_viiiij = Module["dynCall_viiiij"] = createExportWrapper("dynCall_viiiij");
 
 /** @type {function(...*):?} */
 var dynCall_jiji = Module["dynCall_jiji"] = createExportWrapper("dynCall_jiji");
@@ -13607,6 +13927,29 @@ PxVehicleWheels.prototype['isReleasable'] = PxVehicleWheels.prototype.isReleasab
   _emscripten_bind_PxVehicleWheels_set_mWheelsDynData_1(self, arg0);
 };
     Object.defineProperty(PxVehicleWheels.prototype, 'mWheelsDynData', { get: PxVehicleWheels.prototype.get_mWheelsDynData, set: PxVehicleWheels.prototype.set_mWheelsDynData });
+// PxPvdTransport
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxPvdTransport() { throw "cannot construct a PxPvdTransport, no constructor in IDL" }
+PxPvdTransport.prototype = Object.create(WrapperObject.prototype);
+PxPvdTransport.prototype.constructor = PxPvdTransport;
+PxPvdTransport.prototype.__class__ = PxPvdTransport;
+PxPvdTransport.__cache__ = {};
+Module['PxPvdTransport'] = PxPvdTransport;
+
+PxPvdTransport.prototype['connect'] = PxPvdTransport.prototype.connect = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxPvdTransport_connect_0(self));
+};;
+
+PxPvdTransport.prototype['disconnect'] = PxPvdTransport.prototype.disconnect = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxPvdTransport_disconnect_0(self);
+};;
+
+PxPvdTransport.prototype['isConnected'] = PxPvdTransport.prototype.isConnected = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_PxPvdTransport_isConnected_0(self));
+};;
+
 // PxArticulationBase
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxArticulationBase() { throw "cannot construct a PxArticulationBase, no constructor in IDL" }
 PxArticulationBase.prototype = Object.create(PxBase.prototype);
@@ -14631,6 +14974,30 @@ PxErrorCallback.prototype['reportError'] = PxErrorCallback.prototype.reportError
   var self = this.ptr;
   _emscripten_bind_PxErrorCallback___destroy___0(self);
 };
+// PxInputData
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxInputData() { throw "cannot construct a PxInputData, no constructor in IDL" }
+PxInputData.prototype = Object.create(WrapperObject.prototype);
+PxInputData.prototype.constructor = PxInputData;
+PxInputData.prototype.__class__ = PxInputData;
+PxInputData.__cache__ = {};
+Module['PxInputData'] = PxInputData;
+
+  PxInputData.prototype['__destroy__'] = PxInputData.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxInputData___destroy___0(self);
+};
+// PxOutputStream
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxOutputStream() { throw "cannot construct a PxOutputStream, no constructor in IDL" }
+PxOutputStream.prototype = Object.create(WrapperObject.prototype);
+PxOutputStream.prototype.constructor = PxOutputStream;
+PxOutputStream.prototype.__class__ = PxOutputStream;
+PxOutputStream.__cache__ = {};
+Module['PxOutputStream'] = PxOutputStream;
+
+  PxOutputStream.prototype['__destroy__'] = PxOutputStream.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxOutputStream___destroy___0(self);
+};
 // PxJoint
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxJoint() { throw "cannot construct a PxJoint, no constructor in IDL" }
 PxJoint.prototype = Object.create(PxBase.prototype);
@@ -15340,6 +15707,76 @@ PxUserControllerHitReport.prototype['onObstacleHit'] = PxUserControllerHitReport
   _emscripten_bind_PxUserControllerHitReport_onObstacleHit_1(self, hit);
 };;
 
+// PxU8ConstPtr
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxU8ConstPtr() { throw "cannot construct a PxU8ConstPtr, no constructor in IDL" }
+PxU8ConstPtr.prototype = Object.create(WrapperObject.prototype);
+PxU8ConstPtr.prototype.constructor = PxU8ConstPtr;
+PxU8ConstPtr.prototype.__class__ = PxU8ConstPtr;
+PxU8ConstPtr.__cache__ = {};
+Module['PxU8ConstPtr'] = PxU8ConstPtr;
+
+  PxU8ConstPtr.prototype['__destroy__'] = PxU8ConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxU8ConstPtr___destroy___0(self);
+};
+// PxU16ConstPtr
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxU16ConstPtr() { throw "cannot construct a PxU16ConstPtr, no constructor in IDL" }
+PxU16ConstPtr.prototype = Object.create(WrapperObject.prototype);
+PxU16ConstPtr.prototype.constructor = PxU16ConstPtr;
+PxU16ConstPtr.prototype.__class__ = PxU16ConstPtr;
+PxU16ConstPtr.__cache__ = {};
+Module['PxU16ConstPtr'] = PxU16ConstPtr;
+
+  PxU16ConstPtr.prototype['__destroy__'] = PxU16ConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxU16ConstPtr___destroy___0(self);
+};
+// PxU32ConstPtr
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxU32ConstPtr() { throw "cannot construct a PxU32ConstPtr, no constructor in IDL" }
+PxU32ConstPtr.prototype = Object.create(WrapperObject.prototype);
+PxU32ConstPtr.prototype.constructor = PxU32ConstPtr;
+PxU32ConstPtr.prototype.__class__ = PxU32ConstPtr;
+PxU32ConstPtr.__cache__ = {};
+Module['PxU32ConstPtr'] = PxU32ConstPtr;
+
+  PxU32ConstPtr.prototype['__destroy__'] = PxU32ConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxU32ConstPtr___destroy___0(self);
+};
+// SimplePvdTransport
+/** @suppress {undefinedVars, duplicate} @this{Object} */function SimplePvdTransport() { throw "cannot construct a SimplePvdTransport, no constructor in IDL" }
+SimplePvdTransport.prototype = Object.create(PxPvdTransport.prototype);
+SimplePvdTransport.prototype.constructor = SimplePvdTransport;
+SimplePvdTransport.prototype.__class__ = SimplePvdTransport;
+SimplePvdTransport.__cache__ = {};
+Module['SimplePvdTransport'] = SimplePvdTransport;
+
+SimplePvdTransport.prototype['connect'] = SimplePvdTransport.prototype.connect = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_SimplePvdTransport_connect_0(self));
+};;
+
+SimplePvdTransport.prototype['send'] = SimplePvdTransport.prototype.send = /** @suppress {undefinedVars, duplicate} @this{Object} */function(inBytes, inLength) {
+  var self = this.ptr;
+  if (inBytes && typeof inBytes === 'object') inBytes = inBytes.ptr;
+  if (inLength && typeof inLength === 'object') inLength = inLength.ptr;
+  _emscripten_bind_SimplePvdTransport_send_2(self, inBytes, inLength);
+};;
+
+SimplePvdTransport.prototype['disconnect'] = SimplePvdTransport.prototype.disconnect = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_SimplePvdTransport_disconnect_0(self);
+};;
+
+SimplePvdTransport.prototype['isConnected'] = SimplePvdTransport.prototype.isConnected = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_SimplePvdTransport_isConnected_0(self));
+};;
+
+  SimplePvdTransport.prototype['__destroy__'] = SimplePvdTransport.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_SimplePvdTransport___destroy___0(self);
+};
 // VoidPtr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function VoidPtr() { throw "cannot construct a VoidPtr, no constructor in IDL" }
 VoidPtr.prototype = Object.create(WrapperObject.prototype);
@@ -15389,12 +15826,14 @@ PxTopLevelFunctions.prototype['CreateFoundation'] = PxTopLevelFunctions.prototyp
   return wrapPointer(_emscripten_bind_PxTopLevelFunctions_CreateFoundation_3(self, version, allocator, errorCallback), PxFoundation);
 };;
 
-PxTopLevelFunctions.prototype['CreatePhysics'] = PxTopLevelFunctions.prototype.CreatePhysics = /** @suppress {undefinedVars, duplicate} @this{Object} */function(version, foundation, params) {
+PxTopLevelFunctions.prototype['CreatePhysics'] = PxTopLevelFunctions.prototype.CreatePhysics = /** @suppress {undefinedVars, duplicate} @this{Object} */function(version, foundation, params, pvd) {
   var self = this.ptr;
   if (version && typeof version === 'object') version = version.ptr;
   if (foundation && typeof foundation === 'object') foundation = foundation.ptr;
   if (params && typeof params === 'object') params = params.ptr;
-  return wrapPointer(_emscripten_bind_PxTopLevelFunctions_CreatePhysics_3(self, version, foundation, params), PxPhysics);
+  if (pvd && typeof pvd === 'object') pvd = pvd.ptr;
+  if (pvd === undefined) { return wrapPointer(_emscripten_bind_PxTopLevelFunctions_CreatePhysics_3(self, version, foundation, params), PxPhysics) }
+  return wrapPointer(_emscripten_bind_PxTopLevelFunctions_CreatePhysics_4(self, version, foundation, params, pvd), PxPhysics);
 };;
 
 PxTopLevelFunctions.prototype['DefaultCpuDispatcherCreate'] = PxTopLevelFunctions.prototype.DefaultCpuDispatcherCreate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(numThreads) {
@@ -15414,6 +15853,12 @@ PxTopLevelFunctions.prototype['CreateCudaContextManager'] = PxTopLevelFunctions.
   if (foundation && typeof foundation === 'object') foundation = foundation.ptr;
   if (desc && typeof desc === 'object') desc = desc.ptr;
   return wrapPointer(_emscripten_bind_PxTopLevelFunctions_CreateCudaContextManager_2(self, foundation, desc), PxCudaContextManager);
+};;
+
+PxTopLevelFunctions.prototype['CreatePvd'] = PxTopLevelFunctions.prototype.CreatePvd = /** @suppress {undefinedVars, duplicate} @this{Object} */function(foundation) {
+  var self = this.ptr;
+  if (foundation && typeof foundation === 'object') foundation = foundation.ptr;
+  return wrapPointer(_emscripten_bind_PxTopLevelFunctions_CreatePvd_1(self, foundation), PxPvd);
 };;
 
 PxTopLevelFunctions.prototype['D6JointCreate'] = PxTopLevelFunctions.prototype.D6JointCreate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(physics, actor0, localFrame0, actor1, localFrame1) {
@@ -19464,6 +19909,12 @@ PxScene.prototype['removeAggregate'] = PxScene.prototype.removeAggregate = /** @
   if (wakeOnLostTouch && typeof wakeOnLostTouch === 'object') wakeOnLostTouch = wakeOnLostTouch.ptr;
   if (wakeOnLostTouch === undefined) { _emscripten_bind_PxScene_removeAggregate_1(self, aggregate);  return }
   _emscripten_bind_PxScene_removeAggregate_2(self, aggregate, wakeOnLostTouch);
+};;
+
+PxScene.prototype['addCollection'] = PxScene.prototype.addCollection = /** @suppress {undefinedVars, duplicate} @this{Object} */function(collection) {
+  var self = this.ptr;
+  if (collection && typeof collection === 'object') collection = collection.ptr;
+  _emscripten_bind_PxScene_addCollection_1(self, collection);
 };;
 
 PxScene.prototype['getWakeCounterResetValue'] = PxScene.prototype.getWakeCounterResetValue = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -26065,6 +26516,80 @@ PxBounds3.prototype['isValid'] = PxBounds3.prototype.isValid = /** @suppress {un
   var self = this.ptr;
   _emscripten_bind_PxBounds3___destroy___0(self);
 };
+// PxCollection
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxCollection() { throw "cannot construct a PxCollection, no constructor in IDL" }
+PxCollection.prototype = Object.create(WrapperObject.prototype);
+PxCollection.prototype.constructor = PxCollection;
+PxCollection.prototype.__class__ = PxCollection;
+PxCollection.__cache__ = {};
+Module['PxCollection'] = PxCollection;
+
+PxCollection.prototype['add'] = PxCollection.prototype.add = /** @suppress {undefinedVars, duplicate} @this{Object} */function(obj, id) {
+  var self = this.ptr;
+  if (obj && typeof obj === 'object') obj = obj.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  if (id === undefined) { _emscripten_bind_PxCollection_add_1(self, obj);  return }
+  _emscripten_bind_PxCollection_add_2(self, obj, id);
+};;
+
+PxCollection.prototype['remove'] = PxCollection.prototype.remove = /** @suppress {undefinedVars, duplicate} @this{Object} */function(obj) {
+  var self = this.ptr;
+  if (obj && typeof obj === 'object') obj = obj.ptr;
+  _emscripten_bind_PxCollection_remove_1(self, obj);
+};;
+
+PxCollection.prototype['contains'] = PxCollection.prototype.contains = /** @suppress {undefinedVars, duplicate} @this{Object} */function(obj) {
+  var self = this.ptr;
+  if (obj && typeof obj === 'object') obj = obj.ptr;
+  return !!(_emscripten_bind_PxCollection_contains_1(self, obj));
+};;
+
+PxCollection.prototype['addId'] = PxCollection.prototype.addId = /** @suppress {undefinedVars, duplicate} @this{Object} */function(obj, id) {
+  var self = this.ptr;
+  if (obj && typeof obj === 'object') obj = obj.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  _emscripten_bind_PxCollection_addId_2(self, obj, id);
+};;
+
+PxCollection.prototype['removeId'] = PxCollection.prototype.removeId = /** @suppress {undefinedVars, duplicate} @this{Object} */function(id) {
+  var self = this.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  _emscripten_bind_PxCollection_removeId_1(self, id);
+};;
+
+PxCollection.prototype['getNbObjects'] = PxCollection.prototype.getNbObjects = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCollection_getNbObjects_0(self);
+};;
+
+PxCollection.prototype['getObject'] = PxCollection.prototype.getObject = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_PxCollection_getObject_1(self, index), PxBase);
+};;
+
+PxCollection.prototype['find'] = PxCollection.prototype.find = /** @suppress {undefinedVars, duplicate} @this{Object} */function(id) {
+  var self = this.ptr;
+  if (id && typeof id === 'object') id = id.ptr;
+  return wrapPointer(_emscripten_bind_PxCollection_find_1(self, id), PxBase);
+};;
+
+PxCollection.prototype['getNbIds'] = PxCollection.prototype.getNbIds = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxCollection_getNbIds_0(self);
+};;
+
+PxCollection.prototype['getId'] = PxCollection.prototype.getId = /** @suppress {undefinedVars, duplicate} @this{Object} */function(obj) {
+  var self = this.ptr;
+  if (obj && typeof obj === 'object') obj = obj.ptr;
+  return _emscripten_bind_PxCollection_getId_1(self, obj);
+};;
+
+PxCollection.prototype['release'] = PxCollection.prototype.release = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxCollection_release_0(self);
+};;
+
 // PxCudaContextManager
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxCudaContextManager() { throw "cannot construct a PxCudaContextManager, no constructor in IDL" }
 PxCudaContextManager.prototype = Object.create(WrapperObject.prototype);
@@ -26574,6 +27099,41 @@ Module['PxVec3'] = PxVec3;
   var self = this.ptr;
   _emscripten_bind_PxVec3___destroy___0(self);
 };
+// PxCollectionExt
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxCollectionExt() { throw "cannot construct a PxCollectionExt, no constructor in IDL" }
+PxCollectionExt.prototype = Object.create(WrapperObject.prototype);
+PxCollectionExt.prototype.constructor = PxCollectionExt;
+PxCollectionExt.prototype.__class__ = PxCollectionExt;
+PxCollectionExt.__cache__ = {};
+Module['PxCollectionExt'] = PxCollectionExt;
+
+PxCollectionExt.prototype['releaseObjects'] = PxCollectionExt.prototype.releaseObjects = /** @suppress {undefinedVars, duplicate} @this{Object} */function(collection, releaseExclusiveShapes) {
+  var self = this.ptr;
+  if (collection && typeof collection === 'object') collection = collection.ptr;
+  if (releaseExclusiveShapes && typeof releaseExclusiveShapes === 'object') releaseExclusiveShapes = releaseExclusiveShapes.ptr;
+  if (releaseExclusiveShapes === undefined) { _emscripten_bind_PxCollectionExt_releaseObjects_1(self, collection);  return }
+  _emscripten_bind_PxCollectionExt_releaseObjects_2(self, collection, releaseExclusiveShapes);
+};;
+
+PxCollectionExt.prototype['remove'] = PxCollectionExt.prototype.remove = /** @suppress {undefinedVars, duplicate} @this{Object} */function(collection, concreteType, to) {
+  var self = this.ptr;
+  if (collection && typeof collection === 'object') collection = collection.ptr;
+  if (concreteType && typeof concreteType === 'object') concreteType = concreteType.ptr;
+  if (to && typeof to === 'object') to = to.ptr;
+  if (to === undefined) { _emscripten_bind_PxCollectionExt_remove_2(self, collection, concreteType);  return }
+  _emscripten_bind_PxCollectionExt_remove_3(self, collection, concreteType, to);
+};;
+
+PxCollectionExt.prototype['createCollection'] = PxCollectionExt.prototype.createCollection = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene) {
+  var self = this.ptr;
+  if (scene && typeof scene === 'object') scene = scene.ptr;
+  return wrapPointer(_emscripten_bind_PxCollectionExt_createCollection_1(self, scene), PxCollection);
+};;
+
+  PxCollectionExt.prototype['__destroy__'] = PxCollectionExt.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxCollectionExt___destroy___0(self);
+};
 // PxD6Joint
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxD6Joint() { throw "cannot construct a PxD6Joint, no constructor in IDL" }
 PxD6Joint.prototype = Object.create(WrapperObject.prototype);
@@ -26830,6 +27390,78 @@ Module['PxDefaultCpuDispatcher'] = PxDefaultCpuDispatcher;
   PxDefaultCpuDispatcher.prototype['__destroy__'] = PxDefaultCpuDispatcher.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxDefaultCpuDispatcher___destroy___0(self);
+};
+// PxDefaultMemoryInputData
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxDefaultMemoryInputData(data, length) {
+  if (data && typeof data === 'object') data = data.ptr;
+  if (length && typeof length === 'object') length = length.ptr;
+  this.ptr = _emscripten_bind_PxDefaultMemoryInputData_PxDefaultMemoryInputData_2(data, length);
+  getCache(PxDefaultMemoryInputData)[this.ptr] = this;
+};;
+PxDefaultMemoryInputData.prototype = Object.create(PxInputData.prototype);
+PxDefaultMemoryInputData.prototype.constructor = PxDefaultMemoryInputData;
+PxDefaultMemoryInputData.prototype.__class__ = PxDefaultMemoryInputData;
+PxDefaultMemoryInputData.__cache__ = {};
+Module['PxDefaultMemoryInputData'] = PxDefaultMemoryInputData;
+
+PxDefaultMemoryInputData.prototype['read'] = PxDefaultMemoryInputData.prototype.read = /** @suppress {undefinedVars, duplicate} @this{Object} */function(dest, count) {
+  var self = this.ptr;
+  if (dest && typeof dest === 'object') dest = dest.ptr;
+  if (count && typeof count === 'object') count = count.ptr;
+  return _emscripten_bind_PxDefaultMemoryInputData_read_2(self, dest, count);
+};;
+
+PxDefaultMemoryInputData.prototype['getLength'] = PxDefaultMemoryInputData.prototype.getLength = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxDefaultMemoryInputData_getLength_0(self);
+};;
+
+PxDefaultMemoryInputData.prototype['seek'] = PxDefaultMemoryInputData.prototype.seek = /** @suppress {undefinedVars, duplicate} @this{Object} */function(pos) {
+  var self = this.ptr;
+  if (pos && typeof pos === 'object') pos = pos.ptr;
+  _emscripten_bind_PxDefaultMemoryInputData_seek_1(self, pos);
+};;
+
+PxDefaultMemoryInputData.prototype['tell'] = PxDefaultMemoryInputData.prototype.tell = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxDefaultMemoryInputData_tell_0(self);
+};;
+
+  PxDefaultMemoryInputData.prototype['__destroy__'] = PxDefaultMemoryInputData.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxDefaultMemoryInputData___destroy___0(self);
+};
+// PxDefaultMemoryOutputStream
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxDefaultMemoryOutputStream() {
+  this.ptr = _emscripten_bind_PxDefaultMemoryOutputStream_PxDefaultMemoryOutputStream_0();
+  getCache(PxDefaultMemoryOutputStream)[this.ptr] = this;
+};;
+PxDefaultMemoryOutputStream.prototype = Object.create(PxOutputStream.prototype);
+PxDefaultMemoryOutputStream.prototype.constructor = PxDefaultMemoryOutputStream;
+PxDefaultMemoryOutputStream.prototype.__class__ = PxDefaultMemoryOutputStream;
+PxDefaultMemoryOutputStream.__cache__ = {};
+Module['PxDefaultMemoryOutputStream'] = PxDefaultMemoryOutputStream;
+
+PxDefaultMemoryOutputStream.prototype['write'] = PxDefaultMemoryOutputStream.prototype.write = /** @suppress {undefinedVars, duplicate} @this{Object} */function(src, count) {
+  var self = this.ptr;
+  if (src && typeof src === 'object') src = src.ptr;
+  if (count && typeof count === 'object') count = count.ptr;
+  _emscripten_bind_PxDefaultMemoryOutputStream_write_2(self, src, count);
+};;
+
+PxDefaultMemoryOutputStream.prototype['getSize'] = PxDefaultMemoryOutputStream.prototype.getSize = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxDefaultMemoryOutputStream_getSize_0(self);
+};;
+
+PxDefaultMemoryOutputStream.prototype['getData'] = PxDefaultMemoryOutputStream.prototype.getData = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxDefaultMemoryOutputStream_getData_0(self), VoidPtr);
+};;
+
+  PxDefaultMemoryOutputStream.prototype['__destroy__'] = PxDefaultMemoryOutputStream.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxDefaultMemoryOutputStream___destroy___0(self);
 };
 // PxDistanceJoint
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxDistanceJoint() { throw "cannot construct a PxDistanceJoint, no constructor in IDL" }
@@ -28395,6 +29027,107 @@ PxRevoluteJointFlags.prototype['clear'] = PxRevoluteJointFlags.prototype.clear =
   var self = this.ptr;
   _emscripten_bind_PxRevoluteJointFlags___destroy___0(self);
 };
+// PxSerialization
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSerialization() { throw "cannot construct a PxSerialization, no constructor in IDL" }
+PxSerialization.prototype = Object.create(WrapperObject.prototype);
+PxSerialization.prototype.constructor = PxSerialization;
+PxSerialization.prototype.__class__ = PxSerialization;
+PxSerialization.__cache__ = {};
+Module['PxSerialization'] = PxSerialization;
+
+PxSerialization.prototype['isSerializable'] = PxSerialization.prototype.isSerializable = /** @suppress {undefinedVars, duplicate} @this{Object} */function(collection, sr, externalReferences) {
+  var self = this.ptr;
+  if (collection && typeof collection === 'object') collection = collection.ptr;
+  if (sr && typeof sr === 'object') sr = sr.ptr;
+  if (externalReferences && typeof externalReferences === 'object') externalReferences = externalReferences.ptr;
+  if (externalReferences === undefined) { return !!(_emscripten_bind_PxSerialization_isSerializable_2(self, collection, sr)) }
+  return !!(_emscripten_bind_PxSerialization_isSerializable_3(self, collection, sr, externalReferences));
+};;
+
+PxSerialization.prototype['complete'] = PxSerialization.prototype.complete = /** @suppress {undefinedVars, duplicate} @this{Object} */function(collection, sr, exceptFor, followJoints) {
+  var self = this.ptr;
+  if (collection && typeof collection === 'object') collection = collection.ptr;
+  if (sr && typeof sr === 'object') sr = sr.ptr;
+  if (exceptFor && typeof exceptFor === 'object') exceptFor = exceptFor.ptr;
+  if (followJoints && typeof followJoints === 'object') followJoints = followJoints.ptr;
+  if (exceptFor === undefined) { _emscripten_bind_PxSerialization_complete_2(self, collection, sr);  return }
+  if (followJoints === undefined) { _emscripten_bind_PxSerialization_complete_3(self, collection, sr, exceptFor);  return }
+  _emscripten_bind_PxSerialization_complete_4(self, collection, sr, exceptFor, followJoints);
+};;
+
+PxSerialization.prototype['createSerialObjectIds'] = PxSerialization.prototype.createSerialObjectIds = /** @suppress {undefinedVars, duplicate} @this{Object} */function(collection, base) {
+  var self = this.ptr;
+  if (collection && typeof collection === 'object') collection = collection.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  _emscripten_bind_PxSerialization_createSerialObjectIds_2(self, collection, base);
+};;
+
+PxSerialization.prototype['createCollectionFromXml'] = PxSerialization.prototype.createCollectionFromXml = /** @suppress {undefinedVars, duplicate} @this{Object} */function(inputData, cooking, sr, externalRefs) {
+  var self = this.ptr;
+  if (inputData && typeof inputData === 'object') inputData = inputData.ptr;
+  if (cooking && typeof cooking === 'object') cooking = cooking.ptr;
+  if (sr && typeof sr === 'object') sr = sr.ptr;
+  if (externalRefs && typeof externalRefs === 'object') externalRefs = externalRefs.ptr;
+  if (externalRefs === undefined) { return wrapPointer(_emscripten_bind_PxSerialization_createCollectionFromXml_3(self, inputData, cooking, sr), PxCollection) }
+  return wrapPointer(_emscripten_bind_PxSerialization_createCollectionFromXml_4(self, inputData, cooking, sr, externalRefs), PxCollection);
+};;
+
+PxSerialization.prototype['createCollectionFromBinary'] = PxSerialization.prototype.createCollectionFromBinary = /** @suppress {undefinedVars, duplicate} @this{Object} */function(memBlock, sr, externalRefs) {
+  var self = this.ptr;
+  if (memBlock && typeof memBlock === 'object') memBlock = memBlock.ptr;
+  if (sr && typeof sr === 'object') sr = sr.ptr;
+  if (externalRefs && typeof externalRefs === 'object') externalRefs = externalRefs.ptr;
+  if (externalRefs === undefined) { return wrapPointer(_emscripten_bind_PxSerialization_createCollectionFromBinary_2(self, memBlock, sr), PxCollection) }
+  return wrapPointer(_emscripten_bind_PxSerialization_createCollectionFromBinary_3(self, memBlock, sr, externalRefs), PxCollection);
+};;
+
+PxSerialization.prototype['serializeCollectionToXml'] = PxSerialization.prototype.serializeCollectionToXml = /** @suppress {undefinedVars, duplicate} @this{Object} */function(outputStream, collection, sr, cooking, externalRefs) {
+  var self = this.ptr;
+  if (outputStream && typeof outputStream === 'object') outputStream = outputStream.ptr;
+  if (collection && typeof collection === 'object') collection = collection.ptr;
+  if (sr && typeof sr === 'object') sr = sr.ptr;
+  if (cooking && typeof cooking === 'object') cooking = cooking.ptr;
+  if (externalRefs && typeof externalRefs === 'object') externalRefs = externalRefs.ptr;
+  if (cooking === undefined) { return !!(_emscripten_bind_PxSerialization_serializeCollectionToXml_3(self, outputStream, collection, sr)) }
+  if (externalRefs === undefined) { return !!(_emscripten_bind_PxSerialization_serializeCollectionToXml_4(self, outputStream, collection, sr, cooking)) }
+  return !!(_emscripten_bind_PxSerialization_serializeCollectionToXml_5(self, outputStream, collection, sr, cooking, externalRefs));
+};;
+
+PxSerialization.prototype['serializeCollectionToBinary'] = PxSerialization.prototype.serializeCollectionToBinary = /** @suppress {undefinedVars, duplicate} @this{Object} */function(outputStream, collection, sr, externalRefs, exportNames) {
+  var self = this.ptr;
+  if (outputStream && typeof outputStream === 'object') outputStream = outputStream.ptr;
+  if (collection && typeof collection === 'object') collection = collection.ptr;
+  if (sr && typeof sr === 'object') sr = sr.ptr;
+  if (externalRefs && typeof externalRefs === 'object') externalRefs = externalRefs.ptr;
+  if (exportNames && typeof exportNames === 'object') exportNames = exportNames.ptr;
+  if (externalRefs === undefined) { return !!(_emscripten_bind_PxSerialization_serializeCollectionToBinary_3(self, outputStream, collection, sr)) }
+  if (exportNames === undefined) { return !!(_emscripten_bind_PxSerialization_serializeCollectionToBinary_4(self, outputStream, collection, sr, externalRefs)) }
+  return !!(_emscripten_bind_PxSerialization_serializeCollectionToBinary_5(self, outputStream, collection, sr, externalRefs, exportNames));
+};;
+
+PxSerialization.prototype['createSerializationRegistry'] = PxSerialization.prototype.createSerializationRegistry = /** @suppress {undefinedVars, duplicate} @this{Object} */function(physics) {
+  var self = this.ptr;
+  if (physics && typeof physics === 'object') physics = physics.ptr;
+  return wrapPointer(_emscripten_bind_PxSerialization_createSerializationRegistry_1(self, physics), PxSerializationRegistry);
+};;
+
+  PxSerialization.prototype['__destroy__'] = PxSerialization.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxSerialization___destroy___0(self);
+};
+// PxSerializationRegistry
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSerializationRegistry() { throw "cannot construct a PxSerializationRegistry, no constructor in IDL" }
+PxSerializationRegistry.prototype = Object.create(WrapperObject.prototype);
+PxSerializationRegistry.prototype.constructor = PxSerializationRegistry;
+PxSerializationRegistry.prototype.__class__ = PxSerializationRegistry;
+PxSerializationRegistry.__cache__ = {};
+Module['PxSerializationRegistry'] = PxSerializationRegistry;
+
+PxSerializationRegistry.prototype['release'] = PxSerializationRegistry.prototype.release = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxSerializationRegistry_release_0(self);
+};;
+
 // PxSphericalJoint
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxSphericalJoint() { throw "cannot construct a PxSphericalJoint, no constructor in IDL" }
 PxSphericalJoint.prototype = Object.create(PxJoint.prototype);
@@ -30482,7 +31215,7 @@ Module['PxRealPtr'] = PxRealPtr;
 };
 // PxU8Ptr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxU8Ptr() { throw "cannot construct a PxU8Ptr, no constructor in IDL" }
-PxU8Ptr.prototype = Object.create(WrapperObject.prototype);
+PxU8Ptr.prototype = Object.create(PxU8ConstPtr.prototype);
 PxU8Ptr.prototype.constructor = PxU8Ptr;
 PxU8Ptr.prototype.__class__ = PxU8Ptr;
 PxU8Ptr.__cache__ = {};
@@ -30492,21 +31225,9 @@ Module['PxU8Ptr'] = PxU8Ptr;
   var self = this.ptr;
   _emscripten_bind_PxU8Ptr___destroy___0(self);
 };
-// PxU8ConstPtr
-/** @suppress {undefinedVars, duplicate} @this{Object} */function PxU8ConstPtr() { throw "cannot construct a PxU8ConstPtr, no constructor in IDL" }
-PxU8ConstPtr.prototype = Object.create(WrapperObject.prototype);
-PxU8ConstPtr.prototype.constructor = PxU8ConstPtr;
-PxU8ConstPtr.prototype.__class__ = PxU8ConstPtr;
-PxU8ConstPtr.__cache__ = {};
-Module['PxU8ConstPtr'] = PxU8ConstPtr;
-
-  PxU8ConstPtr.prototype['__destroy__'] = PxU8ConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_PxU8ConstPtr___destroy___0(self);
-};
 // PxU16Ptr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxU16Ptr() { throw "cannot construct a PxU16Ptr, no constructor in IDL" }
-PxU16Ptr.prototype = Object.create(WrapperObject.prototype);
+PxU16Ptr.prototype = Object.create(PxU16ConstPtr.prototype);
 PxU16Ptr.prototype.constructor = PxU16Ptr;
 PxU16Ptr.prototype.__class__ = PxU16Ptr;
 PxU16Ptr.__cache__ = {};
@@ -30516,21 +31237,9 @@ Module['PxU16Ptr'] = PxU16Ptr;
   var self = this.ptr;
   _emscripten_bind_PxU16Ptr___destroy___0(self);
 };
-// PxU16ConstPtr
-/** @suppress {undefinedVars, duplicate} @this{Object} */function PxU16ConstPtr() { throw "cannot construct a PxU16ConstPtr, no constructor in IDL" }
-PxU16ConstPtr.prototype = Object.create(WrapperObject.prototype);
-PxU16ConstPtr.prototype.constructor = PxU16ConstPtr;
-PxU16ConstPtr.prototype.__class__ = PxU16ConstPtr;
-PxU16ConstPtr.__cache__ = {};
-Module['PxU16ConstPtr'] = PxU16ConstPtr;
-
-  PxU16ConstPtr.prototype['__destroy__'] = PxU16ConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_PxU16ConstPtr___destroy___0(self);
-};
 // PxU32Ptr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxU32Ptr() { throw "cannot construct a PxU32Ptr, no constructor in IDL" }
-PxU32Ptr.prototype = Object.create(WrapperObject.prototype);
+PxU32Ptr.prototype = Object.create(PxU32ConstPtr.prototype);
 PxU32Ptr.prototype.constructor = PxU32Ptr;
 PxU32Ptr.prototype.__class__ = PxU32Ptr;
 PxU32Ptr.__cache__ = {};
@@ -30539,18 +31248,6 @@ Module['PxU32Ptr'] = PxU32Ptr;
   PxU32Ptr.prototype['__destroy__'] = PxU32Ptr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxU32Ptr___destroy___0(self);
-};
-// PxU32ConstPtr
-/** @suppress {undefinedVars, duplicate} @this{Object} */function PxU32ConstPtr() { throw "cannot construct a PxU32ConstPtr, no constructor in IDL" }
-PxU32ConstPtr.prototype = Object.create(WrapperObject.prototype);
-PxU32ConstPtr.prototype.constructor = PxU32ConstPtr;
-PxU32ConstPtr.prototype.__class__ = PxU32ConstPtr;
-PxU32ConstPtr.__cache__ = {};
-Module['PxU32ConstPtr'] = PxU32ConstPtr;
-
-  PxU32ConstPtr.prototype['__destroy__'] = PxU32ConstPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_PxU32ConstPtr___destroy___0(self);
 };
 // TypeHelpers
 /** @suppress {undefinedVars, duplicate} @this{Object} */function TypeHelpers() { throw "cannot construct a TypeHelpers, no constructor in IDL" }
@@ -30609,22 +31306,22 @@ TypeHelpers.prototype['getVec3At'] = TypeHelpers.prototype.getVec3At = /** @supp
   return wrapPointer(_emscripten_bind_TypeHelpers_getVec3At_2(self, base, index), PxVec3);
 };;
 
-TypeHelpers.prototype['voidToU8ConstPtr'] = TypeHelpers.prototype.voidToU8ConstPtr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
+TypeHelpers.prototype['voidToU8Ptr'] = TypeHelpers.prototype.voidToU8Ptr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
   var self = this.ptr;
   if (voidPtr && typeof voidPtr === 'object') voidPtr = voidPtr.ptr;
-  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU8ConstPtr_1(self, voidPtr), PxU8ConstPtr);
+  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU8Ptr_1(self, voidPtr), PxU8Ptr);
 };;
 
-TypeHelpers.prototype['voidToU16ConstPtr'] = TypeHelpers.prototype.voidToU16ConstPtr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
+TypeHelpers.prototype['voidToU16Ptr'] = TypeHelpers.prototype.voidToU16Ptr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
   var self = this.ptr;
   if (voidPtr && typeof voidPtr === 'object') voidPtr = voidPtr.ptr;
-  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU16ConstPtr_1(self, voidPtr), PxU16ConstPtr);
+  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU16Ptr_1(self, voidPtr), PxU16Ptr);
 };;
 
-TypeHelpers.prototype['voidToU32ConstPtr'] = TypeHelpers.prototype.voidToU32ConstPtr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
+TypeHelpers.prototype['voidToU32Ptr'] = TypeHelpers.prototype.voidToU32Ptr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
   var self = this.ptr;
   if (voidPtr && typeof voidPtr === 'object') voidPtr = voidPtr.ptr;
-  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU32ConstPtr_1(self, voidPtr), PxU32ConstPtr);
+  return wrapPointer(_emscripten_bind_TypeHelpers_voidToU32Ptr_1(self, voidPtr), PxU32Ptr);
 };;
 
 TypeHelpers.prototype['voidToRealPtr'] = TypeHelpers.prototype.voidToRealPtr = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
@@ -30684,6 +31381,11 @@ Vector_PxMaterialConst.prototype['push_back'] = Vector_PxMaterialConst.prototype
   _emscripten_bind_Vector_PxMaterialConst_push_back_1(self, value);
 };;
 
+Vector_PxMaterialConst.prototype['clear'] = Vector_PxMaterialConst.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxMaterialConst_clear_0(self);
+};;
+
   Vector_PxMaterialConst.prototype['__destroy__'] = Vector_PxMaterialConst.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_Vector_PxMaterialConst___destroy___0(self);
@@ -30721,6 +31423,11 @@ Vector_PxHeightFieldSample.prototype['push_back'] = Vector_PxHeightFieldSample.p
   var self = this.ptr;
   if (value && typeof value === 'object') value = value.ptr;
   _emscripten_bind_Vector_PxHeightFieldSample_push_back_1(self, value);
+};;
+
+Vector_PxHeightFieldSample.prototype['clear'] = Vector_PxHeightFieldSample.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxHeightFieldSample_clear_0(self);
 };;
 
   Vector_PxHeightFieldSample.prototype['__destroy__'] = Vector_PxHeightFieldSample.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -30762,9 +31469,58 @@ Vector_PxReal.prototype['push_back'] = Vector_PxReal.prototype.push_back = /** @
   _emscripten_bind_Vector_PxReal_push_back_1(self, value);
 };;
 
+Vector_PxReal.prototype['clear'] = Vector_PxReal.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxReal_clear_0(self);
+};;
+
   Vector_PxReal.prototype['__destroy__'] = Vector_PxReal.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_Vector_PxReal___destroy___0(self);
+};
+// Vector_PxU8
+/** @suppress {undefinedVars, duplicate} @this{Object} */function Vector_PxU8(size) {
+  if (size && typeof size === 'object') size = size.ptr;
+  if (size === undefined) { this.ptr = _emscripten_bind_Vector_PxU8_Vector_PxU8_0(); getCache(Vector_PxU8)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_Vector_PxU8_Vector_PxU8_1(size);
+  getCache(Vector_PxU8)[this.ptr] = this;
+};;
+Vector_PxU8.prototype = Object.create(WrapperObject.prototype);
+Vector_PxU8.prototype.constructor = Vector_PxU8;
+Vector_PxU8.prototype.__class__ = Vector_PxU8;
+Vector_PxU8.__cache__ = {};
+Module['Vector_PxU8'] = Vector_PxU8;
+
+Vector_PxU8.prototype['at'] = Vector_PxU8.prototype.at = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return _emscripten_bind_Vector_PxU8_at_1(self, index);
+};;
+
+Vector_PxU8.prototype['data'] = Vector_PxU8.prototype.data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_Vector_PxU8_data_0(self), VoidPtr);
+};;
+
+Vector_PxU8.prototype['size'] = Vector_PxU8.prototype.size = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_Vector_PxU8_size_0(self);
+};;
+
+Vector_PxU8.prototype['push_back'] = Vector_PxU8.prototype.push_back = /** @suppress {undefinedVars, duplicate} @this{Object} */function(value) {
+  var self = this.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_Vector_PxU8_push_back_1(self, value);
+};;
+
+Vector_PxU8.prototype['clear'] = Vector_PxU8.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxU8_clear_0(self);
+};;
+
+  Vector_PxU8.prototype['__destroy__'] = Vector_PxU8.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxU8___destroy___0(self);
 };
 // Vector_PxU16
 /** @suppress {undefinedVars, duplicate} @this{Object} */function Vector_PxU16(size) {
@@ -30799,6 +31555,11 @@ Vector_PxU16.prototype['push_back'] = Vector_PxU16.prototype.push_back = /** @su
   var self = this.ptr;
   if (value && typeof value === 'object') value = value.ptr;
   _emscripten_bind_Vector_PxU16_push_back_1(self, value);
+};;
+
+Vector_PxU16.prototype['clear'] = Vector_PxU16.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxU16_clear_0(self);
 };;
 
   Vector_PxU16.prototype['__destroy__'] = Vector_PxU16.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -30840,6 +31601,11 @@ Vector_PxU32.prototype['push_back'] = Vector_PxU32.prototype.push_back = /** @su
   _emscripten_bind_Vector_PxU32_push_back_1(self, value);
 };;
 
+Vector_PxU32.prototype['clear'] = Vector_PxU32.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxU32_clear_0(self);
+};;
+
   Vector_PxU32.prototype['__destroy__'] = Vector_PxU32.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_Vector_PxU32___destroy___0(self);
@@ -30877,6 +31643,11 @@ Vector_PxVec3.prototype['push_back'] = Vector_PxVec3.prototype.push_back = /** @
   var self = this.ptr;
   if (value && typeof value === 'object') value = value.ptr;
   _emscripten_bind_Vector_PxVec3_push_back_1(self, value);
+};;
+
+Vector_PxVec3.prototype['clear'] = Vector_PxVec3.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxVec3_clear_0(self);
 };;
 
   Vector_PxVec3.prototype['__destroy__'] = Vector_PxVec3.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -30918,6 +31689,11 @@ Vector_PxRaycastQueryResult.prototype['push_back'] = Vector_PxRaycastQueryResult
   _emscripten_bind_Vector_PxRaycastQueryResult_push_back_1(self, value);
 };;
 
+Vector_PxRaycastQueryResult.prototype['clear'] = Vector_PxRaycastQueryResult.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxRaycastQueryResult_clear_0(self);
+};;
+
   Vector_PxRaycastQueryResult.prototype['__destroy__'] = Vector_PxRaycastQueryResult.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_Vector_PxRaycastQueryResult___destroy___0(self);
@@ -30955,6 +31731,11 @@ Vector_PxSweepQueryResult.prototype['push_back'] = Vector_PxSweepQueryResult.pro
   var self = this.ptr;
   if (value && typeof value === 'object') value = value.ptr;
   _emscripten_bind_Vector_PxSweepQueryResult_push_back_1(self, value);
+};;
+
+Vector_PxSweepQueryResult.prototype['clear'] = Vector_PxSweepQueryResult.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxSweepQueryResult_clear_0(self);
 };;
 
   Vector_PxSweepQueryResult.prototype['__destroy__'] = Vector_PxSweepQueryResult.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -30996,6 +31777,11 @@ Vector_PxRaycastHit.prototype['push_back'] = Vector_PxRaycastHit.prototype.push_
   _emscripten_bind_Vector_PxRaycastHit_push_back_1(self, value);
 };;
 
+Vector_PxRaycastHit.prototype['clear'] = Vector_PxRaycastHit.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxRaycastHit_clear_0(self);
+};;
+
   Vector_PxRaycastHit.prototype['__destroy__'] = Vector_PxRaycastHit.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_Vector_PxRaycastHit___destroy___0(self);
@@ -31033,6 +31819,11 @@ Vector_PxSweepHit.prototype['push_back'] = Vector_PxSweepHit.prototype.push_back
   var self = this.ptr;
   if (value && typeof value === 'object') value = value.ptr;
   _emscripten_bind_Vector_PxSweepHit_push_back_1(self, value);
+};;
+
+Vector_PxSweepHit.prototype['clear'] = Vector_PxSweepHit.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxSweepHit_clear_0(self);
 };;
 
   Vector_PxSweepHit.prototype['__destroy__'] = Vector_PxSweepHit.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -31074,6 +31865,11 @@ Vector_PxVehicleDrivableSurfaceType.prototype['push_back'] = Vector_PxVehicleDri
   _emscripten_bind_Vector_PxVehicleDrivableSurfaceType_push_back_1(self, value);
 };;
 
+Vector_PxVehicleDrivableSurfaceType.prototype['clear'] = Vector_PxVehicleDrivableSurfaceType.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxVehicleDrivableSurfaceType_clear_0(self);
+};;
+
   Vector_PxVehicleDrivableSurfaceType.prototype['__destroy__'] = Vector_PxVehicleDrivableSurfaceType.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_Vector_PxVehicleDrivableSurfaceType___destroy___0(self);
@@ -31111,6 +31907,11 @@ Vector_PxWheelQueryResult.prototype['push_back'] = Vector_PxWheelQueryResult.pro
   var self = this.ptr;
   if (value && typeof value === 'object') value = value.ptr;
   _emscripten_bind_Vector_PxWheelQueryResult_push_back_1(self, value);
+};;
+
+Vector_PxWheelQueryResult.prototype['clear'] = Vector_PxWheelQueryResult.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxWheelQueryResult_clear_0(self);
 };;
 
   Vector_PxWheelQueryResult.prototype['__destroy__'] = Vector_PxWheelQueryResult.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
@@ -31152,10 +31953,91 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
   _emscripten_bind_Vector_PxVehicleWheels_push_back_1(self, value);
 };;
 
+Vector_PxVehicleWheels.prototype['clear'] = Vector_PxVehicleWheels.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxVehicleWheels_clear_0(self);
+};;
+
   Vector_PxVehicleWheels.prototype['__destroy__'] = Vector_PxVehicleWheels.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_Vector_PxVehicleWheels___destroy___0(self);
 };
+// JSPvdTransport
+/** @suppress {undefinedVars, duplicate} @this{Object} */function JSPvdTransport() {
+  this.ptr = _emscripten_bind_JSPvdTransport_JSPvdTransport_0();
+  getCache(JSPvdTransport)[this.ptr] = this;
+};;
+JSPvdTransport.prototype = Object.create(SimplePvdTransport.prototype);
+JSPvdTransport.prototype.constructor = JSPvdTransport;
+JSPvdTransport.prototype.__class__ = JSPvdTransport;
+JSPvdTransport.__cache__ = {};
+Module['JSPvdTransport'] = JSPvdTransport;
+
+JSPvdTransport.prototype['connect'] = JSPvdTransport.prototype.connect = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return !!(_emscripten_bind_JSPvdTransport_connect_0(self));
+};;
+
+JSPvdTransport.prototype['send'] = JSPvdTransport.prototype.send = /** @suppress {undefinedVars, duplicate} @this{Object} */function(inBytes, inLength) {
+  var self = this.ptr;
+  if (inBytes && typeof inBytes === 'object') inBytes = inBytes.ptr;
+  if (inLength && typeof inLength === 'object') inLength = inLength.ptr;
+  _emscripten_bind_JSPvdTransport_send_2(self, inBytes, inLength);
+};;
+
+  JSPvdTransport.prototype['__destroy__'] = JSPvdTransport.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_JSPvdTransport___destroy___0(self);
+};
+// PxPvdInstrumentationFlags
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxPvdInstrumentationFlags(flags) {
+  if (flags && typeof flags === 'object') flags = flags.ptr;
+  this.ptr = _emscripten_bind_PxPvdInstrumentationFlags_PxPvdInstrumentationFlags_1(flags);
+  getCache(PxPvdInstrumentationFlags)[this.ptr] = this;
+};;
+PxPvdInstrumentationFlags.prototype = Object.create(WrapperObject.prototype);
+PxPvdInstrumentationFlags.prototype.constructor = PxPvdInstrumentationFlags;
+PxPvdInstrumentationFlags.prototype.__class__ = PxPvdInstrumentationFlags;
+PxPvdInstrumentationFlags.__cache__ = {};
+Module['PxPvdInstrumentationFlags'] = PxPvdInstrumentationFlags;
+
+PxPvdInstrumentationFlags.prototype['isSet'] = PxPvdInstrumentationFlags.prototype.isSet = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  return !!(_emscripten_bind_PxPvdInstrumentationFlags_isSet_1(self, flag));
+};;
+
+PxPvdInstrumentationFlags.prototype['set'] = PxPvdInstrumentationFlags.prototype.set = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxPvdInstrumentationFlags_set_1(self, flag);
+};;
+
+PxPvdInstrumentationFlags.prototype['clear'] = PxPvdInstrumentationFlags.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxPvdInstrumentationFlags_clear_1(self, flag);
+};;
+
+  PxPvdInstrumentationFlags.prototype['__destroy__'] = PxPvdInstrumentationFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxPvdInstrumentationFlags___destroy___0(self);
+};
+// PxPvd
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxPvd() { throw "cannot construct a PxPvd, no constructor in IDL" }
+PxPvd.prototype = Object.create(WrapperObject.prototype);
+PxPvd.prototype.constructor = PxPvd;
+PxPvd.prototype.__class__ = PxPvd;
+PxPvd.__cache__ = {};
+Module['PxPvd'] = PxPvd;
+
+PxPvd.prototype['connect'] = PxPvd.prototype.connect = /** @suppress {undefinedVars, duplicate} @this{Object} */function(transport, flags) {
+  var self = this.ptr;
+  if (transport && typeof transport === 'object') transport = transport.ptr;
+  if (flags && typeof flags === 'object') flags = flags.ptr;
+  return !!(_emscripten_bind_PxPvd_connect_2(self, transport, flags));
+};;
+
 (function() {
   function setupEnums() {
     
@@ -32033,6 +32915,18 @@ Vector_PxVehicleWheels.prototype['push_back'] = Vector_PxVehicleWheels.prototype
     Module['eBOX'] = _emscripten_enum_PxControllerShapeTypeEnum_eBOX();
 
     Module['eCAPSULE'] = _emscripten_enum_PxControllerShapeTypeEnum_eCAPSULE();
+
+    
+
+    // PxPvdInstrumentationFlagEnum
+
+    Module['eDEBUG'] = _emscripten_enum_PxPvdInstrumentationFlagEnum_eDEBUG();
+
+    Module['ePROFILE'] = _emscripten_enum_PxPvdInstrumentationFlagEnum_ePROFILE();
+
+    Module['eMEMORY'] = _emscripten_enum_PxPvdInstrumentationFlagEnum_eMEMORY();
+
+    Module['eALL'] = _emscripten_enum_PxPvdInstrumentationFlagEnum_eALL();
 
   }
   if (runtimeInitialized) setupEnums();
