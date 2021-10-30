@@ -1264,9 +1264,9 @@ function updateGlobalBufferAndViews(buf) {
   Module['HEAPF64'] = HEAPF64 = new Float64Array(buf);
 }
 
-var STACK_BASE = 5695456,
+var STACK_BASE = 5695376,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 452576;
+    STACK_MAX = 452496;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 
@@ -4646,6 +4646,9 @@ var _emscripten_bind_PxContactPairHeaderFlags_clear_1 = Module["_emscripten_bind
 var _emscripten_bind_PxContactPairHeaderFlags___destroy___0 = Module["_emscripten_bind_PxContactPairHeaderFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxContactPairHeaderFlags___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxContactPair_extractContacts_2 = Module["_emscripten_bind_PxContactPair_extractContacts_2"] = createExportWrapper("emscripten_bind_PxContactPair_extractContacts_2");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxContactPair_get_shapes_1 = Module["_emscripten_bind_PxContactPair_get_shapes_1"] = createExportWrapper("emscripten_bind_PxContactPair_get_shapes_1");
 
 /** @type {function(...*):?} */
@@ -4719,6 +4722,45 @@ var _emscripten_bind_PxContactPairHeader_set_nbPairs_1 = Module["_emscripten_bin
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxContactPairHeader___destroy___0 = Module["_emscripten_bind_PxContactPairHeader___destroy___0"] = createExportWrapper("emscripten_bind_PxContactPairHeader___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_get_position_0 = Module["_emscripten_bind_PxContactPairPoint_get_position_0"] = createExportWrapper("emscripten_bind_PxContactPairPoint_get_position_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_set_position_1 = Module["_emscripten_bind_PxContactPairPoint_set_position_1"] = createExportWrapper("emscripten_bind_PxContactPairPoint_set_position_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_get_separation_0 = Module["_emscripten_bind_PxContactPairPoint_get_separation_0"] = createExportWrapper("emscripten_bind_PxContactPairPoint_get_separation_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_set_separation_1 = Module["_emscripten_bind_PxContactPairPoint_set_separation_1"] = createExportWrapper("emscripten_bind_PxContactPairPoint_set_separation_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_get_normal_0 = Module["_emscripten_bind_PxContactPairPoint_get_normal_0"] = createExportWrapper("emscripten_bind_PxContactPairPoint_get_normal_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_set_normal_1 = Module["_emscripten_bind_PxContactPairPoint_set_normal_1"] = createExportWrapper("emscripten_bind_PxContactPairPoint_set_normal_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_get_internalFaceIndex0_0 = Module["_emscripten_bind_PxContactPairPoint_get_internalFaceIndex0_0"] = createExportWrapper("emscripten_bind_PxContactPairPoint_get_internalFaceIndex0_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_set_internalFaceIndex0_1 = Module["_emscripten_bind_PxContactPairPoint_set_internalFaceIndex0_1"] = createExportWrapper("emscripten_bind_PxContactPairPoint_set_internalFaceIndex0_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_get_impulse_0 = Module["_emscripten_bind_PxContactPairPoint_get_impulse_0"] = createExportWrapper("emscripten_bind_PxContactPairPoint_get_impulse_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_set_impulse_1 = Module["_emscripten_bind_PxContactPairPoint_set_impulse_1"] = createExportWrapper("emscripten_bind_PxContactPairPoint_set_impulse_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_get_internalFaceIndex1_0 = Module["_emscripten_bind_PxContactPairPoint_get_internalFaceIndex1_0"] = createExportWrapper("emscripten_bind_PxContactPairPoint_get_internalFaceIndex1_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint_set_internalFaceIndex1_1 = Module["_emscripten_bind_PxContactPairPoint_set_internalFaceIndex1_1"] = createExportWrapper("emscripten_bind_PxContactPairPoint_set_internalFaceIndex1_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxContactPairPoint___destroy___0 = Module["_emscripten_bind_PxContactPairPoint___destroy___0"] = createExportWrapper("emscripten_bind_PxContactPairPoint___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxDominanceGroupPair_PxDominanceGroupPair_2 = Module["_emscripten_bind_PxDominanceGroupPair_PxDominanceGroupPair_2"] = createExportWrapper("emscripten_bind_PxDominanceGroupPair_PxDominanceGroupPair_2");
@@ -11960,6 +12002,30 @@ var _emscripten_bind_Vector_PxActorPtr_clear_0 = Module["_emscripten_bind_Vector
 var _emscripten_bind_Vector_PxActorPtr___destroy___0 = Module["_emscripten_bind_Vector_PxActorPtr___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxActorPtr___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxContactPairPoint_Vector_PxContactPairPoint_0 = Module["_emscripten_bind_Vector_PxContactPairPoint_Vector_PxContactPairPoint_0"] = createExportWrapper("emscripten_bind_Vector_PxContactPairPoint_Vector_PxContactPairPoint_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxContactPairPoint_Vector_PxContactPairPoint_1 = Module["_emscripten_bind_Vector_PxContactPairPoint_Vector_PxContactPairPoint_1"] = createExportWrapper("emscripten_bind_Vector_PxContactPairPoint_Vector_PxContactPairPoint_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxContactPairPoint_at_1 = Module["_emscripten_bind_Vector_PxContactPairPoint_at_1"] = createExportWrapper("emscripten_bind_Vector_PxContactPairPoint_at_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxContactPairPoint_data_0 = Module["_emscripten_bind_Vector_PxContactPairPoint_data_0"] = createExportWrapper("emscripten_bind_Vector_PxContactPairPoint_data_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxContactPairPoint_size_0 = Module["_emscripten_bind_Vector_PxContactPairPoint_size_0"] = createExportWrapper("emscripten_bind_Vector_PxContactPairPoint_size_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxContactPairPoint_push_back_1 = Module["_emscripten_bind_Vector_PxContactPairPoint_push_back_1"] = createExportWrapper("emscripten_bind_Vector_PxContactPairPoint_push_back_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxContactPairPoint_clear_0 = Module["_emscripten_bind_Vector_PxContactPairPoint_clear_0"] = createExportWrapper("emscripten_bind_Vector_PxContactPairPoint_clear_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_Vector_PxContactPairPoint___destroy___0 = Module["_emscripten_bind_Vector_PxContactPairPoint___destroy___0"] = createExportWrapper("emscripten_bind_Vector_PxContactPairPoint___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_Vector_PxRaycastQueryResult_Vector_PxRaycastQueryResult_0 = Module["_emscripten_bind_Vector_PxRaycastQueryResult_Vector_PxRaycastQueryResult_0"] = createExportWrapper("emscripten_bind_Vector_PxRaycastQueryResult_Vector_PxRaycastQueryResult_0");
 
 /** @type {function(...*):?} */
@@ -18422,6 +18488,13 @@ PxContactPair.prototype.__class__ = PxContactPair;
 PxContactPair.__cache__ = {};
 Module['PxContactPair'] = PxContactPair;
 
+PxContactPair.prototype['extractContacts'] = PxContactPair.prototype.extractContacts = /** @suppress {undefinedVars, duplicate} @this{Object} */function(userBuffer, bufferSize) {
+  var self = this.ptr;
+  if (userBuffer && typeof userBuffer === 'object') userBuffer = userBuffer.ptr;
+  if (bufferSize && typeof bufferSize === 'object') bufferSize = bufferSize.ptr;
+  return _emscripten_bind_PxContactPair_extractContacts_2(self, userBuffer, bufferSize);
+};;
+
   PxContactPair.prototype['get_shapes'] = PxContactPair.prototype.get_shapes = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
   var self = this.ptr;
   if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
@@ -18567,6 +18640,78 @@ Module['PxContactPairHeader'] = PxContactPairHeader;
   PxContactPairHeader.prototype['__destroy__'] = PxContactPairHeader.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxContactPairHeader___destroy___0(self);
+};
+// PxContactPairPoint
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxContactPairPoint() { throw "cannot construct a PxContactPairPoint, no constructor in IDL" }
+PxContactPairPoint.prototype = Object.create(WrapperObject.prototype);
+PxContactPairPoint.prototype.constructor = PxContactPairPoint;
+PxContactPairPoint.prototype.__class__ = PxContactPairPoint;
+PxContactPairPoint.__cache__ = {};
+Module['PxContactPairPoint'] = PxContactPairPoint;
+
+  PxContactPairPoint.prototype['get_position'] = PxContactPairPoint.prototype.get_position = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxContactPairPoint_get_position_0(self), PxVec3);
+};
+    PxContactPairPoint.prototype['set_position'] = PxContactPairPoint.prototype.set_position = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxContactPairPoint_set_position_1(self, arg0);
+};
+    Object.defineProperty(PxContactPairPoint.prototype, 'position', { get: PxContactPairPoint.prototype.get_position, set: PxContactPairPoint.prototype.set_position });
+  PxContactPairPoint.prototype['get_separation'] = PxContactPairPoint.prototype.get_separation = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxContactPairPoint_get_separation_0(self);
+};
+    PxContactPairPoint.prototype['set_separation'] = PxContactPairPoint.prototype.set_separation = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxContactPairPoint_set_separation_1(self, arg0);
+};
+    Object.defineProperty(PxContactPairPoint.prototype, 'separation', { get: PxContactPairPoint.prototype.get_separation, set: PxContactPairPoint.prototype.set_separation });
+  PxContactPairPoint.prototype['get_normal'] = PxContactPairPoint.prototype.get_normal = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxContactPairPoint_get_normal_0(self), PxVec3);
+};
+    PxContactPairPoint.prototype['set_normal'] = PxContactPairPoint.prototype.set_normal = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxContactPairPoint_set_normal_1(self, arg0);
+};
+    Object.defineProperty(PxContactPairPoint.prototype, 'normal', { get: PxContactPairPoint.prototype.get_normal, set: PxContactPairPoint.prototype.set_normal });
+  PxContactPairPoint.prototype['get_internalFaceIndex0'] = PxContactPairPoint.prototype.get_internalFaceIndex0 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxContactPairPoint_get_internalFaceIndex0_0(self);
+};
+    PxContactPairPoint.prototype['set_internalFaceIndex0'] = PxContactPairPoint.prototype.set_internalFaceIndex0 = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxContactPairPoint_set_internalFaceIndex0_1(self, arg0);
+};
+    Object.defineProperty(PxContactPairPoint.prototype, 'internalFaceIndex0', { get: PxContactPairPoint.prototype.get_internalFaceIndex0, set: PxContactPairPoint.prototype.set_internalFaceIndex0 });
+  PxContactPairPoint.prototype['get_impulse'] = PxContactPairPoint.prototype.get_impulse = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxContactPairPoint_get_impulse_0(self), PxVec3);
+};
+    PxContactPairPoint.prototype['set_impulse'] = PxContactPairPoint.prototype.set_impulse = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxContactPairPoint_set_impulse_1(self, arg0);
+};
+    Object.defineProperty(PxContactPairPoint.prototype, 'impulse', { get: PxContactPairPoint.prototype.get_impulse, set: PxContactPairPoint.prototype.set_impulse });
+  PxContactPairPoint.prototype['get_internalFaceIndex1'] = PxContactPairPoint.prototype.get_internalFaceIndex1 = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxContactPairPoint_get_internalFaceIndex1_0(self);
+};
+    PxContactPairPoint.prototype['set_internalFaceIndex1'] = PxContactPairPoint.prototype.set_internalFaceIndex1 = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxContactPairPoint_set_internalFaceIndex1_1(self, arg0);
+};
+    Object.defineProperty(PxContactPairPoint.prototype, 'internalFaceIndex1', { get: PxContactPairPoint.prototype.get_internalFaceIndex1, set: PxContactPairPoint.prototype.set_internalFaceIndex1 });
+  PxContactPairPoint.prototype['__destroy__'] = PxContactPairPoint.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxContactPairPoint___destroy___0(self);
 };
 // PxDominanceGroupPair
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxDominanceGroupPair(a, b) {
@@ -32321,6 +32466,50 @@ Vector_PxActorPtr.prototype['clear'] = Vector_PxActorPtr.prototype.clear = /** @
   Vector_PxActorPtr.prototype['__destroy__'] = Vector_PxActorPtr.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_Vector_PxActorPtr___destroy___0(self);
+};
+// Vector_PxContactPairPoint
+/** @suppress {undefinedVars, duplicate} @this{Object} */function Vector_PxContactPairPoint(size) {
+  if (size && typeof size === 'object') size = size.ptr;
+  if (size === undefined) { this.ptr = _emscripten_bind_Vector_PxContactPairPoint_Vector_PxContactPairPoint_0(); getCache(Vector_PxContactPairPoint)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_Vector_PxContactPairPoint_Vector_PxContactPairPoint_1(size);
+  getCache(Vector_PxContactPairPoint)[this.ptr] = this;
+};;
+Vector_PxContactPairPoint.prototype = Object.create(WrapperObject.prototype);
+Vector_PxContactPairPoint.prototype.constructor = Vector_PxContactPairPoint;
+Vector_PxContactPairPoint.prototype.__class__ = Vector_PxContactPairPoint;
+Vector_PxContactPairPoint.__cache__ = {};
+Module['Vector_PxContactPairPoint'] = Vector_PxContactPairPoint;
+
+Vector_PxContactPairPoint.prototype['at'] = Vector_PxContactPairPoint.prototype.at = /** @suppress {undefinedVars, duplicate} @this{Object} */function(index) {
+  var self = this.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_Vector_PxContactPairPoint_at_1(self, index), PxContactPairPoint);
+};;
+
+Vector_PxContactPairPoint.prototype['data'] = Vector_PxContactPairPoint.prototype.data = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_Vector_PxContactPairPoint_data_0(self), PxContactPairPoint);
+};;
+
+Vector_PxContactPairPoint.prototype['size'] = Vector_PxContactPairPoint.prototype.size = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_Vector_PxContactPairPoint_size_0(self);
+};;
+
+Vector_PxContactPairPoint.prototype['push_back'] = Vector_PxContactPairPoint.prototype.push_back = /** @suppress {undefinedVars, duplicate} @this{Object} */function(value) {
+  var self = this.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_Vector_PxContactPairPoint_push_back_1(self, value);
+};;
+
+Vector_PxContactPairPoint.prototype['clear'] = Vector_PxContactPairPoint.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxContactPairPoint_clear_0(self);
+};;
+
+  Vector_PxContactPairPoint.prototype['__destroy__'] = Vector_PxContactPairPoint.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_Vector_PxContactPairPoint___destroy___0(self);
 };
 // Vector_PxRaycastQueryResult
 /** @suppress {undefinedVars, duplicate} @this{Object} */function Vector_PxRaycastQueryResult(size) {
