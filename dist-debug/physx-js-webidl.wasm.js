@@ -1264,9 +1264,9 @@ function updateGlobalBufferAndViews(buf) {
   Module['HEAPF64'] = HEAPF64 = new Float64Array(buf);
 }
 
-var STACK_BASE = 5695376,
+var STACK_BASE = 5696992,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 452496;
+    STACK_MAX = 454112;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 
@@ -1787,11 +1787,15 @@ var ASM_CONSTS = {
  2313: function($0, $1, $2, $3) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onContact')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onContact.'; self['onContact']($1,$2,$3);},  
  2573: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onTrigger')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onTrigger.'; self['onTrigger']($1,$2);},  
  2940: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);},  
- 4172: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
- 4427: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
- 4697: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);},  
- 5236: function($0) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('connect')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::connect.'; return self['connect']();},  
- 5460: function($0, $1, $2) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('send')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::send.'; self['send']($1,$2);}
+ 4288: function($0, $1, $2) {var self = Module['getCache'](Module['JavaControllerBehaviorCallback'])[$0]; if (!self.hasOwnProperty('getShapeBehaviorFlags')) throw 'a JSImplementation must implement all functions, you forgot JavaControllerBehaviorCallback::getShapeBehaviorFlags.'; return self['getShapeBehaviorFlags']($1,$2);},  
+ 4593: function($0, $1) {var self = Module['getCache'](Module['JavaControllerBehaviorCallback'])[$0]; if (!self.hasOwnProperty('getControllerBehaviorFlags')) throw 'a JSImplementation must implement all functions, you forgot JavaControllerBehaviorCallback::getControllerBehaviorFlags.'; return self['getControllerBehaviorFlags']($1);},  
+ 4909: function($0, $1) {var self = Module['getCache'](Module['JavaControllerBehaviorCallback'])[$0]; if (!self.hasOwnProperty('getObstacleBehaviorFlags')) throw 'a JSImplementation must implement all functions, you forgot JavaControllerBehaviorCallback::getObstacleBehaviorFlags.'; return self['getObstacleBehaviorFlags']($1);},  
+ 5364: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
+ 5619: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
+ 5889: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);},  
+ 6428: function($0) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('connect')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::connect.'; return self['connect']();},  
+ 6652: function($0, $1, $2) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('send')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::send.'; self['send']($1,$2);},  
+ 6984: function($0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10) {var self = Module['getCache'](Module['JavaPassThroughFilterShader'])[$0]; if (!self.hasOwnProperty('filterShader')) throw 'a JSImplementation must implement all functions, you forgot JavaPassThroughFilterShader::filterShader.'; return self['filterShader']($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);}
 };
 function array_bounds_check_error(idx,size){ throw 'Array index ' + idx + ' out of bounds: [0,' + size + ')'; }
 
@@ -2454,6 +2458,9 @@ var _emscripten_bind_PxRigidActor_set_userData_1 = Module["_emscripten_bind_PxRi
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSimulationEventCallback___destroy___0 = Module["_emscripten_bind_PxSimulationEventCallback___destroy___0"] = createExportWrapper("emscripten_bind_PxSimulationEventCallback___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSimulationFilterShader___destroy___0 = Module["_emscripten_bind_PxSimulationFilterShader___destroy___0"] = createExportWrapper("emscripten_bind_PxSimulationFilterShader___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxVehicleWheels_getVehicleType_0 = Module["_emscripten_bind_PxVehicleWheels_getVehicleType_0"] = createExportWrapper("emscripten_bind_PxVehicleWheels_getVehicleType_0");
@@ -3266,6 +3273,18 @@ var _emscripten_bind_PxController_getStats_1 = Module["_emscripten_bind_PxContro
 var _emscripten_bind_PxController_resize_1 = Module["_emscripten_bind_PxController_resize_1"] = createExportWrapper("emscripten_bind_PxController_resize_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_SimpleControllerBehaviorCallback_getShapeBehaviorFlags_2 = Module["_emscripten_bind_SimpleControllerBehaviorCallback_getShapeBehaviorFlags_2"] = createExportWrapper("emscripten_bind_SimpleControllerBehaviorCallback_getShapeBehaviorFlags_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimpleControllerBehaviorCallback_getControllerBehaviorFlags_1 = Module["_emscripten_bind_SimpleControllerBehaviorCallback_getControllerBehaviorFlags_1"] = createExportWrapper("emscripten_bind_SimpleControllerBehaviorCallback_getControllerBehaviorFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimpleControllerBehaviorCallback_getObstacleBehaviorFlags_1 = Module["_emscripten_bind_SimpleControllerBehaviorCallback_getObstacleBehaviorFlags_1"] = createExportWrapper("emscripten_bind_SimpleControllerBehaviorCallback_getObstacleBehaviorFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimpleControllerBehaviorCallback___destroy___0 = Module["_emscripten_bind_SimpleControllerBehaviorCallback___destroy___0"] = createExportWrapper("emscripten_bind_SimpleControllerBehaviorCallback___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxControllerDesc_isValid_0 = Module["_emscripten_bind_PxControllerDesc_isValid_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_isValid_0");
 
 /** @type {function(...*):?} */
@@ -3336,6 +3355,12 @@ var _emscripten_bind_PxControllerDesc_get_reportCallback_0 = Module["_emscripten
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxControllerDesc_set_reportCallback_1 = Module["_emscripten_bind_PxControllerDesc_set_reportCallback_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_reportCallback_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_get_behaviorCallback_0 = Module["_emscripten_bind_PxControllerDesc_get_behaviorCallback_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_behaviorCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerDesc_set_behaviorCallback_1 = Module["_emscripten_bind_PxControllerDesc_set_behaviorCallback_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_behaviorCallback_1");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxControllerDesc_get_nonWalkableMode_0 = Module["_emscripten_bind_PxControllerDesc_get_nonWalkableMode_0"] = createExportWrapper("emscripten_bind_PxControllerDesc_get_nonWalkableMode_0");
@@ -3452,10 +3477,25 @@ var _emscripten_bind_SimplePvdTransport_isConnected_0 = Module["_emscripten_bind
 var _emscripten_bind_SimplePvdTransport___destroy___0 = Module["_emscripten_bind_SimplePvdTransport___destroy___0"] = createExportWrapper("emscripten_bind_SimplePvdTransport___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PassThroughFilterShader_filterShader_10 = Module["_emscripten_bind_PassThroughFilterShader_filterShader_10"] = createExportWrapper("emscripten_bind_PassThroughFilterShader_filterShader_10");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PassThroughFilterShader_get_outputPairFlags_0 = Module["_emscripten_bind_PassThroughFilterShader_get_outputPairFlags_0"] = createExportWrapper("emscripten_bind_PassThroughFilterShader_get_outputPairFlags_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PassThroughFilterShader_set_outputPairFlags_1 = Module["_emscripten_bind_PassThroughFilterShader_set_outputPairFlags_1"] = createExportWrapper("emscripten_bind_PassThroughFilterShader_set_outputPairFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PassThroughFilterShader___destroy___0 = Module["_emscripten_bind_PassThroughFilterShader___destroy___0"] = createExportWrapper("emscripten_bind_PassThroughFilterShader___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_VoidPtr___destroy___0 = Module["_emscripten_bind_VoidPtr___destroy___0"] = createExportWrapper("emscripten_bind_VoidPtr___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_DefaultFilterShader_0 = Module["_emscripten_bind_PxTopLevelFunctions_DefaultFilterShader_0"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_DefaultFilterShader_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxTopLevelFunctions_setupPassThroughFilterShader_2 = Module["_emscripten_bind_PxTopLevelFunctions_setupPassThroughFilterShader_2"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_setupPassThroughFilterShader_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1 = Module["_emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1"] = createExportWrapper("emscripten_bind_PxTopLevelFunctions_CreateControllerManager_1");
@@ -6513,9 +6553,6 @@ var _emscripten_bind_JavaSimulationEventCallback_onTrigger_2 = Module["_emscript
 
 /** @type {function(...*):?} */
 var _emscripten_bind_JavaSimulationEventCallback___destroy___0 = Module["_emscripten_bind_JavaSimulationEventCallback___destroy___0"] = createExportWrapper("emscripten_bind_JavaSimulationEventCallback___destroy___0");
-
-/** @type {function(...*):?} */
-var _emscripten_bind_PxSimulationFilterShader___destroy___0 = Module["_emscripten_bind_PxSimulationFilterShader___destroy___0"] = createExportWrapper("emscripten_bind_PxSimulationFilterShader___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSimulationStatistics_get_nbActiveConstraints_0 = Module["_emscripten_bind_PxSimulationStatistics_get_nbActiveConstraints_0"] = createExportWrapper("emscripten_bind_PxSimulationStatistics_get_nbActiveConstraints_0");
@@ -11057,6 +11094,12 @@ var _emscripten_bind_PxBoxControllerDesc_get_reportCallback_0 = Module["_emscrip
 var _emscripten_bind_PxBoxControllerDesc_set_reportCallback_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_reportCallback_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_reportCallback_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_get_behaviorCallback_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_behaviorCallback_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_behaviorCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxBoxControllerDesc_set_behaviorCallback_1 = Module["_emscripten_bind_PxBoxControllerDesc_set_behaviorCallback_1"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_set_behaviorCallback_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxBoxControllerDesc_get_nonWalkableMode_0 = Module["_emscripten_bind_PxBoxControllerDesc_get_nonWalkableMode_0"] = createExportWrapper("emscripten_bind_PxBoxControllerDesc_get_nonWalkableMode_0");
 
 /** @type {function(...*):?} */
@@ -11309,6 +11352,12 @@ var _emscripten_bind_PxCapsuleControllerDesc_get_reportCallback_0 = Module["_ems
 var _emscripten_bind_PxCapsuleControllerDesc_set_reportCallback_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_reportCallback_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_reportCallback_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_get_behaviorCallback_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_behaviorCallback_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_behaviorCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxCapsuleControllerDesc_set_behaviorCallback_1 = Module["_emscripten_bind_PxCapsuleControllerDesc_set_behaviorCallback_1"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_set_behaviorCallback_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxCapsuleControllerDesc_get_nonWalkableMode_0 = Module["_emscripten_bind_PxCapsuleControllerDesc_get_nonWalkableMode_0"] = createExportWrapper("emscripten_bind_PxCapsuleControllerDesc_get_nonWalkableMode_0");
 
 /** @type {function(...*):?} */
@@ -11373,6 +11422,36 @@ var _emscripten_bind_PxCapsuleObstacle_set_mRot_1 = Module["_emscripten_bind_PxC
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxCapsuleObstacle___destroy___0 = Module["_emscripten_bind_PxCapsuleObstacle___destroy___0"] = createExportWrapper("emscripten_bind_PxCapsuleObstacle___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaControllerBehaviorCallback_JavaControllerBehaviorCallback_0 = Module["_emscripten_bind_JavaControllerBehaviorCallback_JavaControllerBehaviorCallback_0"] = createExportWrapper("emscripten_bind_JavaControllerBehaviorCallback_JavaControllerBehaviorCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaControllerBehaviorCallback_getShapeBehaviorFlags_2 = Module["_emscripten_bind_JavaControllerBehaviorCallback_getShapeBehaviorFlags_2"] = createExportWrapper("emscripten_bind_JavaControllerBehaviorCallback_getShapeBehaviorFlags_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaControllerBehaviorCallback_getControllerBehaviorFlags_1 = Module["_emscripten_bind_JavaControllerBehaviorCallback_getControllerBehaviorFlags_1"] = createExportWrapper("emscripten_bind_JavaControllerBehaviorCallback_getControllerBehaviorFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaControllerBehaviorCallback_getObstacleBehaviorFlags_1 = Module["_emscripten_bind_JavaControllerBehaviorCallback_getObstacleBehaviorFlags_1"] = createExportWrapper("emscripten_bind_JavaControllerBehaviorCallback_getObstacleBehaviorFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaControllerBehaviorCallback___destroy___0 = Module["_emscripten_bind_JavaControllerBehaviorCallback___destroy___0"] = createExportWrapper("emscripten_bind_JavaControllerBehaviorCallback___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerBehaviorFlags_PxControllerBehaviorFlags_1 = Module["_emscripten_bind_PxControllerBehaviorFlags_PxControllerBehaviorFlags_1"] = createExportWrapper("emscripten_bind_PxControllerBehaviorFlags_PxControllerBehaviorFlags_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerBehaviorFlags_isSet_1 = Module["_emscripten_bind_PxControllerBehaviorFlags_isSet_1"] = createExportWrapper("emscripten_bind_PxControllerBehaviorFlags_isSet_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerBehaviorFlags_set_1 = Module["_emscripten_bind_PxControllerBehaviorFlags_set_1"] = createExportWrapper("emscripten_bind_PxControllerBehaviorFlags_set_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerBehaviorFlags_clear_1 = Module["_emscripten_bind_PxControllerBehaviorFlags_clear_1"] = createExportWrapper("emscripten_bind_PxControllerBehaviorFlags_clear_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerBehaviorFlags___destroy___0 = Module["_emscripten_bind_PxControllerBehaviorFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerBehaviorFlags___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxControllerCollisionFlags_PxControllerCollisionFlags_1 = Module["_emscripten_bind_PxControllerCollisionFlags_PxControllerCollisionFlags_1"] = createExportWrapper("emscripten_bind_PxControllerCollisionFlags_PxControllerCollisionFlags_1");
@@ -11780,7 +11859,22 @@ var _emscripten_bind_TypeHelpers_getU32At_2 = Module["_emscripten_bind_TypeHelpe
 var _emscripten_bind_TypeHelpers_getRealAt_2 = Module["_emscripten_bind_TypeHelpers_getRealAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getRealAt_2");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_getActorAt_2 = Module["_emscripten_bind_TypeHelpers_getActorAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getActorAt_2");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_getContactPairAt_2 = Module["_emscripten_bind_TypeHelpers_getContactPairAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getContactPairAt_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_getContactPairHeaderAt_2 = Module["_emscripten_bind_TypeHelpers_getContactPairHeaderAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getContactPairHeaderAt_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_getControllerAt_2 = Module["_emscripten_bind_TypeHelpers_getControllerAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getControllerAt_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_getObstacleAt_2 = Module["_emscripten_bind_TypeHelpers_getObstacleAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getObstacleAt_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_getShapeAt_2 = Module["_emscripten_bind_TypeHelpers_getShapeAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getShapeAt_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_getTriggerPairAt_2 = Module["_emscripten_bind_TypeHelpers_getTriggerPairAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getTriggerPairAt_2");
@@ -12224,6 +12318,15 @@ var _emscripten_bind_PxPvdInstrumentationFlags___destroy___0 = Module["_emscript
 var _emscripten_bind_PxPvd_connect_2 = Module["_emscripten_bind_PxPvd_connect_2"] = createExportWrapper("emscripten_bind_PxPvd_connect_2");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_JavaPassThroughFilterShader_JavaPassThroughFilterShader_0 = Module["_emscripten_bind_JavaPassThroughFilterShader_JavaPassThroughFilterShader_0"] = createExportWrapper("emscripten_bind_JavaPassThroughFilterShader_JavaPassThroughFilterShader_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaPassThroughFilterShader_filterShader_10 = Module["_emscripten_bind_JavaPassThroughFilterShader_filterShader_10"] = createExportWrapper("emscripten_bind_JavaPassThroughFilterShader_filterShader_10");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaPassThroughFilterShader___destroy___0 = Module["_emscripten_bind_JavaPassThroughFilterShader___destroy___0"] = createExportWrapper("emscripten_bind_JavaPassThroughFilterShader___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_enum_PxActorFlagEnum_eVISUALIZATION = Module["_emscripten_enum_PxActorFlagEnum_eVISUALIZATION"] = createExportWrapper("emscripten_enum_PxActorFlagEnum_eVISUALIZATION");
 
 /** @type {function(...*):?} */
@@ -12437,6 +12540,27 @@ var _emscripten_enum_PxContactPairFlagEnum_eINTERNAL_HAS_IMPULSES = Module["_ems
 var _emscripten_enum_PxContactPairFlagEnum_eINTERNAL_CONTACTS_ARE_FLIPPED = Module["_emscripten_enum_PxContactPairFlagEnum_eINTERNAL_CONTACTS_ARE_FLIPPED"] = createExportWrapper("emscripten_enum_PxContactPairFlagEnum_eINTERNAL_CONTACTS_ARE_FLIPPED");
 
 /** @type {function(...*):?} */
+var _emscripten_enum_PxFilterFlagEnum_eKILL = Module["_emscripten_enum_PxFilterFlagEnum_eKILL"] = createExportWrapper("emscripten_enum_PxFilterFlagEnum_eKILL");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxFilterFlagEnum_eSUPPRESS = Module["_emscripten_enum_PxFilterFlagEnum_eSUPPRESS"] = createExportWrapper("emscripten_enum_PxFilterFlagEnum_eSUPPRESS");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxFilterFlagEnum_eCALLBACK = Module["_emscripten_enum_PxFilterFlagEnum_eCALLBACK"] = createExportWrapper("emscripten_enum_PxFilterFlagEnum_eCALLBACK");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxFilterFlagEnum_eNOTIFY = Module["_emscripten_enum_PxFilterFlagEnum_eNOTIFY"] = createExportWrapper("emscripten_enum_PxFilterFlagEnum_eNOTIFY");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxFilterFlagEnum_eDEFAULT = Module["_emscripten_enum_PxFilterFlagEnum_eDEFAULT"] = createExportWrapper("emscripten_enum_PxFilterFlagEnum_eDEFAULT");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxFilterObjectFlagEnum_eKINEMATIC = Module["_emscripten_enum_PxFilterObjectFlagEnum_eKINEMATIC"] = createExportWrapper("emscripten_enum_PxFilterObjectFlagEnum_eKINEMATIC");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxFilterObjectFlagEnum_eTRIGGER = Module["_emscripten_enum_PxFilterObjectFlagEnum_eTRIGGER"] = createExportWrapper("emscripten_enum_PxFilterObjectFlagEnum_eTRIGGER");
+
+/** @type {function(...*):?} */
 var _emscripten_enum_PxForceModeEnum_eFORCE = Module["_emscripten_enum_PxForceModeEnum_eFORCE"] = createExportWrapper("emscripten_enum_PxForceModeEnum_eFORCE");
 
 /** @type {function(...*):?} */
@@ -12567,6 +12691,9 @@ var _emscripten_enum_PxPairFlagEnum_eNEXT_FREE = Module["_emscripten_enum_PxPair
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxPairFlagEnum_eCONTACT_DEFAULT = Module["_emscripten_enum_PxPairFlagEnum_eCONTACT_DEFAULT"] = createExportWrapper("emscripten_enum_PxPairFlagEnum_eCONTACT_DEFAULT");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxPairFlagEnum_eTRIGGER_DEFAULT = Module["_emscripten_enum_PxPairFlagEnum_eTRIGGER_DEFAULT"] = createExportWrapper("emscripten_enum_PxPairFlagEnum_eTRIGGER_DEFAULT");
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxPruningStructureTypeEnum_eNONE = Module["_emscripten_enum_PxPruningStructureTypeEnum_eNONE"] = createExportWrapper("emscripten_enum_PxPruningStructureTypeEnum_eNONE");
@@ -13140,6 +13267,15 @@ var _emscripten_enum_PxCapsuleClimbingModeEnum_eEASY = Module["_emscripten_enum_
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxCapsuleClimbingModeEnum_eCONSTRAINED = Module["_emscripten_enum_PxCapsuleClimbingModeEnum_eCONSTRAINED"] = createExportWrapper("emscripten_enum_PxCapsuleClimbingModeEnum_eCONSTRAINED");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_CAN_RIDE_ON_OBJECT = Module["_emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_CAN_RIDE_ON_OBJECT"] = createExportWrapper("emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_CAN_RIDE_ON_OBJECT");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_SLIDE = Module["_emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_SLIDE"] = createExportWrapper("emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_SLIDE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_USER_DEFINED_RIDE = Module["_emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_USER_DEFINED_RIDE"] = createExportWrapper("emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_USER_DEFINED_RIDE");
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_SIDES = Module["_emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_SIDES"] = createExportWrapper("emscripten_enum_PxControllerCollisionFlagEnum_eCOLLISION_SIDES");
@@ -14159,6 +14295,18 @@ Module['PxSimulationEventCallback'] = PxSimulationEventCallback;
   var self = this.ptr;
   _emscripten_bind_PxSimulationEventCallback___destroy___0(self);
 };
+// PxSimulationFilterShader
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSimulationFilterShader() { throw "cannot construct a PxSimulationFilterShader, no constructor in IDL" }
+PxSimulationFilterShader.prototype = Object.create(WrapperObject.prototype);
+PxSimulationFilterShader.prototype.constructor = PxSimulationFilterShader;
+PxSimulationFilterShader.prototype.__class__ = PxSimulationFilterShader;
+PxSimulationFilterShader.__cache__ = {};
+Module['PxSimulationFilterShader'] = PxSimulationFilterShader;
+
+  PxSimulationFilterShader.prototype['__destroy__'] = PxSimulationFilterShader.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxSimulationFilterShader___destroy___0(self);
+};
 // PxVehicleWheels
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxVehicleWheels() { throw "cannot construct a PxVehicleWheels, no constructor in IDL" }
 PxVehicleWheels.prototype = Object.create(PxBase.prototype);
@@ -14245,6 +14393,14 @@ PxVehicleWheels.prototype['isReleasable'] = PxVehicleWheels.prototype.isReleasab
   _emscripten_bind_PxVehicleWheels_set_mWheelsDynData_1(self, arg0);
 };
     Object.defineProperty(PxVehicleWheels.prototype, 'mWheelsDynData', { get: PxVehicleWheels.prototype.get_mWheelsDynData, set: PxVehicleWheels.prototype.set_mWheelsDynData });
+// PxControllerBehaviorCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerBehaviorCallback() { throw "cannot construct a PxControllerBehaviorCallback, no constructor in IDL" }
+PxControllerBehaviorCallback.prototype = Object.create(WrapperObject.prototype);
+PxControllerBehaviorCallback.prototype.constructor = PxControllerBehaviorCallback;
+PxControllerBehaviorCallback.prototype.__class__ = PxControllerBehaviorCallback;
+PxControllerBehaviorCallback.__cache__ = {};
+Module['PxControllerBehaviorCallback'] = PxControllerBehaviorCallback;
+
 // PxPvdTransport
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxPvdTransport() { throw "cannot construct a PxPvdTransport, no constructor in IDL" }
 PxPvdTransport.prototype = Object.create(WrapperObject.prototype);
@@ -15742,6 +15898,37 @@ PxController.prototype['resize'] = PxController.prototype.resize = /** @suppress
   _emscripten_bind_PxController_resize_1(self, height);
 };;
 
+// SimpleControllerBehaviorCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function SimpleControllerBehaviorCallback() { throw "cannot construct a SimpleControllerBehaviorCallback, no constructor in IDL" }
+SimpleControllerBehaviorCallback.prototype = Object.create(PxControllerBehaviorCallback.prototype);
+SimpleControllerBehaviorCallback.prototype.constructor = SimpleControllerBehaviorCallback;
+SimpleControllerBehaviorCallback.prototype.__class__ = SimpleControllerBehaviorCallback;
+SimpleControllerBehaviorCallback.__cache__ = {};
+Module['SimpleControllerBehaviorCallback'] = SimpleControllerBehaviorCallback;
+
+SimpleControllerBehaviorCallback.prototype['getShapeBehaviorFlags'] = SimpleControllerBehaviorCallback.prototype.getShapeBehaviorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(shape, actor) {
+  var self = this.ptr;
+  if (shape && typeof shape === 'object') shape = shape.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  return _emscripten_bind_SimpleControllerBehaviorCallback_getShapeBehaviorFlags_2(self, shape, actor);
+};;
+
+SimpleControllerBehaviorCallback.prototype['getControllerBehaviorFlags'] = SimpleControllerBehaviorCallback.prototype.getControllerBehaviorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(controller) {
+  var self = this.ptr;
+  if (controller && typeof controller === 'object') controller = controller.ptr;
+  return _emscripten_bind_SimpleControllerBehaviorCallback_getControllerBehaviorFlags_1(self, controller);
+};;
+
+SimpleControllerBehaviorCallback.prototype['getObstacleBehaviorFlags'] = SimpleControllerBehaviorCallback.prototype.getObstacleBehaviorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(obstacle) {
+  var self = this.ptr;
+  if (obstacle && typeof obstacle === 'object') obstacle = obstacle.ptr;
+  return _emscripten_bind_SimpleControllerBehaviorCallback_getObstacleBehaviorFlags_1(self, obstacle);
+};;
+
+  SimpleControllerBehaviorCallback.prototype['__destroy__'] = SimpleControllerBehaviorCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_SimpleControllerBehaviorCallback___destroy___0(self);
+};
 // PxControllerDesc
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerDesc() { throw "cannot construct a PxControllerDesc, no constructor in IDL" }
 PxControllerDesc.prototype = Object.create(WrapperObject.prototype);
@@ -15870,6 +16057,16 @@ PxControllerDesc.prototype['getType'] = PxControllerDesc.prototype.getType = /**
   _emscripten_bind_PxControllerDesc_set_reportCallback_1(self, arg0);
 };
     Object.defineProperty(PxControllerDesc.prototype, 'reportCallback', { get: PxControllerDesc.prototype.get_reportCallback, set: PxControllerDesc.prototype.set_reportCallback });
+  PxControllerDesc.prototype['get_behaviorCallback'] = PxControllerDesc.prototype.get_behaviorCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerDesc_get_behaviorCallback_0(self), PxControllerBehaviorCallback);
+};
+    PxControllerDesc.prototype['set_behaviorCallback'] = PxControllerDesc.prototype.set_behaviorCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerDesc_set_behaviorCallback_1(self, arg0);
+};
+    Object.defineProperty(PxControllerDesc.prototype, 'behaviorCallback', { get: PxControllerDesc.prototype.get_behaviorCallback, set: PxControllerDesc.prototype.set_behaviorCallback });
   PxControllerDesc.prototype['get_nonWalkableMode'] = PxControllerDesc.prototype.get_nonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return _emscripten_bind_PxControllerDesc_get_nonWalkableMode_0(self);
@@ -16115,6 +16312,43 @@ SimplePvdTransport.prototype['isConnected'] = SimplePvdTransport.prototype.isCon
   var self = this.ptr;
   _emscripten_bind_SimplePvdTransport___destroy___0(self);
 };
+// PassThroughFilterShader
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PassThroughFilterShader() { throw "cannot construct a PassThroughFilterShader, no constructor in IDL" }
+PassThroughFilterShader.prototype = Object.create(PxSimulationFilterShader.prototype);
+PassThroughFilterShader.prototype.constructor = PassThroughFilterShader;
+PassThroughFilterShader.prototype.__class__ = PassThroughFilterShader;
+PassThroughFilterShader.__cache__ = {};
+Module['PassThroughFilterShader'] = PassThroughFilterShader;
+
+PassThroughFilterShader.prototype['filterShader'] = PassThroughFilterShader.prototype.filterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function(attributes0, filterData0w0, filterData0w1, filterData0w2, filterData0w3, attributes1, filterData1w0, filterData1w1, filterData1w2, filterData1w3) {
+  var self = this.ptr;
+  if (attributes0 && typeof attributes0 === 'object') attributes0 = attributes0.ptr;
+  if (filterData0w0 && typeof filterData0w0 === 'object') filterData0w0 = filterData0w0.ptr;
+  if (filterData0w1 && typeof filterData0w1 === 'object') filterData0w1 = filterData0w1.ptr;
+  if (filterData0w2 && typeof filterData0w2 === 'object') filterData0w2 = filterData0w2.ptr;
+  if (filterData0w3 && typeof filterData0w3 === 'object') filterData0w3 = filterData0w3.ptr;
+  if (attributes1 && typeof attributes1 === 'object') attributes1 = attributes1.ptr;
+  if (filterData1w0 && typeof filterData1w0 === 'object') filterData1w0 = filterData1w0.ptr;
+  if (filterData1w1 && typeof filterData1w1 === 'object') filterData1w1 = filterData1w1.ptr;
+  if (filterData1w2 && typeof filterData1w2 === 'object') filterData1w2 = filterData1w2.ptr;
+  if (filterData1w3 && typeof filterData1w3 === 'object') filterData1w3 = filterData1w3.ptr;
+  return _emscripten_bind_PassThroughFilterShader_filterShader_10(self, attributes0, filterData0w0, filterData0w1, filterData0w2, filterData0w3, attributes1, filterData1w0, filterData1w1, filterData1w2, filterData1w3);
+};;
+
+  PassThroughFilterShader.prototype['get_outputPairFlags'] = PassThroughFilterShader.prototype.get_outputPairFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PassThroughFilterShader_get_outputPairFlags_0(self);
+};
+    PassThroughFilterShader.prototype['set_outputPairFlags'] = PassThroughFilterShader.prototype.set_outputPairFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PassThroughFilterShader_set_outputPairFlags_1(self, arg0);
+};
+    Object.defineProperty(PassThroughFilterShader.prototype, 'outputPairFlags', { get: PassThroughFilterShader.prototype.get_outputPairFlags, set: PassThroughFilterShader.prototype.set_outputPairFlags });
+  PassThroughFilterShader.prototype['__destroy__'] = PassThroughFilterShader.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PassThroughFilterShader___destroy___0(self);
+};
 // VoidPtr
 /** @suppress {undefinedVars, duplicate} @this{Object} */function VoidPtr() { throw "cannot construct a VoidPtr, no constructor in IDL" }
 VoidPtr.prototype = Object.create(WrapperObject.prototype);
@@ -16138,6 +16372,13 @@ Module['PxTopLevelFunctions'] = PxTopLevelFunctions;
 PxTopLevelFunctions.prototype['DefaultFilterShader'] = PxTopLevelFunctions.prototype.DefaultFilterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return wrapPointer(_emscripten_bind_PxTopLevelFunctions_DefaultFilterShader_0(self), PxSimulationFilterShader);
+};;
+
+PxTopLevelFunctions.prototype['setupPassThroughFilterShader'] = PxTopLevelFunctions.prototype.setupPassThroughFilterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function(sceneDesc, filterShader) {
+  var self = this.ptr;
+  if (sceneDesc && typeof sceneDesc === 'object') sceneDesc = sceneDesc.ptr;
+  if (filterShader && typeof filterShader === 'object') filterShader = filterShader.ptr;
+  _emscripten_bind_PxTopLevelFunctions_setupPassThroughFilterShader_2(self, sceneDesc, filterShader);
 };;
 
 PxTopLevelFunctions.prototype['CreateControllerManager'] = PxTopLevelFunctions.prototype.CreateControllerManager = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene, lockingEnabled) {
@@ -21858,18 +22099,6 @@ JavaSimulationEventCallback.prototype['onTrigger'] = JavaSimulationEventCallback
   JavaSimulationEventCallback.prototype['__destroy__'] = JavaSimulationEventCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_JavaSimulationEventCallback___destroy___0(self);
-};
-// PxSimulationFilterShader
-/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSimulationFilterShader() { throw "cannot construct a PxSimulationFilterShader, no constructor in IDL" }
-PxSimulationFilterShader.prototype = Object.create(WrapperObject.prototype);
-PxSimulationFilterShader.prototype.constructor = PxSimulationFilterShader;
-PxSimulationFilterShader.prototype.__class__ = PxSimulationFilterShader;
-PxSimulationFilterShader.__cache__ = {};
-Module['PxSimulationFilterShader'] = PxSimulationFilterShader;
-
-  PxSimulationFilterShader.prototype['__destroy__'] = PxSimulationFilterShader.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
-  var self = this.ptr;
-  _emscripten_bind_PxSimulationFilterShader___destroy___0(self);
 };
 // PxSimulationStatistics
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxSimulationStatistics() { throw "cannot construct a PxSimulationStatistics, no constructor in IDL" }
@@ -30641,6 +30870,16 @@ PxBoxControllerDesc.prototype['getType'] = PxBoxControllerDesc.prototype.getType
   _emscripten_bind_PxBoxControllerDesc_set_reportCallback_1(self, arg0);
 };
     Object.defineProperty(PxBoxControllerDesc.prototype, 'reportCallback', { get: PxBoxControllerDesc.prototype.get_reportCallback, set: PxBoxControllerDesc.prototype.set_reportCallback });
+  PxBoxControllerDesc.prototype['get_behaviorCallback'] = PxBoxControllerDesc.prototype.get_behaviorCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxBoxControllerDesc_get_behaviorCallback_0(self), PxControllerBehaviorCallback);
+};
+    PxBoxControllerDesc.prototype['set_behaviorCallback'] = PxBoxControllerDesc.prototype.set_behaviorCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxBoxControllerDesc_set_behaviorCallback_1(self, arg0);
+};
+    Object.defineProperty(PxBoxControllerDesc.prototype, 'behaviorCallback', { get: PxBoxControllerDesc.prototype.get_behaviorCallback, set: PxBoxControllerDesc.prototype.set_behaviorCallback });
   PxBoxControllerDesc.prototype['get_nonWalkableMode'] = PxBoxControllerDesc.prototype.get_nonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return _emscripten_bind_PxBoxControllerDesc_get_nonWalkableMode_0(self);
@@ -31094,6 +31333,16 @@ PxCapsuleControllerDesc.prototype['getType'] = PxCapsuleControllerDesc.prototype
   _emscripten_bind_PxCapsuleControllerDesc_set_reportCallback_1(self, arg0);
 };
     Object.defineProperty(PxCapsuleControllerDesc.prototype, 'reportCallback', { get: PxCapsuleControllerDesc.prototype.get_reportCallback, set: PxCapsuleControllerDesc.prototype.set_reportCallback });
+  PxCapsuleControllerDesc.prototype['get_behaviorCallback'] = PxCapsuleControllerDesc.prototype.get_behaviorCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxCapsuleControllerDesc_get_behaviorCallback_0(self), PxControllerBehaviorCallback);
+};
+    PxCapsuleControllerDesc.prototype['set_behaviorCallback'] = PxCapsuleControllerDesc.prototype.set_behaviorCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxCapsuleControllerDesc_set_behaviorCallback_1(self, arg0);
+};
+    Object.defineProperty(PxCapsuleControllerDesc.prototype, 'behaviorCallback', { get: PxCapsuleControllerDesc.prototype.get_behaviorCallback, set: PxCapsuleControllerDesc.prototype.set_behaviorCallback });
   PxCapsuleControllerDesc.prototype['get_nonWalkableMode'] = PxCapsuleControllerDesc.prototype.get_nonWalkableMode = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return _emscripten_bind_PxCapsuleControllerDesc_get_nonWalkableMode_0(self);
@@ -31207,6 +31456,74 @@ PxCapsuleObstacle.prototype['getType'] = PxCapsuleObstacle.prototype.getType = /
   PxCapsuleObstacle.prototype['__destroy__'] = PxCapsuleObstacle.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxCapsuleObstacle___destroy___0(self);
+};
+// JavaControllerBehaviorCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function JavaControllerBehaviorCallback() {
+  this.ptr = _emscripten_bind_JavaControllerBehaviorCallback_JavaControllerBehaviorCallback_0();
+  getCache(JavaControllerBehaviorCallback)[this.ptr] = this;
+};;
+JavaControllerBehaviorCallback.prototype = Object.create(SimpleControllerBehaviorCallback.prototype);
+JavaControllerBehaviorCallback.prototype.constructor = JavaControllerBehaviorCallback;
+JavaControllerBehaviorCallback.prototype.__class__ = JavaControllerBehaviorCallback;
+JavaControllerBehaviorCallback.__cache__ = {};
+Module['JavaControllerBehaviorCallback'] = JavaControllerBehaviorCallback;
+
+JavaControllerBehaviorCallback.prototype['getShapeBehaviorFlags'] = JavaControllerBehaviorCallback.prototype.getShapeBehaviorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(shape, actor) {
+  var self = this.ptr;
+  if (shape && typeof shape === 'object') shape = shape.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  return _emscripten_bind_JavaControllerBehaviorCallback_getShapeBehaviorFlags_2(self, shape, actor);
+};;
+
+JavaControllerBehaviorCallback.prototype['getControllerBehaviorFlags'] = JavaControllerBehaviorCallback.prototype.getControllerBehaviorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(controller) {
+  var self = this.ptr;
+  if (controller && typeof controller === 'object') controller = controller.ptr;
+  return _emscripten_bind_JavaControllerBehaviorCallback_getControllerBehaviorFlags_1(self, controller);
+};;
+
+JavaControllerBehaviorCallback.prototype['getObstacleBehaviorFlags'] = JavaControllerBehaviorCallback.prototype.getObstacleBehaviorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(obstacle) {
+  var self = this.ptr;
+  if (obstacle && typeof obstacle === 'object') obstacle = obstacle.ptr;
+  return _emscripten_bind_JavaControllerBehaviorCallback_getObstacleBehaviorFlags_1(self, obstacle);
+};;
+
+  JavaControllerBehaviorCallback.prototype['__destroy__'] = JavaControllerBehaviorCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_JavaControllerBehaviorCallback___destroy___0(self);
+};
+// PxControllerBehaviorFlags
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerBehaviorFlags(flags) {
+  if (flags && typeof flags === 'object') flags = flags.ptr;
+  this.ptr = _emscripten_bind_PxControllerBehaviorFlags_PxControllerBehaviorFlags_1(flags);
+  getCache(PxControllerBehaviorFlags)[this.ptr] = this;
+};;
+PxControllerBehaviorFlags.prototype = Object.create(WrapperObject.prototype);
+PxControllerBehaviorFlags.prototype.constructor = PxControllerBehaviorFlags;
+PxControllerBehaviorFlags.prototype.__class__ = PxControllerBehaviorFlags;
+PxControllerBehaviorFlags.__cache__ = {};
+Module['PxControllerBehaviorFlags'] = PxControllerBehaviorFlags;
+
+PxControllerBehaviorFlags.prototype['isSet'] = PxControllerBehaviorFlags.prototype.isSet = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  return !!(_emscripten_bind_PxControllerBehaviorFlags_isSet_1(self, flag));
+};;
+
+PxControllerBehaviorFlags.prototype['set'] = PxControllerBehaviorFlags.prototype.set = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxControllerBehaviorFlags_set_1(self, flag);
+};;
+
+PxControllerBehaviorFlags.prototype['clear'] = PxControllerBehaviorFlags.prototype.clear = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  _emscripten_bind_PxControllerBehaviorFlags_clear_1(self, flag);
+};;
+
+  PxControllerBehaviorFlags.prototype['__destroy__'] = PxControllerBehaviorFlags.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerBehaviorFlags___destroy___0(self);
 };
 // PxControllerCollisionFlags
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerCollisionFlags(flags) {
@@ -32054,11 +32371,46 @@ TypeHelpers.prototype['getRealAt'] = TypeHelpers.prototype.getRealAt = /** @supp
   return _emscripten_bind_TypeHelpers_getRealAt_2(self, base, index);
 };;
 
+TypeHelpers.prototype['getActorAt'] = TypeHelpers.prototype.getActorAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
+  var self = this.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_getActorAt_2(self, base, index), PxActor);
+};;
+
 TypeHelpers.prototype['getContactPairAt'] = TypeHelpers.prototype.getContactPairAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
   var self = this.ptr;
   if (base && typeof base === 'object') base = base.ptr;
   if (index && typeof index === 'object') index = index.ptr;
   return wrapPointer(_emscripten_bind_TypeHelpers_getContactPairAt_2(self, base, index), PxContactPair);
+};;
+
+TypeHelpers.prototype['getContactPairHeaderAt'] = TypeHelpers.prototype.getContactPairHeaderAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
+  var self = this.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_getContactPairHeaderAt_2(self, base, index), PxContactPairHeader);
+};;
+
+TypeHelpers.prototype['getControllerAt'] = TypeHelpers.prototype.getControllerAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
+  var self = this.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_getControllerAt_2(self, base, index), PxController);
+};;
+
+TypeHelpers.prototype['getObstacleAt'] = TypeHelpers.prototype.getObstacleAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
+  var self = this.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_getObstacleAt_2(self, base, index), PxObstacle);
+};;
+
+TypeHelpers.prototype['getShapeAt'] = TypeHelpers.prototype.getShapeAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
+  var self = this.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_getShapeAt_2(self, base, index), PxShape);
 };;
 
 TypeHelpers.prototype['getTriggerPairAt'] = TypeHelpers.prototype.getTriggerPairAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
@@ -32895,6 +33247,36 @@ PxPvd.prototype['connect'] = PxPvd.prototype.connect = /** @suppress {undefinedV
   return !!(_emscripten_bind_PxPvd_connect_2(self, transport, flags));
 };;
 
+// JavaPassThroughFilterShader
+/** @suppress {undefinedVars, duplicate} @this{Object} */function JavaPassThroughFilterShader() {
+  this.ptr = _emscripten_bind_JavaPassThroughFilterShader_JavaPassThroughFilterShader_0();
+  getCache(JavaPassThroughFilterShader)[this.ptr] = this;
+};;
+JavaPassThroughFilterShader.prototype = Object.create(PassThroughFilterShader.prototype);
+JavaPassThroughFilterShader.prototype.constructor = JavaPassThroughFilterShader;
+JavaPassThroughFilterShader.prototype.__class__ = JavaPassThroughFilterShader;
+JavaPassThroughFilterShader.__cache__ = {};
+Module['JavaPassThroughFilterShader'] = JavaPassThroughFilterShader;
+
+JavaPassThroughFilterShader.prototype['filterShader'] = JavaPassThroughFilterShader.prototype.filterShader = /** @suppress {undefinedVars, duplicate} @this{Object} */function(attributes0, filterData0w0, filterData0w1, filterData0w2, filterData0w3, attributes1, filterData1w0, filterData1w1, filterData1w2, filterData1w3) {
+  var self = this.ptr;
+  if (attributes0 && typeof attributes0 === 'object') attributes0 = attributes0.ptr;
+  if (filterData0w0 && typeof filterData0w0 === 'object') filterData0w0 = filterData0w0.ptr;
+  if (filterData0w1 && typeof filterData0w1 === 'object') filterData0w1 = filterData0w1.ptr;
+  if (filterData0w2 && typeof filterData0w2 === 'object') filterData0w2 = filterData0w2.ptr;
+  if (filterData0w3 && typeof filterData0w3 === 'object') filterData0w3 = filterData0w3.ptr;
+  if (attributes1 && typeof attributes1 === 'object') attributes1 = attributes1.ptr;
+  if (filterData1w0 && typeof filterData1w0 === 'object') filterData1w0 = filterData1w0.ptr;
+  if (filterData1w1 && typeof filterData1w1 === 'object') filterData1w1 = filterData1w1.ptr;
+  if (filterData1w2 && typeof filterData1w2 === 'object') filterData1w2 = filterData1w2.ptr;
+  if (filterData1w3 && typeof filterData1w3 === 'object') filterData1w3 = filterData1w3.ptr;
+  return _emscripten_bind_JavaPassThroughFilterShader_filterShader_10(self, attributes0, filterData0w0, filterData0w1, filterData0w2, filterData0w3, attributes1, filterData1w0, filterData1w1, filterData1w2, filterData1w3);
+};;
+
+  JavaPassThroughFilterShader.prototype['__destroy__'] = JavaPassThroughFilterShader.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_JavaPassThroughFilterShader___destroy___0(self);
+};
 (function() {
   function setupEnums() {
     
@@ -33101,6 +33483,28 @@ PxPvd.prototype['connect'] = PxPvd.prototype.connect = /** @suppress {undefinedV
 
     
 
+    // PxFilterFlagEnum
+
+    Module['eKILL'] = _emscripten_enum_PxFilterFlagEnum_eKILL();
+
+    Module['eSUPPRESS'] = _emscripten_enum_PxFilterFlagEnum_eSUPPRESS();
+
+    Module['eCALLBACK'] = _emscripten_enum_PxFilterFlagEnum_eCALLBACK();
+
+    Module['eNOTIFY'] = _emscripten_enum_PxFilterFlagEnum_eNOTIFY();
+
+    Module['eDEFAULT'] = _emscripten_enum_PxFilterFlagEnum_eDEFAULT();
+
+    
+
+    // PxFilterObjectFlagEnum
+
+    Module['eKINEMATIC'] = _emscripten_enum_PxFilterObjectFlagEnum_eKINEMATIC();
+
+    Module['eTRIGGER'] = _emscripten_enum_PxFilterObjectFlagEnum_eTRIGGER();
+
+    
+
     // PxForceModeEnum
 
     Module['eFORCE'] = _emscripten_enum_PxForceModeEnum_eFORCE();
@@ -33210,6 +33614,8 @@ PxPvd.prototype['connect'] = PxPvd.prototype.connect = /** @suppress {undefinedV
     Module['eNEXT_FREE'] = _emscripten_enum_PxPairFlagEnum_eNEXT_FREE();
 
     Module['eCONTACT_DEFAULT'] = _emscripten_enum_PxPairFlagEnum_eCONTACT_DEFAULT();
+
+    Module['eTRIGGER_DEFAULT'] = _emscripten_enum_PxPairFlagEnum_eTRIGGER_DEFAULT();
 
     
 
@@ -33768,6 +34174,16 @@ PxPvd.prototype['connect'] = PxPvd.prototype.connect = /** @suppress {undefinedV
     Module['eEASY'] = _emscripten_enum_PxCapsuleClimbingModeEnum_eEASY();
 
     Module['eCONSTRAINED'] = _emscripten_enum_PxCapsuleClimbingModeEnum_eCONSTRAINED();
+
+    
+
+    // PxControllerBehaviorFlagEnum
+
+    Module['eCCT_CAN_RIDE_ON_OBJECT'] = _emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_CAN_RIDE_ON_OBJECT();
+
+    Module['eCCT_SLIDE'] = _emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_SLIDE();
+
+    Module['eCCT_USER_DEFINED_RIDE'] = _emscripten_enum_PxControllerBehaviorFlagEnum_eCCT_USER_DEFINED_RIDE();
 
     
 
