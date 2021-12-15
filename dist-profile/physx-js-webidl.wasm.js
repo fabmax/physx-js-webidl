@@ -11817,6 +11817,9 @@ var _emscripten_bind_JavaUserControllerHitReport___destroy___0 = Module["_emscri
 var _emscripten_bind_SupportFunctions_PxActor_getShape_2 = Module["_emscripten_bind_SupportFunctions_PxActor_getShape_2"] = createExportWrapper("emscripten_bind_SupportFunctions_PxActor_getShape_2");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_SupportFunctions_PxContactPairHeader_getActor_2 = Module["_emscripten_bind_SupportFunctions_PxContactPairHeader_getActor_2"] = createExportWrapper("emscripten_bind_SupportFunctions_PxContactPairHeader_getActor_2");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_SupportFunctions_PxScene_getActiveActors_1 = Module["_emscripten_bind_SupportFunctions_PxScene_getActiveActors_1"] = createExportWrapper("emscripten_bind_SupportFunctions_PxScene_getActiveActors_1");
 
 /** @type {function(...*):?} */
@@ -32227,6 +32230,13 @@ SupportFunctions.prototype['PxActor_getShape'] = SupportFunctions.prototype.PxAc
   if (actor && typeof actor === 'object') actor = actor.ptr;
   if (index && typeof index === 'object') index = index.ptr;
   return wrapPointer(_emscripten_bind_SupportFunctions_PxActor_getShape_2(self, actor, index), PxShape);
+};;
+
+SupportFunctions.prototype['PxContactPairHeader_getActor'] = SupportFunctions.prototype.PxContactPairHeader_getActor = /** @suppress {undefinedVars, duplicate} @this{Object} */function(pairHeader, index) {
+  var self = this.ptr;
+  if (pairHeader && typeof pairHeader === 'object') pairHeader = pairHeader.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_SupportFunctions_PxContactPairHeader_getActor_2(self, pairHeader, index), PxActor);
 };;
 
 SupportFunctions.prototype['PxScene_getActiveActors'] = SupportFunctions.prototype.PxScene_getActiveActors = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene) {
