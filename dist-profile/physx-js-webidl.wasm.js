@@ -10269,6 +10269,21 @@ var _emscripten_bind_PxJointLinearLimitPair_set_contactDistance_1 = Module["_ems
 var _emscripten_bind_PxJointLinearLimitPair___destroy___0 = Module["_emscripten_bind_PxJointLinearLimitPair___destroy___0"] = createExportWrapper("emscripten_bind_PxJointLinearLimitPair___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxMeshOverlapUtil_PxMeshOverlapUtil_0 = Module["_emscripten_bind_PxMeshOverlapUtil_PxMeshOverlapUtil_0"] = createExportWrapper("emscripten_bind_PxMeshOverlapUtil_PxMeshOverlapUtil_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxMeshOverlapUtil_findOverlap_4 = Module["_emscripten_bind_PxMeshOverlapUtil_findOverlap_4"] = createExportWrapper("emscripten_bind_PxMeshOverlapUtil_findOverlap_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxMeshOverlapUtil_getResults_0 = Module["_emscripten_bind_PxMeshOverlapUtil_getResults_0"] = createExportWrapper("emscripten_bind_PxMeshOverlapUtil_getResults_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxMeshOverlapUtil_getNbResults_0 = Module["_emscripten_bind_PxMeshOverlapUtil_getNbResults_0"] = createExportWrapper("emscripten_bind_PxMeshOverlapUtil_getNbResults_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxMeshOverlapUtil___destroy___0 = Module["_emscripten_bind_PxMeshOverlapUtil___destroy___0"] = createExportWrapper("emscripten_bind_PxMeshOverlapUtil___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxPrismaticJoint_getPosition_0 = Module["_emscripten_bind_PxPrismaticJoint_getPosition_0"] = createExportWrapper("emscripten_bind_PxPrismaticJoint_getPosition_0");
 
 /** @type {function(...*):?} */
@@ -29312,6 +29327,40 @@ PxJointLinearLimitPair.prototype['isSoft'] = PxJointLinearLimitPair.prototype.is
   PxJointLinearLimitPair.prototype['__destroy__'] = PxJointLinearLimitPair.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxJointLinearLimitPair___destroy___0(self);
+};
+// PxMeshOverlapUtil
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxMeshOverlapUtil() {
+  this.ptr = _emscripten_bind_PxMeshOverlapUtil_PxMeshOverlapUtil_0();
+  getCache(PxMeshOverlapUtil)[this.ptr] = this;
+};;
+PxMeshOverlapUtil.prototype = Object.create(WrapperObject.prototype);
+PxMeshOverlapUtil.prototype.constructor = PxMeshOverlapUtil;
+PxMeshOverlapUtil.prototype.__class__ = PxMeshOverlapUtil;
+PxMeshOverlapUtil.__cache__ = {};
+Module['PxMeshOverlapUtil'] = PxMeshOverlapUtil;
+
+PxMeshOverlapUtil.prototype['findOverlap'] = PxMeshOverlapUtil.prototype.findOverlap = /** @suppress {undefinedVars, duplicate} @this{Object} */function(geom, geomPose, meshGeom, meshPose) {
+  var self = this.ptr;
+  if (geom && typeof geom === 'object') geom = geom.ptr;
+  if (geomPose && typeof geomPose === 'object') geomPose = geomPose.ptr;
+  if (meshGeom && typeof meshGeom === 'object') meshGeom = meshGeom.ptr;
+  if (meshPose && typeof meshPose === 'object') meshPose = meshPose.ptr;
+  return _emscripten_bind_PxMeshOverlapUtil_findOverlap_4(self, geom, geomPose, meshGeom, meshPose);
+};;
+
+PxMeshOverlapUtil.prototype['getResults'] = PxMeshOverlapUtil.prototype.getResults = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxMeshOverlapUtil_getResults_0(self), PxU32ConstPtr);
+};;
+
+PxMeshOverlapUtil.prototype['getNbResults'] = PxMeshOverlapUtil.prototype.getNbResults = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxMeshOverlapUtil_getNbResults_0(self);
+};;
+
+  PxMeshOverlapUtil.prototype['__destroy__'] = PxMeshOverlapUtil.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxMeshOverlapUtil___destroy___0(self);
 };
 // PxPrismaticJoint
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxPrismaticJoint() { throw "cannot construct a PxPrismaticJoint, no constructor in IDL" }
