@@ -28,12 +28,15 @@ However there also are a few minor issues:
     code.
 
 ## Examples
-None yet, I will add some as soon as I have time for that. However, I use this lib in my engine [kool](https://github.com/fabmax/kool)
-and have a few demos in place:
+There is a very basic [hello world example](dist/helloworld.html): No fancy graphics, only console output but it should get you started
+
+I also use this lib in my engine [kool](https://github.com/fabmax/kool) and have a few demos in place:
 - [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
 - [Vehicle](https://fabmax.github.io/kool/kool-js/?demo=phys-vehicle): Basic vehicle demo with a few obstacles.
 - [Joints](https://fabmax.github.io/kool/kool-js/?demo=phys-joints): A chain running over two gears.
 - [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box (and other shapes) collision physics demo.
+
+However, these are written in kotlin, not javascript.
 
 ## Pre-built binaries
 This is published as a npm package:
