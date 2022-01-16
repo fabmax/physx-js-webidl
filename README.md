@@ -74,12 +74,10 @@ file located in `PhysX/physx/source/physxwebbindings/src/`.
 
 ## Build Types
 
-Generating Typescript bindings should work via the following command, however for me this currently does not work.
-Unfortunately, because of this, Typescript bindings distributed via npm are also outdated and do not contain bindings to the
-latest APIs.
+It is also possible to generate Typescript bindings out of the idl file:
 
 ```
-npx milkshake-inc/webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
+npx @milkshakeio/webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
 ```
 
 ## Build with Docker

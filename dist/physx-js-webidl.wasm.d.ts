@@ -15,13 +15,16 @@ declare module PhysX {
     class PxTopLevelFunctions {
         static readonly PHYSICS_VERSION: number;
         static DefaultFilterShader(): PxSimulationFilterShader;
+        static setupPassThroughFilterShader(sceneDesc: PxSceneDesc, filterShader: PassThroughFilterShader): void;
         static CreateControllerManager(scene: PxScene, lockingEnabled?: boolean): PxControllerManager;
         static CreateCooking(version: number, foundation: PxFoundation, scale: PxCookingParams): PxCooking;
         static CreateFoundation(version: number, allocator: PxDefaultAllocator, errorCallback: PxErrorCallback): PxFoundation;
-        static CreatePhysics(version: number, foundation: PxFoundation, params: PxTolerancesScale): PxPhysics;
+        static CreatePhysics(version: number, foundation: PxFoundation, params: PxTolerancesScale, pvd?: PxPvd): PxPhysics;
         static DefaultCpuDispatcherCreate(numThreads: number): PxDefaultCpuDispatcher;
         static InitExtensions(physics: PxPhysics): boolean;
+        static CloseExtensions(): void;
         static CreateCudaContextManager(foundation: PxFoundation, desc: PxCudaContextManagerDesc): PxCudaContextManager;
+        static CreatePvd(foundation: PxFoundation): PxPvd;
         static D6JointCreate(physics: PxPhysics, actor0: PxRigidActor, localFrame0: PxTransform, actor1: PxRigidActor, localFrame1: PxTransform): PxD6Joint;
         static DistanceJointCreate(physics: PxPhysics, actor0: PxRigidActor, localFrame0: PxTransform, actor1: PxRigidActor, localFrame1: PxTransform): PxDistanceJoint;
         static FixedJointCreate(physics: PxPhysics, actor0: PxRigidActor, localFrame0: PxTransform, actor1: PxRigidActor, localFrame1: PxTransform): PxFixedJoint;
@@ -128,6 +131,7 @@ declare module PhysX {
         getName(): string;
         getWorldBounds(): PxBounds3;
         getAggregate(): PxAggregate;
+        userData: unknown;
     }
     class PxArticulationCache {
     }
@@ -333,6 +337,12 @@ declare module PhysX {
         'GPU',
         'LAST'
     }
+    enum PxCombineModeEnum {
+        'AVERAGE',
+        'MIN',
+        'MULTIPLY',
+        'MAX'
+    }
     class PxConstraint extends PxBase {
         release(): void;
         getScene(): PxScene;
@@ -382,6 +392,7 @@ declare module PhysX {
         clear(flag: PxContactPairHeaderFlagEnum): void;
     }
     class PxContactPair {
+        extractContacts(userBuffer: PxContactPairPoint, bufferSize: number): number;
         shapes: ReadonlyArray<PxShape>;
         contactCount: number;
         patchCount: number;
@@ -408,6 +419,14 @@ declare module PhysX {
         pairs: PxContactPair;
         nbPairs: number;
     }
+    class PxContactPairPoint {
+        position: PxVec3;
+        separation: number;
+        normal: PxVec3;
+        internalFaceIndex0: number;
+        impulse: PxVec3;
+        internalFaceIndex1: number;
+    }
     class PxDominanceGroupPair {
         constructor(a: number, b: number);
         dominance0: number;
@@ -431,6 +450,17 @@ declare module PhysX {
         word1: number;
         word2: number;
         word3: number;
+    }
+    enum PxFilterFlagEnum {
+        'KILL',
+        'SUPPRESS',
+        'CALLBACK',
+        'NOTIFY',
+        'DEFAULT'
+    }
+    enum PxFilterObjectFlagEnum {
+        'KINEMATIC',
+        'TRIGGER'
     }
     enum PxForceModeEnum {
         'FORCE',
@@ -497,7 +527,33 @@ declare module PhysX {
         hasBlock: boolean;
     }
     class PxMaterial extends PxBase {
+        getReferenceCount(): number;
+        acquireReference(): void;
+        setDynamicFriction(coef: number): void;
+        getDynamicFriction(): number;
+        setStaticFriction(coef: number): void;
+        getStaticFriction(): number;
+        setRestitution(coef: number): void;
+        getRestitution(): number;
+        setFlag(flag: PxMaterialFlagEnum, b: boolean): void;
+        setFlags(flags: PxMaterialFlags): void;
+        getFlags(): PxMaterialFlags;
+        setFrictionCombineMode(combMode: PxCombineModeEnum): void;
+        getFrictionCombineMode(): PxCombineModeEnum;
+        setRestitutionCombineMode(combMode: PxCombineModeEnum): void;
+        getRestitutionCombineMode(): PxCombineModeEnum;
         userData: unknown;
+    }
+    enum PxMaterialFlagEnum {
+        'DISABLE_FRICTION',
+        'DISABLE_STRONG_FRICTION',
+        'IMPROVED_PATCH_FRICTION'
+    }
+    class PxMaterialFlags {
+        constructor(flags: number);
+        isSet(flag: PxMaterialFlagEnum): boolean;
+        set(flag: PxMaterialFlagEnum): void;
+        clear(flag: PxMaterialFlagEnum): void;
     }
     enum PxPairFilteringModeEnum {
         'KEEP',
@@ -522,7 +578,8 @@ declare module PhysX {
         'POST_SOLVER_VELOCITY',
         'CONTACT_EVENT_POSE',
         'NEXT_FREE',
-        'CONTACT_DEFAULT'
+        'CONTACT_DEFAULT',
+        'TRIGGER_DEFAULT'
     }
     class PxPairFlags {
         constructor(flags: number);
@@ -665,6 +722,8 @@ declare module PhysX {
         clear(flag: PxRigidBodyFlagEnum): void;
     }
     class PxRigidDynamic extends PxRigidBody {
+        setKinematicTarget(destination: PxTransform): void;
+        getKinematicTarget(target: PxTransform): boolean;
         isSleeping(): boolean;
         setSleepThreshold(threshold: number): void;
         getSleepThreshold(): number;
@@ -702,6 +761,7 @@ declare module PhysX {
         removeActor(actor: PxActor, wakeOnLostTouch?: boolean): void;
         addAggregate(aggregate: PxAggregate): void;
         removeAggregate(aggregate: PxAggregate, wakeOnLostTouch?: boolean): void;
+        addCollection(collection: PxCollection): void;
         getWakeCounterResetValue(): number;
         shiftOrigin(shift: PxVec3): void;
         addArticulation(articulation: PxArticulationBase): void;
@@ -943,6 +1003,7 @@ declare module PhysX {
         nbStaticBodies: number;
         nbDynamicBodies: number;
         nbKinematicBodies: number;
+        nbShapes: ReadonlyArray<number>;
         nbAggregates: number;
         nbArticulations: number;
         nbAxisSolverConstraints: number;
@@ -1783,6 +1844,19 @@ declare module PhysX {
         minimum: PxVec3;
         maximum: PxVec3;
     }
+    class PxCollection {
+        add(obj: PxBase, id?: number): void;
+        remove(obj: PxBase): void;
+        contains(obj: PxBase): boolean;
+        addId(obj: PxBase, id: number): void;
+        removeId(id: number): void;
+        getNbObjects(): number;
+        getObject(index: number): PxBase;
+        find(id: number): PxBase;
+        getNbIds(): number;
+        getId(obj: PxBase): number;
+        release(): void;
+    }
     class PxCpuDispatcher {
     }
     class PxCudaContextManager {
@@ -1815,6 +1889,9 @@ declare module PhysX {
         constructor();
         graphicsDevice: unknown;
         interopMode: PxCudaInteropModeEnum;
+        maxMemorySize: ReadonlyArray<number>;
+        memoryBaseSize: ReadonlyArray<number>;
+        memoryPageSize: ReadonlyArray<number>;
     }
     enum PxCudaBufferMemorySpaceEnum {
         'PxCudaBufferMemorySpaceEnum::T_GPU',
@@ -1856,10 +1933,15 @@ declare module PhysX {
     enum PxIDENTITYEnum {
         'PxIDENTITYEnum::PxIdentity'
     }
+    class PxInputData {
+    }
+    class PxOutputStream {
+    }
     class PxPhysicsInsertionCallback {
     }
     class PxQuat {
         constructor();
+        constructor(r: PxIDENTITYEnum);
         constructor(x: number, y: number, z: number, w: number);
         x: number;
         y: number;
@@ -1870,6 +1952,7 @@ declare module PhysX {
         constructor();
     }
     class PxTransform {
+        constructor();
         constructor(r: PxIDENTITYEnum);
         constructor(p0: PxVec3, q0: PxQuat);
         q: PxQuat;
@@ -1890,6 +1973,11 @@ declare module PhysX {
         y: number;
         z: number;
     }
+    class PxCollectionExt {
+        static releaseObjects(collection: PxCollection, releaseExclusiveShapes?: boolean): void;
+        static remove(collection: PxCollection, concreteType: number, to?: PxCollection): void;
+        static createCollection(scene: PxScene): PxCollection;
+    }
     enum PxD6AxisEnum {
         'X',
         'Y',
@@ -1908,7 +1996,7 @@ declare module PhysX {
         'SLERP',
         'COUNT'
     }
-    class PxD6Joint {
+    class PxD6Joint extends PxJoint {
         setMotion(axis: PxD6AxisEnum, type: PxD6MotionEnum): void;
         getMotion(axis: PxD6AxisEnum): PxD6MotionEnum;
         getTwistAngle(): number;
@@ -1954,6 +2042,19 @@ declare module PhysX {
         constructor();
     }
     class PxDefaultCpuDispatcher extends PxCpuDispatcher {
+    }
+    class PxDefaultMemoryInputData extends PxInputData {
+        constructor(data: PxU8Ptr, length: number);
+        read(dest: unknown, count: number): number;
+        getLength(): number;
+        seek(pos: number): void;
+        tell(): number;
+    }
+    class PxDefaultMemoryOutputStream extends PxOutputStream {
+        constructor();
+        write(src: unknown, count: number): void;
+        getSize(): number;
+        getData(): unknown;
     }
     class PxDistanceJoint extends PxJoint {
         getDistance(): number;
@@ -2008,6 +2109,7 @@ declare module PhysX {
         getName(): string;
         release(): void;
         getScene(): PxScene;
+        userData: unknown;
     }
     enum PxJointActorIndexEnum {
         'ACTOR0',
@@ -2048,6 +2150,12 @@ declare module PhysX {
         constructor(lowerLimit: number, upperLimit: number, spring: PxSpring);
         upper: number;
         lower: number;
+    }
+    class PxMeshOverlapUtil {
+        constructor();
+        findOverlap(geom: PxGeometry, geomPose: PxTransform, meshGeom: PxTriangleMeshGeometry, meshPose: PxTransform): number;
+        getResults(): PxU32ConstPtr;
+        getNbResults(): number;
     }
     class PxPrismaticJoint extends PxJoint {
         getPosition(): number;
@@ -2115,6 +2223,19 @@ declare module PhysX {
         isSet(flag: PxRevoluteJointFlagEnum): boolean;
         set(flag: PxRevoluteJointFlagEnum): void;
         clear(flag: PxRevoluteJointFlagEnum): void;
+    }
+    class PxSerialization {
+        static isSerializable(collection: PxCollection, sr: PxSerializationRegistry, externalReferences?: PxCollection): boolean;
+        static complete(collection: PxCollection, sr: PxSerializationRegistry, exceptFor?: PxCollection, followJoints?: boolean): void;
+        static createSerialObjectIds(collection: PxCollection, base: number): void;
+        static createCollectionFromXml(inputData: PxInputData, cooking: PxCooking, sr: PxSerializationRegistry, externalRefs?: PxCollection): PxCollection;
+        static createCollectionFromBinary(memBlock: unknown, sr: PxSerializationRegistry, externalRefs?: PxCollection): PxCollection;
+        static serializeCollectionToXml(outputStream: PxOutputStream, collection: PxCollection, sr: PxSerializationRegistry, cooking?: PxCooking, externalRefs?: PxCollection): boolean;
+        static serializeCollectionToBinary(outputStream: PxOutputStream, collection: PxCollection, sr: PxSerializationRegistry, externalRefs?: PxCollection, exportNames?: boolean): boolean;
+        static createSerializationRegistry(physics: PxPhysics): PxSerializationRegistry;
+    }
+    class PxSerializationRegistry {
+        release(): void;
     }
     class PxSphericalJoint extends PxJoint {
         setLimitCone(limitCone: PxJointLimitCone): void;
@@ -2234,6 +2355,30 @@ declare module PhysX {
         getStats(stats: PxControllerStats): void;
         resize(height: number): void;
     }
+    class PxControllerBehaviorCallback {
+    }
+    class SimpleControllerBehaviorCallback extends PxControllerBehaviorCallback {
+        getShapeBehaviorFlags(shape: PxShape, actor: PxActor): number;
+        getControllerBehaviorFlags(controller: PxController): number;
+        getObstacleBehaviorFlags(obstacle: PxObstacle): number;
+    }
+    class JavaControllerBehaviorCallback {
+        constructor();
+        getShapeBehaviorFlags(shape: PxShape, actor: PxActor): number;
+        getControllerBehaviorFlags(controller: PxController): number;
+        getObstacleBehaviorFlags(obstacle: PxObstacle): number;
+    }
+    enum PxControllerBehaviorFlagEnum {
+        'CCT_CAN_RIDE_ON_OBJECT',
+        'CCT_SLIDE',
+        'CCT_USER_DEFINED_RIDE'
+    }
+    class PxControllerBehaviorFlags {
+        constructor(flags: number);
+        isSet(flag: PxControllerBehaviorFlagEnum): boolean;
+        set(flag: PxControllerBehaviorFlagEnum): void;
+        clear(flag: PxControllerBehaviorFlagEnum): void;
+    }
     enum PxControllerCollisionFlagEnum {
         'COLLISION_SIDES',
         'COLLISION_UP',
@@ -2259,6 +2404,7 @@ declare module PhysX {
         scaleCoeff: number;
         volumeGrowth: number;
         reportCallback: PxUserControllerHitReport;
+        behaviorCallback: PxControllerBehaviorCallback;
         nonWalkableMode: PxControllerNonWalkableModeEnum;
         material: PxMaterial;
         registerDeletionListener: boolean;
@@ -2365,6 +2511,8 @@ declare module PhysX {
     }
     class SupportFunctions {
         static PxActor_getShape(actor: PxRigidActor, index: number): PxShape;
+        static PxContactPairHeader_getActor(pairHeader: PxContactPairHeader, index: number): PxActor;
+        static PxScene_getActiveActors(scene: PxScene): Vector_PxActorPtr;
     }
     class PxActorPtr {
     }
@@ -2376,15 +2524,15 @@ declare module PhysX {
     }
     class PxRealPtr {
     }
-    class PxU8Ptr {
+    class PxU8Ptr extends PxU8ConstPtr {
     }
     class PxU8ConstPtr {
     }
-    class PxU16Ptr {
+    class PxU16Ptr extends PxU16ConstPtr {
     }
     class PxU16ConstPtr {
     }
-    class PxU32Ptr {
+    class PxU32Ptr extends PxU32ConstPtr {
     }
     class PxU32ConstPtr {
     }
@@ -2393,12 +2541,17 @@ declare module PhysX {
         static getU16At(base: PxU16ConstPtr, index: number): number;
         static getU32At(base: PxU32ConstPtr, index: number): number;
         static getRealAt(base: PxRealPtr, index: number): number;
+        static getActorAt(base: PxActor, index: number): PxActor;
         static getContactPairAt(base: PxContactPair, index: number): PxContactPair;
+        static getContactPairHeaderAt(base: PxContactPairHeader, index: number): PxContactPairHeader;
+        static getControllerAt(base: PxController, index: number): PxController;
+        static getObstacleAt(base: PxObstacle, index: number): PxObstacle;
+        static getShapeAt(base: PxShape, index: number): PxShape;
         static getTriggerPairAt(base: PxTriggerPair, index: number): PxTriggerPair;
         static getVec3At(base: PxVec3, index: number): PxVec3;
-        static voidToU8ConstPtr(voidPtr: unknown): PxU8ConstPtr;
-        static voidToU16ConstPtr(voidPtr: unknown): PxU16ConstPtr;
-        static voidToU32ConstPtr(voidPtr: unknown): PxU32ConstPtr;
+        static voidToU8Ptr(voidPtr: unknown): PxU8Ptr;
+        static voidToU16Ptr(voidPtr: unknown): PxU16Ptr;
+        static voidToU32Ptr(voidPtr: unknown): PxU32Ptr;
         static voidToRealPtr(voidPtr: unknown): PxRealPtr;
         static articulationBaseJointToJoint(baseJoint: PxArticulationJointBase): PxArticulationJoint;
         static voidToAny(voidPtr: unknown): any;
@@ -2410,6 +2563,7 @@ declare module PhysX {
         data(): PxMaterialConstPtr;
         size(): number;
         push_back(value: PxMaterial): void;
+        clear(): void;
     }
     class Vector_PxHeightFieldSample {
         constructor();
@@ -2418,6 +2572,7 @@ declare module PhysX {
         data(): PxHeightFieldSample;
         size(): number;
         push_back(value: PxHeightFieldSample): void;
+        clear(): void;
     }
     class Vector_PxReal {
         constructor();
@@ -2426,6 +2581,16 @@ declare module PhysX {
         data(): unknown;
         size(): number;
         push_back(value: number): void;
+        clear(): void;
+    }
+    class Vector_PxU8 {
+        constructor();
+        constructor(size: number);
+        at(index: number): number;
+        data(): unknown;
+        size(): number;
+        push_back(value: number): void;
+        clear(): void;
     }
     class Vector_PxU16 {
         constructor();
@@ -2434,6 +2599,7 @@ declare module PhysX {
         data(): unknown;
         size(): number;
         push_back(value: number): void;
+        clear(): void;
     }
     class Vector_PxU32 {
         constructor();
@@ -2442,6 +2608,7 @@ declare module PhysX {
         data(): unknown;
         size(): number;
         push_back(value: number): void;
+        clear(): void;
     }
     class Vector_PxVec3 {
         constructor();
@@ -2450,6 +2617,25 @@ declare module PhysX {
         data(): PxVec3;
         size(): number;
         push_back(value: PxVec3): void;
+        clear(): void;
+    }
+    class Vector_PxActorPtr {
+        constructor();
+        constructor(size: number);
+        at(index: number): PxActor;
+        data(): PxActorPtr;
+        size(): number;
+        push_back(value: PxActor): void;
+        clear(): void;
+    }
+    class Vector_PxContactPairPoint {
+        constructor();
+        constructor(size: number);
+        at(index: number): PxContactPairPoint;
+        data(): PxContactPairPoint;
+        size(): number;
+        push_back(value: PxContactPairPoint): void;
+        clear(): void;
     }
     class Vector_PxRaycastQueryResult {
         constructor();
@@ -2458,6 +2644,7 @@ declare module PhysX {
         data(): PxRaycastQueryResult;
         size(): number;
         push_back(value: PxRaycastQueryResult): void;
+        clear(): void;
     }
     class Vector_PxSweepQueryResult {
         constructor();
@@ -2466,6 +2653,7 @@ declare module PhysX {
         data(): PxSweepQueryResult;
         size(): number;
         push_back(value: PxSweepQueryResult): void;
+        clear(): void;
     }
     class Vector_PxRaycastHit {
         constructor();
@@ -2474,6 +2662,7 @@ declare module PhysX {
         data(): PxRaycastHit;
         size(): number;
         push_back(value: PxRaycastHit): void;
+        clear(): void;
     }
     class Vector_PxSweepHit {
         constructor();
@@ -2482,6 +2671,7 @@ declare module PhysX {
         data(): PxSweepHit;
         size(): number;
         push_back(value: PxSweepHit): void;
+        clear(): void;
     }
     class Vector_PxVehicleDrivableSurfaceType {
         constructor();
@@ -2490,6 +2680,7 @@ declare module PhysX {
         data(): PxVehicleDrivableSurfaceType;
         size(): number;
         push_back(value: PxVehicleDrivableSurfaceType): void;
+        clear(): void;
     }
     class Vector_PxWheelQueryResult {
         constructor();
@@ -2498,6 +2689,7 @@ declare module PhysX {
         data(): PxWheelQueryResult;
         size(): number;
         push_back(value: PxWheelQueryResult): void;
+        clear(): void;
     }
     class Vector_PxVehicleWheels {
         constructor();
@@ -2506,5 +2698,43 @@ declare module PhysX {
         data(): PxVehicleWheelsPtr;
         size(): number;
         push_back(value: PxVehicleWheels): void;
+        clear(): void;
+    }
+    class PxPvdTransport {
+        connect(): boolean;
+        disconnect(): void;
+        isConnected(): boolean;
+    }
+    class SimplePvdTransport extends PxPvdTransport {
+        connect(): boolean;
+        send(inBytes: any, inLength: number): void;
+    }
+    class JSPvdTransport {
+        constructor();
+        connect(): boolean;
+        send(inBytes: any, inLength: number): void;
+    }
+    enum PxPvdInstrumentationFlagEnum {
+        'DEBUG',
+        'PROFILE',
+        'MEMORY',
+        'ALL'
+    }
+    class PxPvdInstrumentationFlags {
+        constructor(flags: number);
+        isSet(flag: PxPvdInstrumentationFlagEnum): boolean;
+        set(flag: PxPvdInstrumentationFlagEnum): void;
+        clear(flag: PxPvdInstrumentationFlagEnum): void;
+    }
+    class PxPvd {
+        connect(transport: PxPvdTransport, flags: PxPvdInstrumentationFlags): boolean;
+    }
+    class PassThroughFilterShader extends PxSimulationFilterShader {
+        filterShader(attributes0: number, filterData0w0: number, filterData0w1: number, filterData0w2: number, filterData0w3: number, attributes1: number, filterData1w0: number, filterData1w1: number, filterData1w2: number, filterData1w3: number): number;
+        outputPairFlags: number;
+    }
+    class JavaPassThroughFilterShader {
+        constructor();
+        filterShader(attributes0: number, filterData0w0: number, filterData0w1: number, filterData0w2: number, filterData0w3: number, attributes1: number, filterData1w0: number, filterData1w1: number, filterData1w2: number, filterData1w3: number): number;
     }
 }
