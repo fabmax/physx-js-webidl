@@ -1,14 +1,10 @@
 # physx-js-webidl
 Javascript bindings for Nvidia PhysX based on WebIDL
 
-This repo is based on the awesome work made by [prestomation/PhysX](https://github.com/prestomation/PhysX) and
-[ashconnell/physx-js](https://github.com/ashconnell/physx-js) and is a companion project to my emscripten / WebIDL based
-javascript bindings for [NVIDIAGameWorks/PhysX](https://github.com/NVIDIAGameWorks/PhysX).
+## What's the difference to physx-js?
+Short answer: Much greater library coverage.
 
-Looking for pre-built binaries / build instructions? See [below](#pre-built-binaries)
-
-## Why this repo / What's the difference to physx-js?
-First some background info: Emscripten offers two methods to define javascript bindings for native projects: Embind and
+Long answer: Emscripten offers two methods to define javascript bindings for native projects: Embind and
 WebIDL. Embind basically is a C++ framework, which requires the javascript interfaces to be defined in hand-written C++.
 WebIDL on the other hand uses an Interface Definition Language to generate the javascript interfaces automatically.
 
@@ -28,7 +24,7 @@ However there also are a few minor issues:
     code.
 
 ## Examples
-There is a very basic [hello world example](dist/helloworld.html): No fancy graphics, only console output but it should get you started
+There is a very basic [hello world example](helloworld.html): No fancy graphics, only console output but it should get you started
 
 I also use this lib in my engine [kool](https://github.com/fabmax/kool) and have a few demos in place:
 - [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
@@ -37,14 +33,6 @@ I also use this lib in my engine [kool](https://github.com/fabmax/kool) and have
 - [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box (and other shapes) collision physics demo.
 
 However, these are written in kotlin, not javascript.
-
-## Pre-built binaries
-This is published as a npm package:
-```
-npm i physx-js-webidl
-```
-Alternatively you can grab the pre-built binaries (.wasm + support .js) from the `dist` directory. In case you wanna dive deep, there
-are also binaries from the profile and debug builds in corresponding `dist-profile` / `dist-debug` directories.
 
 ## Building
 To build this you need the [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html). However,
@@ -77,9 +65,7 @@ file located in `PhysX/physx/source/physxwebbindings/src/`.
 
 ## Build Types
 
-Generating Typescript bindings should work via the following command, however for me this currently does not work.
-Unfortunately, because of this, Typescript bindings distributed via npm are also outdated and do not contain bindings to the
-latest APIs.
+It is also possible to generate Typescript bindings out of the idl file:
 
 ```
 npx milkshake-inc/webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts

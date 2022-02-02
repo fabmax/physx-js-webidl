@@ -1,14 +1,17 @@
 # physx-js-webidl
-Javascript bindings for Nvidia PhysX based on WebIDL
+Javascript bindings for Nvidia PhysX 4.1.2 based on WebIDL
 
 This repo is based on the awesome work made by [prestomation/PhysX](https://github.com/prestomation/PhysX) and
-[ashconnell/physx-js](https://github.com/ashconnell/physx-js) and is a companion project to my emscripten / WebIDL based
-javascript bindings for [NVIDIAGameWorks/PhysX](https://github.com/NVIDIAGameWorks/PhysX).
+[ashconnell/physx-js](https://github.com/ashconnell/physx-js) and provides emscripten / WebIDL based
+javascript bindings for [NVIDIAGameWorks/PhysX](https://github.com/NVIDIAGameWorks/PhysX) (with much greater library coverage
+than the aforementioned projects).
 
 Looking for pre-built binaries / build instructions? See [below](#pre-built-binaries)
 
 ## Why this repo / What's the difference to physx-js?
-First some background info: Emscripten offers two methods to define javascript bindings for native projects: Embind and
+Short answer: Much greater library coverage.
+
+Long answer: Emscripten offers two methods to define javascript bindings for native projects: Embind and
 WebIDL. Embind basically is a C++ framework, which requires the javascript interfaces to be defined in hand-written C++.
 WebIDL on the other hand uses an Interface Definition Language to generate the javascript interfaces automatically.
 

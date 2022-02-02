@@ -2554,6 +2554,7 @@ declare module PhysX {
         static voidToU32Ptr(voidPtr: unknown): PxU32Ptr;
         static voidToRealPtr(voidPtr: unknown): PxRealPtr;
         static articulationBaseJointToJoint(baseJoint: PxArticulationJointBase): PxArticulationJoint;
+        static articulationBaseJointToJointReducedCoordinate(baseJoint: PxArticulationJointBase): PxArticulationJointReducedCoordinate;
         static voidToAny(voidPtr: unknown): any;
     }
     class Vector_PxMaterialConst {

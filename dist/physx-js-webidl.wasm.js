@@ -11916,6 +11916,9 @@ var _emscripten_bind_TypeHelpers_voidToRealPtr_1 = Module["_emscripten_bind_Type
 var _emscripten_bind_TypeHelpers_articulationBaseJointToJoint_1 = Module["_emscripten_bind_TypeHelpers_articulationBaseJointToJoint_1"] = createExportWrapper("emscripten_bind_TypeHelpers_articulationBaseJointToJoint_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_articulationBaseJointToJointReducedCoordinate_1 = Module["_emscripten_bind_TypeHelpers_articulationBaseJointToJointReducedCoordinate_1"] = createExportWrapper("emscripten_bind_TypeHelpers_articulationBaseJointToJointReducedCoordinate_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_voidToAny_1 = Module["_emscripten_bind_TypeHelpers_voidToAny_1"] = createExportWrapper("emscripten_bind_TypeHelpers_voidToAny_1");
 
 /** @type {function(...*):?} */
@@ -32514,6 +32517,12 @@ TypeHelpers.prototype['articulationBaseJointToJoint'] = TypeHelpers.prototype.ar
   var self = this.ptr;
   if (baseJoint && typeof baseJoint === 'object') baseJoint = baseJoint.ptr;
   return wrapPointer(_emscripten_bind_TypeHelpers_articulationBaseJointToJoint_1(self, baseJoint), PxArticulationJoint);
+};;
+
+TypeHelpers.prototype['articulationBaseJointToJointReducedCoordinate'] = TypeHelpers.prototype.articulationBaseJointToJointReducedCoordinate = /** @suppress {undefinedVars, duplicate} @this{Object} */function(baseJoint) {
+  var self = this.ptr;
+  if (baseJoint && typeof baseJoint === 'object') baseJoint = baseJoint.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_articulationBaseJointToJointReducedCoordinate_1(self, baseJoint), PxArticulationJointReducedCoordinate);
 };;
 
 TypeHelpers.prototype['voidToAny'] = TypeHelpers.prototype.voidToAny = /** @suppress {undefinedVars, duplicate} @this{Object} */function(voidPtr) {
