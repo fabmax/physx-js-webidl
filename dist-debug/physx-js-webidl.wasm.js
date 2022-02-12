@@ -2,7 +2,7 @@
 
 var PhysX = (function() {
   var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
-  if (typeof __filename !== 'undefined') _scriptDir = _scriptDir || __filename;
+  
   return (
 function(PhysX) {
   PhysX = PhysX || {};
@@ -154,16 +154,10 @@ var quit_ = function(status, toThrow) {
 // Determine the runtime environment we are in. You can customize this by
 // setting the ENVIRONMENT setting at compile time (see settings.js).
 
-var ENVIRONMENT_IS_WEB = false;
+var ENVIRONMENT_IS_WEB = true;
 var ENVIRONMENT_IS_WORKER = false;
 var ENVIRONMENT_IS_NODE = false;
 var ENVIRONMENT_IS_SHELL = false;
-ENVIRONMENT_IS_WEB = typeof window === 'object';
-ENVIRONMENT_IS_WORKER = typeof importScripts === 'function';
-// N.b. Electron.js environment is simultaneously a NODE-environment, but
-// also a web environment.
-ENVIRONMENT_IS_NODE = typeof process === 'object' && typeof process.versions === 'object' && typeof process.versions.node === 'string';
-ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIRONMENT_IS_WORKER;
 
 if (Module['ENVIRONMENT']) {
   throw new Error('Module.ENVIRONMENT has been deprecated. To force the environment, use the ENVIRONMENT compile-time option (for example, -s ENVIRONMENT=web or -s ENVIRONMENT=node)');
@@ -186,103 +180,6 @@ var read_,
     readBinary,
     setWindowTitle;
 
-var nodeFS;
-var nodePath;
-
-if (ENVIRONMENT_IS_NODE) {
-  if (ENVIRONMENT_IS_WORKER) {
-    scriptDirectory = require('path').dirname(scriptDirectory) + '/';
-  } else {
-    scriptDirectory = __dirname + '/';
-  }
-
-
-
-
-read_ = function shell_read(filename, binary) {
-  if (!nodeFS) nodeFS = require('fs');
-  if (!nodePath) nodePath = require('path');
-  filename = nodePath['normalize'](filename);
-  return nodeFS['readFileSync'](filename, binary ? null : 'utf8');
-};
-
-readBinary = function readBinary(filename) {
-  var ret = read_(filename, true);
-  if (!ret.buffer) {
-    ret = new Uint8Array(ret);
-  }
-  assert(ret.buffer);
-  return ret;
-};
-
-
-
-  if (process['argv'].length > 1) {
-    thisProgram = process['argv'][1].replace(/\\/g, '/');
-  }
-
-  arguments_ = process['argv'].slice(2);
-
-  // MODULARIZE will export the module in the proper place outside, we don't need to export here
-
-  process['on']('uncaughtException', function(ex) {
-    // suppress ExitStatus exceptions from showing an error
-    if (!(ex instanceof ExitStatus)) {
-      throw ex;
-    }
-  });
-
-  process['on']('unhandledRejection', abort);
-
-  quit_ = function(status) {
-    process['exit'](status);
-  };
-
-  Module['inspect'] = function () { return '[Emscripten Module object]'; };
-
-
-
-} else
-if (ENVIRONMENT_IS_SHELL) {
-
-
-  if (typeof read != 'undefined') {
-    read_ = function shell_read(f) {
-      return read(f);
-    };
-  }
-
-  readBinary = function readBinary(f) {
-    var data;
-    if (typeof readbuffer === 'function') {
-      return new Uint8Array(readbuffer(f));
-    }
-    data = read(f, 'binary');
-    assert(typeof data === 'object');
-    return data;
-  };
-
-  if (typeof scriptArgs != 'undefined') {
-    arguments_ = scriptArgs;
-  } else if (typeof arguments != 'undefined') {
-    arguments_ = arguments;
-  }
-
-  if (typeof quit === 'function') {
-    quit_ = function(status) {
-      quit(status);
-    };
-  }
-
-  if (typeof print !== 'undefined') {
-    // Prefer to use print/printErr where they exist, as they usually work better.
-    if (typeof console === 'undefined') console = /** @type{!Console} */({});
-    console.log = /** @type{!function(this:Console, ...*): undefined} */ (print);
-    console.warn = console.error = /** @type{!function(this:Console, ...*): undefined} */ (typeof printErr !== 'undefined' ? printErr : print);
-  }
-
-
-} else
 
 // Note that this includes Node.js workers when relevant (pthreads is enabled).
 // Node.js workers are detected as a combination of ENVIRONMENT_IS_WORKER and
@@ -308,6 +205,7 @@ if (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) {
     scriptDirectory = '';
   }
 
+  if (!(typeof window === 'object' || typeof importScripts === 'function')) throw new Error('not compiled for this environment (did you build to HTML and try to run it not on the web, or set ENVIRONMENT to something - like node - and run it someplace else - like on the web?)');
 
   // Differentiate the Web Worker from the Node Worker case, as reading must
   // be done differently.
@@ -1264,9 +1162,9 @@ function updateGlobalBufferAndViews(buf) {
   Module['HEAPF64'] = HEAPF64 = new Float64Array(buf);
 }
 
-var STACK_BASE = 5696992,
+var STACK_BASE = 5697808,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 454112;
+    STACK_MAX = 454928;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 
@@ -1661,8 +1559,6 @@ function getBinaryPromise() {
   // If we don't have the binary yet, and have the Fetch api, use that;
   // in some environments, like Electron's render process, Fetch api may be present, but have a different context than expected, let's only use it on the Web
   if (!wasmBinary && (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) && typeof fetch === 'function'
-      // Let's not use fetch to get objects over file:// as it's most likely Cordova which doesn't support fetch for file://
-      && !isFileURI(wasmBinaryFile)
       ) {
     return fetch(wasmBinaryFile, { credentials: 'same-origin' }).then(function(response) {
       if (!response['ok']) {
@@ -1740,8 +1636,6 @@ function createWasm() {
     if (!wasmBinary &&
         typeof WebAssembly.instantiateStreaming === 'function' &&
         !isDataURI(wasmBinaryFile) &&
-        // Don't use streaming for file:// delivered objects in a webview, fetch them synchronously.
-        !isFileURI(wasmBinaryFile) &&
         typeof fetch === 'function') {
       fetch(wasmBinaryFile, { credentials: 'same-origin' }).then(function (response) {
         var result = WebAssembly.instantiateStreaming(response, info);
@@ -1781,21 +1675,23 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  1544: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onConstraintBreak')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onConstraintBreak.'; self['onConstraintBreak']($1,$2);},  
- 1824: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onWake')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onWake.'; self['onWake']($1,$2);},  
- 2067: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onSleep')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onSleep.'; self['onSleep']($1,$2);},  
- 2313: function($0, $1, $2, $3) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onContact')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onContact.'; self['onContact']($1,$2,$3);},  
- 2573: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onTrigger')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onTrigger.'; self['onTrigger']($1,$2);},  
- 2940: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);},  
- 4288: function($0, $1, $2) {var self = Module['getCache'](Module['JavaControllerBehaviorCallback'])[$0]; if (!self.hasOwnProperty('getShapeBehaviorFlags')) throw 'a JSImplementation must implement all functions, you forgot JavaControllerBehaviorCallback::getShapeBehaviorFlags.'; return self['getShapeBehaviorFlags']($1,$2);},  
- 4593: function($0, $1) {var self = Module['getCache'](Module['JavaControllerBehaviorCallback'])[$0]; if (!self.hasOwnProperty('getControllerBehaviorFlags')) throw 'a JSImplementation must implement all functions, you forgot JavaControllerBehaviorCallback::getControllerBehaviorFlags.'; return self['getControllerBehaviorFlags']($1);},  
- 4909: function($0, $1) {var self = Module['getCache'](Module['JavaControllerBehaviorCallback'])[$0]; if (!self.hasOwnProperty('getObstacleBehaviorFlags')) throw 'a JSImplementation must implement all functions, you forgot JavaControllerBehaviorCallback::getObstacleBehaviorFlags.'; return self['getObstacleBehaviorFlags']($1);},  
- 5364: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
- 5619: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
- 5889: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);},  
- 6428: function($0) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('connect')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::connect.'; return self['connect']();},  
- 6652: function($0, $1, $2) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('send')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::send.'; self['send']($1,$2);},  
- 6984: function($0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10) {var self = Module['getCache'](Module['JavaPassThroughFilterShader'])[$0]; if (!self.hasOwnProperty('filterShader')) throw 'a JSImplementation must implement all functions, you forgot JavaPassThroughFilterShader::filterShader.'; return self['filterShader']($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);}
+  1500: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaQueryFilterCallback'])[$0]; if (!self.hasOwnProperty('simplePreFilter')) throw 'a JSImplementation must implement all functions, you forgot JavaQueryFilterCallback::simplePreFilter.'; return self['simplePreFilter']($1,$2,$3,$4);},  
+ 1781: function($0, $1, $2) {var self = Module['getCache'](Module['JavaQueryFilterCallback'])[$0]; if (!self.hasOwnProperty('simplePostFilter')) throw 'a JSImplementation must implement all functions, you forgot JavaQueryFilterCallback::simplePostFilter.'; return self['simplePostFilter']($1,$2);},  
+ 2324: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onConstraintBreak')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onConstraintBreak.'; self['onConstraintBreak']($1,$2);},  
+ 2604: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onWake')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onWake.'; self['onWake']($1,$2);},  
+ 2847: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onSleep')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onSleep.'; self['onSleep']($1,$2);},  
+ 3093: function($0, $1, $2, $3) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onContact')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onContact.'; self['onContact']($1,$2,$3);},  
+ 3353: function($0, $1, $2) {var self = Module['getCache'](Module['JavaSimulationEventCallback'])[$0]; if (!self.hasOwnProperty('onTrigger')) throw 'a JSImplementation must implement all functions, you forgot JavaSimulationEventCallback::onTrigger.'; self['onTrigger']($1,$2);},  
+ 3720: function($0, $1, $2, $3, $4) {var self = Module['getCache'](Module['JavaErrorCallback'])[$0]; if (!self.hasOwnProperty('reportError')) throw 'a JSImplementation must implement all functions, you forgot JavaErrorCallback::reportError.'; self['reportError']($1,$2,$3,$4);},  
+ 5068: function($0, $1, $2) {var self = Module['getCache'](Module['JavaControllerBehaviorCallback'])[$0]; if (!self.hasOwnProperty('getShapeBehaviorFlags')) throw 'a JSImplementation must implement all functions, you forgot JavaControllerBehaviorCallback::getShapeBehaviorFlags.'; return self['getShapeBehaviorFlags']($1,$2);},  
+ 5373: function($0, $1) {var self = Module['getCache'](Module['JavaControllerBehaviorCallback'])[$0]; if (!self.hasOwnProperty('getControllerBehaviorFlags')) throw 'a JSImplementation must implement all functions, you forgot JavaControllerBehaviorCallback::getControllerBehaviorFlags.'; return self['getControllerBehaviorFlags']($1);},  
+ 5689: function($0, $1) {var self = Module['getCache'](Module['JavaControllerBehaviorCallback'])[$0]; if (!self.hasOwnProperty('getObstacleBehaviorFlags')) throw 'a JSImplementation must implement all functions, you forgot JavaControllerBehaviorCallback::getObstacleBehaviorFlags.'; return self['getObstacleBehaviorFlags']($1);},  
+ 6144: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onShapeHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onShapeHit.'; self['onShapeHit']($1);},  
+ 6399: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onControllerHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onControllerHit.'; self['onControllerHit']($1);},  
+ 6669: function($0, $1) {var self = Module['getCache'](Module['JavaUserControllerHitReport'])[$0]; if (!self.hasOwnProperty('onObstacleHit')) throw 'a JSImplementation must implement all functions, you forgot JavaUserControllerHitReport::onObstacleHit.'; self['onObstacleHit']($1);},  
+ 7208: function($0) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('connect')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::connect.'; return self['connect']();},  
+ 7432: function($0, $1, $2) {var self = Module['getCache'](Module['JSPvdTransport'])[$0]; if (!self.hasOwnProperty('send')) throw 'a JSImplementation must implement all functions, you forgot JSPvdTransport::send.'; self['send']($1,$2);},  
+ 7764: function($0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10) {var self = Module['getCache'](Module['JavaPassThroughFilterShader'])[$0]; if (!self.hasOwnProperty('filterShader')) throw 'a JSImplementation must implement all functions, you forgot JavaPassThroughFilterShader::filterShader.'; return self['filterShader']($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);}
 };
 function array_bounds_check_error(idx,size){ throw 'Array index ' + idx + ' out of bounds: [0,' + size + ')'; }
 
@@ -1989,14 +1885,7 @@ function array_bounds_check_error(idx,size){ throw 'Array index ' + idx + ' out 
       abort();
     }
 
-  var _emscripten_get_now;if (ENVIRONMENT_IS_NODE) {
-    _emscripten_get_now = function() {
-      var t = process['hrtime']();
-      return t[0] * 1e3 + t[1] / 1e6;
-    };
-  } else if (typeof dateNow !== 'undefined') {
-    _emscripten_get_now = dateNow;
-  } else _emscripten_get_now = function() { return performance.now(); }
+  var _emscripten_get_now;_emscripten_get_now = function() { return performance.now(); }
   ;
   
   var _emscripten_get_now_is_monotonic=true;;
@@ -2352,6 +2241,9 @@ var _emscripten_bind_PxActorShape_set_shape_1 = Module["_emscripten_bind_PxActor
 var _emscripten_bind_PxActorShape___destroy___0 = Module["_emscripten_bind_PxActorShape___destroy___0"] = createExportWrapper("emscripten_bind_PxActorShape___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxQueryFilterCallback___destroy___0 = Module["_emscripten_bind_PxQueryFilterCallback___destroy___0"] = createExportWrapper("emscripten_bind_PxQueryFilterCallback___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxQueryHit_get_faceIndex_0 = Module["_emscripten_bind_PxQueryHit_get_faceIndex_0"] = createExportWrapper("emscripten_bind_PxQueryHit_get_faceIndex_0");
 
 /** @type {function(...*):?} */
@@ -2683,6 +2575,15 @@ var _emscripten_bind_PxOverlapCallback_hasAnyHits_0 = Module["_emscripten_bind_P
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxOverlapCallback___destroy___0 = Module["_emscripten_bind_PxOverlapCallback___destroy___0"] = createExportWrapper("emscripten_bind_PxOverlapCallback___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimpleQueryFilterCallback_simplePreFilter_4 = Module["_emscripten_bind_SimpleQueryFilterCallback_simplePreFilter_4"] = createExportWrapper("emscripten_bind_SimpleQueryFilterCallback_simplePreFilter_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimpleQueryFilterCallback_simplePostFilter_2 = Module["_emscripten_bind_SimpleQueryFilterCallback_simplePostFilter_2"] = createExportWrapper("emscripten_bind_SimpleQueryFilterCallback_simplePostFilter_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_SimpleQueryFilterCallback___destroy___0 = Module["_emscripten_bind_SimpleQueryFilterCallback___destroy___0"] = createExportWrapper("emscripten_bind_SimpleQueryFilterCallback___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRaycastCallback_hasAnyHits_0 = Module["_emscripten_bind_PxRaycastCallback_hasAnyHits_0"] = createExportWrapper("emscripten_bind_PxRaycastCallback_hasAnyHits_0");
@@ -3385,6 +3286,12 @@ var _emscripten_bind_PxControllerDesc_get_userData_0 = Module["_emscripten_bind_
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxControllerDesc_set_userData_1 = Module["_emscripten_bind_PxControllerDesc_set_userData_1"] = createExportWrapper("emscripten_bind_PxControllerDesc_set_userData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilterCallback_filter_2 = Module["_emscripten_bind_PxControllerFilterCallback_filter_2"] = createExportWrapper("emscripten_bind_PxControllerFilterCallback_filter_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilterCallback___destroy___0 = Module["_emscripten_bind_PxControllerFilterCallback___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerFilterCallback___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxControllerHit_get_controller_0 = Module["_emscripten_bind_PxControllerHit_get_controller_0"] = createExportWrapper("emscripten_bind_PxControllerHit_get_controller_0");
@@ -5175,6 +5082,18 @@ var _emscripten_bind_PxPhysics_getPhysicsInsertionCallback_0 = Module["_emscript
 var _emscripten_bind_PxPhysics___destroy___0 = Module["_emscripten_bind_PxPhysics___destroy___0"] = createExportWrapper("emscripten_bind_PxPhysics___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_JavaQueryFilterCallback_JavaQueryFilterCallback_0 = Module["_emscripten_bind_JavaQueryFilterCallback_JavaQueryFilterCallback_0"] = createExportWrapper("emscripten_bind_JavaQueryFilterCallback_JavaQueryFilterCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaQueryFilterCallback_simplePreFilter_4 = Module["_emscripten_bind_JavaQueryFilterCallback_simplePreFilter_4"] = createExportWrapper("emscripten_bind_JavaQueryFilterCallback_simplePreFilter_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaQueryFilterCallback_simplePostFilter_2 = Module["_emscripten_bind_JavaQueryFilterCallback_simplePostFilter_2"] = createExportWrapper("emscripten_bind_JavaQueryFilterCallback_simplePostFilter_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaQueryFilterCallback___destroy___0 = Module["_emscripten_bind_JavaQueryFilterCallback___destroy___0"] = createExportWrapper("emscripten_bind_JavaQueryFilterCallback___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxQueryFilterData_PxQueryFilterData_0 = Module["_emscripten_bind_PxQueryFilterData_PxQueryFilterData_0"] = createExportWrapper("emscripten_bind_PxQueryFilterData_PxQueryFilterData_0");
 
 /** @type {function(...*):?} */
@@ -6324,6 +6243,63 @@ var _emscripten_bind_PxSceneFlags_clear_1 = Module["_emscripten_bind_PxSceneFlag
 var _emscripten_bind_PxSceneFlags___destroy___0 = Module["_emscripten_bind_PxSceneFlags___destroy___0"] = createExportWrapper("emscripten_bind_PxSceneFlags___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_raycastAny_5 = Module["_emscripten_bind_PxSceneQueryExt_raycastAny_5"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_raycastAny_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_raycastAny_6 = Module["_emscripten_bind_PxSceneQueryExt_raycastAny_6"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_raycastAny_6");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_raycastAny_7 = Module["_emscripten_bind_PxSceneQueryExt_raycastAny_7"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_raycastAny_7");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_raycastSingle_6 = Module["_emscripten_bind_PxSceneQueryExt_raycastSingle_6"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_raycastSingle_6");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_raycastSingle_7 = Module["_emscripten_bind_PxSceneQueryExt_raycastSingle_7"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_raycastSingle_7");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_raycastSingle_8 = Module["_emscripten_bind_PxSceneQueryExt_raycastSingle_8"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_raycastSingle_8");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_sweepAny_7 = Module["_emscripten_bind_PxSceneQueryExt_sweepAny_7"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_sweepAny_7");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_sweepAny_8 = Module["_emscripten_bind_PxSceneQueryExt_sweepAny_8"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_sweepAny_8");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_sweepAny_9 = Module["_emscripten_bind_PxSceneQueryExt_sweepAny_9"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_sweepAny_9");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_sweepSingle_7 = Module["_emscripten_bind_PxSceneQueryExt_sweepSingle_7"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_sweepSingle_7");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_sweepSingle_8 = Module["_emscripten_bind_PxSceneQueryExt_sweepSingle_8"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_sweepSingle_8");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_sweepSingle_9 = Module["_emscripten_bind_PxSceneQueryExt_sweepSingle_9"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_sweepSingle_9");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_overlapMultiple_5 = Module["_emscripten_bind_PxSceneQueryExt_overlapMultiple_5"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_overlapMultiple_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_overlapMultiple_6 = Module["_emscripten_bind_PxSceneQueryExt_overlapMultiple_6"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_overlapMultiple_6");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_overlapMultiple_7 = Module["_emscripten_bind_PxSceneQueryExt_overlapMultiple_7"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_overlapMultiple_7");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_overlapAny_4 = Module["_emscripten_bind_PxSceneQueryExt_overlapAny_4"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_overlapAny_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_overlapAny_5 = Module["_emscripten_bind_PxSceneQueryExt_overlapAny_5"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_overlapAny_5");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt_overlapAny_6 = Module["_emscripten_bind_PxSceneQueryExt_overlapAny_6"] = createExportWrapper("emscripten_bind_PxSceneQueryExt_overlapAny_6");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSceneQueryExt___destroy___0 = Module["_emscripten_bind_PxSceneQueryExt___destroy___0"] = createExportWrapper("emscripten_bind_PxSceneQueryExt___destroy___0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxSceneLimits_PxSceneLimits_0 = Module["_emscripten_bind_PxSceneLimits_PxSceneLimits_0"] = createExportWrapper("emscripten_bind_PxSceneLimits_PxSceneLimits_0");
 
 /** @type {function(...*):?} */
@@ -6517,6 +6493,27 @@ var _emscripten_bind_PxShape_get_userData_0 = Module["_emscripten_bind_PxShape_g
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxShape_set_userData_1 = Module["_emscripten_bind_PxShape_set_userData_1"] = createExportWrapper("emscripten_bind_PxShape_set_userData_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShapeExt_getGlobalPose_2 = Module["_emscripten_bind_PxShapeExt_getGlobalPose_2"] = createExportWrapper("emscripten_bind_PxShapeExt_getGlobalPose_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShapeExt_raycast_8 = Module["_emscripten_bind_PxShapeExt_raycast_8"] = createExportWrapper("emscripten_bind_PxShapeExt_raycast_8");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShapeExt_overlap_4 = Module["_emscripten_bind_PxShapeExt_overlap_4"] = createExportWrapper("emscripten_bind_PxShapeExt_overlap_4");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShapeExt_sweep_8 = Module["_emscripten_bind_PxShapeExt_sweep_8"] = createExportWrapper("emscripten_bind_PxShapeExt_sweep_8");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShapeExt_getWorldBounds_2 = Module["_emscripten_bind_PxShapeExt_getWorldBounds_2"] = createExportWrapper("emscripten_bind_PxShapeExt_getWorldBounds_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShapeExt_getWorldBounds_3 = Module["_emscripten_bind_PxShapeExt_getWorldBounds_3"] = createExportWrapper("emscripten_bind_PxShapeExt_getWorldBounds_3");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxShapeExt___destroy___0 = Module["_emscripten_bind_PxShapeExt___destroy___0"] = createExportWrapper("emscripten_bind_PxShapeExt___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxShapeFlags_PxShapeFlags_1 = Module["_emscripten_bind_PxShapeFlags_PxShapeFlags_1"] = createExportWrapper("emscripten_bind_PxShapeFlags_PxShapeFlags_1");
@@ -11496,13 +11493,31 @@ var _emscripten_bind_PxControllerFilters_get_mFilterData_0 = Module["_emscripten
 var _emscripten_bind_PxControllerFilters_set_mFilterData_1 = Module["_emscripten_bind_PxControllerFilters_set_mFilterData_1"] = createExportWrapper("emscripten_bind_PxControllerFilters_set_mFilterData_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_get_mFilterCallback_0 = Module["_emscripten_bind_PxControllerFilters_get_mFilterCallback_0"] = createExportWrapper("emscripten_bind_PxControllerFilters_get_mFilterCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_set_mFilterCallback_1 = Module["_emscripten_bind_PxControllerFilters_set_mFilterCallback_1"] = createExportWrapper("emscripten_bind_PxControllerFilters_set_mFilterCallback_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxControllerFilters_get_mFilterFlags_0 = Module["_emscripten_bind_PxControllerFilters_get_mFilterFlags_0"] = createExportWrapper("emscripten_bind_PxControllerFilters_get_mFilterFlags_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxControllerFilters_set_mFilterFlags_1 = Module["_emscripten_bind_PxControllerFilters_set_mFilterFlags_1"] = createExportWrapper("emscripten_bind_PxControllerFilters_set_mFilterFlags_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_get_mCCTFilterCallback_0 = Module["_emscripten_bind_PxControllerFilters_get_mCCTFilterCallback_0"] = createExportWrapper("emscripten_bind_PxControllerFilters_get_mCCTFilterCallback_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxControllerFilters_set_mCCTFilterCallback_1 = Module["_emscripten_bind_PxControllerFilters_set_mCCTFilterCallback_1"] = createExportWrapper("emscripten_bind_PxControllerFilters_set_mCCTFilterCallback_1");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxControllerFilters___destroy___0 = Module["_emscripten_bind_PxControllerFilters___destroy___0"] = createExportWrapper("emscripten_bind_PxControllerFilters___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaControllerFilterCallback_filter_2 = Module["_emscripten_bind_JavaControllerFilterCallback_filter_2"] = createExportWrapper("emscripten_bind_JavaControllerFilterCallback_filter_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_JavaControllerFilterCallback___destroy___0 = Module["_emscripten_bind_JavaControllerFilterCallback___destroy___0"] = createExportWrapper("emscripten_bind_JavaControllerFilterCallback___destroy___0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxControllerManager_release_0 = Module["_emscripten_bind_PxControllerManager_release_0"] = createExportWrapper("emscripten_bind_PxControllerManager_release_0");
@@ -11878,6 +11893,9 @@ var _emscripten_bind_TypeHelpers_getRealAt_2 = Module["_emscripten_bind_TypeHelp
 
 /** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_getActorAt_2 = Module["_emscripten_bind_TypeHelpers_getActorAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getActorAt_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_getBounds3At_2 = Module["_emscripten_bind_TypeHelpers_getBounds3At_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getBounds3At_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_getContactPairAt_2 = Module["_emscripten_bind_TypeHelpers_getContactPairAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getContactPairAt_2");
@@ -12745,6 +12763,15 @@ var _emscripten_enum_PxQueryFlagEnum_eANY_HIT = Module["_emscripten_enum_PxQuery
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxQueryFlagEnum_eNO_BLOCK = Module["_emscripten_enum_PxQueryFlagEnum_eNO_BLOCK"] = createExportWrapper("emscripten_enum_PxQueryFlagEnum_eNO_BLOCK");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxQueryHitType_eNONE = Module["_emscripten_enum_PxQueryHitType_eNONE"] = createExportWrapper("emscripten_enum_PxQueryHitType_eNONE");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxQueryHitType_eTOUCH = Module["_emscripten_enum_PxQueryHitType_eTOUCH"] = createExportWrapper("emscripten_enum_PxQueryHitType_eTOUCH");
+
+/** @type {function(...*):?} */
+var _emscripten_enum_PxQueryHitType_eBLOCK = Module["_emscripten_enum_PxQueryHitType_eBLOCK"] = createExportWrapper("emscripten_enum_PxQueryHitType_eBLOCK");
 
 /** @type {function(...*):?} */
 var _emscripten_enum_PxRigidBodyFlagEnum_eKINEMATIC = Module["_emscripten_enum_PxRigidBodyFlagEnum_eKINEMATIC"] = createExportWrapper("emscripten_enum_PxRigidBodyFlagEnum_eKINEMATIC");
@@ -14111,6 +14138,18 @@ Module['PxActorShape'] = PxActorShape;
   var self = this.ptr;
   _emscripten_bind_PxActorShape___destroy___0(self);
 };
+// PxQueryFilterCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxQueryFilterCallback() { throw "cannot construct a PxQueryFilterCallback, no constructor in IDL" }
+PxQueryFilterCallback.prototype = Object.create(WrapperObject.prototype);
+PxQueryFilterCallback.prototype.constructor = PxQueryFilterCallback;
+PxQueryFilterCallback.prototype.__class__ = PxQueryFilterCallback;
+PxQueryFilterCallback.__cache__ = {};
+Module['PxQueryFilterCallback'] = PxQueryFilterCallback;
+
+  PxQueryFilterCallback.prototype['__destroy__'] = PxQueryFilterCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxQueryFilterCallback___destroy___0(self);
+};
 // PxQueryHit
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxQueryHit() { throw "cannot construct a PxQueryHit, no constructor in IDL" }
 PxQueryHit.prototype = Object.create(PxActorShape.prototype);
@@ -14772,6 +14811,34 @@ PxOverlapCallback.prototype['hasAnyHits'] = PxOverlapCallback.prototype.hasAnyHi
   PxOverlapCallback.prototype['__destroy__'] = PxOverlapCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxOverlapCallback___destroy___0(self);
+};
+// SimpleQueryFilterCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function SimpleQueryFilterCallback() { throw "cannot construct a SimpleQueryFilterCallback, no constructor in IDL" }
+SimpleQueryFilterCallback.prototype = Object.create(PxQueryFilterCallback.prototype);
+SimpleQueryFilterCallback.prototype.constructor = SimpleQueryFilterCallback;
+SimpleQueryFilterCallback.prototype.__class__ = SimpleQueryFilterCallback;
+SimpleQueryFilterCallback.__cache__ = {};
+Module['SimpleQueryFilterCallback'] = SimpleQueryFilterCallback;
+
+SimpleQueryFilterCallback.prototype['simplePreFilter'] = SimpleQueryFilterCallback.prototype.simplePreFilter = /** @suppress {undefinedVars, duplicate} @this{Object} */function(filterData, shape, actor, queryFlags) {
+  var self = this.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (shape && typeof shape === 'object') shape = shape.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  if (queryFlags && typeof queryFlags === 'object') queryFlags = queryFlags.ptr;
+  return _emscripten_bind_SimpleQueryFilterCallback_simplePreFilter_4(self, filterData, shape, actor, queryFlags);
+};;
+
+SimpleQueryFilterCallback.prototype['simplePostFilter'] = SimpleQueryFilterCallback.prototype.simplePostFilter = /** @suppress {undefinedVars, duplicate} @this{Object} */function(filterData, hit) {
+  var self = this.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  return _emscripten_bind_SimpleQueryFilterCallback_simplePostFilter_2(self, filterData, hit);
+};;
+
+  SimpleQueryFilterCallback.prototype['__destroy__'] = SimpleQueryFilterCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_SimpleQueryFilterCallback___destroy___0(self);
 };
 // PxRaycastCallback
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxRaycastCallback() { throw "cannot construct a PxRaycastCallback, no constructor in IDL" }
@@ -16128,6 +16195,25 @@ PxControllerDesc.prototype['getType'] = PxControllerDesc.prototype.getType = /**
   _emscripten_bind_PxControllerDesc_set_userData_1(self, arg0);
 };
     Object.defineProperty(PxControllerDesc.prototype, 'userData', { get: PxControllerDesc.prototype.get_userData, set: PxControllerDesc.prototype.set_userData });
+// PxControllerFilterCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerFilterCallback() { throw "cannot construct a PxControllerFilterCallback, no constructor in IDL" }
+PxControllerFilterCallback.prototype = Object.create(WrapperObject.prototype);
+PxControllerFilterCallback.prototype.constructor = PxControllerFilterCallback;
+PxControllerFilterCallback.prototype.__class__ = PxControllerFilterCallback;
+PxControllerFilterCallback.__cache__ = {};
+Module['PxControllerFilterCallback'] = PxControllerFilterCallback;
+
+PxControllerFilterCallback.prototype['filter'] = PxControllerFilterCallback.prototype.filter = /** @suppress {undefinedVars, duplicate} @this{Object} */function(a, b) {
+  var self = this.ptr;
+  if (a && typeof a === 'object') a = a.ptr;
+  if (b && typeof b === 'object') b = b.ptr;
+  return !!(_emscripten_bind_PxControllerFilterCallback_filter_2(self, a, b));
+};;
+
+  PxControllerFilterCallback.prototype['__destroy__'] = PxControllerFilterCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxControllerFilterCallback___destroy___0(self);
+};
 // PxControllerHit
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerHit() { throw "cannot construct a PxControllerHit, no constructor in IDL" }
 PxControllerHit.prototype = Object.create(WrapperObject.prototype);
@@ -19694,6 +19780,37 @@ PxPhysics.prototype['getPhysicsInsertionCallback'] = PxPhysics.prototype.getPhys
   var self = this.ptr;
   _emscripten_bind_PxPhysics___destroy___0(self);
 };
+// JavaQueryFilterCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function JavaQueryFilterCallback() {
+  this.ptr = _emscripten_bind_JavaQueryFilterCallback_JavaQueryFilterCallback_0();
+  getCache(JavaQueryFilterCallback)[this.ptr] = this;
+};;
+JavaQueryFilterCallback.prototype = Object.create(SimpleQueryFilterCallback.prototype);
+JavaQueryFilterCallback.prototype.constructor = JavaQueryFilterCallback;
+JavaQueryFilterCallback.prototype.__class__ = JavaQueryFilterCallback;
+JavaQueryFilterCallback.__cache__ = {};
+Module['JavaQueryFilterCallback'] = JavaQueryFilterCallback;
+
+JavaQueryFilterCallback.prototype['simplePreFilter'] = JavaQueryFilterCallback.prototype.simplePreFilter = /** @suppress {undefinedVars, duplicate} @this{Object} */function(filterData, shape, actor, queryFlags) {
+  var self = this.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (shape && typeof shape === 'object') shape = shape.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  if (queryFlags && typeof queryFlags === 'object') queryFlags = queryFlags.ptr;
+  return _emscripten_bind_JavaQueryFilterCallback_simplePreFilter_4(self, filterData, shape, actor, queryFlags);
+};;
+
+JavaQueryFilterCallback.prototype['simplePostFilter'] = JavaQueryFilterCallback.prototype.simplePostFilter = /** @suppress {undefinedVars, duplicate} @this{Object} */function(filterData, hit) {
+  var self = this.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  return _emscripten_bind_JavaQueryFilterCallback_simplePostFilter_2(self, filterData, hit);
+};;
+
+  JavaQueryFilterCallback.prototype['__destroy__'] = JavaQueryFilterCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_JavaQueryFilterCallback___destroy___0(self);
+};
 // PxQueryFilterData
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxQueryFilterData(fd, f) {
   if (fd && typeof fd === 'object') fd = fd.ptr;
@@ -21668,6 +21785,106 @@ PxSceneFlags.prototype['clear'] = PxSceneFlags.prototype.clear = /** @suppress {
   var self = this.ptr;
   _emscripten_bind_PxSceneFlags___destroy___0(self);
 };
+// PxSceneQueryExt
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSceneQueryExt() { throw "cannot construct a PxSceneQueryExt, no constructor in IDL" }
+PxSceneQueryExt.prototype = Object.create(WrapperObject.prototype);
+PxSceneQueryExt.prototype.constructor = PxSceneQueryExt;
+PxSceneQueryExt.prototype.__class__ = PxSceneQueryExt;
+PxSceneQueryExt.__cache__ = {};
+Module['PxSceneQueryExt'] = PxSceneQueryExt;
+
+PxSceneQueryExt.prototype['raycastAny'] = PxSceneQueryExt.prototype.raycastAny = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene, origin, unitDir, distance, hit, filterData, filterCall) {
+  var self = this.ptr;
+  if (scene && typeof scene === 'object') scene = scene.ptr;
+  if (origin && typeof origin === 'object') origin = origin.ptr;
+  if (unitDir && typeof unitDir === 'object') unitDir = unitDir.ptr;
+  if (distance && typeof distance === 'object') distance = distance.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (filterCall && typeof filterCall === 'object') filterCall = filterCall.ptr;
+  if (filterData === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_raycastAny_5(self, scene, origin, unitDir, distance, hit)) }
+  if (filterCall === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_raycastAny_6(self, scene, origin, unitDir, distance, hit, filterData)) }
+  return !!(_emscripten_bind_PxSceneQueryExt_raycastAny_7(self, scene, origin, unitDir, distance, hit, filterData, filterCall));
+};;
+
+PxSceneQueryExt.prototype['raycastSingle'] = PxSceneQueryExt.prototype.raycastSingle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene, origin, unitDir, distance, outputFlags, hit, filterData, filterCall) {
+  var self = this.ptr;
+  if (scene && typeof scene === 'object') scene = scene.ptr;
+  if (origin && typeof origin === 'object') origin = origin.ptr;
+  if (unitDir && typeof unitDir === 'object') unitDir = unitDir.ptr;
+  if (distance && typeof distance === 'object') distance = distance.ptr;
+  if (outputFlags && typeof outputFlags === 'object') outputFlags = outputFlags.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (filterCall && typeof filterCall === 'object') filterCall = filterCall.ptr;
+  if (filterData === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_raycastSingle_6(self, scene, origin, unitDir, distance, outputFlags, hit)) }
+  if (filterCall === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_raycastSingle_7(self, scene, origin, unitDir, distance, outputFlags, hit, filterData)) }
+  return !!(_emscripten_bind_PxSceneQueryExt_raycastSingle_8(self, scene, origin, unitDir, distance, outputFlags, hit, filterData, filterCall));
+};;
+
+PxSceneQueryExt.prototype['sweepAny'] = PxSceneQueryExt.prototype.sweepAny = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene, geometry, pose, unitDir, distance, queryFlags, hit, filterData, filterCall) {
+  var self = this.ptr;
+  if (scene && typeof scene === 'object') scene = scene.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  if (pose && typeof pose === 'object') pose = pose.ptr;
+  if (unitDir && typeof unitDir === 'object') unitDir = unitDir.ptr;
+  if (distance && typeof distance === 'object') distance = distance.ptr;
+  if (queryFlags && typeof queryFlags === 'object') queryFlags = queryFlags.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (filterCall && typeof filterCall === 'object') filterCall = filterCall.ptr;
+  if (filterData === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_sweepAny_7(self, scene, geometry, pose, unitDir, distance, queryFlags, hit)) }
+  if (filterCall === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_sweepAny_8(self, scene, geometry, pose, unitDir, distance, queryFlags, hit, filterData)) }
+  return !!(_emscripten_bind_PxSceneQueryExt_sweepAny_9(self, scene, geometry, pose, unitDir, distance, queryFlags, hit, filterData, filterCall));
+};;
+
+PxSceneQueryExt.prototype['sweepSingle'] = PxSceneQueryExt.prototype.sweepSingle = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene, geometry, pose, unitDir, distance, outputFlags, hit, filterData, filterCall) {
+  var self = this.ptr;
+  if (scene && typeof scene === 'object') scene = scene.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  if (pose && typeof pose === 'object') pose = pose.ptr;
+  if (unitDir && typeof unitDir === 'object') unitDir = unitDir.ptr;
+  if (distance && typeof distance === 'object') distance = distance.ptr;
+  if (outputFlags && typeof outputFlags === 'object') outputFlags = outputFlags.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (filterCall && typeof filterCall === 'object') filterCall = filterCall.ptr;
+  if (filterData === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_sweepSingle_7(self, scene, geometry, pose, unitDir, distance, outputFlags, hit)) }
+  if (filterCall === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_sweepSingle_8(self, scene, geometry, pose, unitDir, distance, outputFlags, hit, filterData)) }
+  return !!(_emscripten_bind_PxSceneQueryExt_sweepSingle_9(self, scene, geometry, pose, unitDir, distance, outputFlags, hit, filterData, filterCall));
+};;
+
+PxSceneQueryExt.prototype['overlapMultiple'] = PxSceneQueryExt.prototype.overlapMultiple = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene, geometry, pose, hitBuffer, hitBufferSize, filterData, filterCall) {
+  var self = this.ptr;
+  if (scene && typeof scene === 'object') scene = scene.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  if (pose && typeof pose === 'object') pose = pose.ptr;
+  if (hitBuffer && typeof hitBuffer === 'object') hitBuffer = hitBuffer.ptr;
+  if (hitBufferSize && typeof hitBufferSize === 'object') hitBufferSize = hitBufferSize.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (filterCall && typeof filterCall === 'object') filterCall = filterCall.ptr;
+  if (filterData === undefined) { return _emscripten_bind_PxSceneQueryExt_overlapMultiple_5(self, scene, geometry, pose, hitBuffer, hitBufferSize) }
+  if (filterCall === undefined) { return _emscripten_bind_PxSceneQueryExt_overlapMultiple_6(self, scene, geometry, pose, hitBuffer, hitBufferSize, filterData) }
+  return _emscripten_bind_PxSceneQueryExt_overlapMultiple_7(self, scene, geometry, pose, hitBuffer, hitBufferSize, filterData, filterCall);
+};;
+
+PxSceneQueryExt.prototype['overlapAny'] = PxSceneQueryExt.prototype.overlapAny = /** @suppress {undefinedVars, duplicate} @this{Object} */function(scene, geometry, pose, hit, filterData, filterCall) {
+  var self = this.ptr;
+  if (scene && typeof scene === 'object') scene = scene.ptr;
+  if (geometry && typeof geometry === 'object') geometry = geometry.ptr;
+  if (pose && typeof pose === 'object') pose = pose.ptr;
+  if (hit && typeof hit === 'object') hit = hit.ptr;
+  if (filterData && typeof filterData === 'object') filterData = filterData.ptr;
+  if (filterCall && typeof filterCall === 'object') filterCall = filterCall.ptr;
+  if (filterData === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_overlapAny_4(self, scene, geometry, pose, hit)) }
+  if (filterCall === undefined) { return !!(_emscripten_bind_PxSceneQueryExt_overlapAny_5(self, scene, geometry, pose, hit, filterData)) }
+  return !!(_emscripten_bind_PxSceneQueryExt_overlapAny_6(self, scene, geometry, pose, hit, filterData, filterCall));
+};;
+
+  PxSceneQueryExt.prototype['__destroy__'] = PxSceneQueryExt.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxSceneQueryExt___destroy___0(self);
+};
 // PxSceneLimits
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxSceneLimits() {
   this.ptr = _emscripten_bind_PxSceneLimits_PxSceneLimits_0();
@@ -22036,6 +22253,69 @@ PxShape.prototype['isReleasable'] = PxShape.prototype.isReleasable = /** @suppre
   _emscripten_bind_PxShape_set_userData_1(self, arg0);
 };
     Object.defineProperty(PxShape.prototype, 'userData', { get: PxShape.prototype.get_userData, set: PxShape.prototype.set_userData });
+// PxShapeExt
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxShapeExt() { throw "cannot construct a PxShapeExt, no constructor in IDL" }
+PxShapeExt.prototype = Object.create(WrapperObject.prototype);
+PxShapeExt.prototype.constructor = PxShapeExt;
+PxShapeExt.prototype.__class__ = PxShapeExt;
+PxShapeExt.__cache__ = {};
+Module['PxShapeExt'] = PxShapeExt;
+
+PxShapeExt.prototype['getGlobalPose'] = PxShapeExt.prototype.getGlobalPose = /** @suppress {undefinedVars, duplicate} @this{Object} */function(shape, actor) {
+  var self = this.ptr;
+  if (shape && typeof shape === 'object') shape = shape.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  return wrapPointer(_emscripten_bind_PxShapeExt_getGlobalPose_2(self, shape, actor), PxTransform);
+};;
+
+PxShapeExt.prototype['raycast'] = PxShapeExt.prototype.raycast = /** @suppress {undefinedVars, duplicate} @this{Object} */function(shape, actor, rayOrigin, rayDir, maxDist, hitFlags, maxHits, rayHits) {
+  var self = this.ptr;
+  if (shape && typeof shape === 'object') shape = shape.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  if (rayOrigin && typeof rayOrigin === 'object') rayOrigin = rayOrigin.ptr;
+  if (rayDir && typeof rayDir === 'object') rayDir = rayDir.ptr;
+  if (maxDist && typeof maxDist === 'object') maxDist = maxDist.ptr;
+  if (hitFlags && typeof hitFlags === 'object') hitFlags = hitFlags.ptr;
+  if (maxHits && typeof maxHits === 'object') maxHits = maxHits.ptr;
+  if (rayHits && typeof rayHits === 'object') rayHits = rayHits.ptr;
+  return _emscripten_bind_PxShapeExt_raycast_8(self, shape, actor, rayOrigin, rayDir, maxDist, hitFlags, maxHits, rayHits);
+};;
+
+PxShapeExt.prototype['overlap'] = PxShapeExt.prototype.overlap = /** @suppress {undefinedVars, duplicate} @this{Object} */function(shape, actor, otherGeom, otherGeomPose) {
+  var self = this.ptr;
+  if (shape && typeof shape === 'object') shape = shape.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  if (otherGeom && typeof otherGeom === 'object') otherGeom = otherGeom.ptr;
+  if (otherGeomPose && typeof otherGeomPose === 'object') otherGeomPose = otherGeomPose.ptr;
+  return !!(_emscripten_bind_PxShapeExt_overlap_4(self, shape, actor, otherGeom, otherGeomPose));
+};;
+
+PxShapeExt.prototype['sweep'] = PxShapeExt.prototype.sweep = /** @suppress {undefinedVars, duplicate} @this{Object} */function(shape, actor, unitDir, distance, otherGeom, otherGeomPose, sweepHit, hitFlags) {
+  var self = this.ptr;
+  if (shape && typeof shape === 'object') shape = shape.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  if (unitDir && typeof unitDir === 'object') unitDir = unitDir.ptr;
+  if (distance && typeof distance === 'object') distance = distance.ptr;
+  if (otherGeom && typeof otherGeom === 'object') otherGeom = otherGeom.ptr;
+  if (otherGeomPose && typeof otherGeomPose === 'object') otherGeomPose = otherGeomPose.ptr;
+  if (sweepHit && typeof sweepHit === 'object') sweepHit = sweepHit.ptr;
+  if (hitFlags && typeof hitFlags === 'object') hitFlags = hitFlags.ptr;
+  return !!(_emscripten_bind_PxShapeExt_sweep_8(self, shape, actor, unitDir, distance, otherGeom, otherGeomPose, sweepHit, hitFlags));
+};;
+
+PxShapeExt.prototype['getWorldBounds'] = PxShapeExt.prototype.getWorldBounds = /** @suppress {undefinedVars, duplicate} @this{Object} */function(shape, actor, inflation) {
+  var self = this.ptr;
+  if (shape && typeof shape === 'object') shape = shape.ptr;
+  if (actor && typeof actor === 'object') actor = actor.ptr;
+  if (inflation && typeof inflation === 'object') inflation = inflation.ptr;
+  if (inflation === undefined) { return wrapPointer(_emscripten_bind_PxShapeExt_getWorldBounds_2(self, shape, actor), PxBounds3) }
+  return wrapPointer(_emscripten_bind_PxShapeExt_getWorldBounds_3(self, shape, actor, inflation), PxBounds3);
+};;
+
+  PxShapeExt.prototype['__destroy__'] = PxShapeExt.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxShapeExt___destroy___0(self);
+};
 // PxShapeFlags
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxShapeFlags(flags) {
   if (flags && typeof flags === 'object') flags = flags.ptr;
@@ -31637,6 +31917,16 @@ Module['PxControllerFilters'] = PxControllerFilters;
   _emscripten_bind_PxControllerFilters_set_mFilterData_1(self, arg0);
 };
     Object.defineProperty(PxControllerFilters.prototype, 'mFilterData', { get: PxControllerFilters.prototype.get_mFilterData, set: PxControllerFilters.prototype.set_mFilterData });
+  PxControllerFilters.prototype['get_mFilterCallback'] = PxControllerFilters.prototype.get_mFilterCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerFilters_get_mFilterCallback_0(self), PxQueryFilterCallback);
+};
+    PxControllerFilters.prototype['set_mFilterCallback'] = PxControllerFilters.prototype.set_mFilterCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerFilters_set_mFilterCallback_1(self, arg0);
+};
+    Object.defineProperty(PxControllerFilters.prototype, 'mFilterCallback', { get: PxControllerFilters.prototype.get_mFilterCallback, set: PxControllerFilters.prototype.set_mFilterCallback });
   PxControllerFilters.prototype['get_mFilterFlags'] = PxControllerFilters.prototype.get_mFilterFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   return wrapPointer(_emscripten_bind_PxControllerFilters_get_mFilterFlags_0(self), PxQueryFlags);
@@ -31647,9 +31937,38 @@ Module['PxControllerFilters'] = PxControllerFilters;
   _emscripten_bind_PxControllerFilters_set_mFilterFlags_1(self, arg0);
 };
     Object.defineProperty(PxControllerFilters.prototype, 'mFilterFlags', { get: PxControllerFilters.prototype.get_mFilterFlags, set: PxControllerFilters.prototype.set_mFilterFlags });
+  PxControllerFilters.prototype['get_mCCTFilterCallback'] = PxControllerFilters.prototype.get_mCCTFilterCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return wrapPointer(_emscripten_bind_PxControllerFilters_get_mCCTFilterCallback_0(self), PxControllerFilterCallback);
+};
+    PxControllerFilters.prototype['set_mCCTFilterCallback'] = PxControllerFilters.prototype.set_mCCTFilterCallback = /** @suppress {undefinedVars, duplicate} @this{Object} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  _emscripten_bind_PxControllerFilters_set_mCCTFilterCallback_1(self, arg0);
+};
+    Object.defineProperty(PxControllerFilters.prototype, 'mCCTFilterCallback', { get: PxControllerFilters.prototype.get_mCCTFilterCallback, set: PxControllerFilters.prototype.set_mCCTFilterCallback });
   PxControllerFilters.prototype['__destroy__'] = PxControllerFilters.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
   _emscripten_bind_PxControllerFilters___destroy___0(self);
+};
+// JavaControllerFilterCallback
+/** @suppress {undefinedVars, duplicate} @this{Object} */function JavaControllerFilterCallback() { throw "cannot construct a JavaControllerFilterCallback, no constructor in IDL" }
+JavaControllerFilterCallback.prototype = Object.create(PxControllerFilterCallback.prototype);
+JavaControllerFilterCallback.prototype.constructor = JavaControllerFilterCallback;
+JavaControllerFilterCallback.prototype.__class__ = JavaControllerFilterCallback;
+JavaControllerFilterCallback.__cache__ = {};
+Module['JavaControllerFilterCallback'] = JavaControllerFilterCallback;
+
+JavaControllerFilterCallback.prototype['filter'] = JavaControllerFilterCallback.prototype.filter = /** @suppress {undefinedVars, duplicate} @this{Object} */function(a, b) {
+  var self = this.ptr;
+  if (a && typeof a === 'object') a = a.ptr;
+  if (b && typeof b === 'object') b = b.ptr;
+  return !!(_emscripten_bind_JavaControllerFilterCallback_filter_2(self, a, b));
+};;
+
+  JavaControllerFilterCallback.prototype['__destroy__'] = JavaControllerFilterCallback.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_JavaControllerFilterCallback___destroy___0(self);
 };
 // PxControllerManager
 /** @suppress {undefinedVars, duplicate} @this{Object} */function PxControllerManager() { throw "cannot construct a PxControllerManager, no constructor in IDL" }
@@ -32438,6 +32757,13 @@ TypeHelpers.prototype['getActorAt'] = TypeHelpers.prototype.getActorAt = /** @su
   if (base && typeof base === 'object') base = base.ptr;
   if (index && typeof index === 'object') index = index.ptr;
   return wrapPointer(_emscripten_bind_TypeHelpers_getActorAt_2(self, base, index), PxActor);
+};;
+
+TypeHelpers.prototype['getBounds3At'] = TypeHelpers.prototype.getBounds3At = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
+  var self = this.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_getBounds3At_2(self, base, index), PxBounds3);
 };;
 
 TypeHelpers.prototype['getContactPairAt'] = TypeHelpers.prototype.getContactPairAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
@@ -33712,6 +34038,16 @@ JavaPassThroughFilterShader.prototype['filterShader'] = JavaPassThroughFilterSha
     Module['eANY_HIT'] = _emscripten_enum_PxQueryFlagEnum_eANY_HIT();
 
     Module['eNO_BLOCK'] = _emscripten_enum_PxQueryFlagEnum_eNO_BLOCK();
+
+    
+
+    // PxQueryHitType
+
+    Module['eNONE'] = _emscripten_enum_PxQueryHitType_eNONE();
+
+    Module['eTOUCH'] = _emscripten_enum_PxQueryHitType_eTOUCH();
+
+    Module['eBLOCK'] = _emscripten_enum_PxQueryHitType_eBLOCK();
 
     
 

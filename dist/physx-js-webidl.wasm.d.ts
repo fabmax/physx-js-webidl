@@ -608,6 +608,17 @@ declare module PhysX {
         'STATIC_AABB_TREE',
         'LAST'
     }
+    class PxQueryFilterCallback {
+    }
+    class SimpleQueryFilterCallback extends PxQueryFilterCallback {
+        simplePreFilter(filterData: PxFilterData, shape: PxShape, actor: PxRigidActor, queryFlags: PxHitFlags): number;
+        simplePostFilter(filterData: PxFilterData, hit: PxQueryHit): number;
+    }
+    class JavaQueryFilterCallback {
+        constructor();
+        simplePreFilter(filterData: PxFilterData, shape: PxShape, actor: PxRigidActor, queryFlags: PxHitFlags): number;
+        simplePostFilter(filterData: PxFilterData, hit: PxQueryHit): number;
+    }
     class PxQueryFilterData {
         constructor();
         constructor(fd: PxFilterData, f: PxQueryFlags);
@@ -631,6 +642,11 @@ declare module PhysX {
     }
     class PxQueryHit extends PxActorShape {
         faceIndex: number;
+    }
+    enum PxQueryHitType {
+        'NONE',
+        'TOUCH',
+        'BLOCK'
     }
     class PxRaycastBuffer10 extends PxRaycastCallback {
         constructor();
@@ -907,6 +923,14 @@ declare module PhysX {
         set(flag: PxSceneFlagEnum): void;
         clear(flag: PxSceneFlagEnum): void;
     }
+    class PxSceneQueryExt {
+        static raycastAny(scene: PxScene, origin: PxVec3, unitDir: PxVec3, distance: number, hit: PxQueryHit, filterData?: PxQueryFilterData, filterCall?: PxQueryFilterCallback): boolean;
+        static raycastSingle(scene: PxScene, origin: PxVec3, unitDir: PxVec3, distance: number, outputFlags: PxHitFlags, hit: PxRaycastHit, filterData?: PxQueryFilterData, filterCall?: PxQueryFilterCallback): boolean;
+        static sweepAny(scene: PxScene, geometry: PxGeometry, pose: PxTransform, unitDir: PxVec3, distance: number, queryFlags: PxHitFlags, hit: PxQueryHit, filterData?: PxQueryFilterData, filterCall?: PxQueryFilterCallback): boolean;
+        static sweepSingle(scene: PxScene, geometry: PxGeometry, pose: PxTransform, unitDir: PxVec3, distance: number, outputFlags: PxHitFlags, hit: PxSweepHit, filterData?: PxQueryFilterData, filterCall?: PxQueryFilterCallback): boolean;
+        static overlapMultiple(scene: PxScene, geometry: PxGeometry, pose: PxTransform, hitBuffer: PxOverlapHit, hitBufferSize: number, filterData?: PxQueryFilterData, filterCall?: PxQueryFilterCallback): number;
+        static overlapAny(scene: PxScene, geometry: PxGeometry, pose: PxTransform, hit: PxOverlapHit, filterData?: PxQueryFilterData, filterCall?: PxQueryFilterCallback): boolean;
+    }
     enum PxSceneQueryUpdateModeEnum {
         'BUILD_ENABLED_COMMIT_ENABLED',
         'BUILD_ENABLED_COMMIT_DISABLED',
@@ -964,6 +988,13 @@ declare module PhysX {
         setQueryFilterData(data: PxFilterData): void;
         getQueryFilterData(): PxFilterData;
         userData: unknown;
+    }
+    class PxShapeExt {
+        static getGlobalPose(shape: PxShape, actor: PxRigidActor): PxTransform;
+        static raycast(shape: PxShape, actor: PxRigidActor, rayOrigin: PxVec3, rayDir: PxVec3, maxDist: number, hitFlags: PxHitFlags, maxHits: number, rayHits: PxRaycastHit): number;
+        static overlap(shape: PxShape, actor: PxRigidActor, otherGeom: PxGeometry, otherGeomPose: PxTransform): boolean;
+        static sweep(shape: PxShape, actor: PxRigidActor, unitDir: PxVec3, distance: number, otherGeom: PxGeometry, otherGeomPose: PxTransform, sweepHit: PxSweepHit, hitFlags: PxHitFlags): boolean;
+        static getWorldBounds(shape: PxShape, actor: PxRigidActor, inflation?: number): PxBounds3;
     }
     enum PxShapeFlagEnum {
         'SIMULATION_SHAPE',
@@ -2413,7 +2444,15 @@ declare module PhysX {
     class PxControllerFilters {
         constructor(filterData?: PxFilterData);
         mFilterData: PxFilterData;
+        mFilterCallback: PxQueryFilterCallback;
         mFilterFlags: PxQueryFlags;
+        mCCTFilterCallback: PxControllerFilterCallback;
+    }
+    class PxControllerFilterCallback {
+        filter(a: PxController, b: PxController): boolean;
+    }
+    class JavaControllerFilterCallback {
+        filter(a: PxController, b: PxController): boolean;
     }
     class PxControllerHit {
         controller: PxController;
@@ -2542,6 +2581,7 @@ declare module PhysX {
         static getU32At(base: PxU32ConstPtr, index: number): number;
         static getRealAt(base: PxRealPtr, index: number): number;
         static getActorAt(base: PxActor, index: number): PxActor;
+        static getBounds3At(base: PxBounds3, index: number): PxBounds3;
         static getContactPairAt(base: PxContactPair, index: number): PxContactPair;
         static getContactPairHeaderAt(base: PxContactPairHeader, index: number): PxContactPairHeader;
         static getControllerAt(base: PxController, index: number): PxController;

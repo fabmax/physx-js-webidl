@@ -1,11 +1,11 @@
 # physx-js-webidl
-Javascript bindings for Nvidia PhysX based on WebIDL
+Javascript bindings for Nvidia PhysX based on WebIDL.
 
 ## What's the difference to physx-js?
 Short answer: Much greater library coverage.
 
-Long answer: Emscripten offers two methods to define javascript bindings for native projects: Embind and
-WebIDL. Embind basically is a C++ framework, which requires the javascript interfaces to be defined in hand-written C++.
+Long answer: Emscripten offers two methods to define javascript bindings for native projects: Embind (used by physx-js) and
+WebIDL (used by this project). Embind basically is a C++ framework, which requires the javascript interfaces to be defined in hand-written C++.
 WebIDL on the other hand uses an Interface Definition Language to generate the javascript interfaces automatically.
 
 I initially tried to expose additional PhysX classes in the original Embind based project and found that quite tedious
@@ -17,15 +17,23 @@ So far my expriences with WebIDL are:
 - The .idl file used to define the bindings has a simple syntax and is easy to extend
 - Speed seems to be the same as with Embind (I tested this quite a bit and really didn't see any difference)
 
-However there also are a few minor issues:
+However, there also are a few minor issues:
 - Enums, used as configuration flags everywhere in PhysX, are a bit troublesome (see this
     [issue](https://github.com/emscripten-core/emscripten/issues/13243))
-- WebIDL does not support top-level functions, so I had to wrap those in a class. This makes the bulk of the hand-written
-    code.
+- WebIDL does not support top-level functions, so I had to wrap those in a class. This makes the bulk of the hand-written code.
+- Overloaded functions (multiple functions with the same name but different parameters) are not supported.
+- References to primititve types used as function output parameters are not supported (e.g. something like `void someFunction(int& output) { ... }`).
+    
 
-## Examples
-There is a very basic [hello world example](helloworld.html): No fancy graphics, only console output but it should get you started
+## Getting started
+There is a very basic [hello world example](dist/helloworld.html): No fancy graphics, only console output but it should get you started.
 
+## Documentation
+The API is very close to the original PhysX C++ API, so you can simply use the official
+[PhysX API documentation](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxapi/files/index.html) and
+[PhysX User's Guide](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxguide/Manual/Index.html).
+
+## Demos
 I also use this lib in my engine [kool](https://github.com/fabmax/kool) and have a few demos in place:
 - [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
 - [Vehicle](https://fabmax.github.io/kool/kool-js/?demo=phys-vehicle): Basic vehicle demo with a few obstacles.
