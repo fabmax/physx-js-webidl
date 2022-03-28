@@ -1651,6 +1651,10 @@ declare module PhysX {
         heightFieldFlags: PxMeshGeometryFlags;
     }
     class PxHeightFieldSample {
+        constructor();
+        tessFlag(): number;
+        clearTessFlag(): void;
+        setTessFlag(): void;
         height: number;
         materialIndex0: number;
         materialIndex1: number;
@@ -2585,6 +2589,9 @@ declare module PhysX {
         static getContactPairAt(base: PxContactPair, index: number): PxContactPair;
         static getContactPairHeaderAt(base: PxContactPairHeader, index: number): PxContactPairHeader;
         static getControllerAt(base: PxController, index: number): PxController;
+        static getControllerShapeHitAt(base: PxControllerShapeHit, index: number): PxControllerShapeHit;
+        static getControllersHitAt(base: PxControllersHit, index: number): PxControllersHit;
+        static getControllerObstacleHitAt(base: PxControllerObstacleHit, index: number): PxControllerObstacleHit;
         static getObstacleAt(base: PxObstacle, index: number): PxObstacle;
         static getShapeAt(base: PxShape, index: number): PxShape;
         static getTriggerPairAt(base: PxTriggerPair, index: number): PxTriggerPair;

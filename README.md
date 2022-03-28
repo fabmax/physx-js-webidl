@@ -1,36 +1,12 @@
 # physx-js-webidl
 Javascript bindings for Nvidia PhysX 4.1.2 based on WebIDL.
 
-This repo is based on the awesome work made by [prestomation/PhysX](https://github.com/prestomation/PhysX) and
+This library is based on the awesome work made by [prestomation/PhysX](https://github.com/prestomation/PhysX) and
 [ashconnell/physx-js](https://github.com/ashconnell/physx-js) and provides emscripten / WebIDL based
 javascript bindings for [NVIDIAGameWorks/PhysX](https://github.com/NVIDIAGameWorks/PhysX) (with much greater library coverage
-than the aforementioned projects).
+than the original projects).
 
 Looking for pre-built binaries / build instructions? See [below](#pre-built-binaries)
-
-## What's the difference to physx-js?
-Short answer: Much greater library coverage.
-
-Long answer: Emscripten offers two methods to define javascript bindings for native projects: Embind (used by physx-js) and
-WebIDL (used by this project). Embind basically is a C++ framework, which requires the javascript interfaces to be defined in hand-written C++.
-WebIDL on the other hand uses an Interface Definition Language to generate the javascript interfaces automatically.
-
-I initially tried to expose additional PhysX classes in the original Embind based project and found that quite tedious
-and error-prone. In the end I decided to do a clean start and gave WebIDL a shot (this was also a bit inspired by
-[ammo.js](https://github.com/kripken/ammo.js), a WebIDL based port of Bullet physics).
-
-So far my expriences with WebIDL are:
-- Much less hand-written C++ binding code (although it's not possible to omit that entirely)
-- The .idl file used to define the bindings has a simple syntax and is easy to extend
-- Speed seems to be the same as with Embind (I tested this quite a bit and really didn't see any difference)
-
-However, there also are a few minor issues:
-- Enums, used as configuration flags everywhere in PhysX, are a bit troublesome (see this
-    [issue](https://github.com/emscripten-core/emscripten/issues/13243))
-- WebIDL does not support top-level functions, so I had to wrap those in a class. This makes the bulk of the hand-written code.
-- Overloaded functions (multiple functions with the same name but different parameters) are not supported.
-- References to primititve types used as function output parameters are not supported (e.g. something like `void someFunction(int& output) { ... }`).
-    
 
 ## Getting started
 There is a very basic [hello world example](dist/helloworld.html): No fancy graphics, only console output but it should get you started.
@@ -56,6 +32,30 @@ npm i physx-js-webidl
 ```
 Alternatively you can grab the pre-built binaries (.wasm + support .js) from the `dist` directory. In case you wanna dive deep, there
 are also binaries from the profile and debug builds in corresponding `dist-profile` / `dist-debug` directories.
+
+## What's the difference to physx-js?
+Short answer: Much greater library coverage.
+
+Long answer: Emscripten offers two methods to define javascript bindings for native projects: Embind (used by physx-js) and
+WebIDL (used by this project). Embind basically is a C++ framework, which requires the javascript interfaces to be defined in hand-written C++.
+WebIDL on the other hand uses an Interface Definition Language to generate the javascript interfaces automatically.
+
+I initially tried to expose additional PhysX classes in the original Embind based project and found that quite tedious
+and error-prone. In the end I decided to do a clean start and gave WebIDL a shot (this was also a bit inspired by
+[ammo.js](https://github.com/kripken/ammo.js), a WebIDL based port of Bullet physics).
+
+So far my expriences with WebIDL are:
+- Much less hand-written C++ binding code (although it's not possible to omit that entirely)
+- The .idl file used to define the bindings has a simple syntax and is easy to extend
+- Speed seems to be the same as with Embind (I tested this quite a bit and really didn't see any difference)
+
+However, there also are a few minor issues:
+- Enums, used as configuration flags everywhere in PhysX, are a bit troublesome (see this
+    [issue](https://github.com/emscripten-core/emscripten/issues/13243))
+- WebIDL does not support top-level functions, so I had to wrap those in a class. This makes the bulk of the hand-written code.
+- Overloaded functions (multiple functions with the same name but different parameters) are not supported.
+- References to primititve types used as function output parameters are not supported (e.g. something like `void someFunction(int& output) { ... }`).
+    
 
 ## Building
 To build this you need the [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html). However,

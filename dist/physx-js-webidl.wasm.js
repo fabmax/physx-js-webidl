@@ -8685,6 +8685,18 @@ var _emscripten_bind_PxHeightFieldGeometry_set_heightFieldFlags_1 = Module["_ems
 var _emscripten_bind_PxHeightFieldGeometry___destroy___0 = Module["_emscripten_bind_PxHeightFieldGeometry___destroy___0"] = createExportWrapper("emscripten_bind_PxHeightFieldGeometry___destroy___0");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_PxHeightFieldSample_0 = Module["_emscripten_bind_PxHeightFieldSample_PxHeightFieldSample_0"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_PxHeightFieldSample_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_tessFlag_0 = Module["_emscripten_bind_PxHeightFieldSample_tessFlag_0"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_tessFlag_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_clearTessFlag_0 = Module["_emscripten_bind_PxHeightFieldSample_clearTessFlag_0"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_clearTessFlag_0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxHeightFieldSample_setTessFlag_0 = Module["_emscripten_bind_PxHeightFieldSample_setTessFlag_0"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_setTessFlag_0");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxHeightFieldSample_get_height_0 = Module["_emscripten_bind_PxHeightFieldSample_get_height_0"] = createExportWrapper("emscripten_bind_PxHeightFieldSample_get_height_0");
 
 /** @type {function(...*):?} */
@@ -11905,6 +11917,15 @@ var _emscripten_bind_TypeHelpers_getContactPairHeaderAt_2 = Module["_emscripten_
 
 /** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_getControllerAt_2 = Module["_emscripten_bind_TypeHelpers_getControllerAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getControllerAt_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_getControllerShapeHitAt_2 = Module["_emscripten_bind_TypeHelpers_getControllerShapeHitAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getControllerShapeHitAt_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_getControllersHitAt_2 = Module["_emscripten_bind_TypeHelpers_getControllersHitAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getControllersHitAt_2");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_TypeHelpers_getControllerObstacleHitAt_2 = Module["_emscripten_bind_TypeHelpers_getControllerObstacleHitAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getControllerObstacleHitAt_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_TypeHelpers_getObstacleAt_2 = Module["_emscripten_bind_TypeHelpers_getObstacleAt_2"] = createExportWrapper("emscripten_bind_TypeHelpers_getObstacleAt_2");
@@ -26499,12 +26520,30 @@ PxHeightFieldGeometry.prototype['getType'] = PxHeightFieldGeometry.prototype.get
   _emscripten_bind_PxHeightFieldGeometry___destroy___0(self);
 };
 // PxHeightFieldSample
-/** @suppress {undefinedVars, duplicate} @this{Object} */function PxHeightFieldSample() { throw "cannot construct a PxHeightFieldSample, no constructor in IDL" }
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxHeightFieldSample() {
+  this.ptr = _emscripten_bind_PxHeightFieldSample_PxHeightFieldSample_0();
+  getCache(PxHeightFieldSample)[this.ptr] = this;
+};;
 PxHeightFieldSample.prototype = Object.create(WrapperObject.prototype);
 PxHeightFieldSample.prototype.constructor = PxHeightFieldSample;
 PxHeightFieldSample.prototype.__class__ = PxHeightFieldSample;
 PxHeightFieldSample.__cache__ = {};
 Module['PxHeightFieldSample'] = PxHeightFieldSample;
+
+PxHeightFieldSample.prototype['tessFlag'] = PxHeightFieldSample.prototype.tessFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  return _emscripten_bind_PxHeightFieldSample_tessFlag_0(self);
+};;
+
+PxHeightFieldSample.prototype['clearTessFlag'] = PxHeightFieldSample.prototype.clearTessFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxHeightFieldSample_clearTessFlag_0(self);
+};;
+
+PxHeightFieldSample.prototype['setTessFlag'] = PxHeightFieldSample.prototype.setTessFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
+  var self = this.ptr;
+  _emscripten_bind_PxHeightFieldSample_setTessFlag_0(self);
+};;
 
   PxHeightFieldSample.prototype['get_height'] = PxHeightFieldSample.prototype.get_height = /** @suppress {undefinedVars, duplicate} @this{Object} */function() {
   var self = this.ptr;
@@ -32785,6 +32824,27 @@ TypeHelpers.prototype['getControllerAt'] = TypeHelpers.prototype.getControllerAt
   if (base && typeof base === 'object') base = base.ptr;
   if (index && typeof index === 'object') index = index.ptr;
   return wrapPointer(_emscripten_bind_TypeHelpers_getControllerAt_2(self, base, index), PxController);
+};;
+
+TypeHelpers.prototype['getControllerShapeHitAt'] = TypeHelpers.prototype.getControllerShapeHitAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
+  var self = this.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_getControllerShapeHitAt_2(self, base, index), PxControllerShapeHit);
+};;
+
+TypeHelpers.prototype['getControllersHitAt'] = TypeHelpers.prototype.getControllersHitAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
+  var self = this.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_getControllersHitAt_2(self, base, index), PxControllersHit);
+};;
+
+TypeHelpers.prototype['getControllerObstacleHitAt'] = TypeHelpers.prototype.getControllerObstacleHitAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {
+  var self = this.ptr;
+  if (base && typeof base === 'object') base = base.ptr;
+  if (index && typeof index === 'object') index = index.ptr;
+  return wrapPointer(_emscripten_bind_TypeHelpers_getControllerObstacleHitAt_2(self, base, index), PxControllerObstacleHit);
 };;
 
 TypeHelpers.prototype['getObstacleAt'] = TypeHelpers.prototype.getObstacleAt = /** @suppress {undefinedVars, duplicate} @this{Object} */function(base, index) {

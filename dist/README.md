@@ -1,6 +1,28 @@
 # physx-js-webidl
 Javascript bindings for Nvidia PhysX based on WebIDL.
 
+This library is based on the awesome work made by [prestomation/PhysX](https://github.com/prestomation/PhysX) and
+[ashconnell/physx-js](https://github.com/ashconnell/physx-js) and provides emscripten / WebIDL based
+javascript bindings for [NVIDIAGameWorks/PhysX](https://github.com/NVIDIAGameWorks/PhysX) (with much greater library coverage
+than the original projects).
+
+## Getting started
+There is a very basic [hello world example](dist/helloworld.html): No fancy graphics, only console output but it should get you started.
+
+## Documentation
+The API is very close to the original PhysX C++ API, so you can simply use the official
+[PhysX API documentation](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxapi/files/index.html) and
+[PhysX User's Guide](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxguide/Manual/Index.html).
+
+## Demos
+I also use this lib in my engine [kool](https://github.com/fabmax/kool) and have a few demos in place:
+- [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
+- [Vehicle](https://fabmax.github.io/kool/kool-js/?demo=phys-vehicle): Basic vehicle demo with a few obstacles.
+- [Joints](https://fabmax.github.io/kool/kool-js/?demo=phys-joints): A chain running over two gears.
+- [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box (and other shapes) collision physics demo.
+
+However, these are written in kotlin, not javascript.
+
 ## What's the difference to physx-js?
 Short answer: Much greater library coverage.
 
@@ -23,24 +45,6 @@ However, there also are a few minor issues:
 - WebIDL does not support top-level functions, so I had to wrap those in a class. This makes the bulk of the hand-written code.
 - Overloaded functions (multiple functions with the same name but different parameters) are not supported.
 - References to primititve types used as function output parameters are not supported (e.g. something like `void someFunction(int& output) { ... }`).
-    
-
-## Getting started
-There is a very basic [hello world example](dist/helloworld.html): No fancy graphics, only console output but it should get you started.
-
-## Documentation
-The API is very close to the original PhysX C++ API, so you can simply use the official
-[PhysX API documentation](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxapi/files/index.html) and
-[PhysX User's Guide](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxguide/Manual/Index.html).
-
-## Demos
-I also use this lib in my engine [kool](https://github.com/fabmax/kool) and have a few demos in place:
-- [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
-- [Vehicle](https://fabmax.github.io/kool/kool-js/?demo=phys-vehicle): Basic vehicle demo with a few obstacles.
-- [Joints](https://fabmax.github.io/kool/kool-js/?demo=phys-joints): A chain running over two gears.
-- [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box (and other shapes) collision physics demo.
-
-However, these are written in kotlin, not javascript.
 
 ## Building
 To build this you need the [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html). However,
