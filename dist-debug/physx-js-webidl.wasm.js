@@ -2181,6 +2181,9 @@ var _emscripten_bind_PxActor_getWorldBounds_0 = Module["_emscripten_bind_PxActor
 var _emscripten_bind_PxActor_getWorldBounds_1 = Module["_emscripten_bind_PxActor_getWorldBounds_1"] = createExportWrapper("emscripten_bind_PxActor_getWorldBounds_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxActor_setActorFlag_2 = Module["_emscripten_bind_PxActor_setActorFlag_2"] = createExportWrapper("emscripten_bind_PxActor_setActorFlag_2");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxActor_setActorFlags_1 = Module["_emscripten_bind_PxActor_setActorFlags_1"] = createExportWrapper("emscripten_bind_PxActor_setActorFlags_1");
 
 /** @type {function(...*):?} */
@@ -2302,6 +2305,9 @@ var _emscripten_bind_PxRigidActor_getWorldBounds_0 = Module["_emscripten_bind_Px
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRigidActor_getWorldBounds_1 = Module["_emscripten_bind_PxRigidActor_getWorldBounds_1"] = createExportWrapper("emscripten_bind_PxRigidActor_getWorldBounds_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidActor_setActorFlag_2 = Module["_emscripten_bind_PxRigidActor_setActorFlag_2"] = createExportWrapper("emscripten_bind_PxRigidActor_setActorFlag_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRigidActor_setActorFlags_1 = Module["_emscripten_bind_PxRigidActor_setActorFlags_1"] = createExportWrapper("emscripten_bind_PxRigidActor_setActorFlags_1");
@@ -2734,6 +2740,9 @@ var _emscripten_bind_PxRigidBody_getWorldBounds_0 = Module["_emscripten_bind_PxR
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRigidBody_getWorldBounds_1 = Module["_emscripten_bind_PxRigidBody_getWorldBounds_1"] = createExportWrapper("emscripten_bind_PxRigidBody_getWorldBounds_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidBody_setActorFlag_2 = Module["_emscripten_bind_PxRigidBody_setActorFlag_2"] = createExportWrapper("emscripten_bind_PxRigidBody_setActorFlag_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRigidBody_setActorFlags_1 = Module["_emscripten_bind_PxRigidBody_setActorFlags_1"] = createExportWrapper("emscripten_bind_PxRigidBody_setActorFlags_1");
@@ -3925,6 +3934,9 @@ var _emscripten_bind_PxArticulationLink_getWorldBounds_0 = Module["_emscripten_b
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxArticulationLink_getWorldBounds_1 = Module["_emscripten_bind_PxArticulationLink_getWorldBounds_1"] = createExportWrapper("emscripten_bind_PxArticulationLink_getWorldBounds_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxArticulationLink_setActorFlag_2 = Module["_emscripten_bind_PxArticulationLink_setActorFlag_2"] = createExportWrapper("emscripten_bind_PxArticulationLink_setActorFlag_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxArticulationLink_setActorFlags_1 = Module["_emscripten_bind_PxArticulationLink_setActorFlags_1"] = createExportWrapper("emscripten_bind_PxArticulationLink_setActorFlags_1");
@@ -5364,6 +5376,9 @@ var _emscripten_bind_PxRigidDynamic_getWorldBounds_0 = Module["_emscripten_bind_
 var _emscripten_bind_PxRigidDynamic_getWorldBounds_1 = Module["_emscripten_bind_PxRigidDynamic_getWorldBounds_1"] = createExportWrapper("emscripten_bind_PxRigidDynamic_getWorldBounds_1");
 
 /** @type {function(...*):?} */
+var _emscripten_bind_PxRigidDynamic_setActorFlag_2 = Module["_emscripten_bind_PxRigidDynamic_setActorFlag_2"] = createExportWrapper("emscripten_bind_PxRigidDynamic_setActorFlag_2");
+
+/** @type {function(...*):?} */
 var _emscripten_bind_PxRigidDynamic_setActorFlags_1 = Module["_emscripten_bind_PxRigidDynamic_setActorFlags_1"] = createExportWrapper("emscripten_bind_PxRigidDynamic_setActorFlags_1");
 
 /** @type {function(...*):?} */
@@ -5584,6 +5599,9 @@ var _emscripten_bind_PxRigidStatic_getWorldBounds_0 = Module["_emscripten_bind_P
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRigidStatic_getWorldBounds_1 = Module["_emscripten_bind_PxRigidStatic_getWorldBounds_1"] = createExportWrapper("emscripten_bind_PxRigidStatic_getWorldBounds_1");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxRigidStatic_setActorFlag_2 = Module["_emscripten_bind_PxRigidStatic_setActorFlag_2"] = createExportWrapper("emscripten_bind_PxRigidStatic_setActorFlag_2");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxRigidStatic_setActorFlags_1 = Module["_emscripten_bind_PxRigidStatic_setActorFlags_1"] = createExportWrapper("emscripten_bind_PxRigidStatic_setActorFlags_1");
@@ -6745,6 +6763,9 @@ var _emscripten_bind_PxSweepBuffer10_set_hasBlock_1 = Module["_emscripten_bind_P
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSweepBuffer10___destroy___0 = Module["_emscripten_bind_PxSweepBuffer10___destroy___0"] = createExportWrapper("emscripten_bind_PxSweepBuffer10___destroy___0");
+
+/** @type {function(...*):?} */
+var _emscripten_bind_PxSweepHit_PxSweepHit_0 = Module["_emscripten_bind_PxSweepHit_PxSweepHit_0"] = createExportWrapper("emscripten_bind_PxSweepHit_PxSweepHit_0");
 
 /** @type {function(...*):?} */
 var _emscripten_bind_PxSweepHit_get_actor_0 = Module["_emscripten_bind_PxSweepHit_get_actor_0"] = createExportWrapper("emscripten_bind_PxSweepHit_get_actor_0");
@@ -14046,6 +14067,13 @@ PxActor.prototype['getWorldBounds'] = PxActor.prototype.getWorldBounds = /** @su
   return wrapPointer(_emscripten_bind_PxActor_getWorldBounds_1(self, inflation), PxBounds3);
 };;
 
+PxActor.prototype['setActorFlag'] = PxActor.prototype.setActorFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxActor_setActorFlag_2(self, flag, value);
+};;
+
 PxActor.prototype['setActorFlags'] = PxActor.prototype.setActorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flags) {
   var self = this.ptr;
   if (flags && typeof flags === 'object') flags = flags.ptr;
@@ -14281,6 +14309,13 @@ PxRigidActor.prototype['getWorldBounds'] = PxRigidActor.prototype.getWorldBounds
   if (inflation && typeof inflation === 'object') inflation = inflation.ptr;
   if (inflation === undefined) { return wrapPointer(_emscripten_bind_PxRigidActor_getWorldBounds_0(self), PxBounds3) }
   return wrapPointer(_emscripten_bind_PxRigidActor_getWorldBounds_1(self, inflation), PxBounds3);
+};;
+
+PxRigidActor.prototype['setActorFlag'] = PxRigidActor.prototype.setActorFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxRigidActor_setActorFlag_2(self, flag, value);
 };;
 
 PxRigidActor.prototype['setActorFlags'] = PxRigidActor.prototype.setActorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flags) {
@@ -15124,6 +15159,13 @@ PxRigidBody.prototype['getWorldBounds'] = PxRigidBody.prototype.getWorldBounds =
   if (inflation && typeof inflation === 'object') inflation = inflation.ptr;
   if (inflation === undefined) { return wrapPointer(_emscripten_bind_PxRigidBody_getWorldBounds_0(self), PxBounds3) }
   return wrapPointer(_emscripten_bind_PxRigidBody_getWorldBounds_1(self, inflation), PxBounds3);
+};;
+
+PxRigidBody.prototype['setActorFlag'] = PxRigidBody.prototype.setActorFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxRigidBody_setActorFlag_2(self, flag, value);
 };;
 
 PxRigidBody.prototype['setActorFlags'] = PxRigidBody.prototype.setActorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flags) {
@@ -17587,6 +17629,13 @@ PxArticulationLink.prototype['getWorldBounds'] = PxArticulationLink.prototype.ge
   if (inflation && typeof inflation === 'object') inflation = inflation.ptr;
   if (inflation === undefined) { return wrapPointer(_emscripten_bind_PxArticulationLink_getWorldBounds_0(self), PxBounds3) }
   return wrapPointer(_emscripten_bind_PxArticulationLink_getWorldBounds_1(self, inflation), PxBounds3);
+};;
+
+PxArticulationLink.prototype['setActorFlag'] = PxArticulationLink.prototype.setActorFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxArticulationLink_setActorFlag_2(self, flag, value);
 };;
 
 PxArticulationLink.prototype['setActorFlags'] = PxArticulationLink.prototype.setActorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flags) {
@@ -20334,6 +20383,13 @@ PxRigidDynamic.prototype['getWorldBounds'] = PxRigidDynamic.prototype.getWorldBo
   return wrapPointer(_emscripten_bind_PxRigidDynamic_getWorldBounds_1(self, inflation), PxBounds3);
 };;
 
+PxRigidDynamic.prototype['setActorFlag'] = PxRigidDynamic.prototype.setActorFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxRigidDynamic_setActorFlag_2(self, flag, value);
+};;
+
 PxRigidDynamic.prototype['setActorFlags'] = PxRigidDynamic.prototype.setActorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flags) {
   var self = this.ptr;
   if (flags && typeof flags === 'object') flags = flags.ptr;
@@ -20722,6 +20778,13 @@ PxRigidStatic.prototype['getWorldBounds'] = PxRigidStatic.prototype.getWorldBoun
   if (inflation && typeof inflation === 'object') inflation = inflation.ptr;
   if (inflation === undefined) { return wrapPointer(_emscripten_bind_PxRigidStatic_getWorldBounds_0(self), PxBounds3) }
   return wrapPointer(_emscripten_bind_PxRigidStatic_getWorldBounds_1(self, inflation), PxBounds3);
+};;
+
+PxRigidStatic.prototype['setActorFlag'] = PxRigidStatic.prototype.setActorFlag = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flag, value) {
+  var self = this.ptr;
+  if (flag && typeof flag === 'object') flag = flag.ptr;
+  if (value && typeof value === 'object') value = value.ptr;
+  _emscripten_bind_PxRigidStatic_setActorFlag_2(self, flag, value);
 };;
 
 PxRigidStatic.prototype['setActorFlags'] = PxRigidStatic.prototype.setActorFlags = /** @suppress {undefinedVars, duplicate} @this{Object} */function(flags) {
@@ -22772,7 +22835,10 @@ PxSweepBuffer10.prototype['hasAnyHits'] = PxSweepBuffer10.prototype.hasAnyHits =
   _emscripten_bind_PxSweepBuffer10___destroy___0(self);
 };
 // PxSweepHit
-/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSweepHit() { throw "cannot construct a PxSweepHit, no constructor in IDL" }
+/** @suppress {undefinedVars, duplicate} @this{Object} */function PxSweepHit() {
+  this.ptr = _emscripten_bind_PxSweepHit_PxSweepHit_0();
+  getCache(PxSweepHit)[this.ptr] = this;
+};;
 PxSweepHit.prototype = Object.create(PxLocationHit.prototype);
 PxSweepHit.prototype.constructor = PxSweepHit;
 PxSweepHit.prototype.__class__ = PxSweepHit;

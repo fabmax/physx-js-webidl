@@ -38,6 +38,7 @@ declare module PhysX {
         setName(name: string): void;
         getName(): string;
         getWorldBounds(inflation?: number): PxBounds3;
+        setActorFlag(flag: PxActorFlagEnum, value: boolean): void;
         setActorFlags(flags: PxActorFlags): void;
         getActorFlags(): PxActorFlags;
         setDominanceGroup(dominanceGroup: number): void;
@@ -1075,6 +1076,7 @@ declare module PhysX {
         hasAnyHits(): boolean;
     }
     class PxSweepHit extends PxLocationHit {
+        constructor();
     }
     class PxSweepQueryResult {
         getNbAnyHits(): number;
