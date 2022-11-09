@@ -71,8 +71,8 @@ git submodule update --init
 ```
 
 To add bindings to additional PhysX interfaces you only have to edit the
-[PhysXJs.idl](https://github.com/fabmax/PhysX/blob/emscripten_webidl_wip/physx/source/physxwebbindings/src/PhysXJs.idl)
-file located in `PhysX/physx/source/physxwebbindings/src/`.
+[PhysXJs.idl](https://github.com/fabmax/PhysX4/blob/emscripten_webidl_wip/physx/source/physxwebbindings/src/PhysXJs.idl)
+file located in `PhysX4/physx/source/physxwebbindings/src/`.
 
 
 ## Build Types
@@ -80,7 +80,7 @@ file located in `PhysX/physx/source/physxwebbindings/src/`.
 It is also possible to generate Typescript bindings out of the idl file:
 
 ```
-npx milkshake-inc/webidl2ts -e -d -n PhysX -i PhysX/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
+npx milkshake-inc/webidl2ts -e -d -n PhysX -i PhysX4/physx/source/physxwebbindings/src/PhysXJs.idl -o dist/physx-js-webidl.wasm.d.ts
 ```
 
 ## Build with Docker
