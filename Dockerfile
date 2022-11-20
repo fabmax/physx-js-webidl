@@ -1,4 +1,4 @@
-FROM emscripten/emsdk:2.0.7
+FROM emscripten/emsdk:3.1.25
 
 RUN apt-get update
-RUN apt-get install python -y
+RUN apt-get install python3 -y
