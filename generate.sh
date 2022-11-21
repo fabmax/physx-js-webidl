@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd ./PhysX4/physx
+cd ./PhysX/physx
 rm -rf compiler/emscripten-*
 ./generate_projects.sh emscripten
