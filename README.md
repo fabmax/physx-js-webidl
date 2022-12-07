@@ -68,17 +68,14 @@ npx @milkshakeio/webidl2ts -e -d -n PhysX -i PhysX/physx/source/webidlbindings/s
 
 ```
 # Build the image
-docker build . -t physx-js-builder
-
-# Generate build-scripts
-docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./generate.sh
+docker compose up
 
 # Build Release
-docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./make.sh
+docker compose run --rm builder ./make.sh
 
 # Build Profile
-docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./make-profile.sh
+docker compose run --rm builder ./make-profile.sh
 
 # Build Debug
-docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./make-debug.sh
+docker compose run --rm builder ./make-debug.sh
 ```
