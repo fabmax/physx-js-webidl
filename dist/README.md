@@ -1,5 +1,5 @@
 # physx-js-webidl
-Javascript/WASM bindings for Nvidia PhysX 5.1.0.
+Javascript/WASM bindings for Nvidia PhysX 5.1.2.
 
 Looking for pre-built binaries / build instructions? See [below](#pre-built-binaries)
 
@@ -12,15 +12,16 @@ The API is very close to the original PhysX C++ API, so you can simply use the o
 
 ## Demos
 I also use this lib in my engine [kool](https://github.com/fabmax/kool) and have a few demos in place:
-- [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
 - [Vehicle](https://fabmax.github.io/kool/kool-js/?demo=phys-vehicle): Basic vehicle demo with a few obstacles.
+- [Character](https://fabmax.github.io/kool/kool-js/?demo=phys-terrain): 3rd person character demo on an island.
+- [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
 - [Joints](https://fabmax.github.io/kool/kool-js/?demo=phys-joints): A chain running over two gears.
 - [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box (and other shapes) collision physics demo.
 
 However, these are written in kotlin, not javascript.
 
 ## Pre-built binaries
-This is published as a npm package:
+This library is published as a npm package:
 ```
 npm i physx-js-webidl
 ```
@@ -51,34 +52,26 @@ To add bindings to additional PhysX interfaces you only have to edit the
 [PhysXJs.idl](https://github.com/fabmax/PhysX/blob/webidl-bindings/physx/source/webidlbindings/src/wasm/PhysXWasm.idl)
 file located in `PhysX/physx/source/webidlbindings/src/wasm/` and recompile the library.
 
-## Other Build Methods / Targets
-
-Typescript bindings and Docker building currently don't work with PhysX 5 (but it used to with PhysX 4.1). In case you
-want to fix that, here is how it should work:
-
-### Build Types
-
-It is also possible to generate Typescript bindings out of the idl file:
-
-```
-npx @milkshakeio/webidl2ts -e -d -n PhysX -i PhysX/physx/source/webidlbindings/src/wasm/PhysXWasm.idl -o dist/physx-js-webidl.wasm.d.ts
-```
-
 ### Build with Docker
 
 ```
 # Build the image
-docker build . -t physx-js-builder
-
-# Generate build-scripts
-docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./generate.sh
+docker compose up
 
 # Build Release
-docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./make.sh
+docker compose run --rm builder ./make.sh
 
 # Build Profile
-docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./make-profile.sh
+docker compose run --rm builder ./make-profile.sh
 
 # Build Debug
-docker run --rm -it -v $(pwd):/src physx-js-builder /bin/bash -c ./make-debug.sh
+docker compose run --rm builder ./make-debug.sh
+```
+
+### Build Types
+
+It is also possible to generate Typescript bindings out of the idl file (apparently broken on recent node version):
+
+```
+npx @milkshakeio/webidl2ts -e -d -n PhysX -i PhysX/physx/source/webidlbindings/src/wasm/PhysXWasm.idl -o dist/physx-js-webidl.wasm.d.ts
 ```
