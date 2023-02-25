@@ -1,5 +1,5 @@
 # physx-js-webidl
-Javascript/WASM bindings for Nvidia PhysX 5.1.2.
+Javascript/WASM bindings for Nvidia PhysX 5.1.3.
 
 Looking for pre-built binaries / build instructions? See [below](#pre-built-binaries)
 
@@ -8,7 +8,7 @@ There is a very basic [hello world example](dist/helloworld.html): No fancy grap
 
 ## Documentation
 The API is very close to the original PhysX C++ API, so you can simply use the official
-[PhysX API documentation](https://nvidia-omniverse.github.io/PhysX/physx/5.1.0/index.html)
+[PhysX API documentation](https://nvidia-omniverse.github.io/PhysX/physx/5.1.3/index.html)
 
 ## Demos
 I also use this lib in my engine [kool](https://github.com/fabmax/kool) and have a few demos in place:
