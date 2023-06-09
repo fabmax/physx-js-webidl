@@ -11,14 +11,14 @@ The API is very close to the original PhysX C++ API, so you can simply use the o
 [PhysX API documentation](https://nvidia-omniverse.github.io/PhysX/physx/5.1.3/index.html)
 
 ## Demos
-I also use this lib in my engine [kool](https://github.com/fabmax/kool) and have a few demos in place:
+I use this library in my engine [kool](https://github.com/fabmax/kool) and have a few demos in place:
 - [Vehicle](https://fabmax.github.io/kool/kool-js/?demo=phys-vehicle): Basic vehicle demo with a few obstacles.
 - [Character](https://fabmax.github.io/kool/kool-js/?demo=phys-terrain): 3rd person character demo on an island.
 - [Ragdolls](https://fabmax.github.io/kool/kool-js/?demo=phys-ragdoll): A simple ragdoll demo.
 - [Joints](https://fabmax.github.io/kool/kool-js/?demo=phys-joints): A chain running over two gears.
 - [Collision](https://fabmax.github.io/kool/kool-js/?demo=physics): The obligatory box (and other shapes) collision physics demo.
 
-However, these are written in kotlin, not javascript.
+However, the demos are written in kotlin, not javascript.
 
 ## Pre-built binaries
 This library is published as a npm package:
