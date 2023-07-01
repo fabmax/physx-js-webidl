@@ -29,7 +29,7 @@ Alternatively you can grab the pre-built binaries (.wasm + support .js) from the
 
 ## Building
 In order to build the library you need a recent version of the [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html) - I'm
-using version `3.1.25`.
+using version `3.1.42`.
 
 ```
 # Clone this repo
