@@ -1,38 +1,53 @@
 <!DOCTYPE html>
-<head><title>PhysX Test</title></head>
-<body>
+<head>
+    <title>PhysX Test</title>
+    <style>
+        html, body, canvas {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
 
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/3.4.2/gl-matrix-min.js" integrity="sha512-eV9ExyTa3b+YHr99IBTYpwk4wbgDMDlfW8uTxhywO8dWb810fGUSKDgHhEv1fAqmJT4jyYnt1iWWMW4FRxeQOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="physx-js-webidl.js"></script>
     <script>
         PhysX().then(function(PhysX) {
-            console.log('PhysX loaded');
+            var version = PhysX.PHYSICS_VERSION;
+            console.log('PhysX loaded! Version: ' + ((version >> 24) & 0xff) + '.' + ((version >> 16) & 0xff) + '.' + ((version >> 8) & 0xff));
 
-            var version = PhysX.PxTopLevelFunctions.prototype.PHYSICS_VERSION;
             var allocator = new PhysX.PxDefaultAllocator();
             var errorCb = new PhysX.PxDefaultErrorCallback();
-            var foundation = PhysX.PxTopLevelFunctions.prototype.CreateFoundation(version, allocator, errorCb);
+            var foundation = PhysX.CreateFoundation(version, allocator, errorCb);
             console.log('Created PxFoundation');
 
             var tolerances = new PhysX.PxTolerancesScale();
-            var physics = PhysX.PxTopLevelFunctions.prototype.CreatePhysics(version, foundation, tolerances);
+            var physics = PhysX.CreatePhysics(version, foundation, tolerances);
             console.log('Created PxPhysics');
-            
+
             // create scene
             var tmpVec = new PhysX.PxVec3(0, -9.81, 0);
             var sceneDesc = new PhysX.PxSceneDesc(tolerances);
             sceneDesc.set_gravity(tmpVec);
-            sceneDesc.set_cpuDispatcher(PhysX.PxTopLevelFunctions.prototype.DefaultCpuDispatcherCreate(0));
-            sceneDesc.set_filterShader(PhysX.PxTopLevelFunctions.prototype.DefaultFilterShader());
+            sceneDesc.set_cpuDispatcher(PhysX.DefaultCpuDispatcherCreate(0));
+            sceneDesc.set_filterShader(PhysX.DefaultFilterShader());
             var scene = physics.createScene(sceneDesc);
             console.log('Created scene');
-            
+
             // create a default material
             var material = physics.createMaterial(0.5, 0.5, 0.5);
             // create default simulation shape flags
-            var shapeFlags = new PhysX.PxShapeFlags(PhysX._emscripten_enum_PxShapeFlagEnum_eSCENE_QUERY_SHAPE() | PhysX._emscripten_enum_PxShapeFlagEnum_eSIMULATION_SHAPE());
+            var shapeFlags = new PhysX.PxShapeFlags(PhysX.PxShapeFlagEnum.eSCENE_QUERY_SHAPE | PhysX.PxShapeFlagEnum.eSIMULATION_SHAPE |  PhysX.PxShapeFlagEnum.eVISUALIZATION);
 
             // create a few temporary objects used during setup
-            var tmpPose = new PhysX.PxTransform(PhysX._emscripten_enum_PxIDENTITYEnum_PxIdentity());
+            var tmpPose = new PhysX.PxTransform(PhysX.PxIDENTITYEnum.PxIdentity);
             var tmpFilterData = new PhysX.PxFilterData(1, 1, 0, 0);
 
             // create a large static box with size 20x1x20 as ground
@@ -42,16 +57,18 @@
             groundShape.setSimulationFilterData(tmpFilterData);
             ground.attachShape(groundShape);
             scene.addActor(ground);
-            
-            // create a small dynamic box with size 1x1x1, which will fall on the ground
-            tmpVec.set_x(0); tmpVec.set_y(5); tmpVec.set_z(0);
-            tmpPose.set_p(tmpVec);
+
+            // create a few dynamic boxes with size 1x1x1, which will fall on the ground
             var boxGeometry = new PhysX.PxBoxGeometry(0.5, 0.5, 0.5);   // PxBoxGeometry uses half-sizes
-            var boxShape = physics.createShape(boxGeometry, material, true, shapeFlags);
-            var box = physics.createRigidDynamic(tmpPose);
-            boxShape.setSimulationFilterData(tmpFilterData);
-            box.attachShape(boxShape);
-            scene.addActor(box);
+            for (var y = 0; y < 10; y++) {
+                tmpVec.set_x(0); tmpVec.set_y(y*2 + 5); tmpVec.set_z(0);
+                tmpPose.set_p(tmpVec);
+                var boxShape = physics.createShape(boxGeometry, material, true, shapeFlags);
+                var box = physics.createRigidDynamic(tmpPose);
+                boxShape.setSimulationFilterData(tmpFilterData);
+                box.attachShape(boxShape);
+                scene.addActor(box);
+            }
 
             // clean up temp objects
             PhysX.destroy(groundGeometry);
@@ -64,34 +81,93 @@
             PhysX.destroy(tolerances);
             console.log('Created scene objects');
 
-            // simulate scene for a bit
-            for (var i = 0; i <= 300; i++) {
-                scene.simulate(1.0/60.0);
-                scene.fetchResults(true);
-                if (i % 10 == 0) {
-                    var boxHeight = box.getGlobalPose().get_p().get_y();
-                    console.log('Sim step ' + i + ': h = ' + boxHeight);
+            // setup debug drawing stuff
+            const { mat4, vec4, vec3 } = glMatrix;
+            const viewMatrix = mat4.create();
+            const projectionMatrix = mat4.create();
+            const viewProjectionMatrix = mat4.create();
+            const tmpVec4 = vec4.create();
+
+            const canvas = document.querySelector('canvas');
+            const context = canvas.getContext('2d');
+            setupDebugDrawer(PhysX, scene);
+
+            // simulate forever!
+            simulationLoop();
+
+            function setupDebugDrawer() {
+                canvas.width = canvas.clientWidth;
+                canvas.height = canvas.clientHeight;
+
+                // compute projection matrix
+                mat4.lookAt(viewMatrix, [12, 15, 20], [0, 0, 0], [0, 1, 0])
+                mat4.perspective(projectionMatrix, 45 * (Math.PI / 180), canvas.width / canvas.height, 0.01, 75);
+                mat4.multiply(viewProjectionMatrix, projectionMatrix, viewMatrix);
+
+                // setup debug drawer
+                const context = canvas.getContext('2d');
+                scene.setVisualizationParameter(PhysX.eSCALE, 1);
+                scene.setVisualizationParameter(PhysX.eWORLD_AXES, 1);
+                scene.setVisualizationParameter(PhysX.eACTOR_AXES, 1);
+                scene.setVisualizationParameter(PhysX.eCOLLISION_SHAPES, 1);
+            }
+
+            function simulationLoop() {
+                let lastFrame = 0;
+                requestAnimationFrame(function loop(hrTime) {
+                    scene.simulate((hrTime - lastFrame) / 1000);
+                    scene.fetchResults(true);
+                    debugDraw(scene);
+
+                    lastFrame = hrTime;
+                    requestAnimationFrame(loop);
+                });
+            }
+
+            function project(x, y, z) {
+                const result = vec4.transformMat4(tmpVec4, [x, y, z, 1], viewProjectionMatrix);
+                const clipX = (result[0] / result[3]);
+                const clipY = (result[1] / result[3]);
+                return [(canvas.width / 2) * (1 + clipX), (canvas.height / 2) * (1 - clipY)];
+            }
+
+            function drawLine(from, to, color) {
+                const [r, g, b] = color;
+
+                context.beginPath();
+                context.strokeStyle = `rgb(${255 * r}, ${255 * g}, ${255 * b})`;
+                context.moveTo(...from);
+                context.lineTo(...to);
+                context.stroke();
+            }
+
+            function debugDraw() {
+                canvas.width = canvas.width;    // clears the canvas
+
+                const rb = scene.getRenderBuffer();
+                for(let i = 0; i < rb.getNbLines(); i++) {
+                    const line = PhysX.NativeArrayHelpers.prototype.getDebugLineAt(rb.getLines(), i);
+                    const from = project(line.pos0.get_x(), line.pos0.get_y(), line.pos0.get_z());
+                    const to   = project(line.pos1.get_x(), line.pos1.get_y(), line.pos1.get_z());
+                    drawLine(from, to, colors[line.get_color0()]);
                 }
             }
 
-            // cleanup stuff
-            scene.removeActor(ground);
-            ground.release();
-            groundShape.release();
-
-            scene.removeActor(box);
-            box.release();
-            boxShape.release();
-
-            scene.release();
-            material.release();
-            physics.release();
-            foundation.release();
-            PhysX.destroy(errorCb);
-            PhysX.destroy(allocator);
-            console.log('Cleaned up');
+            const colors = {
+                [PhysX.PxDebugColorEnum.eARGB_BLACK]:     [  0,   0,   0],
+                [PhysX.PxDebugColorEnum.eARGB_RED]:       [  1,   0,   0],
+                [PhysX.PxDebugColorEnum.eARGB_GREEN]:     [  0,   1,   0],
+                [PhysX.PxDebugColorEnum.eARGB_BLUE]:      [  0,   0,   1],
+                [PhysX.PxDebugColorEnum.eARGB_YELLOW]:    [  1,   1,   0],
+                [PhysX.PxDebugColorEnum.eARGB_MAGENTA]:   [  1,   0,   1],
+                [PhysX.PxDebugColorEnum.eARGB_CYAN]:      [  0,   1,   1],
+                [PhysX.PxDebugColorEnum.eARGB_WHITE]:     [  1,   1,   1],
+                [PhysX.PxDebugColorEnum.eARGB_GREY]:      [0.5, 0.5, 0.5],
+                [PhysX.PxDebugColorEnum.eARGB_DARKRED]:   [0.5,   0,   0],
+                [PhysX.PxDebugColorEnum.eARGB_DARKGREEN]: [  0, 0.5,   0],
+                [PhysX.PxDebugColorEnum.eARGB_DARKBLUE]:  [  0,   0, 0.5],
+            };
         });
     </script>
-
 </body>
 </html>
