@@ -60,6 +60,7 @@
 
             // create a few dynamic boxes with size 1x1x1, which will fall on the ground
             var boxGeometry = new PhysX.PxBoxGeometry(0.5, 0.5, 0.5);   // PxBoxGeometry uses half-sizes
+            var lastBox = null;
             for (var y = 0; y < 10; y++) {
                 tmpVec.set_x(0); tmpVec.set_y(y*2 + 5); tmpVec.set_z(0);
                 tmpPose.set_p(tmpVec);
@@ -68,6 +69,7 @@
                 boxShape.setSimulationFilterData(tmpFilterData);
                 box.attachShape(boxShape);
                 scene.addActor(box);
+                lastBox = box;
             }
 
             // clean up temp objects
@@ -115,9 +117,16 @@
             function simulationLoop() {
                 let lastFrame = 0;
                 requestAnimationFrame(function loop(hrTime) {
-                    scene.simulate((hrTime - lastFrame) / 1000);
+                    var timeStep = Math.min(0.03, (hrTime - lastFrame) / 1000);
+                    scene.simulate(timeStep);
                     scene.fetchResults(true);
+
+                    // use debug drawer interface to draw boxes on a canvas.
+                    // in a real world application you would query the box poses and update your graphics boxes accordingly
                     debugDraw(scene);
+                    
+                    var lastBoxPos = lastBox.getGlobalPose().get_p();
+                    console.log('Last box position: ' + lastBoxPos.get_x() + ", " + lastBoxPos.get_y() + ", " + lastBoxPos.get_z());
 
                     lastFrame = hrTime;
                     requestAnimationFrame(loop);
