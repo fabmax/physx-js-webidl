@@ -1,5 +1,5 @@
 # physx-js-webidl
-Javascript/WASM bindings for Nvidia PhysX 5.3.0.
+Javascript/WASM bindings for Nvidia PhysX 5.3.1.
 
 Looking for pre-built binaries / build instructions? See [below](#pre-built-binaries)
 
@@ -8,7 +8,7 @@ There is a basic [hello world example](dist/helloworld.html): 10 boxes falling o
 
 ## Documentation
 The API is very close to the original PhysX C++ API, so you can simply use the official
-[PhysX API documentation](https://nvidia-omniverse.github.io/PhysX/physx/5.3.0/index.html)
+[PhysX API documentation](https://nvidia-omniverse.github.io/PhysX/physx/5.3.1/index.html)
 
 However, in order to make the bindings work with emscripten a few additional wrappers are needed here and there. So it might
 make sense to also take a look into the [PhysXJs.idl](https://github.com/fabmax/PhysX/blob/webidl-bindings/physx/source/webidlbindings/src/wasm/PhysXWasm.idl)
@@ -36,7 +36,7 @@ Alternatively you can grab the pre-built binaries (.wasm + support .js) from the
 
 ## Building
 In order to build the library you need a recent version of the [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html) - I'm
-using version `3.1.42`.
+using version `3.1.51`. Alternatively, you can use docker as described below.
 
 ```
 # Clone this repo
