@@ -1,0 +1,38 @@
+name: PhysX-JS-WebIDL - Release Library
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: Build PhysX-JS-WebIDL
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          submodules: recursive
+
+      - name: Set up Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+      
+      - name: Build Docker Environment
+        run: sudo docker compose up
+        
+      - name: Build PhysX-JS-WebIDL
+        run: sudo docker compose run --rm builder ./make.sh
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: "dist/*"
+          draft: true
+          updateOnlyUnreleased: true

@@ -3,6 +3,18 @@ Javascript/WASM bindings for Nvidia PhysX 5.3.1.
 
 Looking for pre-built binaries / build instructions? See [below](#pre-built-binaries)
 
+## Library coverage
+
+The bindings include most major parts of the PhysX SDK (excluding CUDA stuff, which is not possible with WASM):
+- [x] Basics
+    - Static and dynamic actors
+    - All geometry types (box, capsule, sphere, plane, convex mesh, triangle mesh and height field)
+- [x] All joint types (revolute, spherical, prismatic, fixed, distance and D6)
+- [x] Articulations
+- [x] Vehicles
+- [x] Character controllers
+- [x] Scene serialization
+
 ## Getting started
 There is a basic [hello world example](dist/helloworld.html): 10 boxes falling on the ground (drawn as wireframe on a plain canvas).
 
@@ -32,11 +44,12 @@ This library is published as a npm package:
 ```
 npm i physx-js-webidl
 ```
-Alternatively you can grab the pre-built binaries (.wasm + support .js) from the `dist` directory.
+Alternatively you can grab the pre-built binaries (.wasm + support .js) from the latest [Release](https://github.com/fabmax/physx-js-webidl/releases).
 
 ## Building
 In order to build the library you need a recent version of the [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html) - I'm
 using version `3.1.51`. Alternatively, you can use docker as described below.
+After successful build, the binaries (.wasm + support .js) will appear in the `dist` directory.
 
 ```
 # Clone this repo
