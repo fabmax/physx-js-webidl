@@ -9,5 +9,5 @@ cp sdk_source_bin/physx-js-webidl.js ../../../../dist-debug/
 cp sdk_source_bin/physx-js-webidl.wasm ../../../../dist-debug/
 
 if [ -d "/src/types" ]; then
-    cp /src/types/physx-js-webidl.d.ts ../dist-debug/
+    cp /src/types/physx-js-webidl.d.ts /src/dist-debug/
 fi
