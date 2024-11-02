@@ -1,5 +1,5 @@
 # physx-js-webidl
-Javascript/WASM bindings for Nvidia PhysX 5.4.1.
+Javascript/WASM bindings for Nvidia PhysX 5.4.2.
 
 Looking for pre-built binaries / build instructions? See [below](#pre-built-binaries)
 
@@ -20,10 +20,10 @@ There is a basic [hello world example](dist/helloworld.html): 10 boxes falling o
 
 ## Documentation
 The API is very close to the original PhysX C++ API, so you can simply use the official
-[PhysX API documentation](https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/index.html)
+[PhysX API documentation](https://nvidia-omniverse.github.io/PhysX/physx/5.4.2/index.html)
 
 However, in order to make the bindings work with emscripten a few additional wrappers are needed here and there. So it might
-make sense to also take a look into the [PhysXJs.idl](https://github.com/fabmax/PhysX/blob/webidl-bindings/physx/source/webidlbindings/src/wasm/PhysXWasm.idl)
+make sense to also take a look into the [PhysXWasm.idl](https://github.com/fabmax/PhysX/blob/webidl-bindings/physx/source/webidlbindings/src/wasm/PhysXWasm.idl)
 interface definiton file.
 
 Update as of `v2.2.0`: Thanks to Shannon Poole, PhysX enums can now be accessed by their qualified names (e.g. `PhysX.PxIDENTITYEnum.PxIdentity`,
@@ -74,6 +74,8 @@ file located in `PhysX/physx/source/webidlbindings/src/wasm/` and recompile the 
 
 ### Build with Docker
 
+The docker build also generates typescript definitions.
+
 ```
 # Build the image
 docker compose up
@@ -88,10 +90,3 @@ docker compose run --rm builder ./make-profile.sh
 docker compose run --rm builder ./make-debug.sh
 ```
 
-### Build Types
-
-It is also possible to generate Typescript bindings out of the idl file (apparently broken on recent node version):
-
-```
-npx @milkshakeio/webidl2ts -e -d -n PhysX -i PhysX/physx/source/webidlbindings/src/wasm/PhysXWasm.idl -o dist/physx-js-webidl.wasm.d.ts
-```
