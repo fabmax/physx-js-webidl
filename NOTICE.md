@@ -9,7 +9,7 @@ of the **MIT License** which is available at https://opensource.org/licenses/MIT
 
 ## Third-party Content
 
-This software includes a binary distribution of [NVIDIA PhysX 4.1](https://github.com/NVIDIAGameWorks/PhysX).
+This software includes a binary distribution of [NVIDIA PhysX 5.5.1](https://github.com/NVIDIAGameWorks/PhysX).
 
 NVIDIA PhysX comes under the following license:
 
