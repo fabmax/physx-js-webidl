@@ -1,7 +1,7 @@
 {
   "name": "physx-js-webidl",
-  "version": "2.6.1",
-  "description": "Javascript/WASM bindings for Nvidia PhysX 5.6.0",
+  "version": "2.6.2",
+  "description": "Javascript/WASM bindings for Nvidia PhysX 5.6.1",
   "author": "fabmax",
   "main": "physx-js-webidl.js",
   "types": "physx-js-webidl.d.ts",
