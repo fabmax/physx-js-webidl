@@ -44,12 +44,12 @@ This library is published as a [npm package](https://www.npmjs.com/package/physx
 ```
 npm i physx-js-webidl
 ```
-Alternatively you can grab the pre-built binaries (.wasm + support .js) from the latest [Release](https://github.com/fabmax/physx-js-webidl/releases).
+Alternatively you can grab the pre-built binaries (`.wasm` + support `.mjs`) from the latest [Release](https://github.com/fabmax/physx-js-webidl/releases).
 
 ## Building
 In order to build the library you need a recent version of the [emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html) - I'm
-using version `3.1.51`. Alternatively, you can use docker as described below.
-After successful build, the binaries (.wasm + support .js) will appear in the `dist` directory.
+using version `4.0.19`. Alternatively, you can use docker as described below.
+After successful build, the binaries (`.wasm` + support `.mjs`) will appear in the `dist` directory.
 
 ```
 # Clone this repo
