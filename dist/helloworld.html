@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <title>PhysX Test</title>
     <style>
@@ -17,8 +18,10 @@
 <body>
     <canvas></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/3.4.2/gl-matrix-min.js" integrity="sha512-eV9ExyTa3b+YHr99IBTYpwk4wbgDMDlfW8uTxhywO8dWb810fGUSKDgHhEv1fAqmJT4jyYnt1iWWMW4FRxeQOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="physx-js-webidl.js"></script>
-    <script>
+    <script src="physx-js-webidl.mjs" type="module"></script>
+    <script type="module">
+        import PhysX from './physx-js-webidl.mjs'
+
         PhysX().then(function(PhysX) {
             var version = PhysX.PHYSICS_VERSION;
             console.log('PhysX loaded! Version: ' + ((version >> 24) & 0xff) + '.' + ((version >> 16) & 0xff) + '.' + ((version >> 8) & 0xff));
