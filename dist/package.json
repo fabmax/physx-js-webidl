@@ -1,23 +1,7 @@
 {
   "name": "physx-js-webidl",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Javascript/WASM bindings for Nvidia PhysX 5.6.1",
-  "author": "fabmax",
-  "main": "physx-js-webidl.mjs",
-  "types": "physx-js-webidl.d.ts",
-  "files": [
-    "physx-js-webidl.mjs",
-    "physx-js-webidl.d.ts",
-    "physx-js-webidl.wasm"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fabmax/physx-js-webidl.git"
-  },
-  "bugs": {
-    "url": "https://github.com/fabmax/physx-js-webidl/issues"
-  },
-  "homepage": "https://github.com/fabmax/physx-js-webidl#readme",
   "keywords": [
     "physics",
     "emscripten",
@@ -25,5 +9,22 @@
     "webassembly",
     "PhysX"
   ],
-  "license": "MIT License"
+  "homepage": "https://github.com/fabmax/physx-js-webidl#readme",
+  "bugs": {
+    "url": "https://github.com/fabmax/physx-js-webidl/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabmax/physx-js-webidl.git"
+  },
+  "license": "MIT",
+  "author": "fabmax",
+  "type": "module",
+  "main": "physx-js-webidl.mjs",
+  "types": "physx-js-webidl.d.ts",
+  "files": [
+    "physx-js-webidl.mjs",
+    "physx-js-webidl.d.ts",
+    "physx-js-webidl.wasm"
+  ]
 }
