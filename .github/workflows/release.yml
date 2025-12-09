@@ -5,6 +5,10 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: write
+
 jobs:
   build:
     name: Build PhysX-JS-WebIDL
