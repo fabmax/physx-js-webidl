@@ -33,13 +33,13 @@ jobs:
       - name: Build PhysX-JS-WebIDL
         run: sudo docker compose run --rm builder ./make.sh
 
-#      - name: Create release
-#        uses: ncipollo/release-action@v1
-#        with:
-#          allowUpdates: true
-#          artifacts: "dist/*"
-#          draft: true
-#          updateOnlyUnreleased: true
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: "dist/*"
+          draft: true
+          updateOnlyUnreleased: true
 
       - name: Setup node
         uses: actions/setup-node@v4
@@ -49,9 +49,6 @@ jobs:
 
       - name: Update npm
         run: npm install -g npm@latest
-#      - name: Run npm ci
-#        working-directory: ./dist
-#        run: npm ci
       - name: Publish to npmjs
         working-directory: ./dist
         run: npm publish
