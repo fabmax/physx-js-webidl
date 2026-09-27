@@ -26,10 +26,10 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y docker-compose
-      
+
       - name: Build Docker Environment
         run: sudo docker compose up
-        
+
       - name: Build PhysX-JS-WebIDL
         run: sudo docker compose run --rm builder ./make.sh
 
@@ -44,7 +44,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Update npm
@@ -52,4 +52,3 @@ jobs:
       - name: Publish to npmjs
         working-directory: ./dist
         run: npm publish
-
