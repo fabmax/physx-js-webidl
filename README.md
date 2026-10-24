@@ -1,5 +1,5 @@
 # physx-js-webidl
-Javascript/WASM bindings for Nvidia PhysX 5.11.0.
+Javascript/WASM bindings for Nvidia PhysX 5.12.0.
 
 Looking for pre-built binaries / build instructions? See [below](#pre-built-binaries)
 
